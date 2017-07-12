@@ -17,3 +17,4 @@
 *.RTF	 diff=astextplain
 
 *.js linguist-language=ASP.NET
+*.css linguist-language=ASP.NET
