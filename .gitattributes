@@ -18,3 +18,4 @@
 
 *.js linguist-language=ASP.NET
 *.css linguist-language=ASP.NET
+*.cs linguist-language=ASP.NET
