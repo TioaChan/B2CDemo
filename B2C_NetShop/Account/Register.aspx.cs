@@ -6,11 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
+using B2C_NetShop.App_Start;
 
 namespace B2C_NetShop.Account
 {
     public partial class Register : System.Web.UI.Page
     {
+        Database operate = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
             HyperLink hl1 = (HyperLink)(this.Master.FindControl("HyperLink1"));//用户个人资料
@@ -29,60 +31,32 @@ namespace B2C_NetShop.Account
             }
             else
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
-                try
+                String sql = "select count(*) from User_Account where UID='" + TextBox_uid.Text.Trim() + "'";
+                int n = operate.OperateData(sql);
+                if (n == 0)
                 {
-                    conn.Open();
-                    String sql = "select count(*) from User_Account where UID='" + TextBox_uid.Text.Trim() + "'";
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    int n = (int)cmd.ExecuteScalar();
-                    if (n == 0)
+                    String regist1 = "insert into User_Account (UID,Password) values('" + TextBox_uid.Text.Trim() + "','" + TextBox_pwd.Text.Trim() + "')";
+                    String regist2 = "insert into User_Info(UID,NickName,UserType) values('" + TextBox_uid.Text.Trim() + "','" + TextBox_uid.Text.Trim() + "',1)";
+                    String regist3 = "insert into User_Address(UID) values('" + TextBox_uid.Text.Trim() + "')";
+                    int n1 = operate.OperateData(regist1);
+                    int n2 = operate.OperateData(regist2);
+                    int n3 = operate.OperateData(regist3);
+                    if (n1 == 1 && n2 == 1)
                     {
-                        String regist1 = "insert into User_Account (UID,Password) values('" + TextBox_uid.Text.Trim() + "','" + TextBox_pwd.Text.Trim() + "')";
-                        String regist2 = "insert into User_Info(UID,UserType) values('" + TextBox_uid.Text.Trim() + "',1)";
-                        String regist3 = "insert into User_Address(UID) values('" + TextBox_uid.Text.Trim() + "')";
-                        try
-                        {
-                            SqlCommand cmd1 = new SqlCommand(regist1, conn);
-                            SqlCommand cmd2 = new SqlCommand(regist2, conn);
-                            SqlCommand cmd3 = new SqlCommand(regist3, conn);
-                            int n1 = cmd1.ExecuteNonQuery();
-                            int n2 = cmd2.ExecuteNonQuery();
-                            int n3 = cmd3.ExecuteNonQuery();
-                            if (n1 == 1 && n2 == 1)
-                            {
-                                Response.Write("<script type='text/javascript'>alert('恭喜您，注册成功！');location='login.aspx';</script>");
-                            }
-                            else
-                            {
-                                Response.Write("<script type='text/javascript'>alert('注册失败，请换一个用户名重试！');location='Register.aspx';</script>");
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            Response.Write(ex.Message);
-                        }
-                        finally
-                        {
-                            conn.Close();
-                        }
+                        Response.Write("<script type='text/javascript'>alert('恭喜您，注册成功！');location='login.aspx';</script>");
                     }
                     else
                     {
-                        Response.Write("<script type='text/javascript'>alert('用户名重复！');</script>");
+                        Response.Write("<script type='text/javascript'>alert('注册失败，请换一个用户名重试！');location='Register.aspx';</script>");
                     }
+
                 }
-                catch (Exception ex)
+                else
                 {
-                    Response.Write(ex.Message);
-                }
-                finally
-                {
-                    conn.Close();
+                    Response.Write("<script type='text/javascript'>alert('用户名重复！');</script>");
                 }
             }
         }
-
         protected void Button2_Click(object sender, EventArgs e)
         {
             TextBox_uid.Text = "";

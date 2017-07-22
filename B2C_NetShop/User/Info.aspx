@@ -58,15 +58,16 @@
                 <asp:Button ID="Button_TotalView" runat="server" Text="账户总览" CssClass="btn-link" OnClick="Button_TotalView_Click" />
             </div>
             <div class="text-right">
-
                 <asp:Button ID="Button_UserInfo" runat="server" Text="个人信息" CssClass="btn-link" OnClick="Button_UserInfo_Click" />
+            </div>
+            <div class="text-right">
+                <asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
             </div>
             <div class="text-right">
 
                 <asp:Button ID="Button_Address" runat="server" Text="收货地址" CssClass="btn-link" OnClick="Button_Address_Click" />
             </div>
             <div class="text-right">
-
                 <asp:Button ID="Button_Security" runat="server" Text="安全设置" CssClass="btn-link" OnClick="Button_Security_Click" />
             </div>
         </div>
@@ -208,7 +209,6 @@
                     </div>
                 </asp:View>
                 <asp:View ID="View_Security" runat="server">
-
                     <br />
                     <div>
                         <table style="width: 100%; height: 95%;">
@@ -257,8 +257,39 @@
                     <br />
                     <br />
                 </asp:View>
+                <asp:View ID="View_UserImage" runat="server">
+                    <br />
+                    <div>
+                        <table style="width: 100%; height: 95%;">
+                            <tr>
+                                <td class="text-left" colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 头像修改</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 20px;">
+                                    <div>
+                                        <asp:Image ID="Image2" runat="server" Height="150px" Width="150px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
+                                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                                        <asp:Button ID="btnupload" runat="server" Text="Button" OnClick="btnupload_Click" />
+                                        <asp:Button ID="btndelete" runat="server" Text="Button"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="height: 15px;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="height: 30px;"></td>
+                                <td class="text-left" style="height: 30px;">
+                                    <asp:Button ID="Button1" runat="server" Text="修改" Width="50px" OnClick="Button_SetNewPWD_Click" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                </asp:View>
             </asp:MultiView>
-
         </div>
         <div class="clear" id="div_clr">
         </div>

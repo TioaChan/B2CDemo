@@ -11,7 +11,9 @@ namespace B2C_NetShop.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["uid"] = "";
+            Session["nickname"] = "";
+            Session["Status"] = "";
         }
     }
 }

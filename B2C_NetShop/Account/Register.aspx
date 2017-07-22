@@ -15,6 +15,7 @@
                 <td style="width: 441px; height: 40px;">
                     <asp:TextBox ID="TextBox_uid" runat="server" Width="300px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_uid" ErrorMessage="用户名不允许为空" ForeColor="Red"></asp:RequiredFieldValidator>
+                   
                 </td>
             </tr>
             <tr>
@@ -22,6 +23,7 @@
                 <td style="width: 441px; height: 40px;">
                     <asp:TextBox ID="TextBox_pwd" runat="server" TextMode="Password" Width="300px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_pwd" ErrorMessage="密码不允许为空" ForeColor="Red"></asp:RequiredFieldValidator>
+                    
                 </td>
             </tr>
             <tr>
