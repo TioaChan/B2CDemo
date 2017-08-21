@@ -14,49 +14,23 @@ namespace B2C_NetShop.User
     public partial class Info : System.Web.UI.Page
     {
         Database operate = new Database();
+        pageload load = new pageload();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindHyperLink();
-        }
-
-        public void BindHyperLink()
-        {
-            //hl1 hl2 hl3 三个控件的属性的值，最后修改的时间为2017/07/01 21:20；除登录与注册页面的判定不同，其他页面一律相同
-            HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
-            HyperLink hl2 = (HyperLink)(Master.FindControl("HyperLink2"));//后台
-            HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
-            if (Session["uid"] == null)
+            String uid = Convert.ToString(Session["uid"]);
+            String nickname = Convert.ToString(Session["nickname"]);
+            if ("".Equals(uid))
             {
-                //跳转登录页面
                 Response.Redirect("~/Account/Login.aspx");
             }
             else
             {
-                String id = Session["uid"].ToString();
-                //hl1和hl3用于导航个人资料页与注销功能
-                hl1.Text = id + "，欢迎你。";
-                hl1.NavigateUrl = "~/User/Info.aspx";
-                hl3.Text = "点击注销";
-                hl3.NavigateUrl = "";
-                int status = Convert.ToInt32(Session["Status"].ToString());
-                //判断status的值，1为普通用户，禁用后台管理功能；2 3 4为管理员；其他值为异常账户。
-                if (status == 1)
-                {
-                    hl2.Enabled = false;
-                    hl2.Visible = false;
-                }
-                else if (status == 2 || status == 3 || status == 4)
-                {
-                    hl2.Text = "后台管理";
-                    hl2.NavigateUrl = "";
-                }
-                else
-                {
-                    Session["uid"] = "";
-                    Session["Status"] = "";
-                    Response.Redirect("~/Account/Error.aspx");
-                }
+                HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
+                HyperLink hl2 = (HyperLink)(Master.FindControl("HyperLink2"));//后台
+                HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
+                int status = Convert.ToInt32(Session["Status"]);
+                load.HyperLinkBind(hl1, hl2, hl3, uid, status);
                 if (!IsPostBack)
                 {
                     BindUserInfo();

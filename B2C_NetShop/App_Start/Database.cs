@@ -29,5 +29,14 @@ namespace B2C_NetShop.App_Start
             ds.Dispose();
             return ds;
         }
+
+        public int ExecuteScalar(String sql)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            int i = (int)cmd.ExecuteScalar();
+            conn.Close();
+            return i;
+        }
     }
 }

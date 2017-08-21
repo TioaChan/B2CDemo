@@ -26,7 +26,7 @@ namespace B2C_NetShop.App_Start
                 hl1.Text = id + "，欢迎你。";
                 hl1.NavigateUrl = "~/User/Info.aspx";
                 hl3.Text = "点击注销";
-                hl3.NavigateUrl = "";
+                hl3.NavigateUrl = "~/Account/logout.aspx";
                 //判断power的值，1为普通用户，禁用后台管理功能；2 3 4为管理员；其他值为异常账户。
                 if (power == 1 || power == 0) 
                 {
@@ -36,7 +36,7 @@ namespace B2C_NetShop.App_Start
                 else if (power == 2 || power == 3 || power == 4)
                 {
                     hl2.Text = "后台管理";
-                    hl2.NavigateUrl = "";
+                    hl2.NavigateUrl = "~/Manage/main.aspx";
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace B2C_NetShop.App_Start
                 HyperLink1.Text = "我的信息";
                 HyperLink1.NavigateUrl = "~/User/Info.aspx";
                 HyperLink2.Text = "注销";
-                HyperLink2.NavigateUrl = "";
+                HyperLink2.NavigateUrl = "~/Account/logout.aspx";
                 //主页面用户信息栏end
             }
         }

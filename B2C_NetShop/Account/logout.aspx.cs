@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace B2C_NetShop.Account
 {
-    public partial class Error : System.Web.UI.Page
+    public partial class logout1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

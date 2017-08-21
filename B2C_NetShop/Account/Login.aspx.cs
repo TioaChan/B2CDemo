@@ -34,7 +34,7 @@ namespace B2C_NetShop.Account
                 Response.Write("<script type='text/javascript'>alert('用户名或密码为空！');</script>");
             }
             String sql = "select count(*) from User_Account where UID='" + uid + "' and Password='" + TextBox_pwd.Text + "'";
-            int n = (int)operate.OperateData(sql);
+            int n = (int)operate.ExecuteScalar(sql);
             if (n == 1)
             {
                 String userpower = "select NickName,UserType from User_Info where UID='" + uid + "'";
@@ -44,7 +44,7 @@ namespace B2C_NetShop.Account
                 String power = ds.Tables[0].Rows[0][1].ToString();
                 Session["uid"] = uid;
                 Session["nickname"] = nickname;
-                Session["Status"] = power;   //power=1：普通用户，power=2：管理员
+                Session["Status"] = power;   //power=1：普通用户，power=2,3,4：管理员
                 Response.Redirect("~/Default.aspx");
             }
             else

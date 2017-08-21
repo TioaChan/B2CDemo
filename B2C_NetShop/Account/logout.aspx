@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Error.aspx.cs" Inherits="B2C_NetShop.Account.Error" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="logout.aspx.cs" Inherits="B2C_NetShop.Account.logout1" %>
 
 <!DOCTYPE html>
 
@@ -14,9 +14,10 @@
         <center>
             <div class="well" style="max-width: 600px;background-color:#F5F5F5">
                 <br/>
-                <h2>非法用户</h2>
+                <h2>注销成功</h2>
 
-                <div>如果你想再次登录，请重新打开本网站。</div>
+                <div><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx">点击</asp:HyperLink>
+                    返回首页</div>
                 <br/>
             </div>
         </center>
@@ -26,3 +27,4 @@
     </form>
 </body>
 </html>
+
