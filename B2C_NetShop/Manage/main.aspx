@@ -95,7 +95,7 @@
                             <SortedDescendingCellStyle BackColor="#D8D8F0" />
                             <SortedDescendingHeaderStyle BackColor="#3E3277" />
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString2 %>"
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>"
                             DeleteCommand="DELETE FROM [User_Info] WHERE [UID] = @UID"
                             InsertCommand="INSERT INTO [User_Info] ([UID], [NickName], [Money], [UserType]) VALUES (@UID, @NickName, @Money, @UserType)"
                             SelectCommand="SELECT * FROM [User_Info] WHERE ([UserType] &gt;= @UserType)"
@@ -150,7 +150,7 @@
                             <SortedDescendingHeaderStyle BackColor="#3E3277" />
                         </asp:GridView>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server"
-                            ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString2 %>"
+                            ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>"
                             DeleteCommand="DELETE FROM [User_Info] WHERE [UID] = @UID"
                             InsertCommand="INSERT INTO [User_Info] ([UID], [NickName], [Money], [UserType]) VALUES (@UID, @NickName, @Money, @UserType)"
                             SelectCommand="SELECT * FROM [User_Info] WHERE ([UserType] = @UserType)"
