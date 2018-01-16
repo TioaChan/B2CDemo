@@ -16,22 +16,24 @@
             float: left;
             display: block;
             height: auto;
-            width: 190px;
-         
-            
-            background-color: antiquewhite
+            width: 15%;
+            padding-left: 20px; padding-right: 20px;
+            padding-top:20px;
+            background-color: antiquewhite;
+            display:inline
         }
-
         #Right_detail {
             display: block;
             float: left;
-            width: 1020px;
+            width: 85%;
             height: auto;
-            background-color: azure
+            background-color: azure;
+            display:inline
         }
         .clear {
             clear: both;
         }
+
     </style>
 </head>
 <body>
@@ -83,27 +85,25 @@
 
 
         <!-- Start this!-->
-        <div id="main" style="text-align: center; width: 1210px; height: auto;margin-left:auto;">
-            <div id="Top_Search" style="padding: 5px 10px 5px 10px; width: 720px; height: 40px; text-align: center;">
+        <div id="main" style="text-align: center; width: 60%; background-color: aliceblue; margin-left: 20%; margin-right: 20%">
+
+            <div id="Top_Search" style="text-align: center; background-color: aqua;height:50px;">
                 <p>1这里放置搜索框</p>
             </div>
             <br />
 
-            <div style="text-align: center;">
-
+            <div style="width: 100%; text-align: center;">
                 <div id="Left_GoodsList">
-                    <div style="width: 170px; padding-left: 5px; padding-right: 5px; margin-top: 20px;">
-                        <asp:DataList ID="DataList1" runat="server" DataKeyField="ClassID" DataSourceID="SqlDataSource1" Width="160px">
-                            <ItemTemplate>
-                                &nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("ClassID","~/Goods/list.aspx?id={0}") %>' Text='<%# Eval("ClassName") %>'></asp:HyperLink>
-                                <br />
-                                <br />
-                            </ItemTemplate>
-                        </asp:DataList>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="select top 10 * from Goods_Class"></asp:SqlDataSource>
-                    </div>
+                    <asp:DataList ID="DataList1" runat="server" DataKeyField="ClassID" DataSourceID="SqlDataSource1">
+                        <ItemTemplate>
+                            &nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("ClassID","~/Goods/list.aspx?id={0}") %>' Text='<%# Eval("ClassName") %>'></asp:HyperLink>
+                            <br />
+                            <br />
+                        </ItemTemplate>
+                    </asp:DataList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="select top 10 * from Goods_Class"></asp:SqlDataSource>
                 </div>
-                <div id="Right_detail" class="container body-content">
+                <div id="Right_detail">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
@@ -112,16 +112,16 @@
             </div>
             <!--End-->
 
-        </div>
 
 
 
 
-        <div id="foot" class="container body-content">
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
-            </footer>
+
+            <div id="foot" class="container body-content" style="text-align: left; background-color: aqua">
+                <footer>
+                    <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
+                </footer>
+            </div>
         </div>
     </form>
 </body>
