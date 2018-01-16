@@ -33,7 +33,7 @@ namespace B2C_NetShop.Account
             {
                 String sql = "select count(*) from User_Account where UID='" + TextBox_uid.Text.Trim() + "'";
                 int n = operate.OperateData(sql);
-                if (n == 0)
+                if (n == -1)
                 {
                     String regist1 = "insert into User_Account (UID,Password) values('" + TextBox_uid.Text.Trim() + "','" + TextBox_pwd.Text.Trim() + "')";
                     String regist2 = "insert into User_Info(UID,NickName,UserType) values('" + TextBox_uid.Text.Trim() + "','" + TextBox_uid.Text.Trim() + "',1)";
