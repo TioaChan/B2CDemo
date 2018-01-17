@@ -164,7 +164,6 @@ namespace B2C_NetShop.Goods
             }
             Session["ShopCart"] = hashCart;
             BindCartList();
-
         }
     }
 }
