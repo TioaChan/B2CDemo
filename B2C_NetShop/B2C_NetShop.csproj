@@ -151,6 +151,7 @@
     <Content Include="Goods\cart.aspx" />
     <Content Include="Goods\Detail.aspx" />
     <Content Include="Goods\img\addtocart.png" />
+    <Content Include="Goods\img\jiesuan.png" />
     <Content Include="Goods\list.aspx" />
     <Content Include="Manage\main.aspx" />
     <Content Include="Scripts\bootstrap.js" />

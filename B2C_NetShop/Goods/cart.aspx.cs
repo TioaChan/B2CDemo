@@ -22,6 +22,7 @@ namespace B2C_NetShop.Goods
             HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
             String uid = Convert.ToString(Session["uid"]);
             String nickname = Convert.ToString(Session["nickname"]);
+            Label_UID1.Text = nickname;
             int status = Convert.ToInt32(Session["Status"]);
             load.HyperLinkBind(hl1, hl2, hl3, uid, status);
             BindCartList();
@@ -101,7 +102,7 @@ namespace B2C_NetShop.Goods
                         {
                             conn.Close();
                         }
-                        labTotalPrice.Text = "总价：" + totalPrice.ToString();
+                        labTotalPrice.Text = "￥" + totalPrice.ToString();
                         gvShopCart.DataSource = dtTable.DefaultView;
                         gvShopCart.DataKeyNames = new string[] { "BookID" };
                         gvShopCart.DataBind();
@@ -122,30 +123,26 @@ namespace B2C_NetShop.Goods
                 hashCart[BookID] = count;
             }
             Session["ShopCart"] = hashCart;
-            Response.Redirect("shopCart.aspx");
+            Response.Redirect("cart.aspx");
         }
         protected void lnkbtnDelete_Command(object sender, CommandEventArgs e)
         {
             Hashtable hashCart = (Hashtable)Session["ShopCart"];
             hashCart = (Hashtable)Session["ShopCart"];
-
             hashCart.Remove(e.CommandArgument);
             Session["ShopCart"] = hashCart;
-            Response.Redirect("shopCart.aspx");
+            Response.Redirect("cart.aspx");
         }
         protected void lnkbtnClear_Click(object sender, EventArgs e)
         {
             Session["ShopCart"] = null;
-            Response.Redirect("shopCart.aspx");
+            Response.Redirect("~/Default.aspx");
         }
         protected void lnkbtnContinue_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            Response.Redirect("~/Default.aspx");
         }
-        protected void lnkbtnCheck_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("checkOut.aspx");
-        }
+
         protected void gvShopCart_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvShopCart.PageIndex = e.NewPageIndex;
@@ -164,6 +161,12 @@ namespace B2C_NetShop.Goods
             }
             Session["ShopCart"] = hashCart;
             BindCartList();
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            //Response.Redirect("checkOut.aspx");
+            Response.Write("<script type='text/javascript'>alert('TODO::');</script>");
         }
     }
 }
