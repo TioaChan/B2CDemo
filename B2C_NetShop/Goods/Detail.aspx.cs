@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,6 +20,37 @@ namespace B2C_NetShop.Goods
             String nickname = Convert.ToString(Session["nickname"]);
             int status = Convert.ToInt32(Session["Status"]);
             load.HyperLinkBind(hl1, hl2, hl3, uid, status);
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            String uid = Convert.ToString(Session["uid"]);
+            if ("".Equals(uid))
+            {
+                Response.Write("<script type='text/javascript'>alert('请先登录');</script>");
+            }
+            else
+            {
+                String bookid = Request.QueryString.ToString();
+                Hashtable hashCart;
+                if (Session["ShopCart"] == null)
+                {//用户没有分配购物车
+                    hashCart = new Hashtable();  //生成一个hash表
+                    hashCart.Add(bookid, 1);  //添加商品
+                    Session["ShopCart"] = hashCart; //分配给用户
+                }
+                //用户已有购物车
+                hashCart = (Hashtable)Session["ShopCart"];
+                if (hashCart.Contains(bookid)) //购物车已有此商品
+                {
+                    int count = Convert.ToInt32(hashCart[bookid].ToString()); //得到商品数量
+                    hashCart[bookid] = (count + 1); //数量加1
+                }
+                else
+                {
+                    hashCart.Add(bookid, 1); //没有此商品，新加一个
+                }
+            }
         }
     }
 }

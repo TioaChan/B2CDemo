@@ -148,7 +148,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Goods\cart.aspx" />
     <Content Include="Goods\Detail.aspx" />
+    <Content Include="Goods\img\addtocart.png" />
     <Content Include="Goods\list.aspx" />
     <Content Include="Manage\main.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -244,6 +246,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Goods\cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Goods\cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Goods\Detail.aspx.cs">
       <DependentUpon>Detail.aspx</DependentUpon>

@@ -60,7 +60,8 @@
                 </div>
             </div>
         </div>
-        <p>1这里放置搜索框</p>
+        <p>1这里放置搜索框<asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/Goods/cart.aspx">购物车</asp:LinkButton>
+        </p>
         <br/>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

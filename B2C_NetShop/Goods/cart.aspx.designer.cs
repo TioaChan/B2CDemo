@@ -7,54 +7,72 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace B2C_NetShop {
+namespace B2C_NetShop.Goods {
     
     
-    public partial class SiteMaster {
+    public partial class cart {
         
         /// <summary>
-        /// HyperLink1 控件。
+        /// labMessage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Label labMessage;
         
         /// <summary>
-        /// HyperLink2 控件。
+        /// labTotalPrice 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.Label labTotalPrice;
         
         /// <summary>
-        /// HyperLink3 控件。
+        /// gvShopCart 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
+        protected global::System.Web.UI.WebControls.GridView gvShopCart;
         
         /// <summary>
-        /// LinkButton1 控件。
+        /// lnkbtnUpdate 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnUpdate;
         
         /// <summary>
-        /// MainContent 控件。
+        /// lnkbtnClear 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnClear;
+        
+        /// <summary>
+        /// lnkbtnContinue 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnContinue;
+        
+        /// <summary>
+        /// lnkbtnCheck 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnCheck;
     }
 }

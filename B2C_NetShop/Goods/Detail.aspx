@@ -8,7 +8,7 @@
                     <div id="pic_frame" style="width: 35%; height: auto; display: block; float: left;background-color:bisque;padding:20px;" runat="server">
                         <div id="pic_book" style="width: 400px; height: 400px;display:block; text-align: center;background-color:aqua">假装这里有图片</div>
                     </div>
-                    <div id="book_detail" style="width: 60%; height: auto; display: block; float: left;background-color:beige;padding:20px" runat="server">
+                    <div id="book_detail" style="width: 60%; height: auto; display: block; float: left; background-color: beige; padding: 20px" runat="server">
                         <!--
 		                ClassID:
                         <asp:Label ID="ClassIDLabel" runat="server" Text='<%# Eval("ClassID") %>' />
@@ -18,7 +18,8 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="AuthorLabel" runat="server" Font-Bold="True" Text='<%# Eval("Author") %>' />
                         &nbsp;著<br />本图书由<asp:Label ID="CompanyLabel" runat="server" Text='<%# Eval("Company") %>' />
-                        出版<br /> <br />
+                        出版<br />
+                        <br />
                         <asp:Label ID="BookIntroduceLabel" runat="server" Text='<%# Eval("BookIntroduce") %>' Font-Size="Large" ForeColor="Red" />
                         <br />
                         <br />
@@ -49,15 +50,16 @@
                         <br />
                         <br />
                         <br />
-                        <div id="AddCart" style="width:600px;height:50px">
-                            <div id="num" style="float:left;display:block;text-align:left;height:40px;width:70px">
+                        <div id="AddCart" style="width: 600px; height: 50px" runat="server">
+                            <div id="num" style="float: left; display: block; text-align: left; height: 40px; width: 70px" runat="server">
                                 <asp:TextBox ID="TextBox1" runat="server" Height="40px" Width="40px"></asp:TextBox>
                             </div>
-                            <div id="AddtoCart" style="float:left;display:block">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" Width="120px" />
+                            <div id="AddtoCart" style="float: left; display: block" runat="server">
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" Width="140px" OnClick="ImageButton1_Click" ImageUrl="~/Goods/img/addtocart.png" CommandName="Add" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="Label1" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="False" ForeColor="Red" Visible="False"></asp:Label>
                             </div>
-                            <div id="Cart_div_clear" style="clear:both"></div>
+                            <div id="Cart_div_clear" style="clear: both"></div>
                         </div>
                         <br />
                     </div>
