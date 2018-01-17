@@ -17,9 +17,7 @@
                         <asp:Label ID="BookNameLabel" runat="server" Text='<%# Eval("BookName") %>' Font-Bold="True" Font-Names="微软雅黑" Font-Size="X-Large" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="AuthorLabel" runat="server" Font-Bold="True" Text='<%# Eval("Author") %>' />
-                        &nbsp;著<br />
-                        
-                        本图书由<asp:Label ID="CompanyLabel" runat="server" Text='<%# Eval("Company") %>' />
+                        &nbsp;著<br />本图书由<asp:Label ID="CompanyLabel" runat="server" Text='<%# Eval("Company") %>' />
                         出版<br /> <br />
                         <asp:Label ID="BookIntroduceLabel" runat="server" Text='<%# Eval("BookIntroduce") %>' Font-Size="Large" ForeColor="Red" />
                         <br />
@@ -51,9 +49,19 @@
                         <br />
                         <br />
                         <br />
+                        <div id="AddCart" style="width:600px;height:50px">
+                            <div id="num" style="float:left;display:block;text-align:left;height:40px;width:70px">
+                                <asp:TextBox ID="TextBox1" runat="server" Height="40px" Width="40px"></asp:TextBox>
+                            </div>
+                            <div id="AddtoCart" style="float:left;display:block">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" Width="120px" />
+                            </div>
+                            <div id="Cart_div_clear" style="clear:both"></div>
+                        </div>
                         <br />
-                        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">加入购物车 &raquo;</a></p>
                     </div>
+                    
                     <div id="div_clear" style="clear: both"></div>
                     <br />
                 </div>
