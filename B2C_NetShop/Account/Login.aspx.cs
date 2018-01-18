@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -45,6 +46,8 @@ namespace B2C_NetShop.Account
                 Session["uid"] = uid;
                 Session["nickname"] = nickname;
                 Session["Status"] = power;   //power=1：普通用户，power=2,3,4：管理员
+                Hashtable hashCart = new Hashtable();
+                Session["ShopCart"] = hashCart;
                 Response.Redirect("~/Default.aspx");
             }
             else

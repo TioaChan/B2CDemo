@@ -7,7 +7,7 @@
         </div>
         <div id="head_nav" runat="server">当前位置：<a href="../Default.aspx">首页</a> > 购物车</div>
         <div id="Gcart" style="text-align: center; padding-top: 15px; padding-left: 10px;" runat="server">
-            <asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="gvShopCart_PageIndexChanging" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1100px">
+            <asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1100px">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="No" HeaderText="序号" ReadOnly="True">
@@ -24,7 +24,7 @@
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="数量">
                         <ItemTemplate>
-                            <asp:TextBox ID="txtNum" runat="server" Text='<%#Eval("Num") %>' Width="60px" OnTextChanged="txtNum_TextChanged"></asp:TextBox>
+                            <asp:TextBox ID="txtNum" runat="server" Text='<%#Eval("Num") %>' Width="60px" ></asp:TextBox>
                             <asp:RegularExpressionValidator
                                 ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtNum"
                                 ErrorMessage="×" ValidationExpression="^\+?[1-9][0-9]*$"></asp:RegularExpressionValidator>

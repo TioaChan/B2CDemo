@@ -12,9 +12,6 @@ namespace B2C_NetShop.Goods
     public partial class cart : System.Web.UI.Page
     {
         pageload load = new pageload();
-
-       
-
         protected void Page_Load(object sender, EventArgs e)
         {
             HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
@@ -25,21 +22,24 @@ namespace B2C_NetShop.Goods
             Label_UID1.Text = nickname;
             int status = Convert.ToInt32(Session["Status"]);
             load.HyperLinkBind(hl1, hl2, hl3, uid, status);
-            BindCartList();
+            if(!IsPostBack)
+            {
+                BindCartList();
+            }   
         }
 
-        private void BindCartList()
+        public void BindCartList()
         {
             if (Session["ShopCart"] == null)
             {//购物车不存在
-
+                Response.Redirect("~/Account/Login.aspx");
             }
             else
             {//购物车存在
                 Hashtable hashCart = (Hashtable)Session["ShopCart"];
                 if (hashCart.Count == 0)
                 {//没有购物
-
+                    
                 }
                 else
                 {//设置数据源
@@ -108,10 +108,9 @@ namespace B2C_NetShop.Goods
                         gvShopCart.DataBind();
                     }
                 }
-
             }
-
         }
+
         protected void lnkbtnUpdate_Click(object sender, EventArgs e)
         {
             Hashtable hashCart = (Hashtable)Session["ShopCart"];
@@ -119,49 +118,42 @@ namespace B2C_NetShop.Goods
             {
                 TextBox otb = (TextBox)gvr.FindControl("txtNum");
                 int count = Int32.Parse(otb.Text);
-                string BookID = gvr.Cells[1].Text;
+                string BookID = "id="+gvr.Cells[1].Text;
                 hashCart[BookID] = count;
             }
             Session["ShopCart"] = hashCart;
-            Response.Redirect("cart.aspx");
+            BindCartList();
         }
+
         protected void lnkbtnDelete_Command(object sender, CommandEventArgs e)
         {
             Hashtable hashCart = (Hashtable)Session["ShopCart"];
-            hashCart = (Hashtable)Session["ShopCart"];
-            hashCart.Remove(e.CommandArgument);
+            String removeid = "id=" + e.CommandArgument.ToString();
+            hashCart.Remove(removeid);
             Session["ShopCart"] = hashCart;
             Response.Redirect("cart.aspx");
         }
+
         protected void lnkbtnClear_Click(object sender, EventArgs e)
         {
             Session["ShopCart"] = null;
-            Response.Redirect("~/Default.aspx");
+            Hashtable hashCart = new Hashtable();
+            Session["ShopCart"] = hashCart;
+            Response.Redirect("~/Goods/cart.aspx");
         }
+
         protected void lnkbtnContinue_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default.aspx");
         }
 
+        /*
         protected void gvShopCart_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvShopCart.PageIndex = e.NewPageIndex;
             BindCartList();
         }
-        protected void txtNum_TextChanged(object sender, EventArgs e)
-        {
-            Hashtable hashCart = (Hashtable)Session["ShopCart"];
-            foreach (GridViewRow gvr in this.gvShopCart.Rows)
-            {
-
-                TextBox otb = (TextBox)gvr.FindControl("txtNum");
-                int count = Int32.Parse(otb.Text);
-                string BookID = gvr.Cells[1].Text;
-                hashCart[BookID] = count;
-            }
-            Session["ShopCart"] = hashCart;
-            BindCartList();
-        }
+        */
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
