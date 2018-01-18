@@ -152,8 +152,10 @@
     <Content Include="Goods\Detail.aspx" />
     <Content Include="Goods\img\addtocart.png" />
     <Content Include="Goods\img\jiesuan.png" />
+    <Content Include="Goods\img\tijiaodingdan.png" />
     <Content Include="Goods\list.aspx" />
     <Content Include="Manage\main.aspx" />
+    <Content Include="Order\getOrderInfo.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -275,6 +277,13 @@
     </Compile>
     <Compile Include="Manage\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Order\getOrderInfo.aspx.cs">
+      <DependentUpon>getOrderInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order\getOrderInfo.aspx.designer.cs">
+      <DependentUpon>getOrderInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

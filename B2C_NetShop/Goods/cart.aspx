@@ -70,7 +70,7 @@
                     <asp:LinkButton ID="lnkbtnContinue" runat="server" OnClick="lnkbtnContinue_Click">继续购物</asp:LinkButton>&nbsp;
                     </div>
                 <div style="text-align: right; float: right; margin-top: 10px;">
-                    总价：<asp:Label ID="labTotalPrice" runat="server" Text="0.00 " Font-Bold="True" Font-Size="X-Large" ForeColor="Red"></asp:Label><asp:ImageButton ID="ImageButton1" runat="server" Height="40px" ImageUrl="~/Goods/img/jiesuan.png" Width="140px" OnClick="ImageButton1_Click" />
+                    总价：<asp:Label ID="labTotalPrice" runat="server" Text="0.00 " Font-Bold="True" Font-Size="X-Large" ForeColor="Red"></asp:Label><asp:ImageButton ID="ImageButton1" runat="server" Height="40px" ImageUrl="~/Goods/img/tijiaodingdan.png" Width="140px" OnClick="ImageButton1_Click" />
                 </div>
             </div>
             <div id="div_clear" style="clear: both"></div>

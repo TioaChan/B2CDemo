@@ -157,8 +157,7 @@ namespace B2C_NetShop.Goods
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-            //Response.Redirect("checkOut.aspx");
-            Response.Write("<script type='text/javascript'>alert('TODO::');</script>");
+            Response.Redirect("~/Order/getOrderInfo.aspx");
         }
     }
 }
