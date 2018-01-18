@@ -105,5 +105,11 @@ namespace B2C_NetShop.Order
             int i1 = i - 1;
             Label2.Text = i1.ToString();
         }
+
+        Database operate = new Database();
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace B2C_NetShop.App_Start
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(strsql, conn);
-            int i = (int)cmd.ExecuteNonQuery();
+            int i = cmd.ExecuteNonQuery();
             conn.Close();
             return i;
         }

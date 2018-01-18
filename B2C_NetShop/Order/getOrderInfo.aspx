@@ -131,7 +131,7 @@
                     <div style="clear: both"></div>
                 </div>
                 <div style="margin: 10px; padding: 10px; text-align: right;">
-                    <asp:ImageButton ID="ImageButton1" Height="40px" Width="140px" runat="server" ImageUrl="~/Goods/img/jiesuan.png" />
+                    <asp:ImageButton ID="ImageButton1" Height="40px" Width="140px" runat="server" ImageUrl="~/Goods/img/jiesuan.png" OnClick="ImageButton1_Click" />
                 </div>
             </div>
         </div>
