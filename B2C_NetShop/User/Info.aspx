@@ -60,6 +60,9 @@
             <div class="text-right">
                 <asp:Button ID="Button_UserInfo" runat="server" Text="个人信息" CssClass="btn-link" OnClick="Button_UserInfo_Click" />
             </div>
+                        <div class="text-right">
+                            <asp:Button ID="btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="btn_Order_Click" />
+            </div>
             <div class="text-right">
                 <asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
             </div>
@@ -70,6 +73,7 @@
             <div class="text-right">
                 <asp:Button ID="Button_Security" runat="server" Text="安全设置" CssClass="btn-link" OnClick="Button_Security_Click" />
             </div>
+
         </div>
         <div id="div_right">
 
@@ -284,6 +288,42 @@
                                 </td>
                             </tr>
                         </table>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                </asp:View>
+                <asp:View ID="View_Order" runat="server">
+                    <br />
+                    <div>
+                        
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="SELECT [order_id], [order_date], [isSend], [isPay], [order_price] FROM [Cart_Info] WHERE ([UID] = @UID) ORDER BY [order_id], [order_date]">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="UID" SessionField="UID" Type="String" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="90%">
+                            <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                                <asp:HyperLinkField DataNavigateUrlFields="order_id" DataNavigateUrlFormatString="order.aspx?orderid={0}" DataTextField="order_id" SortExpression="order_id" Text="订单编号" />
+                                <asp:BoundField DataField="order_date" HeaderText="下单时间" SortExpression="order_date" />
+                                <asp:CheckBoxField DataField="isPay" HeaderText="付款状态" SortExpression="isPay" />
+                                <asp:BoundField DataField="order_price" HeaderText="订单总额" SortExpression="order_price" />
+                            </Columns>
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        </asp:GridView>
+                        <br />
+                        
                     </div>
                     <br />
                     <br />

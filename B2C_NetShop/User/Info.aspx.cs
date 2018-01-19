@@ -194,5 +194,10 @@ namespace B2C_NetShop.User
                 }
             }
         }
+
+        protected void btn_Order_Click(object sender, EventArgs e)
+        {
+            MultiView1.SetActiveView(View_Order);
+        }
     }
 }
