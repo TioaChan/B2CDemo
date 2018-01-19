@@ -60,8 +60,7 @@ namespace B2C_NetShop.Goods
                     foreach (object key in hashCart.Keys)
                     {
                         row = dtTable.NewRow();
-                        String id1 = key.ToString();
-                        String bookid= id1.Replace("id=", "");
+                        String bookid = key.ToString();
                         row["BookID"] = bookid;
                         row["Num"] = hashCart[key].ToString();
                         dtTable.Rows.Add(row);
@@ -74,8 +73,7 @@ namespace B2C_NetShop.Goods
                     {//遍历，获取图书名称，单价
                      //新建sql查询
                         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
-                        String id1 = drRow["BookID"].ToString();
-                        String BookID = id1.Replace("id=", "");
+                        String BookID = drRow["BookID"].ToString();
                         String sql = "select BookName,HotPrice from Goods_Info where BookID="+BookID;
                         try
                         {

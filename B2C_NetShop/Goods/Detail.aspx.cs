@@ -31,7 +31,7 @@ namespace B2C_NetShop.Goods
             }
             else
             {
-                String bookid = Request.QueryString.ToString();
+                String bookid = Request.QueryString["id"].ToString();
                 Hashtable hashCart;
                 if (Session["ShopCart"] == null)
                 {//用户没有分配购物车
