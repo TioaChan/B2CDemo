@@ -138,7 +138,7 @@ namespace B2C_NetShop.Order
                 "(order_id,UID,receiver_address,receiver_name,receiver_phone,order_date," +
                 "isSend,isPay,order_price) values ('" + order_id + "','" + uid + "','功能未实现','功能未实现','功能未实现','" + order_date + "',0,0,'" + totalprice + "')";
             operate.OperateData(sql2);
-            Response.Redirect("~/Order/confirm.aspx");
+            Response.Redirect("~/Order/confirm.aspx?orderid="+order_id+"");
         }
     }
 }
