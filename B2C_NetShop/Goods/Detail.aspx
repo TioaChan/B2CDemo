@@ -52,7 +52,7 @@
                         <br />
                         <div id="AddCart" style="width: 600px; height: 50px" runat="server">
                             <div id="num" style="float: left; display: block; text-align: left; height: 40px; width: 70px" runat="server">
-                                <asp:TextBox ID="TextBox1" runat="server" Height="40px" Width="40px"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" runat="server" Height="40px" Width="40px">1</asp:TextBox>
                             </div>
                             <div id="AddtoCart" style="float: left; display: block" runat="server">
                                 <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" Width="140px" OnClick="ImageButton1_Click" ImageUrl="~/Goods/img/addtocart.png" CommandName="Add" />

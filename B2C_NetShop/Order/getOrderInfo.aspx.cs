@@ -109,7 +109,36 @@ namespace B2C_NetShop.Order
         Database operate = new Database();
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
+            String totalprice1 = Label3.Text.ToString();
+            String totalprice = totalprice1.Replace("￥", "");//获取总价
+            String uid = Session["UID"].ToString();
+            String order_date = DateTime.Now.ToLocalTime().ToString();
+            String order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
+            Hashtable hashCart = (Hashtable)Session["ShopCart"];
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
+            foreach (object key in hashCart.Keys)
+            {
+                String id1 = key.ToString();
+                String bookid = id1.Replace("id=", "");   //获取id ，纯数字
+                String booknum = hashCart[key].ToString(); //获取数量
+                String sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum) " +
+                    "values ('" + order_id + "'," + bookid + "," + booknum + ")";
+                int i = operate.OperateData(sql1);
+                if (i == 1)
+                {
 
+                }
+                else
+                {
+                    String sqldelete = "delete from Cart_Goods where order_id=" + order_id;
+                    operate.OperateData(sqldelete);
+                }
+            }
+            String sql2 = "insert into Cart_Info " +
+                "(order_id,UID,receiver_address,receiver_name,receiver_phone,order_date," +
+                "isSend,isPay,order_price) values ('" + order_id + "','" + uid + "','功能未实现','功能未实现','功能未实现','" + order_date + "',0,0,'" + totalprice + "')";
+            operate.OperateData(sql2);
+            Response.Redirect("~/Order/confirm.aspx");
         }
     }
 }

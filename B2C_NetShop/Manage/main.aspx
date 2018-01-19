@@ -180,6 +180,7 @@
                 <asp:View ID="View_Goods" runat="server">
                     <br />
                     <div>
+                        <div style="text-align:left">新增商品信息</div>
                     </div>
 
                 </asp:View>
