@@ -93,5 +93,10 @@ namespace B2C_NetShop.Manage
         {
             MultiView1.SetActiveView(View_Main);
         }
+
+        protected void Button_Goods_Click(object sender, EventArgs e)
+        {
+            MultiView1.SetActiveView(View_Goods);
+        }
     }
 }

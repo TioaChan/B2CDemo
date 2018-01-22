@@ -5,21 +5,18 @@
         #div_left {
             float: left;
             display: block;
-            /*
-            background-color: green;
-            */
-            width: 310px;
+            background-color:azure;
+            width: 15%;
             height: 800px;
+            text-align:center;
         }
 
         #div_right {
             display: block;
-            float: right;
-            /*
-            background-color: red;
-            */
-            width: 860px;
-            height: 800px;
+            float: left;
+            width: 75%;
+            height: auto;
+            text-align:center;
         }
 
         .clear {
@@ -29,11 +26,9 @@
         .auto-style1 {
             margin: 0 auto;
             text-align: center;
-            /*
-            background-color: #999;
-                */
+            background-color:aliceblue;               
             width: 100%;
-            height: 800px;
+            height: auto;
         }
 
         .div_button {
@@ -44,34 +39,33 @@
     <br />
     <div id="div_content" class="auto-style1">
         <div id="div_left">
-            <div class="text-right">
-                <asp:Button ID="Button_Default" runat="server" Text="欢迎   " CssClass="btn-link" OnClick="Button_Default_Click" />
+            <div style="margin: 10px">
+                <asp:Button ID="Button_Default" runat="server" Text="欢迎" CssClass="btn-link" OnClick="Button_Default_Click" />
             </div>
-            <div class="text-right">
+            <div  style="margin: 10px">
                 <asp:Button ID="Button_RootUser" runat="server" Text="管理员管理" CssClass="btn-link" OnClick="Button_RootUser_Click" />
             </div>
-            <div class="text-right">
-                <asp:Button ID="Button1" runat="server" Text="用户管理 " CssClass="btn-link" OnClick="Button1_Click" />
+            <div  style="margin: 10px">
+                <asp:Button ID="Button1" runat="server" Text="用户管理" CssClass="btn-link" OnClick="Button1_Click" />
             </div>
-            <div class="text-right">
-                <asp:Button ID="Button_Goods" runat="server" Text="商品管理 " CssClass="btn-link" />
+            <div  style="margin: 10px">
+                <asp:Button ID="Button_Goods" runat="server" Text="商品管理" CssClass="btn-link" OnClick="Button_Goods_Click" />
             </div>
-            <div class="text-right">
-                <asp:Button ID="Button_Exit" runat="server" Text="退出   " CssClass="btn-link" />
+            <div  style="margin: 10px">
+                <asp:Button ID="Button_Exit" runat="server" Text="退出" CssClass="btn-link" />
             </div>
         </div>
         <div id="div_right">
-
             <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
                 <asp:View ID="View_Main" runat="server">
                     <br />
-                    <div>
+                    <div style="text-align:center;width:100%;height:400px;display:block">
                         欢迎页面</div>
                 </asp:View>
                 <asp:View ID="View_RootUser" runat="server">
                     <br />
-                    <div>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="UID" DataSourceID="SqlDataSource1" GridLines="Horizontal" Width="844px">
+                    <div style="width:100%; margin-left: 30px; margin-right: 20px;">
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="UID" DataSourceID="SqlDataSource1" GridLines="Horizontal" Width="100%">
                             <AlternatingRowStyle BackColor="#F7F7F7" />
                             <Columns>
                                 <asp:BoundField DataField="UID" HeaderText="UID" ReadOnly="True" SortExpression="UID" />
@@ -124,8 +118,8 @@
                 </asp:View>
                 <asp:View ID="View_User" runat="server">
                     <br />
-                    <div>
-                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="UID" DataSourceID="SqlDataSource2" GridLines="Horizontal" Width="844px">
+                    <div style="width:100%; margin-left: 30px; margin-right: 20px;">
+                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="UID" DataSourceID="SqlDataSource2" GridLines="Horizontal" Width="100%">
                             <AlternatingRowStyle BackColor="#F7F7F7" />
                             <Columns>
                                 <asp:BoundField DataField="UID" HeaderText="UID" ReadOnly="True" SortExpression="UID" />
@@ -179,8 +173,68 @@
                 </asp:View>
                 <asp:View ID="View_Goods" runat="server">
                     <br />
-                    <div>
-                        <div style="text-align:left">新增商品信息</div>
+                    <div style="width:100%; margin-left: 30px; margin-right: 20px;">
+                        <div style="text-align:right"><a href="AddGoods.aspx">新增商品信息点此</a></div>
+                        <br />
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" 
+                            DeleteCommand="DELETE FROM [Goods_Info] WHERE [BookID] = @BookID" 
+                            SelectCommand="SELECT * FROM [Goods_Info] ORDER BY [ClassID], [BookID]" 
+                            UpdateCommand="UPDATE [Goods_Info] SET [ClassID] = @ClassID, [BookName] = @BookName, [BookIntroduce] = @BookIntroduce, 
+                                [Author] = @Author, [Company] = @Company, [MarketPrice] = @MarketPrice, [HotPrice] = @MarketPrice, [Isrefinement] = 0, 
+                                [IsHot] = 0, [IsDiscount] = 0 WHERE [BookID] = @BookID">
+                            <DeleteParameters>
+                                <asp:Parameter Name="BookID" Type="Int32" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="ClassID" Type="Int32" />
+                                <asp:Parameter Name="BookName" Type="String" />
+                                <asp:Parameter Name="BookIntroduce" Type="String" />
+                                <asp:Parameter Name="Author" Type="String" />
+                                <asp:Parameter Name="Company" Type="String" />
+                                <asp:Parameter Name="MarketPrice" Type="Double" />
+                                <asp:Parameter Name="HotPrice" Type="Double" />
+                                <asp:Parameter Name="Isrefinement" Type="Boolean" />
+                                <asp:Parameter Name="IsHot" Type="Boolean" />
+                                <asp:Parameter Name="IsDiscount" Type="Boolean" />
+                                <asp:Parameter Name="LoadDate" Type="DateTime" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="ClassID" Type="Int32" />
+                                <asp:Parameter Name="BookName" Type="String" />
+                                <asp:Parameter Name="BookIntroduce" Type="String" />
+                                <asp:Parameter Name="Author" Type="String" />
+                                <asp:Parameter Name="Company" Type="String" />
+                                <asp:Parameter Name="MarketPrice" Type="Double" />
+                                <asp:Parameter Name="HotPrice" Type="Double" />
+                                <asp:Parameter Name="Isrefinement" Type="Boolean" />
+                                <asp:Parameter Name="IsHot" Type="Boolean" />
+                                <asp:Parameter Name="IsDiscount" Type="Boolean" />
+                                <asp:Parameter Name="LoadDate" Type="DateTime" />
+                                <asp:Parameter Name="BookID" Type="Int32" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
+                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="BookID" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Width="100%" PageSize="8">
+                            <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                                <asp:BoundField DataField="ClassID" HeaderText="ClassID" SortExpression="ClassID" />
+                                <asp:BoundField DataField="BookName" HeaderText="BookName" SortExpression="BookName" />
+                                <asp:BoundField DataField="BookIntroduce" HeaderText="BookIntroduce" SortExpression="BookIntroduce" />
+                                <asp:BoundField DataField="Author" HeaderText="Author" SortExpression="Author" />
+                                <asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
+                                <asp:BoundField DataField="MarketPrice" HeaderText="MarketPrice" SortExpression="MarketPrice" />
+                            </Columns>
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        </asp:GridView>
                     </div>
 
                 </asp:View>

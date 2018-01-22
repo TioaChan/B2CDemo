@@ -155,6 +155,7 @@
     <Content Include="Goods\img\jiesuan.png" />
     <Content Include="Goods\img\tijiaodingdan.png" />
     <Content Include="Goods\list.aspx" />
+    <Content Include="Manage\AddGoods.aspx" />
     <Content Include="Manage\main.aspx" />
     <Content Include="Order\confirm.aspx" />
     <Content Include="Order\getOrderInfo.aspx" />
@@ -273,6 +274,13 @@
     </Compile>
     <Compile Include="Goods\list.aspx.designer.cs">
       <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\AddGoods.aspx.cs">
+      <DependentUpon>AddGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\AddGoods.aspx.designer.cs">
+      <DependentUpon>AddGoods.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
