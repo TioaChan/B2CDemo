@@ -19,7 +19,6 @@
             width: 15%;
             padding-left: 20px; padding-right: 20px;
             padding-top:20px;
-            background-color: antiquewhite;
             display:inline
         }
         #Right_detail {
@@ -27,7 +26,6 @@
             float: left;
             width: 85%;
             height: auto;
-            background-color: azure;
             display:inline
         }
         .clear {
@@ -85,11 +83,20 @@
 
 
         <!-- Start this!-->
-        <div id="main" style="text-align: center; width: 60%; background-color: aliceblue; margin-left: 20%; margin-right: 20%">
+        <div id="main" style="text-align: center; width: 60%; margin-left: 20%; margin-right: 20%">
+        <div id="searchbar" style="width: 100%; height: 50px; padding-top: 10px; margin-top: 10px;margin-bottom: 5px; padding-bottom: 5px;">
+            <div id="bar6" style="width: 55%; display: block; float: left; text-align: right">
 
-            <div id="Top_Search" style="text-align: center; background-color: aqua;height:50px;">
-                <p>1这里放置搜索框</p>
+                <asp:TextBox ID="TextBox1" runat="server" Height="25px" Width="300px"></asp:TextBox>
+                <asp:Button ID="Button1" runat="server" Text="搜索" CssClass="btn-link" Height="30px" OnClick="Button1_Click" />
+
             </div>
+            <div id="cart" style="display: block; text-align:center;float:left;width:20%;height:30px">
+                <asp:ImageButton ID="ImageButton1" runat="server" Height="25px" ImageUrl="~/img/mycart.png" PostBackUrl="~/Goods/cart.aspx" Width="134px" />
+            </div>
+            <div id="white" style="width:20%;float:left;display:block"></div>
+            <div style="clear: both"></div>
+        </div>
             <br />
 
             <div style="width: 100%; text-align: center;">
@@ -117,7 +124,7 @@
 
 
 
-            <div id="foot" class="container body-content" style="text-align: left; background-color: aqua">
+            <div id="foot" class="container body-content" style="text-align: left;">
                 <footer>
                     <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
                 </footer>

@@ -1,16 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="B2C_NetShop.Goods.Detail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="content_main" style="height: 800px; display: block; background-color: aliceblue;" runat="server">
+    <div id="content_main" style="height: 800px; display: block; " runat="server">
         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" Width="1210px">
             <ItemTemplate>
-                <div id="datalist_main" runat="server" style="background-color:antiquewhite;" >
-                    <div id="pic_frame" style="width: 35%; height: auto; display: block; float: left;background-color:bisque;padding:20px;" runat="server">
-                        <div id="pic_book" style="width: 400px; height: 400px;display:block; text-align: center;background-color:aqua">
+                <div id="datalist_main" runat="server" style="" >
+                    <div id="pic_frame" style="width: 35%; height: auto; display: block; float: left;padding:20px;" runat="server">
+                        <div id="pic_book" style="width: 400px; height: 400px;display:block; text-align: center;">
                             <asp:Image ID="Image1" runat="server" Height="400px" ImageUrl='<%# Eval("picUrl") %>' Width="400px" />
                         </div>
                     </div>
-                    <div id="book_detail" style="width: 60%; height: auto; display: block; float: left; background-color: beige; padding: 20px" runat="server">
+                    <div id="book_detail" style="width: 60%; height: auto; display: block; float: left; padding: 20px" runat="server">
                         <!--
 		                ClassID:
                         <asp:Label ID="ClassIDLabel" runat="server" Text='<%# Eval("ClassID") %>' />

@@ -115,7 +115,7 @@
             <div style="text-align: right; margin-top: 10px; margin-bottom: 10px;">
                 <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>件商品，总额：<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </div>
-            <div style="background-color: aliceblue">
+            <div style="">
                 <div style="text-align: right; margin-top: 10px; margin-bottom: 10px;">应付总额：<asp:Label ID="Label3" runat="server" Text="Label" Font-Size="18px" ForeColor="Red"></asp:Label></div>
                 <div>
                     <div style="text-align: right; margin-top: 10px; margin-bottom: 10px; display: block; float: right">

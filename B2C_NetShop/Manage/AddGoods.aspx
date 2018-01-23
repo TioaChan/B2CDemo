@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="AddGoods.aspx.cs" Inherits="B2C_NetShop.Manage.AddGoods" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="main_content" style="height:1000px;width:90%;display:block; margin-top: 50px;">
-        <div id="title_welcome" style="padding: 10px; display:block; background-color:antiquewhite; font-family: 微软雅黑; font-size: 16px;">Welcome,<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <div id="title_welcome" style="padding: 10px; display:block; font-family: 微软雅黑; font-size: 16px;">Welcome,<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
-        <div id="nvg" style="padding: 10px; display:block; background-color:azure; font-family: Tahoma; font-size: 12px;"> 您当前的位置：<a href="../Default.aspx">首页</a> > <a href="main.aspx">系统管理</a> > 商品管理 > 添加商品</div>
+        <div id="nvg" style="padding: 10px; display:block; font-family: Tahoma; font-size: 12px;"> 您当前的位置：<a href="../Default.aspx">首页</a> > <a href="main.aspx">系统管理</a> > 商品管理 > 添加商品</div>
          <div id="add_main" style="border: 1px solid #f0f0f0; height: auto; display: block; padding: 10px 10px 30px 10px; margin: 10px 10px 10px 10px;">
              <div id="pic_frame" style="width:31%;height:500px;display:block;float:left">
                  <div id="pic" style="width:400px;height:400px; margin-left: 5px; margin-right: 5px; padding-top: 50px; padding-bottom: 50px;">

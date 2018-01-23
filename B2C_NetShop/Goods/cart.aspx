@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="B2C_NetShop.Goods.cart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div id="main_content" style="display: block; width: 100%; height: 600px; background-color: antiquewhite" runat="server">
+    <div id="main_content" style="display: block; width: 100%; height: 600px; " runat="server">
         <div id="welcome" style="" runat="server">
             <p style="font-size: xx-large; font-family: 微软雅黑;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label>。</p>
         </div>
@@ -63,7 +63,7 @@
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
-            <div id="jiesuan" style="width: 1100px; height: 60px; background-color: aqua; display: block; float">
+            <div id="jiesuan" style="width: 1100px; height: 60px; display: block; float">
                 <div id="gongneng" style="text-align: left; float: left; margin-top: 20px; margin-left: 10px;">
                     <asp:LinkButton ID="lnkbtnUpdate" runat="server" OnClick="lnkbtnUpdate_Click">更新购物车</asp:LinkButton>&nbsp;
                     <asp:LinkButton ID="lnkbtnClear" runat="server" OnClick="lnkbtnClear_Click">清空购物车</asp:LinkButton>&nbsp;

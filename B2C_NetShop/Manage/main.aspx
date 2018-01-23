@@ -5,7 +5,6 @@
         #div_left {
             float: left;
             display: block;
-            background-color:azure;
             width: 15%;
             height: 800px;
             text-align:center;
@@ -25,8 +24,7 @@
 
         .auto-style1 {
             margin: 0 auto;
-            text-align: center;
-            background-color:aliceblue;               
+            text-align: center;               
             width: 100%;
             height: auto;
         }

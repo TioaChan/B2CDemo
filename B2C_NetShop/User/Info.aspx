@@ -5,9 +5,6 @@
         #div_left {
             float: left;
             display: block;
-            /*
-            background-color: green;
-            */
             width: 310px;
             height: 800px;
         }
@@ -15,9 +12,6 @@
         #div_right {
             display: block;
             float: right;
-            /*
-            background-color: red;
-            */
             width: 860px;
             height: 800px;
         }
@@ -29,9 +23,6 @@
         .auto-style1 {
             margin: 0 auto;
             text-align: center;
-            /*
-            background-color: #999;
-                */
             width: 100%;
             height: 800px;
         }
