@@ -6,7 +6,9 @@
         <div id="nvg" style="padding: 10px; display:block; background-color:azure; font-family: Tahoma; font-size: 12px;"> 您当前的位置：<a href="../Default.aspx">首页</a> > <a href="main.aspx">系统管理</a> > 商品管理 > 添加商品</div>
          <div id="add_main" style="border: 1px solid #f0f0f0; height: auto; display: block; padding: 10px 10px 30px 10px; margin: 10px 10px 10px 10px;">
              <div id="pic_frame" style="width:31%;height:500px;display:block;float:left">
-                 <div id="pic" style="width:400px;height:400px; margin-left: 5px; margin-right: 5px; padding-top: 50px; padding-bottom: 50px;"></div>
+                 <div id="pic" style="width:400px;height:400px; margin-left: 5px; margin-right: 5px; padding-top: 50px; padding-bottom: 50px;">
+                     <asp:FileUpload ID="FileUpload1" runat="server" />
+                 </div>
              </div>
              <div id="detail" style="padding: 10px; width:65%; display:block; float:left">
 

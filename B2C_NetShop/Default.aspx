@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="B2C_NetShop._Default" %>
-
 <%@ MasterType VirtualPath="~/Site.Master" %>
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <link rel="stylesheet" href="Content/ft-carousel.css" />
     <style>
         #div_left {
             float: left;
@@ -16,7 +17,6 @@
             float: left;
             width: 700px;
             height: 480px;
-            background-color: aqua
         }
 
         #div_right {
@@ -30,8 +30,9 @@
         .clear {
             clear: both;
         }
-
     </style>
+
+
     <br />
 
     <div style="padding: 15px; margin: 10px; width: 1210px; height: auto;">
@@ -51,9 +52,8 @@
                     </div>
                 </div>
             </div>
-
             <div id="div_middle">
-                <p>2</p>
+               <p>1</p>
             </div>
 
 
@@ -85,31 +85,31 @@
 
         <div class="row">
             <div class="col-md-4">
-                <h2>Getting started</h2>
+                <h2>商城精选</h2>
                 <p>
                     ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
             A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
                 </p>
                 <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+                    <a class="btn btn-default" href="Goods/refinement.aspx">前往 &raquo;</a>
                 </p>
             </div>
             <div class="col-md-4">
-                <h2>Get more libraries</h2>
+                <h2>商城热卖</h2>
                 <p>
                     NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
                 </p>
                 <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                    <a class="btn btn-default" href="Goods/hot.aspx">前往 &raquo;</a>
                 </p>
             </div>
             <div class="col-md-4">
-                <h2>Web Hosting</h2>
+                <h2>商城折扣</h2>
                 <p>
                     You can easily find a web hosting company that offers the right mix of features and price for your applications.
                 </p>
                 <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                    <a class="btn btn-default" href="Goods/discount.aspx">前往 &raquo;</a>
                 </p>
             </div>
         </div>

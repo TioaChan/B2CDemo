@@ -42,6 +42,52 @@ namespace B2C_NetShop.Manage
         Database operate = new Database();
         protected void Button_submit_Click(object sender, EventArgs e)
         {
+            /**
+             * 上传文件
+             * **/
+            Boolean fileOK = false;
+            //获取上传的文件名
+            string fileName = this.FileUpload1.FileName;
+            //获取物理路径
+            String path = Server.MapPath("~/Goods/img/");
+            //判断上传控件是否上传文件
+            if (FileUpload1.HasFile)
+            {
+                //判断上传文件的扩展名是否为允许的扩展名".gif", ".png", ".jpeg", ".jpg" ,".bmp"
+                String fileExtension = System.IO.Path.GetExtension(fileName).ToLower();
+                String[] Extensions = { ".gif", ".png", ".jpeg", ".jpg", ".bmp" };
+                for (int n = 0; n < Extensions.Length; n++)
+                {
+                    if (fileExtension == Extensions[n])
+                    {
+                        fileOK = true;
+                    }
+                }
+            }
+            //如果上传文件扩展名为允许的扩展名，则将文件保存在服务器上指定的目录中
+            if (fileOK)
+            {
+                try
+                {
+                    this.FileUpload1.PostedFile.SaveAs(path + fileName);
+                    //MessageBox("文件上传完毕");
+                    //Response.Write("<script type='text/javascript'>alert('上传成功');</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script type='text/javascript'>alert('上传失败：" + ex.Message + "');</script>");
+                    //MessageBox("文件不能上传，原因：" + ex.Message);
+                }
+            }
+            else
+            {
+                //MessageBox("不能上传这种类型的文件");
+                Response.Write("<script type='text/javascript'>alert('你不能上传这种类型的文件');</script>");
+            }
+            /**
+             * 上传成功
+             * **/
+
             String BookName = TextBox_Name.Text.ToString();
             String classid = DropDownList_Class.SelectedValue.ToString();
             String BookIntroduce = TextBox_BookIntroduce.Text.ToString();
@@ -49,8 +95,8 @@ namespace B2C_NetShop.Manage
             String Company = TextBox_Company.Text.ToString();
             String MarketPrice = TextBox_MarketPrice.Text.ToString();
             String time = DateTime.Now.ToString();
-            String sql = "insert into Goods_Info (ClassID,BookName,BookIntroduce,Author,Company,MarketPrice,HotPrice,Isrefinement,IsHot,IsDiscount,LoadDate) " +
-                "values(" + classid + ",'" + BookName + "','" + BookIntroduce + "','" + Author + "','" + Company + "','" + MarketPrice + "',0,0,0,0,'" + time + "')";
+            String sql = "insert into Goods_Info (ClassID,BookName,BookIntroduce,Author,Company,MarketPrice,HotPrice,Isrefinement,IsHot,IsDiscount,LoadDate,picUrl) " +
+                "values(" + classid + ",'" + BookName + "','" + BookIntroduce + "','" + Author + "','" + Company + "','" + MarketPrice + "',0,0,0,0,'" + time + "','" + path + fileName + "')";
             int i = operate.OperateData(sql);
             if (i == 1)
             {
@@ -65,6 +111,56 @@ namespace B2C_NetShop.Manage
         protected void Button_clear_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void UploadPic()
+        {
+            Boolean fileOK = false;
+            //获取上传的文件名
+            //string fileName = this.FileUpload1.FileName;
+            String fileName = DateTime.Now.ToLocalTime().ToString();
+            //获取物理路径
+            String path = Server.MapPath("~/Goods/img/");
+            //判断上传控件是否上传文件
+            if (FileUpload1.HasFile)
+            {
+                //判断上传文件的扩展名是否为允许的扩展名".gif", ".png", ".jpeg", ".jpg" ,".bmp"
+                String fileExtension = System.IO.Path.GetExtension(fileName).ToLower();
+                String[] Extensions = { ".gif", ".png", ".jpeg", ".jpg", ".bmp" };
+                for (int i = 0; i < Extensions.Length; i++)
+                {
+                    if (fileExtension == Extensions[i])
+                    {
+                        fileOK = true;
+                    }
+                }
+            }
+            //如果上传文件扩展名为允许的扩展名，则将文件保存在服务器上指定的目录中
+            if (fileOK)
+            {
+                try
+                {
+                    this.FileUpload1.PostedFile.SaveAs(path + fileName);
+                    //MessageBox("文件上传完毕");
+                    //Response.Write("<script type='text/javascript'>alert('上传成功');</script>");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script type='text/javascript'>alert('上传失败：" + ex.Message + "');</script>");
+                    //MessageBox("文件不能上传，原因：" + ex.Message);
+                }
+            }
+            else
+            {
+                //MessageBox("不能上传这种类型的文件");
+                Response.Write("<script type='text/javascript'>alert('你不能上传这种类型的文件');</script>");
+            }
+
+        }
+
+        protected void Button_Upload_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

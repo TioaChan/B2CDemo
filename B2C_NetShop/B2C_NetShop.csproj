@@ -150,11 +150,14 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Goods\cart.aspx" />
     <Content Include="Goods\Detail.aspx" />
+    <Content Include="Goods\discount.aspx" />
+    <Content Include="Goods\hot.aspx" />
     <Content Include="Goods\img\addtocart.png" />
     <Content Include="Goods\img\fukuan.png" />
     <Content Include="Goods\img\jiesuan.png" />
     <Content Include="Goods\img\tijiaodingdan.png" />
     <Content Include="Goods\list.aspx" />
+    <Content Include="Goods\refinement.aspx" />
     <Content Include="Manage\AddGoods.aspx" />
     <Content Include="Manage\main.aspx" />
     <Content Include="Order\confirm.aspx" />
@@ -163,6 +166,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -268,12 +272,33 @@
     <Compile Include="Goods\Detail.aspx.designer.cs">
       <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Goods\discount.aspx.cs">
+      <DependentUpon>discount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Goods\discount.aspx.designer.cs">
+      <DependentUpon>discount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Goods\hot.aspx.cs">
+      <DependentUpon>hot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Goods\hot.aspx.designer.cs">
+      <DependentUpon>hot.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Goods\list.aspx.cs">
       <DependentUpon>list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Goods\list.aspx.designer.cs">
       <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Goods\refinement.aspx.cs">
+      <DependentUpon>refinement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Goods\refinement.aspx.designer.cs">
+      <DependentUpon>refinement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Manage\AddGoods.aspx.cs">
       <DependentUpon>AddGoods.aspx</DependentUpon>
@@ -356,6 +381,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
