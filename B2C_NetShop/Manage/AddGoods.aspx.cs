@@ -43,7 +43,6 @@ namespace B2C_NetShop.Manage
         protected void Button_submit_Click(object sender, EventArgs e)
         {
             string fileName = this.FileUpload1.FileName;
-            //获取物理路径
             String path = Server.MapPath("../Goods/img/");
             if (FileUpload1.HasFile)
             {

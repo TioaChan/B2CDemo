@@ -13,7 +13,7 @@
                 <br />
                 <br />
                 <br />
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" ImageUrl="~/Goods/img/fukuan.png" OnClick="ImageButton1_Click" Width="140px" />
+                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" ImageUrl="~/img/fukuan.png" OnClick="ImageButton1_Click" Width="140px" />
                 <asp:Label ID="Label4" runat="server" Enabled="False" Text="Label" Visible="False"></asp:Label>
                 </div></div></div>
 </asp:Content>

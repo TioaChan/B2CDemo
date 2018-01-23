@@ -57,7 +57,7 @@
                                 <asp:TextBox ID="TextBox1" runat="server" Height="40px" Width="40px">1</asp:TextBox>
                             </div>
                             <div id="AddtoCart" style="float: left; display: block" runat="server">
-                                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" Width="140px" OnClick="ImageButton1_Click" ImageUrl="~/Goods/img/addtocart.png" CommandName="Add" />
+                                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" Width="140px" OnClick="ImageButton1_Click" ImageUrl="~/img/addtocart.png" CommandName="Add" />
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Label ID="Label1" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="False" ForeColor="Red" Visible="False"></asp:Label>
                             </div>
