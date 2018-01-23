@@ -6,7 +6,9 @@
             <ItemTemplate>
                 <div id="datalist_main" runat="server" style="background-color:antiquewhite;" >
                     <div id="pic_frame" style="width: 35%; height: auto; display: block; float: left;background-color:bisque;padding:20px;" runat="server">
-                        <div id="pic_book" style="width: 400px; height: 400px;display:block; text-align: center;background-color:aqua">假装这里有图片</div>
+                        <div id="pic_book" style="width: 400px; height: 400px;display:block; text-align: center;background-color:aqua">
+                            <asp:Image ID="Image1" runat="server" Height="400px" ImageUrl='<%# Eval("picUrl") %>' Width="400px" />
+                        </div>
                     </div>
                     <div id="book_detail" style="width: 60%; height: auto; display: block; float: left; background-color: beige; padding: 20px" runat="server">
                         <!--
@@ -69,7 +71,8 @@
                 </div>
             </ItemTemplate>
         </asp:DataList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="SELECT [ClassID], [BookName], [BookIntroduce], [Company], [Author], [MarketPrice], [HotPrice], [Isrefinement], [IsHot], [IsDiscount], [LoadDate] FROM [Goods_Info] WHERE ([BookID] = @BookID)">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" 
+            SelectCommand="SELECT [ClassID], [BookName], [BookIntroduce], [Company], [Author], [MarketPrice], [HotPrice], [Isrefinement], [IsHot], [IsDiscount], [LoadDate], [picUrl] FROM [Goods_Info] WHERE ([BookID] = @BookID)">
             <SelectParameters>
                 <asp:QueryStringParameter DefaultValue="1" Name="BookID" QueryStringField="id" Type="Int32" />
             </SelectParameters>

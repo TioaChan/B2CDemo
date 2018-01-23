@@ -7,7 +7,7 @@
                     <div id="goods_info" style='width: 25%' runat="server">
                         <div id="goods_image">
                             <a  href='<%# Eval("BookID","Detail.aspx?id={0}") %>'>
-                                <asp:Image ID="Image1" runat="server" Height="200px" Width="200px" ImageAlign="Middle" ImageUrl='<%# Eval("picUrl") %>' /></a>
+                                <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("picUrl") %>' Height="200px" Width="200px" /></a>
                         </div>
                         <br />
                         <div id="goods_detail" style="text-align: left">
