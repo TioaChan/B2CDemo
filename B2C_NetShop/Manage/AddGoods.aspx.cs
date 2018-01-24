@@ -84,16 +84,12 @@ namespace B2C_NetShop.Manage
                 //MessageBox("不能上传这种类型的文件");
                 Response.Write("<script type='text/javascript'>alert('请选择图片');</script>");
             }
-
-
-
         }
 
         protected void Button_clear_Click(object sender, EventArgs e)
         {
 
         }
-
 
     }
 }
