@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -60,11 +61,13 @@ namespace B2C_NetShop.Order
             int y = operate.OperateData(update2);
             if (x == 1 || y == 1)
             {
+                Hashtable hashCart = new Hashtable();
+                Session["ShopCart"] = hashCart;
                 Response.Write("<script type='text/javascript'>alert('付款成功');location='../Default.aspx';</script>");
             }
             else
             {
-
+                Response.Write("<script type='text/javascript'>alert('付款失败，请在订单管理中重新付款');location='../Default.aspx';</script>");
             }
         }
     }

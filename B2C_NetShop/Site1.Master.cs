@@ -17,6 +17,7 @@ namespace B2C_NetShop
         protected void Button1_Click(object sender, EventArgs e)
         {
             String keywords = TextBox1.Text.ToString();
+            Response.Redirect("~/Goods/search.aspx?keywords=" + keywords + "");
         }
     }
 }

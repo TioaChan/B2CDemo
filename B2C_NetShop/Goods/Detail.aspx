@@ -11,11 +11,6 @@
                         </div>
                     </div>
                     <div id="book_detail" style="width: 60%; height: auto; display: block; float: left; padding: 20px" runat="server">
-                        <!--
-		                ClassID:
-                        <asp:Label ID="ClassIDLabel" runat="server" Text='<%# Eval("ClassID") %>' />
-                        <br />
-		                -->
                         <asp:Label ID="BookNameLabel" runat="server" Text='<%# Eval("BookName") %>' Font-Bold="True" Font-Names="微软雅黑" Font-Size="X-Large" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="AuthorLabel" runat="server" Font-Bold="True" Text='<%# Eval("Author") %>' />
@@ -30,20 +25,6 @@
                         <br />
                         商城价：<asp:Label ID="HotPriceLabel" runat="server" Text='<%# Eval("HotPrice") %>' Font-Bold="True" Font-Size="Large" ForeColor="Red" />
                         <br />
-                        <!--
-                        Isrefinement:
-                        <asp:Label ID="IsrefinementLabel" runat="server" Text='<%# Eval("Isrefinement") %>' />
-                        <br />
-                        IsHot:
-                        <asp:Label ID="IsHotLabel" runat="server" Text='<%# Eval("IsHot") %>' />
-                        <br />
-                        IsDiscount:
-                        <asp:Label ID="IsDiscountLabel" runat="server" Text='<%# Eval("IsDiscount") %>' />
-                        <br />
-                        LoadDate:
-                        <asp:Label ID="LoadDateLabel" runat="server" Text='<%# Eval("LoadDate") %>' />
-                        <br />
-                        -->
                         <br />
                         <br />
                         <br />
