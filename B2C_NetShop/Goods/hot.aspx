@@ -3,7 +3,7 @@
     <p>
         &nbsp;</p>
     <p>
-        热卖商品</p>
+        热卖图书</p>
         <div id="content_main" style="display: block">
         <div id="list_detail" style="width: 100%; text-align: center; margin-left: 10px; margin-right: 10px; margin-top: 20px; padding-top: 10px; padding-right: 10px; padding-left: 10px;">
             <div style="text-align: left; font-family: Tahoma; font-size: 20px;">小说类：</div>

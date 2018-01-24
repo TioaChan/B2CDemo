@@ -47,7 +47,7 @@
                 <asp:Button ID="Button1" runat="server" Text="用户管理" CssClass="btn-link" OnClick="Button1_Click" />
             </div>
             <div  style="margin: 10px">
-                <asp:Button ID="Button_Goods" runat="server" Text="商品管理" CssClass="btn-link" OnClick="Button_Goods_Click" />
+                <asp:Button ID="Button_Goods" runat="server" Text="图书管理" CssClass="btn-link" OnClick="Button_Goods_Click" />
             </div>
             <div  style="margin: 10px">
                 <asp:Button ID="Button_Exit" runat="server" Text="退出" CssClass="btn-link" />
@@ -172,7 +172,7 @@
                 <asp:View ID="View_Goods" runat="server">
                     <br />
                     <div style="width:100%; margin-left: 30px; margin-right: 20px;">
-                        <div style="text-align:right"><a href="AddGoods.aspx">新增商品信息点此</a></div>
+                        <div style="text-align:right"><a href="AddGoods.aspx">新增图书信息点此</a></div>
                         <br />
                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" 
                             DeleteCommand="DELETE FROM [Goods_Info] WHERE [BookID] = @BookID" 

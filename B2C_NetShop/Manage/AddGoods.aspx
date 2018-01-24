@@ -3,7 +3,7 @@
     <div id="main_content" style="height:1000px;width:90%;display:block; margin-top: 50px;">
         <div id="title_welcome" style="padding: 10px; display:block; font-family: 微软雅黑; font-size: 16px;">Welcome,<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
         </div>
-        <div id="nvg" style="padding: 10px; display:block; font-family: Tahoma; font-size: 12px;"> 您当前的位置：<a href="../Default.aspx">首页</a> > <a href="main.aspx">系统管理</a> > 商品管理 > 添加商品</div>
+        <div id="nvg" style="padding: 10px; display:block; font-family: Tahoma; font-size: 12px;"> 您当前的位置：<a href="../Default.aspx">首页</a> > <a href="main.aspx">系统管理</a> > 图书管理 > 添加图书</div>
          <div id="add_main" style="border: 1px solid #f0f0f0; height: auto; display: block; padding: 10px 10px 30px 10px; margin: 10px 10px 10px 10px;">
              <div id="pic_frame" style="width:31%;height:500px;display:block;float:left">
                  <div id="pic" style="width:400px;height:400px; margin-left: 5px; margin-right: 5px; padding-top: 50px; padding-bottom: 50px;">
@@ -14,12 +14,12 @@
 
                  <table style="width: 100%;">
                      <tr>
-                         <td style="width: 20%; height: 30px; text-align: right">商品名称：</td>
+                         <td style="width: 20%; height: 30px; text-align: right">名称：</td>
                          <td style="width: 60%; height: 30px">
                              <asp:TextBox ID="TextBox_Name" runat="server" Width="100%"></asp:TextBox>
                          </td>
                          <td style="width: 20%; height: 30px">
-                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_Name" ErrorMessage="*商品名称不允许未空" ForeColor="Red"></asp:RequiredFieldValidator>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_Name" ErrorMessage="*名称不允许未空" ForeColor="Red"></asp:RequiredFieldValidator>
                          </td>
                      </tr>
                      <tr>

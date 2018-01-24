@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="refinement.aspx.cs" Inherits="B2C_NetShop.Goods.refinement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <p>
-        精选商品
+        精选图书
     </p>
     <div id="content_main" style="display: block">
         <div id="list_detail" style="width: 100%; text-align: center; margin-left: 10px; margin-right: 10px; margin-top: 20px; padding-top: 10px; padding-right: 10px; padding-left: 10px;">

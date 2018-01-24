@@ -49,7 +49,7 @@
             <div id="div_left">
                 <div>
                     <div style="width: 170px; padding-left: 5px; padding-right: 5px; margin-top: 20px;text-align:center">
-                        <p style="text-align:left;height:35px; font-family: Tahoma; font-size: 15px;">选择商品分类：</p>
+                        <p style="text-align:left;height:35px; font-family: Tahoma; font-size: 15px;">图书分类：</p>
                         <asp:DataList ID="DataList1" runat="server" DataKeyField="ClassID" DataSourceID="SqlDataSource1" Width="160px">
                             <ItemTemplate>
                                 &nbsp;&nbsp;&nbsp;<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("ClassID","~/Goods/list.aspx?id={0}") %>' Text='<%# Eval("ClassName") %>'></asp:HyperLink>
@@ -88,7 +88,7 @@
             <div class="col-md-4">
                 <h2>商城精选</h2>
                 <p>
-                    精选商品，值得一看
+                    精选图书，值得一看
                 </p>
                 <br />
                 <br />
@@ -99,7 +99,7 @@
             <div class="col-md-4">
                 <h2>商城热卖</h2>
                 <p>
-                    人气商品，每天更新
+                    人气图书，每天更新
                 </p>
                 <br />
                 <br />
@@ -110,7 +110,7 @@
             <div class="col-md-4">
                 <h2>商城折扣</h2>
                 <p>
-                    折扣商品，低至一折
+                    折扣图书，低至一折
                 </p>
                 <br />
                 <br />

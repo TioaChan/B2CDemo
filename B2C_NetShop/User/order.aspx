@@ -7,8 +7,8 @@
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="100%">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="order_bookid" HeaderText="商品编号" SortExpression="order_bookid" />
-                    <asp:BoundField DataField="BookName" HeaderText="商品名称" SortExpression="BookName" />
+                    <asp:BoundField DataField="order_bookid" HeaderText="图书编号" SortExpression="order_bookid" />
+                    <asp:BoundField DataField="BookName" HeaderText="名称" SortExpression="BookName" />
                     <asp:BoundField DataField="order_booknum" HeaderText="数量" SortExpression="order_booknum" />
                 </Columns>
                 <EditRowStyle BackColor="#2461BF" />
