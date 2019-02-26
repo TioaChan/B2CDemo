@@ -116,7 +116,7 @@ namespace B2C_NetShop.Goods
             {
                 TextBox otb = (TextBox)gvr.FindControl("txtNum");
                 int count = Int32.Parse(otb.Text);
-                string BookID = "id="+gvr.Cells[1].Text;
+                string BookID = gvr.Cells[1].Text;
                 hashCart[BookID] = count;
             }
             Session["ShopCart"] = hashCart;
