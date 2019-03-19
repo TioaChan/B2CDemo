@@ -42,6 +42,7 @@
             margin-bottom: 10px;
             width: 300px;
             height: 40px;
+            padding-left:10px;
         }
     </style>
 

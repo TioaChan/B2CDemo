@@ -131,6 +131,7 @@
     <Content Include="Account\Error.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\logout.aspx" />
+    <Content Include="Account\norem.png" />
     <Content Include="Account\QQ图片20170706150624.png" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Contact.aspx" />
