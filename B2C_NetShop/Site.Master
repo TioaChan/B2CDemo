@@ -14,12 +14,6 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-       <style>
-       body{
-           font-family:宋体;
-           font-size:12px;
-       }
-   </style>
 </head>
 <body>
     <form runat="server">
