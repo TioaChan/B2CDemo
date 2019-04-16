@@ -21,7 +21,7 @@ namespace B2C_NetShop.App_Start
             return i;
         }
 
-        public DataSet GetTablebySqlParameter(string sql, params SqlParameter[] parameters)//返回dataset
+        public DataSet GetTable(string sql, params SqlParameter[] parameters)//返回dataset
         {
             /**
             SqlCommand cmd = new SqlCommand(sql, conn);

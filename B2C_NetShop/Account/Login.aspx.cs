@@ -46,7 +46,7 @@ namespace B2C_NetShop.Account
                 SqlParameter[] parameters1 = {
                 new SqlParameter("@uid",uid)
                 };
-                DataSet ds = operate.GetTablebySqlParameter(userpower, parameters1);
+                DataSet ds = operate.GetTable(userpower, parameters1);
                 ds.Dispose();
                 String nickname = ds.Tables[0].Rows[0][0].ToString();
                 String power = ds.Tables[0].Rows[0][1].ToString();

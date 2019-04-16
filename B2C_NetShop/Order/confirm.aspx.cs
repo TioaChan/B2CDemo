@@ -36,7 +36,7 @@ namespace B2C_NetShop.Order
             SqlParameter[] parameters1 ={
                 new SqlParameter("@order_id",order_id)
             };
-            DataSet ds1 = operate.GetTablebySqlParameter(sql1,parameters1);
+            DataSet ds1 = operate.GetTable(sql1,parameters1);
 
 
             float price = float.Parse(ds1.Tables[0].Rows[0][0].ToString());
@@ -48,7 +48,7 @@ namespace B2C_NetShop.Order
             SqlParameter[] parameters2 ={
                 new SqlParameter("@uid",uid)
             };
-            DataSet ds2 = operate.GetTablebySqlParameter(sql2,parameters2);
+            DataSet ds2 = operate.GetTable(sql2,parameters2);
 
 
 

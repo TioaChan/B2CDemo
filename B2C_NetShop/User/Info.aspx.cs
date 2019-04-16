@@ -74,7 +74,7 @@ namespace B2C_NetShop.User
                 new SqlParameter("@uid",Session["uid"].ToString())
                  };
             //DataSet ds = operate.GetTable(sql);
-            DataSet ds = operate.GetTablebySqlParameter(sql, parameters);
+            DataSet ds = operate.GetTable(sql, parameters);
             ds.Dispose();
             String nickname = ds.Tables[0].Rows[0][0].ToString();
             String money = ds.Tables[0].Rows[0][1].ToString();
@@ -100,7 +100,7 @@ namespace B2C_NetShop.User
             SqlParameter[] parameters = {
                 new SqlParameter("@uid",Session["uid"].ToString())
                  };
-            DataSet ds = operate.GetTablebySqlParameter(sql,parameters);
+            DataSet ds = operate.GetTable(sql,parameters);
             ds.Dispose();
             String realname = ds.Tables[0].Rows[0][0].ToString();
             String postcode = ds.Tables[0].Rows[0][1].ToString();
@@ -148,7 +148,7 @@ namespace B2C_NetShop.User
             SqlParameter[] parameters1 = {
                 new SqlParameter("@uid",Session["uid"].ToString())
                  };
-            DataSet ds = operate.GetTablebySqlParameter(pwd,parameters1);
+            DataSet ds = operate.GetTable(pwd,parameters1);
             ds.Dispose();
             String pwd1 = ds.Tables[0].Rows[0][2].ToString();
             String pwd2 = TextBox3.Text.Trim();
