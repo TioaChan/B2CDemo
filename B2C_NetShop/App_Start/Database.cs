@@ -29,11 +29,40 @@ namespace B2C_NetShop.App_Start
             ds.Dispose();
             return ds;
         }
+        public DataSet GetTablebySqlParameter(string sql, params SqlParameter[] parameters)//返回dataset
+        {
+            /**
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            foreach (SqlParameter s in parameters)
+            {
+                cmd.Parameters.Add(s);
+            }
+            SqlDataAdapter sda = new SqlDataAdapter();
+            sda.SelectCommand = cmd;
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            ds.Dispose();
+            return ds;
+            **/
+            SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+            foreach (SqlParameter s in parameters)
+            {
+                sda.SelectCommand.Parameters.Add(s);
+            }
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            ds.Dispose();
+            return ds;
+        }
 
-        public int ExecuteScalar(String sql)
+        public int ExecuteScalar(String sql, params SqlParameter[] parameters)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);
+            foreach (SqlParameter s in parameters)
+            {
+                cmd.Parameters.Add(s);
+            }
             int i = (int)cmd.ExecuteScalar();
             conn.Close();
             return i;
