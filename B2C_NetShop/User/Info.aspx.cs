@@ -68,8 +68,13 @@ namespace B2C_NetShop.User
 
         public void BindUserInfo()
         {
-            String sql = "select NickName,Money,UserType from User_Info where UID='" + Session["uid"].ToString() + "'";
-            DataSet ds = operate.GetTable(sql);
+            //String sql = "select NickName,Money,UserType from User_Info where UID='" + Session["uid"].ToString() + "'";
+            String sql = "select NickName,Money,UserType from User_Info where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            //DataSet ds = operate.GetTable(sql);
+            DataSet ds = operate.GetTablebySqlParameter(sql, parameters);
             ds.Dispose();
             String nickname = ds.Tables[0].Rows[0][0].ToString();
             String money = ds.Tables[0].Rows[0][1].ToString();
@@ -91,8 +96,11 @@ namespace B2C_NetShop.User
 
         public void BindUserAddress()
         {
-            String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID='" + Session["uid"].ToString() + "'";
-            DataSet ds = operate.GetTable(sql);
+            String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            DataSet ds = operate.GetTablebySqlParameter(sql,parameters);
             ds.Dispose();
             String realname = ds.Tables[0].Rows[0][0].ToString();
             String postcode = ds.Tables[0].Rows[0][1].ToString();
@@ -136,10 +144,13 @@ namespace B2C_NetShop.User
 
         protected void Button_SetNewPWD_Click(object sender, EventArgs e)
         {
-            String pwd = "select * from User_Account where UID='" + Session["UID"].ToString() + "'";
-            DataSet ds = operate.GetTable(pwd);
+            String pwd = "select * from User_Account where UID=@uid";
+            SqlParameter[] parameters1 = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            DataSet ds = operate.GetTablebySqlParameter(pwd,parameters1);
             ds.Dispose();
-            String pwd1 = ds.Tables[0].Rows[0][1].ToString();
+            String pwd1 = ds.Tables[0].Rows[0][2].ToString();
             String pwd2 = TextBox3.Text.Trim();
             if (pwd1 == pwd2)
             {
@@ -148,7 +159,7 @@ namespace B2C_NetShop.User
                 if (n == 1)
                 {
                     Session["uid"] = "";
-                    Response.Write("<script type='text/javascript'>alert('修改成功，请使用新密码重新登录！');location='login.aspx';</script>");
+                    Response.Write("<script type='text/javascript'>alert('修改成功，请使用新密码重新登录！');location='../Account/Login.aspx';</script>");
                 }
                 else
                 {

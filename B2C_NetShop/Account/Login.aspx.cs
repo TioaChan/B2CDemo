@@ -42,8 +42,6 @@ namespace B2C_NetShop.Account
             int n = (int)operate.ExecuteScalar(sql,parameters);
             if (n == 1)
             {
-                //String userpower = "select NickName,UserType from User_Info where UID='" + uid + "'";
-                //DataSet ds = operate.GetTable(userpower);
                 String userpower = "select NickName,UserType from User_Info where UID=@uid";
                 SqlParameter[] parameters1 = {
                 new SqlParameter("@uid",uid)

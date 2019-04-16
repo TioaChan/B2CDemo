@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,12 +30,28 @@ namespace B2C_NetShop.Order
             load.HyperLinkBind(hl1, hl2, hl3, uid, status);
             String order_id = Request.QueryString["orderid"];
             Label1.Text = order_id;
-            String sql1 = "select order_price from Cart_Info where order_id='" + order_id+"'";
-            DataSet ds1 = operate.GetTable(sql1);
+
+            //String sql1 = "select order_price from Cart_Info where order_id='" + order_id+"'";
+            String sql1 = "select order_price from Cart_Info where order_id=@order_id";
+            SqlParameter[] parameters1 ={
+                new SqlParameter("@order_id",order_id)
+            };
+            DataSet ds1 = operate.GetTablebySqlParameter(sql1,parameters1);
+
+
             float price = float.Parse(ds1.Tables[0].Rows[0][0].ToString());
             Label2.Text = price + " CNY";
-            String sql2 = "select Money from User_Info where UID='" + uid+"'";
-            DataSet ds2 = operate.GetTable(sql2);
+
+
+            //String sql2 = "select Money from User_Info where UID='" + uid + "'";
+            String sql2 = "select Money from User_Info where UID=@uid";
+            SqlParameter[] parameters2 ={
+                new SqlParameter("@uid",uid)
+            };
+            DataSet ds2 = operate.GetTablebySqlParameter(sql2,parameters2);
+
+
+
             float money = float.Parse(ds2.Tables[0].Rows[0][0].ToString());
             Label3.Text = money + " CNY";
             if (price > money)  //余额不足
@@ -52,7 +69,7 @@ namespace B2C_NetShop.Order
         {
             String uid = Session["UID"].ToString();
             String orderid = Request.QueryString["orderid"];
-            float price =float.Parse(Session["price"].ToString());
+            float price = float.Parse(Session["price"].ToString());
             float money = float.Parse(Session["money"].ToString());
             float newmoney = money - price;
             String update1 = "update User_Info set Money=" + newmoney + " where UID='" + uid + "'";
