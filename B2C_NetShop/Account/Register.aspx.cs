@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Configuration;
 using B2C_NetShop.App_Start;
 
 namespace B2C_NetShop.Account
@@ -31,17 +26,34 @@ namespace B2C_NetShop.Account
             }
             else
             {
-                String sql = "select count(*) from User_Account where UID='" + TextBox_uid.Text.Trim() + "'";
-                int n = operate.OperateData(sql);
-                if (n == -1)
+                //String sql = "select count(*) from User_Account where UID='" + TextBox_uid.Text.Trim() + "'";
+                String sql = "select count(*) from User_Account where UID=@uid";
+                SqlParameter[] parameter ={
+                    new SqlParameter("@uid", TextBox_uid.Text.Trim())
+                };
+                //int n = operate.OperateDataBySqlParameter(sql,parameter);
+                int n = operate.ExecuteScalar(sql, parameter);
+                if (n == 0)
                 {
-                    String regist1 = "insert into User_Account (UID,Password) values('" + TextBox_uid.Text.Trim() + "','" + TextBox_pwd.Text.Trim() + "')";
-                    String regist2 = "insert into User_Info(UID,NickName,UserType) values('" + TextBox_uid.Text.Trim() + "','" + TextBox_uid.Text.Trim() + "',1)";
-                    String regist3 = "insert into User_Address(UID) values('" + TextBox_uid.Text.Trim() + "')";
-                    int n1 = operate.OperateData(regist1);
-                    int n2 = operate.OperateData(regist2);
-                    int n3 = operate.OperateData(regist3);
-                    if (n1 == 1 && n2 == 1)
+                    String regist1 = "insert into User_Account (UID,Password) values(@uid,@pwd)";
+                    SqlParameter[] parameter1 ={
+                        new SqlParameter("@uid", TextBox_uid.Text.Trim()),
+                        new SqlParameter("@pwd", TextBox_pwd.Text.Trim())
+                    };
+                    String regist2 = "insert into User_Info(UID,NickName,UserType) values(@uid,@nickname,@usertype)";
+                    SqlParameter[] parameter2 ={
+                        new SqlParameter("@uid", TextBox_uid.Text.Trim()),
+                        new SqlParameter("@nickname", TextBox_uid.Text.Trim()),
+                        new SqlParameter("@usertype", 1)
+                    };
+                    String regist3 = "insert into User_Address(UID) values(@uid)";
+                    SqlParameter[] parameter3 ={
+                        new SqlParameter("@uid", TextBox_uid.Text.Trim()),
+                    };
+                    int n1 = operate.OperateDataBySqlParameter(regist1,parameter1);
+                    int n2 = operate.OperateDataBySqlParameter(regist2,parameter2);
+                    int n3 = operate.OperateDataBySqlParameter(regist3,parameter3);
+                    if (n1 == 1 && n2 == 1 && n3 == 1)
                     {
                         Response.Write("<script type='text/javascript'>alert('恭喜您，注册成功！');location='login.aspx';</script>");
                     }
@@ -51,9 +63,13 @@ namespace B2C_NetShop.Account
                     }
 
                 }
-                else
+                else if (n == 1)
                 {
                     Response.Write("<script type='text/javascript'>alert('用户名重复！');</script>");
+                }
+                else
+                {
+                    Response.Write("<script type='text/javascript'>alert('系统异常，请尝试重新注册');location='../Default.aspx';</script>");
                 }
             }
         }

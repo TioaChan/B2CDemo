@@ -21,6 +21,19 @@ namespace B2C_NetShop.App_Start
             return i;
         }
 
+        public int OperateDataBySqlParameter(string sql,params SqlParameter[] parameters)
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            foreach (SqlParameter s in parameters)
+            {
+                cmd.Parameters.Add(s);
+            }
+            int i = cmd.ExecuteNonQuery();
+            conn.Close();
+            return i;
+        }
+
         public DataSet GetTable(string sql, params SqlParameter[] parameters)//返回dataset
         {
             /**
