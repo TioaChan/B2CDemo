@@ -72,10 +72,18 @@ namespace B2C_NetShop.Order
             float price = float.Parse(Session["price"].ToString());
             float money = float.Parse(Session["money"].ToString());
             float newmoney = money - price;
-            String update1 = "update User_Info set Money=" + newmoney + " where UID='" + uid + "'";
-            int x = operate.OperateData(update1);
-            String update2 = "update Cart_Info set isPay=1 where order_id='" + orderid + "'";
-            int y = operate.OperateData(update2);
+            String update1 = "update User_Info set Money=@newmoney where UID=@uid";
+            SqlParameter[] parameters1 = {
+                new SqlParameter("@newmoney",newmoney),
+                new SqlParameter("@uid",uid)
+            };
+            int x = operate.OperateDataBySqlParameter(update1,parameters1);
+            String update2 = "update Cart_Info set isPay=@isPay where order_id=@orderid";
+            SqlParameter[] parameters2 = {
+                new SqlParameter("@isPay",'1'),
+                new SqlParameter("@orderid",orderid)
+            };
+            int y = operate.OperateDataBySqlParameter(update2,parameters2);
             if (x == 1 || y == 1)
             {
                 Hashtable hashCart = new Hashtable();
