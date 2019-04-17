@@ -115,8 +115,9 @@ namespace B2C_NetShop.User
         protected void Button_SetNewNickName_Click(object sender, EventArgs e)
         {
             String newnickname = TextBox_NewNickName.Text.Trim();
-            String sql = "update User_Info set NickName='" + newnickname + "' where UID='" + Session["UID"].ToString() + "'";
-            int i = operate.OperateData(sql);
+            String sql = "update User_Info set NickName=@newnickname where UID=@uid";
+            SqlParameter[] parameters1 = {new SqlParameter("@newnickname",newnickname),new SqlParameter("@uid", Session["UID"].ToString() )};
+            int i = operate.OperateDataBySqlParameter(sql,parameters1);
             if (i == 1)
             {
                 Session["nickname"] = newnickname;
@@ -130,8 +131,15 @@ namespace B2C_NetShop.User
 
         protected void Button_SetNewAddress_Click(object sender, EventArgs e)
         {
-            String sql = "update User_Address set RealName='" + TextBox_RealName.Text.Trim() + "',PostCode='" + TextBox_PostCode.Text.Trim() + "',Address='" + TextBox_Address.Text.Trim() + "',PhoneNumber='" + TextBox_PhoneNum.Text.Trim() + "' where UID='" + Session["UID"].ToString() + "'";
-            int n = operate.OperateData(sql);
+            String sql = "update User_Address set RealName=@RealName,PostCode=@PostCode,Address=@Address,PhoneNumber=@PhoneNumber where UID=@uid";
+            SqlParameter[] parameters2 = {
+                new SqlParameter("@RealName", TextBox_RealName.Text.Trim()),
+                new SqlParameter("@PostCode", TextBox_PostCode.Text.Trim()),
+                new SqlParameter("@Address",TextBox_Address.Text.Trim()),
+                new SqlParameter("@PhoneNumber",TextBox_PhoneNum.Text.Trim()),
+                new SqlParameter("@uid", Session["UID"].ToString())
+            };
+            int n = operate.OperateDataBySqlParameter(sql,parameters2);
             if (n == 1)
             {
                 Response.Write("<script type='text/javascript'>alert('修改成功！');location='Info.aspx';</script>");
@@ -154,8 +162,12 @@ namespace B2C_NetShop.User
             String pwd2 = TextBox3.Text.Trim();
             if (pwd1 == pwd2)
             {
-                String sql = "update User_Account set Password='" + TextBox1.Text.Trim() + "' where UID='" + Session["UID"].ToString() + "'";
-                int n = operate.OperateData(sql);
+                String sql = "update User_Account set Password=@pwd where UID=@uid";
+                SqlParameter[] parameters3 = {
+                    new SqlParameter("@pwd",TextBox1.Text.Trim()),
+                    new SqlParameter("@uid",Session["UID"].ToString())
+                };
+                int n = operate.OperateDataBySqlParameter(sql,parameters3);
                 if (n == 1)
                 {
                     Session["uid"] = "";

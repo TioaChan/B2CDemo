@@ -26,12 +26,10 @@ namespace B2C_NetShop.Account
             }
             else
             {
-                //String sql = "select count(*) from User_Account where UID='" + TextBox_uid.Text.Trim() + "'";
                 String sql = "select count(*) from User_Account where UID=@uid";
                 SqlParameter[] parameter ={
                     new SqlParameter("@uid", TextBox_uid.Text.Trim())
                 };
-                //int n = operate.OperateDataBySqlParameter(sql,parameter);
                 int n = operate.ExecuteScalar(sql, parameter);
                 if (n == 0)
                 {
@@ -44,7 +42,7 @@ namespace B2C_NetShop.Account
                     SqlParameter[] parameter2 ={
                         new SqlParameter("@uid", TextBox_uid.Text.Trim()),
                         new SqlParameter("@nickname", TextBox_uid.Text.Trim()),
-                        new SqlParameter("@usertype", 1)
+                        new SqlParameter("@usertype", '1')
                     };
                     String regist3 = "insert into User_Address(UID) values(@uid)";
                     SqlParameter[] parameter3 ={
