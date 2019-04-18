@@ -132,8 +132,8 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\logout.aspx" />
     <Content Include="Account\norem.png" />
-    <Content Include="Account\QQ图片20170706150624.png" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Account\UserImg\DefaultUserImg.png" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
