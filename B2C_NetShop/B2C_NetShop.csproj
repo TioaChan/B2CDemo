@@ -137,8 +137,8 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\keleyiimagebox.css" />
-    <Content Include="Content\keleyiimagebox.js" />
+    <Content Include="Content\Default\keleyiimagebox.css" />
+    <Content Include="Content\Default\keleyiimagebox.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -162,10 +162,10 @@
     <Content Include="Goods\list.aspx" />
     <Content Include="Goods\refinement.aspx" />
     <Content Include="Goods\search.aspx" />
-    <Content Include="img\1.png" />
-    <Content Include="img\2.png" />
-    <Content Include="img\3.png" />
     <Content Include="img\addtocart.png" />
+    <Content Include="img\DefaultImg\1.png" />
+    <Content Include="img\DefaultImg\2.png" />
+    <Content Include="img\DefaultImg\3.png" />
     <Content Include="img\fukuan.png" />
     <Content Include="img\jiesuan.png" />
     <Content Include="img\mycart.png" />
