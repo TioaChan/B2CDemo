@@ -4,79 +4,231 @@
 
 <html lang="zh">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - 我的 ASP.NET 应用程序</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title><%: Page.Title %> - 我的 ASP.NET 应用程序</title>
 
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<asp:PlaceHolder runat="server">
+		<%: Scripts.Render("~/bundles/modernizr") %>
+	</asp:PlaceHolder>
+	<webopt:BundleReference runat="server" Path="~/Content/css" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<style>
+		#Master_Main { /*主容器*/
+			width: 1180px;
+			margin: 0 auto;
+		}
+
+		#Master_header { /*头部容器*/
+			height: 100px;
+			/*border:1px red solid;*/
+			margin: 10px 0;
+			padding: 0 100px;
+		}
+
+		#Master_header_left { /*logo容器*/
+			float: left;
+			margin-right: 50px;
+		}
+
+		#Master_header_right { /*搜索栏（内含：搜索框、搜索按钮、热搜词）&购物车 容器*/
+			float: left;
+		}
+
+		#search_bar { /*搜索栏（内含：搜索框、搜索按钮、热搜词）容器*/
+			/*border:1px black solid;*/
+			float: left;
+			margin-right: 10px;
+			margin-top: 20px;
+		}
+
+		.search_bar_input { /*搜索框*/
+			float: left;
+			width: 500px;
+			max-width: none;
+			height: 40px;
+			margin-right: 10px;
+			border: 1px red solid;
+			padding-left:1em;
+		}
+
+		.search_bar_btn { /*搜索按钮*/
+			float: left;
+			width: 100px;
+			height: 40px;
+			background-color: red;
+			color: white;
+			border: none;
+		}
+
+		#hot_keywords { /*热搜词*/
+			color: grey;
+			height: 30px;
+			padding-top: 5px;
+			padding-left: 10px;
+		}
+
+		#cart { /*购物车*/
+			margin-left:25px;
+			margin-top: 25px;
+			float: left;
+		}
+
+		#Left_GoodsList { /*主容器左半部，用于显示图书类别*/ /*放置图书分类的容器*/
+			float: left;
+			height: 480px;
+			width: 190px;
+			margin: 3px auto;
+			border: 1px #eaeaea solid;
+			text-align: center;
+			font-size: 16px;
+		}
+
+		#type-container-titler { /*图书分类标题*/
+			height:35px;
+			margin: 5px auto;
+			font-size: 20px;
+			border-bottom: 1px #eaeaea double;
+		}
+
+		#type-container > table { /*放置图书分类详细类别的容器*/
+			margin: 10px 0;
+			text-align: left;
+			/*border: 1px black solid;*/
+		}
+
+		.type-css { /*图书分类详细的a标签*/
+			color: black;
+			display: block;
+			margin: 2px 10px;
+			padding: 5px 15px;
+			border-bottom: 1px black dotted;
+		}
+
+			.type-css:link { /*a标签 未访问的链接 */
+				color: #000000;
+				text-decoration: none;
+			}
+
+			.type-css:visited { /*a标签 已访问的链接 */
+				color: #000000;
+			}
+
+			.type-css:hover { /*a标签 鼠标移动到链接上 */
+				color: #bd0a01;
+			}
+
+			.type-css:active { /*a标签 选定的链接 */
+				color: #000000;
+			}
+
+		#type-container > table > td {
+			height: 40px;
+		}
+
+		#Right_PlaceHolder {
+			float: left;
+			width: 980px;
+			margin: 2px auto;
+		}
+
+		.clear {
+			clear: both;
+		}
+	</style>
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--若要了解有关在 ScriptManager 中绑定脚本的详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--框架脚本--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="respond" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--站点脚本--%>
-            </Scripts>
-        </asp:ScriptManager>
+	<form runat="server">
+		<asp:ScriptManager runat="server">
+			<Scripts>
+				<%--若要了解有关在 ScriptManager 中绑定脚本的详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+				<%--框架脚本--%>
+				<asp:ScriptReference Name="MsAjaxBundle" />
+				<asp:ScriptReference Name="jquery" />
+				<asp:ScriptReference Name="bootstrap" />
+				<asp:ScriptReference Name="respond" />
+				<asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+				<asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+				<asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+				<asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+				<asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+				<asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+				<asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+				<asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+				<asp:ScriptReference Name="WebFormsBundle" />
+				<%--站点脚本--%>
+			</Scripts>
+		</asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">主页</a></li>
-                        <li><a runat="server" href="~/Contact">联系方式</a></li>
-                        <li><a runat="server" href="~/About">关于</a></li>
-                        <li><asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="searchbar" style="width: 100%; height: 50px; padding-top: 10px; margin-top: 10px; margin-bottom: 5px; padding-bottom: 5px;">
-            <div id="bar6" style="width: 55%; display: block; float: left; text-align: right">
-                <asp:TextBox ID="TextBox1" runat="server" Height="25px" Width="300px"></asp:TextBox>
-                <asp:Button ID="Button1" runat="server" Text="搜索" CssClass="btn-link" Height="30px" OnClick="Button1_Click" />
-            </div>
-            <div id="cart" style="display: block; text-align:center;float:left;width:20%;height:30px">
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="25px" ImageUrl="~/img/mycart.png" PostBackUrl="~/Goods/cart.aspx" Width="134px" />
-            </div>
-            <div id="white" style="width:20%;float:left;display:block"></div>
-            <div style="clear: both"></div>
-        </div>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
-            </footer>
-        </div>
-
-    </form>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a runat="server" href="~/">主页</a></li>
+						<li><a runat="server" href="~/Contact">联系方式</a></li>
+						<li><a runat="server" href="~/About">关于</a></li>
+						<li>
+							<asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
+						<li>
+							<asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
+						<li>
+							<asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="Master_Main">
+			<div id="Master_header">
+				<div id="Master_header_left">
+					<a href="../Default.aspx" style="display: block">
+						<img src="/img/B2CDemo_Logo.png" style="width: 100px; height: 100px" /></a>
+				</div>
+				<div id="Master_header_right">
+					<div>
+						<div id="search_bar">
+							<asp:TextBox ID="TextBox1" CssClass="search_bar_input" runat="server"></asp:TextBox>
+							<asp:Button ID="Button1" runat="server" Text="搜索" CssClass="search_bar_btn" OnClick="Button1_Click" />
+							<div id="hot_keywords" class="clear">热搜</div>
+						</div>
+						<div id="cart">
+							<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/mycart.png" PostBackUrl="~/Goods/cart.aspx" />
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="Master_content">
+				<div id="Left_GoodsList">
+					<div id="type-container-titler">图书分类</div>
+					<asp:DataList ID="DataList1" runat="server" DataKeyField="ClassID" DataSourceID="SqlDataSource1" Width="186px">
+						<ItemTemplate>
+							<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("ClassID","~/Goods/list.aspx?id={0}") %>' Text='<%# Eval("ClassName") %>' CssClass="type-css"></asp:HyperLink>
+						</ItemTemplate>
+					</asp:DataList>
+					<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="select top 10 * from Goods_Class"></asp:SqlDataSource>
+				</div>
+				<div id="Right_PlaceHolder">
+					<asp:ContentPlaceHolder ID="HalfPageContentPlaceHolder" runat="server">
+					</asp:ContentPlaceHolder>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="fullPagePlaceHolder">
+				<asp:ContentPlaceHolder ID="MainContent" runat="server">
+				</asp:ContentPlaceHolder>
+			</div>
+			<div id="Master_foot" class="container body-content" style="text-align: left;">
+				<footer>
+					<hr />
+					<p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
+				</footer>
+			</div>
+		</div>
+	</form>
 </body>
 </html>

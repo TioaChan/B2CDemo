@@ -163,6 +163,7 @@
     <Content Include="Goods\refinement.aspx" />
     <Content Include="Goods\search.aspx" />
     <Content Include="img\addtocart.png" />
+    <Content Include="img\B2CDemo_Logo.png" />
     <Content Include="img\DefaultImg\1.png" />
     <Content Include="img\DefaultImg\2.png" />
     <Content Include="img\DefaultImg\3.png" />
@@ -362,13 +363,6 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
     <Compile Include="User\Info.aspx.cs">
       <DependentUpon>Info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,7 +398,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
