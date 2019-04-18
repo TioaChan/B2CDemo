@@ -34,12 +34,19 @@ namespace B2C_NetShop.Account
             {
                 Response.Write("<script type='text/javascript'>alert('用户名或密码为空！');</script>");
             }
-            String sql = "select count(*) from User_Account where UID='" + uid + "' and Password='" + TextBox_pwd.Text + "'";
-            int n = (int)operate.ExecuteScalar(sql);
+            String sql = "select count(*) from User_Account where UID=@uid and Password=@pwd";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",uid),
+                new SqlParameter("@pwd",pwd)
+            };
+            int n = (int)operate.ExecuteScalar(sql,parameters);
             if (n == 1)
             {
-                String userpower = "select NickName,UserType from User_Info where UID='" + uid + "'";
-                DataSet ds = operate.GetTable(userpower);
+                String userpower = "select NickName,UserType from User_Info where UID=@uid";
+                SqlParameter[] parameters1 = {
+                new SqlParameter("@uid",uid)
+                };
+                DataSet ds = operate.GetTable(userpower, parameters1);
                 ds.Dispose();
                 String nickname = ds.Tables[0].Rows[0][0].ToString();
                 String power = ds.Tables[0].Rows[0][1].ToString();

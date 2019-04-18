@@ -12,6 +12,7 @@ namespace B2C_NetShop.Goods
     public partial class cart : System.Web.UI.Page
     {
         pageload load = new pageload();
+        Database operate = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
             HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
@@ -72,16 +73,17 @@ namespace B2C_NetShop.Goods
                     foreach (DataRow drRow in dtTable.Rows)
                     {//遍历，获取图书名称，单价
                      //新建sql查询
-                        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
+                        //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
                         String BookID = drRow["BookID"].ToString();
-                        String sql = "select BookName,HotPrice from Goods_Info where BookID="+BookID;
-                        try
-                        {
-                            conn.Open();
-                            SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
-                            DataSet ds = new DataSet();
-                            sda.Fill(ds);
-                            ds.Dispose();
+                        String sql = "select BookName,HotPrice from Goods_Info where BookID=@bookid";
+                        SqlParameter[] parameters = {
+                            new SqlParameter("@bookid",BookID)
+                        };
+                        //try
+                        //{
+                        //  conn.Open();
+                        //    SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                            DataSet ds = operate.GetTable(sql, parameters);
                             //填充
                             drRow["No"] = i;
                             drRow["BookName"] = ds.Tables[0].Rows[0][0].ToString(); //读取名称
@@ -91,15 +93,15 @@ namespace B2C_NetShop.Goods
                             drRow["totalPrice"] = price * count;
                             totalPrice += price * count;
                             i++;
-                        }
-                        catch (Exception ex)
-                        {
-                            Response.Write(ex.Message);
-                        }
-                        finally
-                        {
-                            conn.Close();
-                        }
+                        //}
+                        //catch (Exception ex)
+                        //{
+                        //    Response.Write(ex.Message);
+                        //}
+                        //finally
+                        //{
+                        //    conn.Close();
+                        //}
                         labTotalPrice.Text = "￥" + totalPrice.ToString();
                         gvShopCart.DataSource = dtTable.DefaultView;
                         gvShopCart.DataKeyNames = new string[] { "BookID" };

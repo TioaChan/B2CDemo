@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using B2C_NetShop.App_Start;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace B2C_NetShop.Manage
 {
@@ -60,9 +62,22 @@ namespace B2C_NetShop.Manage
                     String MarketPrice = TextBox_MarketPrice.Text.ToString();
                     String time = DateTime.Now.ToString();
                     String sql = "insert into Goods_Info (ClassID,BookName,BookIntroduce,Author,Company,MarketPrice,HotPrice,Isrefinement,IsHot,IsDiscount,LoadDate,picUrl) " +
-                        "values(" + classid + ",'" + BookName + "','" + BookIntroduce + "','" + Author + "','" + Company + "','" + MarketPrice + "',"+MarketPrice+",0,0,0,'" + time + "','"
-                        + Imagepath + "')";
-                    int i = operate.OperateData(sql);
+                        "values(@classid,@BookName,@BookIntroduce,@Author,@Company,@MarketPrice,@HotPrice,@Isrefinement,@IsHot,@IsDiscount,@LoadDate,@Imagepath)";
+                    SqlParameter[] parameters1 = {
+                        new SqlParameter("@classid",classid),
+                        new SqlParameter("@BookName",BookName),
+                        new SqlParameter("@BookIntroduce",BookIntroduce),
+                        new SqlParameter("@Author",Author),
+                        new SqlParameter("@Company",Company),
+                        new SqlParameter("@MarketPrice",MarketPrice),
+                        new SqlParameter("@HotPrice",MarketPrice),   //热卖价，默认同定价
+                        new SqlParameter("@Isrefinement",'0'),         //默认不是推荐商品
+                        new SqlParameter("@IsHot",'0'),                //默认不是热卖商品
+                        new SqlParameter("@IsDiscount",'0'),           //默认不是折扣商品
+                        new SqlParameter("@LoadDate",time),
+                        new SqlParameter("@Imagepath",Imagepath),
+                    };
+                    int i = operate.OperateData(sql,parameters1);
                     if (i == 1)
                     {
                         Response.Write("<script type='text/javascript'>alert('添加成功！');</script>");

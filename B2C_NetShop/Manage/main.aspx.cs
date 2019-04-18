@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using B2C_NetShop.App_Start;
+using System.Data.SqlClient;
 
 namespace B2C_NetShop.Manage
 {
@@ -56,8 +57,11 @@ namespace B2C_NetShop.Manage
             int index = Convert.ToInt32((sender as Button).CommandArgument);//获取到行号
             GridViewRow row = GridView2.Rows[index];
             string cellValue = row.Cells[0].Text;
-            String sql = "update User_Info set UserType=2 where UID='" + cellValue + "'";
-            int i = operate.OperateData(sql);
+            String sql = "update User_Info set UserType=2 where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",cellValue)
+            };
+            int i = operate.OperateData(sql,parameters);
             if (i == 1)
             {
                 Response.Write("<script>alert('" + "成功设置为管理员" + "')</script>");
@@ -75,8 +79,11 @@ namespace B2C_NetShop.Manage
             int index = Convert.ToInt32((sender as Button).CommandArgument);//获取到行号
             GridViewRow row = GridView1.Rows[index];
             string cellValue = row.Cells[0].Text;
-            String sql = "update User_Info set UserType=1 where UID='" + cellValue + "'";
-            int i = operate.OperateData(sql);
+            String sql = "update User_Info set UserType=1 where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",cellValue)
+            };
+            int i = operate.OperateData(sql, parameters);
             if (i == 1)
             {
                 Response.Write("<script>alert('" + "成功设置为普通用户" + "')</script>");

@@ -68,8 +68,13 @@ namespace B2C_NetShop.User
 
         public void BindUserInfo()
         {
-            String sql = "select NickName,Money,UserType from User_Info where UID='" + Session["uid"].ToString() + "'";
-            DataSet ds = operate.GetTable(sql);
+            //String sql = "select NickName,Money,UserType from User_Info where UID='" + Session["uid"].ToString() + "'";
+            String sql = "select NickName,Money,UserType from User_Info where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            //DataSet ds = operate.GetTable(sql);
+            DataSet ds = operate.GetTable(sql, parameters);
             ds.Dispose();
             String nickname = ds.Tables[0].Rows[0][0].ToString();
             String money = ds.Tables[0].Rows[0][1].ToString();
@@ -91,8 +96,11 @@ namespace B2C_NetShop.User
 
         public void BindUserAddress()
         {
-            String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID='" + Session["uid"].ToString() + "'";
-            DataSet ds = operate.GetTable(sql);
+            String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            DataSet ds = operate.GetTable(sql,parameters);
             ds.Dispose();
             String realname = ds.Tables[0].Rows[0][0].ToString();
             String postcode = ds.Tables[0].Rows[0][1].ToString();
@@ -107,8 +115,9 @@ namespace B2C_NetShop.User
         protected void Button_SetNewNickName_Click(object sender, EventArgs e)
         {
             String newnickname = TextBox_NewNickName.Text.Trim();
-            String sql = "update User_Info set NickName='" + newnickname + "' where UID='" + Session["UID"].ToString() + "'";
-            int i = operate.OperateData(sql);
+            String sql = "update User_Info set NickName=@newnickname where UID=@uid";
+            SqlParameter[] parameters1 = {new SqlParameter("@newnickname",newnickname),new SqlParameter("@uid", Session["UID"].ToString() )};
+            int i = operate.OperateData(sql,parameters1);
             if (i == 1)
             {
                 Session["nickname"] = newnickname;
@@ -122,8 +131,15 @@ namespace B2C_NetShop.User
 
         protected void Button_SetNewAddress_Click(object sender, EventArgs e)
         {
-            String sql = "update User_Address set RealName='" + TextBox_RealName.Text.Trim() + "',PostCode='" + TextBox_PostCode.Text.Trim() + "',Address='" + TextBox_Address.Text.Trim() + "',PhoneNumber='" + TextBox_PhoneNum.Text.Trim() + "' where UID='" + Session["UID"].ToString() + "'";
-            int n = operate.OperateData(sql);
+            String sql = "update User_Address set RealName=@RealName,PostCode=@PostCode,Address=@Address,PhoneNumber=@PhoneNumber where UID=@uid";
+            SqlParameter[] parameters2 = {
+                new SqlParameter("@RealName", TextBox_RealName.Text.Trim()),
+                new SqlParameter("@PostCode", TextBox_PostCode.Text.Trim()),
+                new SqlParameter("@Address",TextBox_Address.Text.Trim()),
+                new SqlParameter("@PhoneNumber",TextBox_PhoneNum.Text.Trim()),
+                new SqlParameter("@uid", Session["UID"].ToString())
+            };
+            int n = operate.OperateData(sql,parameters2);
             if (n == 1)
             {
                 Response.Write("<script type='text/javascript'>alert('修改成功！');location='Info.aspx';</script>");
@@ -136,19 +152,26 @@ namespace B2C_NetShop.User
 
         protected void Button_SetNewPWD_Click(object sender, EventArgs e)
         {
-            String pwd = "select * from User_Account where UID='" + Session["UID"].ToString() + "'";
-            DataSet ds = operate.GetTable(pwd);
+            String pwd = "select * from User_Account where UID=@uid";
+            SqlParameter[] parameters1 = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            DataSet ds = operate.GetTable(pwd,parameters1);
             ds.Dispose();
-            String pwd1 = ds.Tables[0].Rows[0][1].ToString();
+            String pwd1 = ds.Tables[0].Rows[0][2].ToString();
             String pwd2 = TextBox3.Text.Trim();
             if (pwd1 == pwd2)
             {
-                String sql = "update User_Account set Password='" + TextBox1.Text.Trim() + "' where UID='" + Session["UID"].ToString() + "'";
-                int n = operate.OperateData(sql);
+                String sql = "update User_Account set Password=@pwd where UID=@uid";
+                SqlParameter[] parameters3 = {
+                    new SqlParameter("@pwd",TextBox1.Text.Trim()),
+                    new SqlParameter("@uid",Session["UID"].ToString())
+                };
+                int n = operate.OperateData(sql,parameters3);
                 if (n == 1)
                 {
                     Session["uid"] = "";
-                    Response.Write("<script type='text/javascript'>alert('修改成功，请使用新密码重新登录！');location='login.aspx';</script>");
+                    Response.Write("<script type='text/javascript'>alert('修改成功，请使用新密码重新登录！');location='../Account/Login.aspx';</script>");
                 }
                 else
                 {
