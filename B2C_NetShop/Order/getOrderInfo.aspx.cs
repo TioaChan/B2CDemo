@@ -115,7 +115,7 @@ namespace B2C_NetShop.Order
                     new SqlParameter("@bookid",bookid),
                     new SqlParameter("@booknum",booknum)
                 };
-                int i = operate.OperateDataBySqlParameter(sql1, parameters1);
+                int i = operate.OperateData(sql1, parameters1);
                 if (i == 1)
                 {
 
@@ -126,7 +126,7 @@ namespace B2C_NetShop.Order
                     SqlParameter[] parameters2 = {
                         new SqlParameter("@orderid",order_id),
                     };
-                    operate.OperateDataBySqlParameter(sqldelete);
+                    operate.OperateData(sqldelete,parameters2);
                 }
             }
             String todo = "功能未实现";
@@ -144,7 +144,7 @@ namespace B2C_NetShop.Order
                 new SqlParameter("@isPay",'0'),
                 new SqlParameter("@order_price",totalprice)
             };
-            operate.OperateDataBySqlParameter(sql2,parameters3);
+            operate.OperateData(sql2,parameters3);
             Response.Redirect("~/Order/confirm.aspx?orderid=" + order_id + "");
         }
     }

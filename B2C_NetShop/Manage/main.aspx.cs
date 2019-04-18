@@ -61,7 +61,7 @@ namespace B2C_NetShop.Manage
             SqlParameter[] parameters = {
                 new SqlParameter("@uid",cellValue)
             };
-            int i = operate.OperateDataBySqlParameter(sql,parameters);
+            int i = operate.OperateData(sql,parameters);
             if (i == 1)
             {
                 Response.Write("<script>alert('" + "成功设置为管理员" + "')</script>");
@@ -83,7 +83,7 @@ namespace B2C_NetShop.Manage
             SqlParameter[] parameters = {
                 new SqlParameter("@uid",cellValue)
             };
-            int i = operate.OperateDataBySqlParameter(sql, parameters);
+            int i = operate.OperateData(sql, parameters);
             if (i == 1)
             {
                 Response.Write("<script>alert('" + "成功设置为普通用户" + "')</script>");

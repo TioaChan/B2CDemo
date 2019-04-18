@@ -12,16 +12,7 @@ namespace B2C_NetShop.App_Start
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
 
-        public int OperateData(string strsql)
-        {
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(strsql, conn);
-            int i = cmd.ExecuteNonQuery();
-            conn.Close();
-            return i;
-        }
-
-        public int OperateDataBySqlParameter(string sql,params SqlParameter[] parameters)
+        public int OperateData(string sql,params SqlParameter[] parameters)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand(sql, conn);

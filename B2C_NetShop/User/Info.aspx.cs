@@ -117,7 +117,7 @@ namespace B2C_NetShop.User
             String newnickname = TextBox_NewNickName.Text.Trim();
             String sql = "update User_Info set NickName=@newnickname where UID=@uid";
             SqlParameter[] parameters1 = {new SqlParameter("@newnickname",newnickname),new SqlParameter("@uid", Session["UID"].ToString() )};
-            int i = operate.OperateDataBySqlParameter(sql,parameters1);
+            int i = operate.OperateData(sql,parameters1);
             if (i == 1)
             {
                 Session["nickname"] = newnickname;
@@ -139,7 +139,7 @@ namespace B2C_NetShop.User
                 new SqlParameter("@PhoneNumber",TextBox_PhoneNum.Text.Trim()),
                 new SqlParameter("@uid", Session["UID"].ToString())
             };
-            int n = operate.OperateDataBySqlParameter(sql,parameters2);
+            int n = operate.OperateData(sql,parameters2);
             if (n == 1)
             {
                 Response.Write("<script type='text/javascript'>alert('修改成功！');location='Info.aspx';</script>");
@@ -167,7 +167,7 @@ namespace B2C_NetShop.User
                     new SqlParameter("@pwd",TextBox1.Text.Trim()),
                     new SqlParameter("@uid",Session["UID"].ToString())
                 };
-                int n = operate.OperateDataBySqlParameter(sql,parameters3);
+                int n = operate.OperateData(sql,parameters3);
                 if (n == 1)
                 {
                     Session["uid"] = "";

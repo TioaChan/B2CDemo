@@ -77,7 +77,7 @@ namespace B2C_NetShop.Manage
                         new SqlParameter("@LoadDate",time),
                         new SqlParameter("@Imagepath",Imagepath),
                     };
-                    int i = operate.OperateDataBySqlParameter(sql,parameters1);
+                    int i = operate.OperateData(sql,parameters1);
                     if (i == 1)
                     {
                         Response.Write("<script type='text/javascript'>alert('添加成功！');</script>");

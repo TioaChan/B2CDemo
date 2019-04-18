@@ -48,9 +48,9 @@ namespace B2C_NetShop.Account
                     SqlParameter[] parameter3 ={
                         new SqlParameter("@uid", TextBox_uid.Text.Trim()),
                     };
-                    int n1 = operate.OperateDataBySqlParameter(regist1,parameter1);
-                    int n2 = operate.OperateDataBySqlParameter(regist2,parameter2);
-                    int n3 = operate.OperateDataBySqlParameter(regist3,parameter3);
+                    int n1 = operate.OperateData(regist1,parameter1);
+                    int n2 = operate.OperateData(regist2,parameter2);
+                    int n3 = operate.OperateData(regist3,parameter3);
                     if (n1 == 1 && n2 == 1 && n3 == 1)
                     {
                         Response.Write("<script type='text/javascript'>alert('恭喜您，注册成功！');location='login.aspx';</script>");

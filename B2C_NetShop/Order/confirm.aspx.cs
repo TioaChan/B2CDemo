@@ -77,13 +77,13 @@ namespace B2C_NetShop.Order
                 new SqlParameter("@newmoney",newmoney),
                 new SqlParameter("@uid",uid)
             };
-            int x = operate.OperateDataBySqlParameter(update1,parameters1);
+            int x = operate.OperateData(update1,parameters1);
             String update2 = "update Cart_Info set isPay=@isPay where order_id=@orderid";
             SqlParameter[] parameters2 = {
                 new SqlParameter("@isPay",'1'),
                 new SqlParameter("@orderid",orderid)
             };
-            int y = operate.OperateDataBySqlParameter(update2,parameters2);
+            int y = operate.OperateData(update2,parameters2);
             if (x == 1 || y == 1)
             {
                 Hashtable hashCart = new Hashtable();
