@@ -67,22 +67,12 @@ namespace B2C_NetShop.Order
             float totalPrice = 0;
             foreach (DataRow drRow in dtTable.Rows)
             {//遍历，获取图书名称，单价
-             //新建sql查询
-             //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
                 String id1 = drRow["BookID"].ToString();
                 String BookID = id1.Replace("id=", "");
-                //String sql = "select BookName,HotPrice from Goods_Info where BookID=" + BookID;
                 String sql = "select BookName,HotPrice from Goods_Info where BookID=@bookid";
                 SqlParameter[] parameters1 = {
                     new SqlParameter("@bookid",BookID)
                 };
-                //try
-                //{
-                //conn.Open();
-                //SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
-                //DataSet ds = new DataSet();
-                //sda.Fill(ds);
-                //ds.Dispose();
                 DataSet ds = operate.GetTable(sql, parameters1);
 
 
@@ -95,15 +85,6 @@ namespace B2C_NetShop.Order
                 drRow["totalPrice"] = price * count;
                 totalPrice += price * count;
                 i++;
-                //}
-                //catch (Exception ex)
-                //{
-                //    Response.Write(ex.Message);
-                //}
-                //finally
-                //{
-                //    conn.Close();
-                //}
                 Label1.Text = "￥" + totalPrice.ToString();
                 Label3.Text = "￥" + totalPrice.ToString();
                 gvShopCart.DataSource = dtTable.DefaultView;
@@ -123,7 +104,6 @@ namespace B2C_NetShop.Order
             String order_date = DateTime.Now.ToLocalTime().ToString();
             String order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
             Hashtable hashCart = (Hashtable)Session["ShopCart"];
-            //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
             foreach (object key in hashCart.Keys)
             {
                 String id1 = key.ToString();
