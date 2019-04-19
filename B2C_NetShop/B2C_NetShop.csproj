@@ -164,6 +164,7 @@
     <Content Include="Goods\search.aspx" />
     <Content Include="img\addtocart.png" />
     <Content Include="img\B2CDemo_Logo.png" />
+    <Content Include="img\cart.png" />
     <Content Include="img\DefaultImg\1.png" />
     <Content Include="img\DefaultImg\2.png" />
     <Content Include="img\DefaultImg\3.png" />
