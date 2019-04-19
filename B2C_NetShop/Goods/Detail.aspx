@@ -6,6 +6,7 @@
 			display:none;
 		}
 		#content_main{
+			position:relative;
 			/*border:1px red solid;*/
 		}
 		#datalist_main{
@@ -115,14 +116,16 @@
 			width:140px;
 			height:40px;
 		}
-		#addtocart_frame>.addtocart_addtips{
-			float: left;
-			display:block;
-			text-align:center;
-			padding-top:10px;
-			color:red;
-			margin-left:30px;
-		}
+	.addtocart_addtips{
+		display:block;
+		text-align:center;
+		padding-top:10px;
+		color:red;
+		margin-left:30px;
+		position:absolute;
+		right:320px;
+		bottom:40px;
+	}
 		.clear{
 			clear:both;
 		}
@@ -169,7 +172,7 @@
 								<div class="clear"></div>
 							</div>
 							<asp:Button ID="btn_AddtoCart" CssClass="addtocart_addbtn" runat="server" Text="加入购物车" CommandName="Add" OnClick="btn_AddtoCart_Click" />
-							<asp:Label ID="Label1" CssClass="addtocart_addtips" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="false" Visible="false"></asp:Label>
+							
 							<div class="clear"></div>
 						</div>
 					</div>
@@ -183,6 +186,7 @@
 				<asp:QueryStringParameter DefaultValue="1" Name="BookID" QueryStringField="id" Type="Int32" />
 			</SelectParameters>
 		</asp:SqlDataSource>
+	<asp:Label ID="Label_Addtips" CssClass="addtocart_addtips" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="false" Visible="false"></asp:Label>
 	</div>
 </asp:Content>
 

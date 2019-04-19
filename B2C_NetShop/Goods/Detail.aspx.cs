@@ -13,6 +13,10 @@ namespace B2C_NetShop.Goods
 		pageload load = new pageload();
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (Request.QueryString["id"] == null)
+			{
+				Response.Redirect("~/Default.aspx");
+			}
 			HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
 			HyperLink hl2 = (HyperLink)(Master.FindControl("HyperLink2"));//后台
 			HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
@@ -27,7 +31,7 @@ namespace B2C_NetShop.Goods
 			String uid = Convert.ToString(Session["uid"]);
 			if ("".Equals(uid))
 			{
-				Response.Write("<script type='text/javascript'>alert('请先登录');</script>");
+				Response.Write("<script type='text/javascript'>alert('请先登录');location='../Account/Login.aspx';</script>");
 			}
 			else
 			{
@@ -50,6 +54,8 @@ namespace B2C_NetShop.Goods
 				{
 					hashCart.Add(bookid, 1); //没有此图书，新加一个
 				}
+				Label_Addtips.Enabled = true;
+				Label_Addtips.Visible = true;
 			}
 		}
 	}
