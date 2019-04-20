@@ -155,7 +155,6 @@
     <Content Include="Goods\Detail.aspx" />
     <Content Include="Goods\discount.aspx" />
     <Content Include="Goods\hot.aspx" />
-    <Content Include="Goods\img\addtocart.png" />
     <Content Include="Goods\img\fukuan.png" />
     <Content Include="Goods\img\jiesuan.png" />
     <Content Include="Goods\img\tijiaodingdan.png" />
