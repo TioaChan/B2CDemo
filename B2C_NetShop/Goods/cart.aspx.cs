@@ -73,18 +73,13 @@ namespace B2C_NetShop.Goods
 					int count;
 					float totalPrice = 0;
 					foreach (DataRow drRow in dtTable.Rows)
-					{//遍历，获取图书名称，单价
-					 //新建sql查询
-					 //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["B2C_DemoConnectionString"].ConnectionString.ToString());
+					{
+						//遍历购物车获取图书编号，然后向数据库查询名称，单价
 						String BookID = drRow["BookID"].ToString();
 						String sql = "select BookName,HotPrice from Goods_Info where BookID=@bookid";
 						SqlParameter[] parameters = {
 							new SqlParameter("@bookid",BookID)
 						};
-						//try
-						//{
-						//  conn.Open();
-						//    SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
 						DataSet ds = operate.GetTable(sql, parameters);
 						//填充
 						drRow["No"] = i;
@@ -95,15 +90,6 @@ namespace B2C_NetShop.Goods
 						drRow["totalPrice"] = price * count;
 						totalPrice += price * count;
 						i++;
-						//}
-						//catch (Exception ex)
-						//{
-						//    Response.Write(ex.Message);
-						//}
-						//finally
-						//{
-						//    conn.Close();
-						//}
 						labTotalPrice.Text = "￥" + totalPrice.ToString();
 						gvShopCart.DataSource = dtTable.DefaultView;
 						gvShopCart.DataKeyNames = new string[] { "BookID" };

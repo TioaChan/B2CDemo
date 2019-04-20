@@ -157,7 +157,6 @@
     <Content Include="Goods\hot.aspx" />
     <Content Include="Goods\img\fukuan.png" />
     <Content Include="Goods\img\jiesuan.png" />
-    <Content Include="Goods\img\tijiaodingdan.png" />
     <Content Include="Goods\list.aspx" />
     <Content Include="Goods\refinement.aspx" />
     <Content Include="Goods\search.aspx" />
