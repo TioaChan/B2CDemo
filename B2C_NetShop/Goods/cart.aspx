@@ -2,63 +2,80 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 	<style>
-		#Master_content{
-			display:none;
+		#Master_content {
+			display: none;
 		}
-		#main_content{
-			margin:30px auto;
+
+		#main_content {
+			margin: 30px auto;
 			/*border:1px red solid;*/
 		}
-		#Gcart{/*购物车容器*/
-			text-align: center;
-			margin:10px 0;
+
+		#cart_frame { /*购物车容器*/
+			/*text-align: center;
+			margin: 10px 0;*/
+			border:1px red solid;
+			padding:10px;
 		}
-		#cart_feature_frame{/*购物车功能区容器*/
+			#cart_detile{
+				width:1070px;
+				border:1px red solid;
+				margin:5px 40px;
+			}
+
+		#cart_feature_frame { /*购物车功能区容器*/
 			height: 60px;
-			
 		}
-		#MainContent_cart_feature_ifEmpty{/*空购物车提示容器*/  /*MainContent_是因为runat="server"*/
+		/*空购物车提示容器*/ /*MainContent_是因为runat="server"*/
+		/*#MainContent_cart_feature_ifEmpty{
 			height:100px;
 			background-color:#eaeaea;
 			text-align:center;
 			font-size:20px;
 			padding-top:35px;
+		}*/
+		#cart_feature_ifNotEmpty { /*购物车功能容器*/
+			background-color: #eaeaea;
 		}
-		#MainContent_cart_feature_ifNotEmpty{/*购物车功能容器*/
-			background-color:#eaeaea;
-		}
-			#cart_feature_left{/*更新 清空 继续购物*/
-				margin-left:20px;
-				float: left;
-			}
-				.cart_feature_btn{
-				height:25px;
-				border:none;
-				background:none;
-				margin:10px 10px;
-				}
 
-			#cart_feature_right{/*提交订单*/
-				text-align: right;
-				float: right;
-				margin-right:20px;
-			}
-				#div_prince{
-					margin-top:10px;
-					float:left;
-					margin-right:10px;
-				}
-				.cart_feature_btn_pay{
-					width:140px;
-					height:45px;
-					border:none;
-					background-color:red;
-					color:white;
-					display:block;
-					float:left;
-				}
-		.clear{
-			clear:both;
+		#cart_feature_left { /*更新 清空 继续购物*/
+			margin-left: 20px;
+			float: left;
+		}
+
+		.cart_feature_btn {
+			height: 25px;
+			border: none;
+			background: none;
+			margin: 10px 10px;
+		}
+
+		#cart_feature_right { /*提交订单*/
+			text-align: right;
+			float: right;
+			margin-right: 20px;
+		}
+
+		#div_prince {
+			margin-top: 10px;
+			float: left;
+			margin-right: 10px;
+		}
+
+		.cart_feature_btn_pay {
+			width: 140px;
+			height: 45px;
+			border: none;
+			background-color: red;
+			color: white;
+			display: block;
+			float: left;
+		}
+		.bookImg{
+			width:100px;
+		}
+		.clear {
+			clear: both;
 		}
 	</style>
 	<div id="main_content">
@@ -66,8 +83,8 @@
 			<p style="font-size: xx-large; font-family: 微软雅黑;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label>。</p>
 		</div>
 		<div id="head_nav" runat="server">当前位置：<a href="../Default.aspx">首页</a> > 购物车</div>
-		<div id="Gcart">
-			<asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1180px">
+		<div id="cart_frame">
+			<%--<asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="1180px" EmptyDataText="您还没有购物,去购物吧。">
 				<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
 				<Columns>
 					<asp:BoundField DataField="No" HeaderText="序号" ReadOnly="True">
@@ -122,29 +139,42 @@
 				<SortedAscendingHeaderStyle BackColor="#506C8C" />
 				<SortedDescendingCellStyle BackColor="#FFFDF8" />
 				<SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-			</asp:GridView>
-		</div>
-		<div id="cart_feature_frame">
-				<div id="cart_feature_ifEmpty" runat="server"><a href="../Default.aspx">您还没有购物,去购物吧。</a></div>
-				<div class="clear"></div>
-				<div id="cart_feature_ifNotEmpty" runat="server">
-					<div id="cart_feature_left">
-						<asp:Button ID="btn_cart_update" CssClass="cart_feature_btn" runat="server" Text="更新购物车" OnClick="btn_cart_update_Click" />
-						<asp:Button ID="btn_cart_clear" CssClass="cart_feature_btn" runat="server" Text="清空购物车" OnClick="btn_cart_clear_Click" />
-						<asp:Button ID="btn_cart_continue" CssClass="cart_feature_btn" runat="server" Text="继续购物" OnClick="btn_cart_continue_Click" />
-					</div>
-					<div id="cart_feature_right">
-						<div id="div_prince">
-							总价：
-							<asp:Label ID="labTotalPrice" runat="server" Text="0.00 " Font-Bold="True" Font-Size="X-Large" ForeColor="Red"></asp:Label>
-						</div>
-						<asp:Button ID="btn_pay" CssClass="cart_feature_btn_pay" runat="server" Text="提交订单" OnClick="btn_pay_Click" />
+			</asp:GridView>--%>
+			<asp:DataList ID="dlShopcart" runat="server">
+				<ItemTemplate>
+					<div id="cart_detile">
+						<img src="<%# Eval("picUrl") %>" class="bookImg" />
+						<%--<asp:Label ID="Label1" runat="server" Text='<%# Eval("No") %>'></asp:Label>--%><%--bookid--%>
+						<asp:Label ID="Label2" runat="server" Text='<%# Eval("BookName") %>'></asp:Label><%--bookname--%>
+						<asp:Label ID="Label3" runat="server" Text='<%# Eval("Num") %>'></asp:Label><%--数量--%>×
+						<asp:Label ID="Label4" runat="server" Text='<%# Eval("price") %>'></asp:Label><%--单价--%>
+						<asp:Label ID="Label5" runat="server" Text='<%# Eval("totalPrice") %>'></asp:Label><%--总价--%>
 						<div class="clear"></div>
 					</div>
-					<div class="clear"></div>
+				</ItemTemplate>
+			</asp:DataList>
+		</div>
+		<div id="cart_feature_frame">
+			<%--<div id="cart_feature_ifEmpty" runat="server"><a href="../Default.aspx">您还没有购物,去购物吧。</a></div>
+				<div class="clear"></div>--%>
+			<%--<div id="cart_feature_ifNotEmpty">--%>
+			<div id="cart_feature_left">
+				<asp:Button ID="btn_cart_update" CssClass="cart_feature_btn" runat="server" Text="更新购物车" OnClick="btn_cart_update_Click" />
+				<asp:Button ID="btn_cart_clear" CssClass="cart_feature_btn" runat="server" Text="清空购物车" OnClick="btn_cart_clear_Click" />
+				<asp:Button ID="btn_cart_continue" CssClass="cart_feature_btn" runat="server" Text="继续购物" OnClick="btn_cart_continue_Click" />
+			</div>
+			<div id="cart_feature_right">
+				<div id="div_prince">
+					总价：
+							<asp:Label ID="labTotalPrice" runat="server" Text="0.00 " Font-Bold="True" Font-Size="X-Large" ForeColor="Red"></asp:Label>
 				</div>
+				<asp:Button ID="btn_pay" CssClass="cart_feature_btn_pay" runat="server" Text="提交订单" OnClick="btn_pay_Click" />
 				<div class="clear"></div>
 			</div>
+			<div class="clear"></div>
+			<%--</div>--%>
+			<div class="clear"></div>
+		</div>
 	</div>
 	<div class="clear"></div>
 </asp:Content>

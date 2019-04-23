@@ -40,31 +40,13 @@ namespace B2C_NetShop.Goods {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl head_nav;
         
         /// <summary>
-        /// gvShopCart 控件。
+        /// dlShopcart 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvShopCart;
-        
-        /// <summary>
-        /// cart_feature_ifEmpty 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart_feature_ifEmpty;
-        
-        /// <summary>
-        /// cart_feature_ifNotEmpty 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart_feature_ifNotEmpty;
+        protected global::System.Web.UI.WebControls.DataList dlShopcart;
         
         /// <summary>
         /// btn_cart_update 控件。

@@ -40,31 +40,41 @@ namespace B2C_NetShop.Goods
 				Hashtable hashCart = (Hashtable)Session["ShopCart"];
 				if (hashCart.Count == 0)
 				{//没有购物
-					cart_feature_ifNotEmpty.Style["display"] = "none";
+					//cart_feature_ifNotEmpty.Style["display"] = "none";
 				}
 				else
 				{
-					cart_feature_ifEmpty.Style["display"] = "none";
+					//cart_feature_ifEmpty.Style["display"] = "none";
 					//设置数据源
 					DataTable dtTable = new DataTable();
-					DataColumn column1 = new DataColumn("No");
-					DataColumn column2 = new DataColumn("BookID");
-					DataColumn column3 = new DataColumn("BookName");
-					DataColumn column4 = new DataColumn("Num");
-					DataColumn column5 = new DataColumn("Price");
-					DataColumn column6 = new DataColumn("totalPrice");
-					dtTable.Columns.Add(column1);
-					dtTable.Columns.Add(column2);
-					dtTable.Columns.Add(column3);
-					dtTable.Columns.Add(column4);
-					dtTable.Columns.Add(column5);
-					dtTable.Columns.Add(column6);
+					//DataColumn column1 = new DataColumn("No")
+					//	,column2 = new DataColumn("BookID")
+					//	,column3 = new DataColumn("BookName")
+					//	,column4 = new DataColumn("Num")
+					//	,column5 = new DataColumn("Price")
+					//	,column6 = new DataColumn("totalPrice")
+					//	,column7 = new DataColumn("picUrl");
+					//dtTable.Columns.Add(column1);
+					//dtTable.Columns.Add(column2);
+					//dtTable.Columns.Add(column3);
+					//dtTable.Columns.Add(column4);
+					//dtTable.Columns.Add(column5);
+					//dtTable.Columns.Add(column6);
+					//dtTable.Columns.Add(column7);
+					DataColumn[] dataColumns = new DataColumn[7];
+					String[] test = { "No", "BookID", "BookName", "Num", "Price", "totalPrice", "picUrl" };
+					for (int k = 0; k < test.Length; k++)
+					{
+						dataColumns[k] = new DataColumn(test[k]);
+						dtTable.Columns.Add(dataColumns[k]);
+					}
 					DataRow row;
 					foreach (object key in hashCart.Keys)
 					{
 						row = dtTable.NewRow();
-						String bookid = key.ToString();
-						row["BookID"] = bookid;
+						//String bookid = key.ToString();
+						//row["BookID"] = bookid;
+						row["BookID"] = key.ToString();
 						row["Num"] = hashCart[key].ToString();
 						dtTable.Rows.Add(row);
 					}
@@ -76,7 +86,7 @@ namespace B2C_NetShop.Goods
 					{
 						//遍历购物车获取图书编号，然后向数据库查询名称，单价
 						String BookID = drRow["BookID"].ToString();
-						String sql = "select BookName,HotPrice from Goods_Info where BookID=@bookid";
+						String sql = "select BookName,HotPrice,picUrl from Goods_Info where BookID=@bookid";
 						SqlParameter[] parameters = {
 							new SqlParameter("@bookid",BookID)
 						};
@@ -84,16 +94,19 @@ namespace B2C_NetShop.Goods
 						//填充
 						drRow["No"] = i;
 						drRow["BookName"] = ds.Tables[0].Rows[0][0].ToString(); //读取名称
-						drRow["price"] = (ds.Tables[0].Rows[0][1].ToString());  //读取单价
+						drRow["price"] = ds.Tables[0].Rows[0][1].ToString();  //读取单价
 						price = float.Parse(ds.Tables[0].Rows[0][1].ToString());
 						count = Int32.Parse(drRow["Num"].ToString());
 						drRow["totalPrice"] = price * count;
+						drRow["picUrl"] = ds.Tables[0].Rows[0][2].ToString();
 						totalPrice += price * count;
 						i++;
 						labTotalPrice.Text = "￥" + totalPrice.ToString();
-						gvShopCart.DataSource = dtTable.DefaultView;
-						gvShopCart.DataKeyNames = new string[] { "BookID" };
-						gvShopCart.DataBind();
+						//gvShopCart.DataSource = dtTable.DefaultView;
+						//gvShopCart.DataKeyNames = new string[] { "BookID" };
+						//gvShopCart.DataBind();
+						dlShopcart.DataSource = dtTable.DefaultView;
+						dlShopcart.DataBind();
 					}
 				}
 			}
@@ -101,16 +114,17 @@ namespace B2C_NetShop.Goods
 
 		protected void btn_cart_update_Click(object sender, EventArgs e)
 		{
-			Hashtable hashCart = (Hashtable)Session["ShopCart"];
-			foreach (GridViewRow gvr in this.gvShopCart.Rows)
-			{
-				TextBox otb = (TextBox)gvr.FindControl("txtNum");
-				int count = Int32.Parse(otb.Text);
-				string BookID = gvr.Cells[1].Text;
-				hashCart[BookID] = count;
-			}
-			Session["ShopCart"] = hashCart;
-			BindCartList();
+			//Hashtable hashCart = (Hashtable)Session["ShopCart"];
+			//foreach (GridViewRow gvr in this.gvShopCart.Rows)
+			//{
+			//	TextBox otb = (TextBox)gvr.FindControl("txtNum");
+			//	int count = Int32.Parse(otb.Text);
+			//	string BookID = gvr.Cells[1].Text;
+			//	hashCart[BookID] = count;
+			//}
+			//Session["ShopCart"] = hashCart;
+			//BindCartList();
+			Response.Write("<script>TODO</script>");
 		}
 
 		protected void btn_cart_clear_Click(object sender, EventArgs e)
@@ -126,14 +140,14 @@ namespace B2C_NetShop.Goods
 			Response.Redirect("~/Default.aspx");
 		}
 
-		protected void lnkbtnDelete_Command(object sender, CommandEventArgs e)
-		{
-			Hashtable hashCart = (Hashtable)Session["ShopCart"];
-			String removeid = "id=" + e.CommandArgument.ToString();
-			hashCart.Remove(removeid);
-			Session["ShopCart"] = hashCart;
-			Response.Redirect("cart.aspx");
-		}
+		//protected void lnkbtnDelete_Command(object sender, CommandEventArgs e)
+		//{
+		//	Hashtable hashCart = (Hashtable)Session["ShopCart"];
+		//	String removeid = "id=" + e.CommandArgument.ToString();
+		//	hashCart.Remove(removeid);
+		//	Session["ShopCart"] = hashCart;
+		//	Response.Redirect("cart.aspx");
+		//}
 
 		/*
         protected void gvShopCart_PageIndexChanging(object sender, GridViewPageEventArgs e)
