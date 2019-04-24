@@ -35,27 +35,9 @@ namespace B2C_NetShop.Goods
 			}
 			else
 			{
-				String bookid = Request.QueryString["id"].ToString();
-				Hashtable hashCart;
-				if (Session["ShopCart"] == null)
-				{//用户没有分配购物车
-					hashCart = new Hashtable();  //生成一个hash表
-					hashCart.Add(bookid, 1);  //添加图书
-					Session["ShopCart"] = hashCart; //分配给用户
-				}
-				//用户已有购物车
-				hashCart = (Hashtable)Session["ShopCart"];
-				if (hashCart.Contains(bookid)) //购物车已有此图书
-				{
-					int count = Convert.ToInt32(hashCart[bookid].ToString()); //得到图书数量
-					hashCart[bookid] = (count + 1); //数量加1
-				}
-				else
-				{
-					hashCart.Add(bookid, 1); //没有此图书，新加一个
-				}
-				Label_Addtips.Enabled = true;
-				Label_Addtips.Visible = true;
+				int bookid = Convert.ToInt32(Request.QueryString["id"].ToString());
+				int booknum = Convert.ToInt32(TextBox_booknum.Text.ToString());
+				Response.Redirect("~/Goods/addTocart.aspx?bookid=" + bookid + "&booknum=" + booknum);
 			}
 		}
 	}

@@ -75,6 +75,7 @@
 			/*border:1px red solid;*/
 			border-top:1px #eaeaea solid;
 			padding-top:15px;
+			right:100px;
 		}
 		#addtocart_frame>#addtocart_addnum{/*加入购物车数量容器*/
 			float: left;
@@ -116,7 +117,7 @@
 			width:140px;
 			height:40px;
 		}
-	.addtocart_addtips{
+	/*.addtocart_addtips{
 		display:block;
 		text-align:center;
 		padding-top:10px;
@@ -125,7 +126,7 @@
 		position:absolute;
 		right:320px;
 		bottom:40px;
-	}
+	}*/
 		.clear{
 			clear:both;
 		}
@@ -162,7 +163,7 @@
 								商城价：<asp:Label ID="HotPriceLabel" runat="server" Text='<%# Eval("HotPrice") %>' Font-Bold="True" Font-Size="Large" ForeColor="Red" />&nbsp;CNY
 							</div>
 						</div>
-						<div id="addtocart_frame">
+<%--						<div id="addtocart_frame">
 							<div id="addtocart_addnum">
 								<asp:TextBox ID="TextBox1" runat="server" CssClass="addtocart_addnum_num">1</asp:TextBox>
 								<div id="addtocart_addnum_btn">
@@ -174,7 +175,7 @@
 							<asp:Button ID="btn_AddtoCart" CssClass="addtocart_addbtn" runat="server" Text="加入购物车" CommandName="Add" OnClick="btn_AddtoCart_Click" />
 							
 							<div class="clear"></div>
-						</div>
+						</div>--%>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -186,7 +187,20 @@
 				<asp:QueryStringParameter DefaultValue="1" Name="BookID" QueryStringField="id" Type="Int32" />
 			</SelectParameters>
 		</asp:SqlDataSource>
-	<asp:Label ID="Label_Addtips" CssClass="addtocart_addtips" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="false" Visible="false"></asp:Label>
+						<div id="addtocart_frame">
+							<div id="addtocart_addnum">
+								<asp:TextBox ID="TextBox_booknum" runat="server" CssClass="addtocart_addnum_num">1</asp:TextBox>
+								<div id="addtocart_addnum_btn">
+									<asp:Button ID="btn_plus" runat="server" Text="+" />
+									<asp:Button ID="btn_minus" runat="server" Text="-" />
+								</div>
+								<div class="clear"></div>
+							</div>
+							<asp:Button ID="btn_AddtoCart" CssClass="addtocart_addbtn" runat="server" Text="加入购物车" CommandName="Add" OnClick="btn_AddtoCart_Click" />
+							
+							<div class="clear"></div>
+						</div>
+	<%--<asp:Label ID="Label_Addtips" CssClass="addtocart_addtips" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="false" Visible="false"></asp:Label>--%>
 	</div>
 </asp:Content>
 
