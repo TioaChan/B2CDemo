@@ -23,7 +23,7 @@
 |user1|user1|普通用户|
 
 
-## 数据库访问说明HELLOWORLD
+## 数据库访问说明HELLOWORLD123
 
 
 本项目连接数据库使用的字符串`B2C_DemoConnectionString`具体如下：
