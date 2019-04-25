@@ -3,8 +3,18 @@
 <%@ MasterType VirtualPath="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HalfPageContentPlaceHolder" runat="server">
-	<style>
-		#div_middle {
+    <style>
+
+        body{
+            background:#F4F4F4;
+        }
+
+        form{
+            width:1180px;
+            margin:0 auto;
+        }
+
+		#myCarousel {
 			float: left;
 			width: 760px;
 			height: 480px;
@@ -26,57 +36,101 @@
 
 		#user_info_container { /*用户容器*/
 			/*border: 1px red solid;*/
-			padding: 0px 15px;
-			height: 90px;
-			border-top: 1px #eaeaea solid;
-			border-bottom: 1px #eaeaea solid;
-		}
+			
+            background:url(/img/DefaultImg/login_bc.png) no-repeat;
+        }
 
 		#user_img { /*用户头像容器*/
 			/*border: 1px red solid;*/
 			margin: 20px 0px 0px 0px;
-			float: left;
-			width: 50px;
 			height: 50px;
+            width:200px;
 			text-align: center;
 		}
 
 		#user_info_container > #user_info { /*用户信息容器*/
 			/*border: 1px red solid;*/
-			float: left;
 			height: 50px;
-			width: 102px;
-			margin-top: 20px;
+			width: 200px;
 			text-align: center;
 			font-size: 15px;
 		}
+
+        #user_info_btn{
+            height:50px;
+            text-align:center;
+            margin-top:20px;
+        }
+            .user_info_btn_a{
+                background:#FF0000;
+                color:#fff;
+                width:50px;
+                -webkit-transition-duration: .25s;
+	            -moz-transition-duration: .25s;
+	            -o-transition-duration: .25s;
+	            transition-duration: .25s;
+                margin-left:5px;
+                padding:3px 10px;
+               
+
+                border-radius:5px;
+            }
+
+            .user_info_btn_a:hover {
+                background:#FF0000;
+                color:#fff;
+                width:50px;
+                background-color: #444;
+	            color: white;
+	            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.17);
+            }
 
 		.clear {
 			clear: both;
 		}
 	</style>
+	<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link href="../Content/Default/keleyiimagebox.css" type="text/css" rel="Stylesheet" />
 	<script src="../Content/Default/keleyiimagebox.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		window.onload = function () {
-			var runimg = new runImg();
-			runimg.count = 4;
-			runimg.imgurl = [
-				"<img src=\"../img/DefaultImg/1.png\"/>",
-				"<img src=\"../img/DefaultImg/2.png\"/>",
-				"<img src=\"../img/DefaultImg/3.png\"/>",
-				"<img src=\"../img/DefaultImg/2.png\"/>"];
-			runimg.info("#box-keleyi-com");
-			runimg.action("#box-keleyi-com");
-		}
-	</script>
-	<div>
-		<div id="div_middle">
-				<div id="box-keleyi-com">
-					<%--图片轮播展示功能来自：柯乐义 2013 http://keleyi.com--%> 
-					<%--图片大小为758*480--%>
-				</div>
-			</div>
+        
+    
+
+
+
+
+	       <div>
+		        <div id="myCarousel" class="carousel slide">
+	            <!-- 轮播（Carousel）指标 -->
+	            <ol class="carousel-indicators">
+		            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		            <li data-target="#myCarousel" data-slide-to="1"></li>
+		            <li data-target="#myCarousel" data-slide-to="2"></li>
+	            </ol>   
+	            <!-- 轮播（Carousel）项目 -->
+	            <div class="carousel-inner">
+		            <div class="item active">
+			            <img src="/img/DefaultImg/1.png" alt="First slide">
+		            </div>
+		            <div class="item">
+			            <img src="/img/DefaultImg/2.png" alt="Second slide">
+		            </div>
+		            <div class="item">
+			            <img src="/img/DefaultImg/3.png" alt="Third slide">
+		            </div>
+	            </div>
+	            <!-- 轮播（Carousel）导航 -->
+	            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		            <span class="sr-only">Previous</span>
+	            </a>
+	            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		            <span class="sr-only">Next</span>
+	            </a>
+            </div> 
+
 			<div id="div_right">
 				<div id="user_info_container">
 					<div id="user_img">
@@ -88,8 +142,9 @@
 							<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 						</div>
 						<div id="user_info_btn">
-							<asp:HyperLink ID="HyperLink1" runat="server">HL1</asp:HyperLink>
-							<asp:HyperLink ID="HyperLink2" runat="server">HL2</asp:HyperLink>
+							<asp:HyperLink ID="HyperLink1" runat="server" CssClass="user_info_btn_a">HL1</asp:HyperLink>
+							<asp:HyperLink ID="HyperLink2" runat="server" CssClass="user_info_btn_a">HL2</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="user_info_btn_a">开店</asp:HyperLink>
 						</div>
 					</div>
 					<div class="div_clear"></div>
@@ -99,7 +154,7 @@
 	</div>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	<style>
+    <style>
 		#footer {/*推荐位容器*/
 			width: 1170px;
 			height: 160px;
