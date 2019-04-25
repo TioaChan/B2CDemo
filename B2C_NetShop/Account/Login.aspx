@@ -35,6 +35,9 @@
         #login_input {
             text-align: center;
         }
+		input{
+			max-width:none;
+		}
 
         .txt_input, .btn_login {
             margin-bottom: 10px;
@@ -61,7 +64,7 @@
             text-align: center;
             font-size: 15px;
             color: red;
-            width: 250px;
+            width: 300px;
             -webkit-transition-duration: .25s;
             transition-duration: .25s;
             font-weight: 300
@@ -73,7 +76,7 @@
 
             .txt_input:focus {
                 background-color: #fff;
-                width: 300px;
+                width: 310px;
                 color: #333;
             }
 
@@ -87,6 +90,9 @@
        .tab-pane{
            text-align:center;
        }
+	   #ios{
+	   padding-top:40px;
+	   }
     </style>
 
     <div id="container">
@@ -109,8 +115,8 @@
                         </div>
                         <div id="login_input">
                             <br style="clear: both;" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_uid" ErrorMessage="*用户名不允许为空" ForeColor="Red"></asp:RequiredFieldValidator>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_pwd" ErrorMessage="*密码不允许为空" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBox_uid" ErrorMessage="*用户名不允许为空" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBox_pwd" ErrorMessage="*密码不允许为空" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                             <div>
                                 <asp:TextBox CssClass="txt_input" ID="TextBox_uid" runat="server" placeholder="请输入账号"></asp:TextBox>
                                 <asp:TextBox CssClass="txt_input" ID="TextBox_pwd" runat="server" placeholder="请输入密码" TextMode="Password"></asp:TextBox>
