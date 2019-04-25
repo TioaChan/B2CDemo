@@ -16,7 +16,7 @@
     <style>
         #Master_Main { /*主容器*/
             width: 1180px;
-            background: #fff;
+            /*background: #fff;*/
             margin: 0 auto;
         }
 
@@ -110,6 +110,8 @@
             text-align: center;
             line-height: 45px;
             font-size: 16px;
+			overflow:hidden;
+			border-radius:2px;
         }
 
         #type-container-titler { /*图书分类标题*/
@@ -142,7 +144,7 @@
             }
 
             .type-css:hover {
-                background: #FFE4DC;
+                /*background: #FFE4DC*/;
                 color: #FF5000;
             }
 
@@ -161,7 +163,7 @@
                 -webkit-transition: all 0.3s ease-in-out 0s;
                 -o-transition: all 0.3s ease-in-out 0s;
                 transition: all 0.3s ease-in-out 0s;
-                background: #FFE4DC;
+                background: red;
             }
 
             .type-css:hover:before {
@@ -179,6 +181,7 @@
             float: left;
             width: 980px;
             margin: 2px auto;
+			background-color:white;
         }
 
         .datalist_guide {
@@ -190,7 +193,7 @@
         }
     </style>
 </head>
-<body style="background-color: #F4F4F4">
+<body>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
