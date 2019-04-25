@@ -7,20 +7,39 @@
  		#Master_content{
 			display:none;
 		}
+		#addSuccess_frame{
+			background-color:#eaeaea;
+		}
+		#current_img{
+			width:100px;
+			height:100px;
+			background-color:white;
+			float:left;
+			padding:7px 20px;
+		}
+		#current_img>img{
+			width:60px;
+
+		}
+		#current_bookinfo{
+			float:left;
+		}
 	</style>
 	<div id="addSuccess_frame">
-		商品已成功加入购物车！
+		<p>商品已成功加入购物车！</p>
 		<asp:DataList ID="current_info" runat="server">
 				<ItemTemplate>
 					<div id="current_info_frame">
 						<div id="current_img">
 							<img src="<%# Eval("picUrl") %>" class="bookImg" />
 						</div>
-						<div id="current_bookname">
-							<asp:Label ID="Label2" runat="server" Text='<%# Eval("BookName") %>'></asp:Label><%--bookname--%>
-						</div>
-						<div id="cart_detile_num">
-							<asp:Label ID="Label3" runat="server" Text='<%# Eval("Num") %>'></asp:Label><%--数量--%>
+						<div id="current_bookinfo">
+							<div id="current_bookname">
+								<asp:Label ID="Label2" runat="server" Text='<%# Eval("BookName") %>'></asp:Label><%--bookname--%>
+							</div>
+							<div id="cart_detile_num">
+								数量：<asp:Label ID="Label3" runat="server" Text='<%# Eval("Num") %>'></asp:Label><%--数量--%>
+							</div>
 						</div>
 						<div class="clear"></div>
 					</div>
