@@ -44,23 +44,7 @@ namespace B2C_NetShop.Goods
 				}
 				else
 				{
-					//cart_feature_ifEmpty.Style["display"] = "none";
-					//设置数据源
 					DataTable dtTable = new DataTable();
-					//DataColumn column1 = new DataColumn("No")
-					//	,column2 = new DataColumn("BookID")
-					//	,column3 = new DataColumn("BookName")
-					//	,column4 = new DataColumn("Num")
-					//	,column5 = new DataColumn("Price")
-					//	,column6 = new DataColumn("totalPrice")
-					//	,column7 = new DataColumn("picUrl");
-					//dtTable.Columns.Add(column1);
-					//dtTable.Columns.Add(column2);
-					//dtTable.Columns.Add(column3);
-					//dtTable.Columns.Add(column4);
-					//dtTable.Columns.Add(column5);
-					//dtTable.Columns.Add(column6);
-					//dtTable.Columns.Add(column7);
 					DataColumn[] dataColumns = new DataColumn[7];
 					String[] test = { "No", "BookID", "BookName", "Num", "Price", "totalPrice", "picUrl" };
 					for (int k = 0; k < test.Length; k++)
@@ -72,8 +56,6 @@ namespace B2C_NetShop.Goods
 					foreach (object key in hashCart.Keys)
 					{
 						row = dtTable.NewRow();
-						//String bookid = key.ToString();
-						//row["BookID"] = bookid;
 						row["BookID"] = key.ToString();
 						row["Num"] = hashCart[key].ToString();
 						dtTable.Rows.Add(row);
@@ -102,9 +84,6 @@ namespace B2C_NetShop.Goods
 						totalPrice += price * count;
 						i++;
 						labTotalPrice.Text = "￥" + totalPrice.ToString();
-						//gvShopCart.DataSource = dtTable.DefaultView;
-						//gvShopCart.DataKeyNames = new string[] { "BookID" };
-						//gvShopCart.DataBind();
 						dlShopcart.DataSource = dtTable.DefaultView;
 						dlShopcart.DataBind();
 					}
