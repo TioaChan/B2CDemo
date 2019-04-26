@@ -39,6 +39,7 @@
                 padding:10px 20px;
                 margin-left:5px;
                 border-radius:5px;
+                text-decoration:none;
             }    
 
             #right_a_button #s{
@@ -53,7 +54,6 @@
             #right_a_button  #s:hover{
                 background:#C91623;
                 color:#fff;
-                text-decoration:none;
             }
 
             #right_a_button #f{
@@ -65,7 +65,6 @@
             
             #right_a_button  #f:hover{
                 border:1px solid red;                
-                text-decoration:none;
             }
 	</style>
 	<div id="addSuccess_frame">
@@ -90,7 +89,7 @@
 				</ItemTemplate>
 			</asp:DataList>
            <div id="right_a_button">
-                            <a href="#" id="f">查看商品详情</a>
+                            <a id="f"  href="javascript:history.back(-1)">查看商品详情</a>
                             <a href="#" id="s">去购物车结算</a>
            </div>
 	</div>
