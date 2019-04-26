@@ -151,6 +151,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="img\addtocart-icons.png" />
     <Content Include="Goods\addToCart.aspx" />
     <Content Include="Goods\cart.aspx" />
     <Content Include="Goods\Detail.aspx" />

@@ -57,8 +57,8 @@ namespace B2C_NetShop.Goods
 		protected void bindDataList(int bookid, int booknum)
 		{
 			DataTable dtTable = new DataTable();
-			DataColumn[] dataColumns = new DataColumn[4];
-			String[] test = { "BookID", "BookName", "Num", "picUrl" };
+			DataColumn[] dataColumns = new DataColumn[5];
+			String[] test = { "BookID", "BookName", "Num", "picUrl", "BookUrl" };
 			for (int k = 0; k < test.Length; k++)
 			{
 				dataColumns[k] = new DataColumn(test[k]);
@@ -75,6 +75,7 @@ namespace B2C_NetShop.Goods
 			//填充
 			row["BookName"] = ds.Tables[0].Rows[0][0].ToString(); //读取名称
 			row["picUrl"] = ds.Tables[0].Rows[0][2].ToString();
+            row["BookUrl"] = "~/Goods/Detail.aspx?id=" + bookid;
 			dtTable.Rows.Add(row);
 			current_info.DataSource = dtTable.DefaultView;
 			current_info.DataBind();
