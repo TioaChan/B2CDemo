@@ -79,7 +79,7 @@
 							<div id="current_bookname">
                                 <a href=<%# Eval("BookUrl") %> runat="server"><%# Eval("BookName") %></a>
                             </div>
-							<div id="cart_detile_num">
+							<div id="cart_detile_num" style="color:#AAAAAA;">
 								数量：<asp:Label ID="Label3" runat="server" Text='<%# Eval("Num") %>'></asp:Label><%--数量--%>
 							</div>
 						</div>
