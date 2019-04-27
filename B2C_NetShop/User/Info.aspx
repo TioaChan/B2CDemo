@@ -165,7 +165,9 @@
                 </li>
                 <li>
                     <asp:Button ID="Btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="Btn_Order_Click" />
+
                     <i class="glyphicon glyphicon-barcode"></i>
+
                 </li>
                 <li>
                     <asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
