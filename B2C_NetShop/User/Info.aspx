@@ -10,6 +10,7 @@
 
         #div_content {
             width: 1170px;
+            margin-top:10px;
         }
 
         #div_left {
@@ -74,7 +75,7 @@
         /* ============================= datalist order manager =============================*/
         /* 订单管理 */
         .asp_datalist_om {
-            width: 800px;
+            width: 880px;
             margin: 0 auto;
         }
 
@@ -83,7 +84,7 @@
             }
 
                 .asp_datalist_om .table tr td {
-                    width: 200px;
+                    width: 220px;
                     height: 38px;
                     text-align: left;
                 }
@@ -119,7 +120,7 @@
             font-style: normal;
         }
     </style>
-    <h2 style="background: red; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
+    <h2 style="background: red; color: white; padding: 10px; margin:0px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
     <div id="div_content">
         <div id="div_left">
             <ul>
@@ -150,7 +151,7 @@
                     <div>
                         <table id="table_user_overview" border="1">
                             <tr>
-                                <td colspan="3" class="table_title">账户总览</td>
+                                <td colspan="3" class="table_title" style="text-align:center">账户总览</td>
                             </tr>
                             <tr>
                                 <td class="auto-style3">用户名：</td>
@@ -160,7 +161,10 @@
                                     </div>
                                 </td>
                                 <td style="text-align: center" rowspan="5">
-                                    <asp:Image ID="Image1" runat="server" Height="150px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" Width="150px" />
+                                    <asp:Image ID="Image1" runat="server" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png"/>
+                                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                                    <asp:Button ID="Button1" runat="server" Text="修改" CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
+                                
                                 </td>
                             </tr>
                             <tr>
@@ -194,7 +198,7 @@
                     <div>
                         <table id="table_personal_info">
                             <tr>
-                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">个人信息</td>
+                                <td colspan="2"  class="table_title" style="text-align:center">个人信息</td>
                             </tr>
                             <tr>
                                 <td style="width: 101px; height: 40px;" class="text-right">输入新昵称：</td>
@@ -217,7 +221,7 @@
                     <div>
                         <table id="table_address_update">
                             <tr>
-                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">收货地址更新</td>
+                                <td colspan="2"  class="table_title" style="text-align:center">收货地址更新</td>
                             </tr>
                             <tr>
                                 <td style="width: 101px; height: 40px;" class="text-right">真实姓名：</td>
@@ -264,7 +268,7 @@
                     <div>
                         <table id="table_change_pwd">
                             <tr>
-                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">密码修改</td>
+                                <td colspan="2"  class="table_title" style="text-align:center">密码修改</td>
                             </tr>
                             <tr>
                                 <td class="auto-style1">原密码：</td>
@@ -303,36 +307,20 @@
                     <br />
                 </asp:View>
                 <asp:View ID="View_UserImage" runat="server">
-                    <br />
                     <div>
-                        <table style="width: 100%; height: 95%;">
-                            <tr>
-                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">头像修改</td>
-                            </tr>
+                        <table>
                             <tr>
                                 <td colspan="2" style="height: 20px;">
                                     <div>
                                         <asp:Image ID="Image2" runat="server" Height="150px" Width="150px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
-                                        <asp:FileUpload ID="FileUpload1" runat="server" />
                                         <asp:Button ID="btnupload" runat="server" Text="Button" OnClick="btnupload_Click" />
                                         <asp:Button ID="btndelete" runat="server" Text="Button" />
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="2" style="height: 15px;">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td style="height: 30px;"></td>
-                                <td style="height: 30px;">
-                                    <asp:Button ID="Button1" runat="server" Text="修改" Width="50px" CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
-                                </td>
-                            </tr>
                         </table>
                     </div>
-                    <br />
-                    <br />
-                    <br />
+
                 </asp:View>
                 <asp:View ID="View_Order" runat="server">
                     <asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
