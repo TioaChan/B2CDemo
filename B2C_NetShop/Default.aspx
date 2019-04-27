@@ -67,11 +67,13 @@
 				background-color: #444;
 				color: white;
 				box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.17);
-                text-decoration:none;
-		    }
-		.carousel-control.left,.carousel-control.right{
-			background-image:none;
+				text-decoration: none;
+			}
+
+		.carousel-control.left, .carousel-control.right {
+			background-image: none;
 		}
+
 		.clear {
 			clear: both;
 		}
@@ -122,53 +124,60 @@
 						<asp:HyperLink ID="HyperLink2" runat="server" CssClass="user_info_btn_a">HL2</asp:HyperLink>
 					</div>
 				</div>
-				<div class="div_clear"></div>
+				<div class="clear"></div>
 			</div>
 		</div>
-		<div class="div_clear"></div>
+		<div class="clear"></div>
 	</div>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 	<style>
 		#footer { /*推荐位容器*/
-			width: 1170px;
-			height: 160px;
+			width: 1180px;
 			margin: 0 auto;
-			margin-top: 20px;
-			/*border: 1px red solid;*/
 		}
 
 		#footer_1st, #footer_2nd, #footer_3rd { /*三个推荐栏目容器*/
-			padding-top: 30px;
-			padding-left: 90px;
-			width: 387px;
-			height: 157px;
-			float: left;
+			height: 200px;
+			border-right:1px #eaeaea solid;
+			border-bottom:1px #eaeaea solid;
+			position:relative;
 		}
 
-		#footer_1st, #footer_2nd {
-			border-right: 1px #eaeaea solid
-		}
-
-		.footer_type, .footer_btn { /*推荐栏目说明和按钮容器*/
+		.footer_type,.footer_goods_frame { /*推荐栏目说明和按钮容器*/
 			float: left;
-			height: 157px;
-			/*border: 1px red solid;*/
+			height: 200px;
+		}
+		.footer_goods_detail{
+			float:left;
+			padding:0 40px;
+		}
+		.bookImg{
+			width:80px;
+			display:block;
+			margin:7px auto;
+		}
+		.footer_type{
+			padding:45px 30px;
+		}
+		.footer_goods_frame{
+			
+		}
+		.book_name,.book_author,.book_price{
+			display:block;
 		}
 
 		.footer_btn { /*推荐栏目按钮容器*/
-			/*border: 1px red solid;*/
-			padding-left: 40px;
-			width: 120px;
-			height: 157px;
+			position:absolute;
+			top:0px;
+			right:0px;
 		}
 
 			.footer_btn > a { /*推荐位按钮样式，使用a代替按钮*/
-				height: 60px;
-				width: 70px;
-				margin-top: 20px;
+				padding-top:10px;
+				height: 40px;
+				width: 100px;
 				text-align: center;
-				padding-top: 18px;
 			}
 	</style>
 
@@ -178,25 +187,73 @@
 				<h2>商城精选</h2>
 				<p>精选图书，值得一看</p>
 			</div>
-			<div class="footer_btn"><a class="btn btn-default" href="Goods/refinement.aspx">前往 &raquo;</a></div>
-			<div class="div_clear"></div>
+			<div class="footer_goods_frame">
+				<%--datalist test start--%>
+				<asp:DataList ID="DataList_RefinementGoods" runat="server" RepeatDirection="Horizontal">
+					<ItemTemplate>
+						<div class="footer_goods_detail">
+							<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+								<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+								<%--bookimg--%>
+								<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+								<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+								<span class="book_price">售价：<%# Eval("HotPrice") %></span><%--hotprice--%></a></div>
+					</ItemTemplate>
+				</asp:DataList>
+				<div class="clear"></div>
+				<%--datalist test end--%>
+			</div>
+			<div class="footer_btn"><a class="btn btn-default" href="Goods/refinement.aspx">查看更多 &raquo;</a></div>
+			<div class="clear"></div>
 		</div>
 		<div id="footer_2nd">
 			<div class="footer_type">
 				<h2>商城热卖</h2>
 				<p>人气图书，每天更新</p>
 			</div>
-			<div class="footer_btn"><a class="btn btn-default" href="Goods/hot.aspx">前往 &raquo;</a></div>
-			<div class="div_clear"></div>
+			<div class="footer_goods_frame">
+				<%--datalist test start--%>
+				<asp:DataList ID="DataList_HotGoods" runat="server" RepeatDirection="Horizontal">
+					<ItemTemplate>
+						<div class="footer_goods_detail">
+							<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+								<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+								<%--bookimg--%>
+								<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+								<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+								<span class="book_price">售价：<%# Eval("HotPrice") %></span><%--hotprice--%></a></div>
+					</ItemTemplate>
+				</asp:DataList>
+				<div class="clear"></div>
+				<%--datalist test end--%>
+			</div>
+			<div class="footer_btn"><a class="btn btn-default" href="Goods/hot.aspx">查看更多 &raquo;</a></div>
+			<div class="clear"></div>
 		</div>
 		<div id="footer_3rd">
 			<div class="footer_type">
 				<h2>商城折扣</h2>
 				<p>折扣图书，低至一折</p>
 			</div>
-			<div class="footer_btn"><a class="btn btn-default" href="Goods/discount.aspx">前往 &raquo;</a></div>
-			<div class="div_clear"></div>
+			<div class="footer_goods_frame">
+				<%--datalist test start--%>
+				<asp:DataList ID="DataList_DiscountGoods" runat="server" RepeatDirection="Horizontal">
+					<ItemTemplate>
+						<div class="footer_goods_detail">
+							<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+								<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+								<%--bookimg--%>
+								<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+								<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+								<span class="book_price">售价：<%# Eval("HotPrice") %></span><%--hotprice--%></a></div>
+					</ItemTemplate>
+				</asp:DataList>
+				<div class="clear"></div>
+				<%--datalist test end--%>
+			</div>
+			<div class="footer_btn"><a class="btn btn-default" href="Goods/discount.aspx">查看更多 &raquo;</a></div>
+			<div class="clear"></div>
 		</div>
-		<div class="div_clear"></div>
 	</div>
+	<br />
 </asp:Content>
