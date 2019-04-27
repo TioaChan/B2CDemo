@@ -143,7 +143,7 @@ namespace B2C_NetShop.User
             }
         }
 
-        protected void btnupload_Click(object sender, EventArgs e)
+        protected void Btnupload_Click(object sender, EventArgs e)
         {
             int length = this.FileUpload1.PostedFile.ContentLength;//获取图片大小，以字节为单位
             if (length < 4096)
@@ -177,7 +177,7 @@ namespace B2C_NetShop.User
             }
         }
 
-        protected void btn_Order_Click(object sender, EventArgs e)
+        protected void Btn_Order_Click(object sender, EventArgs e)
         {
             MultiView1.SetActiveView(View_Order);
         }
