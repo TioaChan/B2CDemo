@@ -2,100 +2,171 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
+        /* ============================= 左右盒子外加一个做导航条 ============================= */
+        /* 设置大盒子宽度防止挤压 */
+        * {
+            font-family: 微软雅黑;
+        }
+
+        #div_content {
+            width: 1170px;
+        }
+
         #div_left {
             float: left;
             display: block;
-            width: 310px;
+            width: 80px;
             height: 800px;
+            font-size: 15px;
         }
+
+            #div_left ul { /* 左导航条 */
+                padding: 0px;
+                margin: 0px;
+                list-style: none;
+            }
+
+                #div_left ul input {
+                    background: red;
+                    color: #fff;
+                    padding: 10px;
+                    -webkit-transition-duration: .25s;
+                    -moz-transition-duration: .25s;
+                    -o-transition-duration: .25s;
+                    transition-duration: .25s;
+                }
+
+                    #div_left ul input:hover {
+                        background: #000000;
+                        text-decoration: none;
+                    }
+
 
         #div_right {
             display: block;
-            float: right;
-            width: 860px;
-            height: 800px;
+            float: left;
+            width: 1090px;
         }
 
         .clear {
             clear: both;
         }
 
-        .auto-style1 {
+        /* ============================= 页面asp Button样式 ============================= */
+        .asp_button {
+            background: red;
+            color: #fff;
+            border: 0px;
+            border-radius: 5px;
+            padding: 10px 15px;
+            width: 130px;
+            font-size: 15px;
+            -webkit-transition-duration: .25s;
+            -moz-transition-duration: .25s;
+            -o-transition-duration: .25s;
+            transition-duration: .25s;
+        }
+
+            .asp_button:hover {
+                background: #000000;
+            }
+
+        /* ============================= datalist order manager =============================*/
+        /* 订单管理 */
+        .asp_datalist_om {
+            width: 800px;
             margin: 0 auto;
+        }
+
+            .asp_datalist_om .table {
+                margin: 0px;
+            }
+
+                .asp_datalist_om .table tr td {
+                    width: 200px;
+                    height: 38px;
+                    text-align: left;
+                }
+
+        th {
             text-align: center;
-            width: 100%;
-            height: 800px;
+        }
+        /* ============================= 表格 =============================*/
+
+
+        #table_user_overview, #table_personal_info, #table_address_update, #table_change_pwd {
+            width: 880px;
+            margin: 0 auto;
         }
 
-        .div_button {
-            text-align: center;
-        }
+            #table_user_overview td, #table_personal_info td, #table_address_update td, table_change_pwd td, #table_change_pwd td {
+                border: 1px solid #d5d5d5;
+                text-align: left;
+                padding: 8px;
+            }
 
-        .auto-style2 {
-            width: 441px;
-        }
+                #table_user_overview td:hover {
+                    background: #d5d5d5;
+                }
 
-        .auto-style3 {
-            text-align: right;
+            #table_address_update .tb_address_tbox {
+                width: 80%;
+            }
+
+        td.table_title {
             height: 40px;
-            width: 214px;
+            font-size: xx-large;
+            font-style: normal;
         }
     </style>
-    <h2>欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
-    <br />
-    <div id="div_content" class="auto-style1">
+    <h2 style="background: red; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
+    <div id="div_content">
         <div id="div_left">
-            <div class="text-right">
-                <asp:Button ID="Button_TotalView" runat="server" Text="账户总览" CssClass="btn-link" OnClick="Button_TotalView_Click" />
-            </div>
-            <div class="text-right">
-                <asp:Button ID="Button_UserInfo" runat="server" Text="个人信息" CssClass="btn-link" OnClick="Button_UserInfo_Click" />
-            </div>
-                        <div class="text-right">
-                            <asp:Button ID="btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="btn_Order_Click" />
-            </div>
-            <div class="text-right">
-                <asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
-            </div>
-            <div class="text-right">
-
-                <asp:Button ID="Button_Address" runat="server" Text="收货地址" CssClass="btn-link" OnClick="Button_Address_Click" />
-            </div>
-            <div class="text-right">
-                <asp:Button ID="Button_Security" runat="server" Text="安全设置" CssClass="btn-link" OnClick="Button_Security_Click" />
-            </div>
-
+            <ul>
+                <li>
+                    <asp:Button ID="Button_TotalView" runat="server" Text="账户总览" CssClass="btn-link" OnClick="Button_TotalView_Click" />
+                </li>
+                <li>
+                    <asp:Button ID="Button_UserInfo" runat="server" Text="个人信息" CssClass="btn-link" OnClick="Button_UserInfo_Click" />
+                </li>
+                <li>
+                    <asp:Button ID="btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="btn_Order_Click" />
+                </li>
+                <li>
+                    <asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
+                </li>
+                <li>
+                    <asp:Button ID="Button_Address" runat="server" Text="收货地址" CssClass="btn-link" OnClick="Button_Address_Click" />
+                </li>
+                <li>
+                    <asp:Button ID="Button_Security" runat="server" Text="安全设置" CssClass="btn-link" OnClick="Button_Security_Click" />
+                </li>
+            </ul>
         </div>
         <div id="div_right">
 
             <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
                 <asp:View ID="View_TotalView" runat="server">
-                    <br />
                     <div>
-                        <table style="width: 100%; height: 95%;">
+                        <table id="table_user_overview" border="1">
                             <tr>
-                                <td class="text-left" colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 账户总览</td>
-                                <td class="text-left" style="height: 40px; font-size: xx-large; font-style: normal;">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 20px;">&nbsp;</td>
-                                <td style="height: 20px;">&nbsp;</td>
+                                <td colspan="3" class="table_title">账户总览</td>
                             </tr>
                             <tr>
                                 <td class="auto-style3">用户名：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label>
                                     </div>
                                 </td>
-                                <td aria-multiline="False" class="auto-style2" rowspan="4">
-                                    <asp:Image ID="Image1" runat="server" Height="150px" ImageAlign="Middle" ImageUrl="~/Account/QQ图片20170706150624.png" Width="150px" />
+                                <td style="text-align: center" rowspan="5">
+                                    <asp:Image ID="Image1" runat="server" Height="150px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" Width="150px" />
                                 </td>
                             </tr>
                             <tr>
                                 <td class="auto-style3">昵称：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:Label ID="Label_NickName" runat="server" Text="Label_NickName"></asp:Label>
                                     </div>
                                 </td>
@@ -103,7 +174,7 @@
                             <tr>
                                 <td class="auto-style3">用户类型：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:Label ID="Label_UserType" runat="server" Text="Label_UserType"></asp:Label>
                                     </div>
                                 </td>
@@ -111,7 +182,7 @@
                             <tr>
                                 <td class="auto-style3">账户余额：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:Label ID="Label_Money" runat="server" Text="Label_Money"></asp:Label>
                                     </div>
                                 </td>
@@ -120,130 +191,109 @@
                     </div>
                 </asp:View>
                 <asp:View ID="View_UserInfo" runat="server">
-                    <br />
                     <div>
-                        <table style="width: 100%; height: 95%;">
+                        <table id="table_personal_info">
                             <tr>
-                                <td class="text-left" colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 个人信息</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 20px;">&nbsp;</td>
+                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">个人信息</td>
                             </tr>
                             <tr>
                                 <td style="width: 101px; height: 40px;" class="text-right">输入新昵称：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:TextBox ID="TextBox_NewNickName" runat="server" Width="250px"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="height: 15px;">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td style="height: 30px;"></td>
-                                <td class="text-left" style="height: 30px;">
-                                    <asp:Button ID="Button_SetNewNickName" runat="server" Text="修改" Width="50px" OnClick="Button_SetNewNickName_Click" />
+
+                                <td colspan="2" style="height: 30px; text-align: center">
+                                    <asp:Button ID="Button_SetNewNickName" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewNickName_Click" />
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </asp:View>
                 <asp:View ID="View_Address" runat="server">
-                    <br />
                     <div>
-                        <table style="width: 100%; height: 95%;">
+                        <table id="table_address_update">
                             <tr>
-                                <td class="text-left" colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 收货地址更新</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="height: 20px;">&nbsp;</td>
+                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">收货地址更新</td>
                             </tr>
                             <tr>
                                 <td style="width: 101px; height: 40px;" class="text-right">真实姓名：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
-                                        <asp:TextBox ID="TextBox_RealName" runat="server" Width="250px"></asp:TextBox>
+                                    <div>
+                                        <asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width: 101px; height: 40px;" class="text-right">邮政编码：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
-                                        <asp:TextBox ID="TextBox_PostCode" runat="server" Width="250px"></asp:TextBox>
+                                    <div>
+                                        <asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width: 101px; height: 40px;" class="text-right">电话号码：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
-                                        <asp:TextBox ID="TextBox_PhoneNum" runat="server" Width="250px"></asp:TextBox>
+                                    <div>
+                                        <asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width: 101px; height: 80px;" class="text-right">收货地址：</td>
                                 <td style="width: 441px; height: 80px;">
-                                    <div class="text-left">
-                                        <asp:TextBox ID="TextBox_Address" runat="server" Width="250px" Height="80px" TextMode="MultiLine"></asp:TextBox>
+                                    <div>
+                                        <asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="height: 15px;">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td style="height: 30px;"></td>
-                                <td class="text-left" style="height: 30px;">
-                                    <asp:Button ID="Button_SetNewAddress" runat="server" Text="修改" Width="50px" OnClick="Button_SetNewAddress_Click" />
+
+                                <td colspan="2" style="text-align: center; height: 30px;">
+                                    <asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </asp:View>
                 <asp:View ID="View_Security" runat="server">
-                    <br />
                     <div>
-                        <table style="width: 100%; height: 95%;">
+                        <table id="table_change_pwd">
                             <tr>
-                                <td class="text-left" colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 密码修改</td>
+                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">密码修改</td>
                             </tr>
                             <tr>
-                                <td colspan="2" style="height: 20px;">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td class="text-right" style="width: 101px; height: 40px;">原密码：</td>
+                                <td class="auto-style1">原密码：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="text-right" style="width: 101px; height: 40px;">密码：</td>
+                                <td class="auto-style1">密码：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width: 101px; height: 40px;" class="text-right">确认密码：</td>
+                                <td class="auto-style1">确认密码：</td>
                                 <td style="width: 441px; height: 40px;">
-                                    <div class="text-left">
+                                    <div>
                                         <asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
-                                <td colspan="2" style="height: 15px;">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td style="height: 30px;"></td>
-                                <td class="text-left" style="height: 30px;">
-                                    <asp:Button ID="Button_SetNewPWD" runat="server" Text="修改" Width="50px" OnClick="Button_SetNewPWD_Click" />
+                                <td colspan="2" style="text-align: center;">
+                                    <asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -257,7 +307,7 @@
                     <div>
                         <table style="width: 100%; height: 95%;">
                             <tr>
-                                <td class="text-left" colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 头像修改</td>
+                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">头像修改</td>
                             </tr>
                             <tr>
                                 <td colspan="2" style="height: 20px;">
@@ -265,7 +315,7 @@
                                         <asp:Image ID="Image2" runat="server" Height="150px" Width="150px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
                                         <asp:FileUpload ID="FileUpload1" runat="server" />
                                         <asp:Button ID="btnupload" runat="server" Text="Button" OnClick="btnupload_Click" />
-                                        <asp:Button ID="btndelete" runat="server" Text="Button"/>
+                                        <asp:Button ID="btndelete" runat="server" Text="Button" />
                                     </div>
                                 </td>
                             </tr>
@@ -274,8 +324,8 @@
                             </tr>
                             <tr>
                                 <td style="height: 30px;"></td>
-                                <td class="text-left" style="height: 30px;">
-                                    <asp:Button ID="Button1" runat="server" Text="修改" Width="50px" OnClick="Button_SetNewPWD_Click" />
+                                <td style="height: 30px;">
+                                    <asp:Button ID="Button1" runat="server" Text="修改" Width="50px" CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -285,40 +335,30 @@
                     <br />
                 </asp:View>
                 <asp:View ID="View_Order" runat="server">
-                    <br />
-                    <div>
-                        
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="SELECT [order_id], [order_date], [isSend], [isPay], [order_price] FROM [Cart_Info] WHERE ([UID] = @UID) ORDER BY [order_id], [order_date]">
-                            <SelectParameters>
-                                <asp:SessionParameter Name="UID" SessionField="UID" Type="String" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
-                        
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="90%">
-                            <AlternatingRowStyle BackColor="White" />
-                            <Columns>
-                                <asp:HyperLinkField DataNavigateUrlFields="order_id" DataNavigateUrlFormatString="order.aspx?orderid={0}" DataTextField="order_id" SortExpression="order_id" Text="订单编号" />
-                                <asp:BoundField DataField="order_date" HeaderText="下单时间" SortExpression="order_date" />
-                                <asp:CheckBoxField DataField="isPay" HeaderText="付款状态" SortExpression="isPay" />
-                                <asp:BoundField DataField="order_price" HeaderText="订单总额" SortExpression="order_price" />
-                            </Columns>
-                            <EditRowStyle BackColor="#2461BF" />
-                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#EFF3FB" />
-                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
-                        </asp:GridView>
-                        <br />
-                        
-                    </div>
-                    <br />
-                    <br />
-                    <br />
+                    <asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
+                        <HeaderTemplate>
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>订单ID</th>
+                                    <th>订单时间</th>
+                                    <th>订单价格</th>
+                                    <th>付款状态</th>
+                                </tr>
+                            </table>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <table class="table table-hover">
+                                <tr>
+                                    <td><%# Eval("order_id") %></td>
+                                    <td><%# Eval("order_date") %></td>
+                                    <td><%# Eval("order_price") %></td>
+                                    <td>
+                                        <asp:CheckBox ID="CheckBox1" runat="server" Enabled="false" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </ItemTemplate>
+                    </asp:DataList>
                 </asp:View>
             </asp:MultiView>
         </div>

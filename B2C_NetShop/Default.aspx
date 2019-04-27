@@ -67,7 +67,8 @@
 				background-color: #444;
 				color: white;
 				box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.17);
-			}
+                text-decoration:none;
+		    }
 		.carousel-control.left,.carousel-control.right{
 			background-image:none;
 		}

@@ -89,8 +89,8 @@
 				</ItemTemplate>
 			</asp:DataList>
            <div id="right_a_button">
-                            <a id="f"  href="javascript:history.back(-1)">查看商品详情</a>
-                            <a href="#" id="s">去购物车结算</a>
+                <a id="f"  href="javascript:history.back(-1)">查看商品详情</a>
+                <a href="cart.aspx" id="s">去购物车结算</a>
            </div>
 	</div>
 </asp:Content>
