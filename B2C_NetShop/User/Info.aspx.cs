@@ -11,10 +11,12 @@ using B2C_NetShop.App_Start;
 
 namespace B2C_NetShop.User
 {
-    public partial class Info : System.Web.UI.Page
+    public partial class Info : Page
     {
         Database operate = new Database();
         pageload load = new pageload();
+        static PagedDataSource pds = new PagedDataSource();
+        DataSet ds;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,6 +37,8 @@ namespace B2C_NetShop.User
                 {
                     BindUserInfo();
                     BindUserAddress();
+                    BindDataList();
+                    isChecked();
                 }
             }
         }
@@ -61,63 +65,18 @@ namespace B2C_NetShop.User
         {
             MultiView1.SetActiveView(View_Security);
         }
+
         protected void Button_UserImage_Click(object sender, EventArgs e)
         {
             MultiView1.SetActiveView(View_UserImage);
-        }
-
-        public void BindUserInfo()
-        {
-            //String sql = "select NickName,Money,UserType from User_Info where UID='" + Session["uid"].ToString() + "'";
-            String sql = "select NickName,Money,UserType from User_Info where UID=@uid";
-            SqlParameter[] parameters = {
-                new SqlParameter("@uid",Session["uid"].ToString())
-                 };
-            //DataSet ds = operate.GetTable(sql);
-            DataSet ds = operate.GetTable(sql, parameters);
-            ds.Dispose();
-            String nickname = ds.Tables[0].Rows[0][0].ToString();
-            String money = ds.Tables[0].Rows[0][1].ToString();
-            String usertype = ds.Tables[0].Rows[0][2].ToString();
-            //账户总览页
-            Label_UID1.Text = nickname;
-            Label_UID2.Text = Session["uid"].ToString();
-            if (usertype == "1")
-            {
-                Label_UserType.Text = "注册用户";
-            }
-            else
-            {
-                Label_UserType.Text = "管理员";
-            }
-            Label_Money.Text = money;
-            Label_NickName.Text = nickname;
-        }
-
-        public void BindUserAddress()
-        {
-            String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID=@uid";
-            SqlParameter[] parameters = {
-                new SqlParameter("@uid",Session["uid"].ToString())
-                 };
-            DataSet ds = operate.GetTable(sql,parameters);
-            ds.Dispose();
-            String realname = ds.Tables[0].Rows[0][0].ToString();
-            String postcode = ds.Tables[0].Rows[0][1].ToString();
-            String address = ds.Tables[0].Rows[0][2].ToString();
-            String phone = ds.Tables[0].Rows[0][3].ToString();
-            TextBox_RealName.Text = realname;
-            TextBox_PostCode.Text = postcode;
-            TextBox_Address.Text = address;
-            TextBox_PhoneNum.Text = phone;
         }
 
         protected void Button_SetNewNickName_Click(object sender, EventArgs e)
         {
             String newnickname = TextBox_NewNickName.Text.Trim();
             String sql = "update User_Info set NickName=@newnickname where UID=@uid";
-            SqlParameter[] parameters1 = {new SqlParameter("@newnickname",newnickname),new SqlParameter("@uid", Session["UID"].ToString() )};
-            int i = operate.OperateData(sql,parameters1);
+            SqlParameter[] parameters1 = { new SqlParameter("@newnickname", newnickname), new SqlParameter("@uid", Session["UID"].ToString()) };
+            int i = operate.OperateData(sql, parameters1);
             if (i == 1)
             {
                 Session["nickname"] = newnickname;
@@ -139,7 +98,7 @@ namespace B2C_NetShop.User
                 new SqlParameter("@PhoneNumber",TextBox_PhoneNum.Text.Trim()),
                 new SqlParameter("@uid", Session["UID"].ToString())
             };
-            int n = operate.OperateData(sql,parameters2);
+            int n = operate.OperateData(sql, parameters2);
             if (n == 1)
             {
                 Response.Write("<script type='text/javascript'>alert('修改成功！');location='Info.aspx';</script>");
@@ -156,7 +115,7 @@ namespace B2C_NetShop.User
             SqlParameter[] parameters1 = {
                 new SqlParameter("@uid",Session["uid"].ToString())
                  };
-            DataSet ds = operate.GetTable(pwd,parameters1);
+            DataSet ds = operate.GetTable(pwd, parameters1);
             ds.Dispose();
             String pwd1 = ds.Tables[0].Rows[0][2].ToString();
             String pwd2 = TextBox3.Text.Trim();
@@ -167,7 +126,7 @@ namespace B2C_NetShop.User
                     new SqlParameter("@pwd",TextBox1.Text.Trim()),
                     new SqlParameter("@uid",Session["UID"].ToString())
                 };
-                int n = operate.OperateData(sql,parameters3);
+                int n = operate.OperateData(sql, parameters3);
                 if (n == 1)
                 {
                     Session["uid"] = "";
@@ -222,5 +181,75 @@ namespace B2C_NetShop.User
         {
             MultiView1.SetActiveView(View_Order);
         }
+
+        public void BindUserInfo()
+        {
+            //String sql = "select NickName,Money,UserType from User_Info where UID='" + Session["uid"].ToString() + "'";
+            String sql = "select NickName,Money,UserType from User_Info where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            //DataSet ds = operate.GetTable(sql);
+            DataSet ds = operate.GetTable(sql, parameters);
+            ds.Dispose();
+            String nickname = ds.Tables[0].Rows[0][0].ToString();
+            String money = ds.Tables[0].Rows[0][1].ToString();
+            String usertype = ds.Tables[0].Rows[0][2].ToString();
+            //账户总览页
+            Label_UID1.Text = nickname;
+            Label_UID2.Text = Session["uid"].ToString();
+            if (usertype == "1")
+            {
+                Label_UserType.Text = "注册用户";
+            }
+            else
+            {
+                Label_UserType.Text = "管理员";
+            }
+            Label_Money.Text = money;
+            Label_NickName.Text = nickname;
+        }
+
+        public void BindUserAddress()
+        {
+            String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID=@uid";
+            SqlParameter[] parameters = {
+                new SqlParameter("@uid",Session["uid"].ToString())
+                 };
+            DataSet ds = operate.GetTable(sql,parameters);
+            ds.Dispose();
+            String realname = ds.Tables[0].Rows[0][0].ToString();
+            String postcode = ds.Tables[0].Rows[0][1].ToString();
+            String address = ds.Tables[0].Rows[0][2].ToString();
+            String phone = ds.Tables[0].Rows[0][3].ToString();
+            TextBox_RealName.Text = realname;
+            TextBox_PostCode.Text = postcode;
+            TextBox_Address.Text = address;
+            TextBox_PhoneNum.Text = phone;
+        }
+
+        public void BindDataList()
+        {
+            ds = operate.GetTable("select * from dbo.Cart_Info;");
+            DataList1.DataSource = ds; // 设置数据源，用于填充控件中的项的值列表
+            DataList1.DataBind();      // 将控件及其所有子控件绑定到指定的数据源
+        }
+
+
+        public void isChecked() {
+            CheckBox cb;
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                cb = (CheckBox)DataList1.Items[i].FindControl("CheckBox1");
+                if ((bool)ds.Tables[0].Rows[i][8])
+                {
+                    cb.Checked = true;
+                }
+                else
+                {
+                    cb.Checked = false;
+                }
+            }
+        } 
     }
 }

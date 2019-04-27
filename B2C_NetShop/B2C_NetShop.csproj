@@ -162,6 +162,7 @@
     <Content Include="Goods\list.aspx" />
     <Content Include="Goods\refinement.aspx" />
     <Content Include="Goods\search.aspx" />
+    <Content Include="img\DefaultImg\1.jpg" />
     <Content Include="img\QR.png" />
     <Content Include="img\addtocart.png" />
     <Content Include="img\B2CDemo_Logo.png" />
