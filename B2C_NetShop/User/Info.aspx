@@ -130,7 +130,7 @@
                     <asp:Button ID="Button_UserInfo" runat="server" Text="个人信息" CssClass="btn-link" OnClick="Button_UserInfo_Click" />
                 </li>
                 <li>
-                    <asp:Button ID="btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="btn_Order_Click" />
+                    <asp:Button ID="Btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="Btn_Order_Click" />
                 </li>
                 <li>
                     <asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
@@ -314,7 +314,7 @@
                                     <div>
                                         <asp:Image ID="Image2" runat="server" Height="150px" Width="150px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
                                         <asp:FileUpload ID="FileUpload1" runat="server" />
-                                        <asp:Button ID="btnupload" runat="server" Text="Button" OnClick="btnupload_Click" />
+                                        <asp:Button ID="Btnupload" runat="server" Text="Button" OnClick="Btnupload_Click" />
                                         <asp:Button ID="btndelete" runat="server" Text="Button" />
                                     </div>
                                 </td>

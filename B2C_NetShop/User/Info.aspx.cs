@@ -13,15 +13,15 @@ namespace B2C_NetShop.User
 {
     public partial class Info : Page
     {
-        Database operate = new Database();
+		Database operate = new Database();
         pageload load = new pageload();
-        static PagedDataSource pds = new PagedDataSource();
+        //PagedDataSource pds = new PagedDataSource();
         DataSet ds;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             String uid = Convert.ToString(Session["uid"]);
-            String nickname = Convert.ToString(Session["nickname"]);
+            //String nickname = Convert.ToString(Session["nickname"]);
             if ("".Equals(uid))
             {
                 Response.Redirect("~/Account/Login.aspx");
@@ -38,7 +38,7 @@ namespace B2C_NetShop.User
                     BindUserInfo();
                     BindUserAddress();
                     BindDataList();
-                    isChecked();
+                    IsChecked();
                 }
             }
         }
@@ -143,7 +143,7 @@ namespace B2C_NetShop.User
             }
         }
 
-        protected void btnupload_Click(object sender, EventArgs e)
+        protected void Btnupload_Click(object sender, EventArgs e)
         {
             int length = this.FileUpload1.PostedFile.ContentLength;//获取图片大小，以字节为单位
             if (length < 4096)
@@ -177,7 +177,7 @@ namespace B2C_NetShop.User
             }
         }
 
-        protected void btn_Order_Click(object sender, EventArgs e)
+        protected void Btn_Order_Click(object sender, EventArgs e)
         {
             MultiView1.SetActiveView(View_Order);
         }
@@ -230,13 +230,13 @@ namespace B2C_NetShop.User
 
         public void BindDataList()
         {
-            ds = operate.GetTable("select * from dbo.Cart_Info;");
+            ds = operate.GetTable("select * from Cart_Info;");
             DataList1.DataSource = ds; // 设置数据源，用于填充控件中的项的值列表
             DataList1.DataBind();      // 将控件及其所有子控件绑定到指定的数据源
         }
 
 
-        public void isChecked() {
+        public void IsChecked() {
             CheckBox cb;
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
