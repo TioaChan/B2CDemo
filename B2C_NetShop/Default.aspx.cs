@@ -21,12 +21,16 @@ namespace B2C_NetShop
 			int status = Convert.ToInt32(Session["Status"]);
 			load.HyperLinkBind(hl1, hl2, hl3, uid, status);
 			load.MainPageBind(HyperLink1, HyperLink2, Label1, uid, nickname);
-			//BindDataList_RefinementGoods();
 			BindDataList("Isrefinement", DataList_RefinementGoods);
 			BindDataList("IsHot",DataList_HotGoods);
 			BindDataList("IsDiscount",DataList_DiscountGoods);
 		}
 
+		/// <summary>
+		/// 从数据库获取商品数据绑定到首页DataList控件
+		/// </summary>
+		/// <param name="type">推荐/热卖/折扣类型</param>
+		/// <param name="dl">DataList控件ID</param>
 		protected void BindDataList(String type,DataList dl)
 		{
 			DataTable dtTable = new DataTable();

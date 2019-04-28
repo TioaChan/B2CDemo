@@ -139,7 +139,6 @@
 
 		#footer_1st, #footer_2nd, #footer_3rd { /*三个推荐栏目容器*/
 			height: 200px;
-			border-right:1px #eaeaea solid;
 			border-bottom:1px #eaeaea solid;
 			position:relative;
 		}
