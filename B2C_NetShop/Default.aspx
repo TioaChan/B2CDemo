@@ -148,8 +148,10 @@
 			height: 200px;
 		}
 		.footer_goods_detail{
-			float:left;
+			/*float:left;*/
 			padding:0 40px;
+			width:175px;
+			text-align:center;
 		}
 		.bookImg{
 			width:80px;
@@ -178,6 +180,9 @@
 				width: 100px;
 				text-align: center;
 			}
+			a:hover{
+				text-decoration:none;
+			}
 	</style>
 
 	<div id="footer">
@@ -196,10 +201,9 @@
 								<%--bookimg--%>
 								<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
 								<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-								<span class="book_price">售价：<%# Eval("HotPrice") %></span><%--hotprice--%></a></div>
+								<span class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</span><%--hotprice--%></a></div>
 					</ItemTemplate>
 				</asp:DataList>
-				<div class="clear"></div>
 				<%--datalist test end--%>
 			</div>
 			<div class="footer_btn"><a class="btn btn-default" href="Goods/refinement.aspx">查看更多 &raquo;</a></div>
@@ -220,10 +224,9 @@
 								<%--bookimg--%>
 								<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
 								<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-								<span class="book_price">售价：<%# Eval("HotPrice") %></span><%--hotprice--%></a></div>
+								<span class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</span><%--hotprice--%></a></div>
 					</ItemTemplate>
 				</asp:DataList>
-				<div class="clear"></div>
 				<%--datalist test end--%>
 			</div>
 			<div class="footer_btn"><a class="btn btn-default" href="Goods/hot.aspx">查看更多 &raquo;</a></div>
@@ -244,10 +247,9 @@
 								<%--bookimg--%>
 								<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
 								<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-								<span class="book_price">售价：<%# Eval("HotPrice") %></span><%--hotprice--%></a></div>
+								<span class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</span><%--hotprice--%></a></div>
 					</ItemTemplate>
 				</asp:DataList>
-				<div class="clear"></div>
 				<%--datalist test end--%>
 			</div>
 			<div class="footer_btn"><a class="btn btn-default" href="Goods/discount.aspx">查看更多 &raquo;</a></div>

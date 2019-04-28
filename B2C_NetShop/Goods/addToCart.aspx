@@ -66,9 +66,16 @@
             #right_a_button  #f:hover{
                 border:1px solid red;                
             }
+			.clear{
+				clear:both;
+			}
 	</style>
 	<div id="addSuccess_frame">
-		<p style="margin:0px; color:#84B247; font-size:20px; padding:10px;"><span style="background:url(/img/addtocart-icons.png) no-repeat; display:block; width:25px; height:25px; float:left;"></span>商品已成功加入购物车！</p>
+		<div style="margin:0px; color:#84B247; font-size:20px; padding:10px;">
+			<span style="background:url(/img/addtocart-icons.png) no-repeat; display:block; width:25px; height:25px; float:left;margin:3px;"></span>
+			<span style="float:left;">商品已成功加入购物车！</span>
+			<div class="clear"></div>
+		</div>
 		<asp:DataList ID="current_info" runat="server">
 				<ItemTemplate>
 					<div id="current_info_frame">
