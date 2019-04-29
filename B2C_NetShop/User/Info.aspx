@@ -1,10 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="Info.aspx.cs" Inherits="B2C_NetShop.User.Info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">
     <style>
         /* ============================= 左右盒子外加一个做导航条 ============================= */
         /* 设置大盒子宽度防止挤压 */
-        * {
+
+        body {
+            background: #f6f6f6;
             font-family: 微软雅黑;
         }
 
@@ -46,30 +49,31 @@
                         background: rgba(255,255,255,0.2);
                     }
 
-                    #div_left ul li input{
+                    #div_left ul li input {
                         font-size: 13px;
                         text-align: left;
-                        width:92%;
+                        width: 92%;
                         color: rgba(255,255,255,0.7);
                     }
-                        #div_left p{
-                            margin:0px;
-                            font-size: 13px;
-                            text-align: center;
-                            color: rgba(255,255,255,0.7);
-                        }    
 
-                        #div_left ul li input:hover,#div_left p:hover{
-                            text-decoration: none;
-                            color: #fff;
-                        }
+            #div_left p {
+                margin: 0px;
+                font-size: 13px;
+                text-align: center;
+                color: rgba(255,255,255,0.7);
+            }
 
-                    #div_left ul li i {
-                        height: 19px;
-                        line-height: 19px;
-                        color: #fff;
-                        float: right;
-                    }
+                #div_left ul li input:hover, #div_left p:hover {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+            #div_left ul li i {
+                height: 19px;
+                line-height: 19px;
+                color: #fff;
+                float: right;
+            }
 
 
 
@@ -123,12 +127,104 @@
             text-align: center;
         }
         /* ============================= 表格 =============================*/
+        #user-overview{
+            font-family:'Oswald', sans-serif;
+        }
 
+        .title-container{
+            background:#000;
+            font-family:'Oswald', sans-serif;
+            font-size:30px;
+            font-weight:400;
+            margin:20px;
+        }
+
+            .title-container .rotate-out{
+                color:#f4d03f;
+                height:130px;
+                padding:15px;
+            }
+
+            .title-container .invert{
+                color:white;
+            }
+        
+        .content-container{
+            background:#fff;
+            margin:20px;
+            padding:30px 15px;
+            width:441.5px;
+            float:left;
+        }
+
+            .content-container .strong-text{
+                font-family:'Oswald', sans-serif;
+                font-size:22.5px;
+                margin:10px 0px;
+            }
+
+            .content-container .personal-info-title{
+                margin-top:65px;
+                font-size:21px;
+                font-family:'Oswald', sans-serif;
+            }
+
+            .strong-text span{
+                background:#f4d03f;
+                padding:2px 5px;
+                padding-bottom:2px;
+                color:#111;
+                margin-left:5px;
+            }
+
+            .content-container ul{
+                padding:0px;
+                margin:0px;
+                list-style:none;
+            }
+
+            .content-container ul li label{
+                width:75px;
+                min-width:75px;
+                font-size:12.5px;
+                background:#f4d03f;
+                padding:4px 10px 5px;
+            }
+
+            .content-container ul li span{
+                background:#111111;
+                padding:4px 10px 5px;
+                color:#fff;
+                display:inline-block;
+                margin-left:9px;
+                text-transform:capitalize;
+            }
+        
+        #namecard{
+            float:left;
+            width:421.5px;
+            background:#fff;
+            height:333.9px;
+            margin-top:20px;
+            background:#000000;
+            font-family:'Oswald', sans-serif;
+            text-align:center;
+        }
+
+        #namecard .maintitle{
+            color:#f4d03f;
+            display:inline-block;
+            text-transform:uppercase;
+        }
+
+        #namecard .invert{
+            color:#fff;
+        }
 
         #table_user_overview, #table_personal_info, #table_address_update, #table_change_pwd {
             width: 880px;
             margin: 0 auto;
-            margin-top:20px;
+            margin-top: 20px;
         }
 
             #table_user_overview td, #table_personal_info td, #table_address_update td, table_change_pwd td, #table_change_pwd td {
@@ -144,7 +240,7 @@
             #table_address_update .tb_address_tbox {
                 width: 80%;
             }
-        
+
         td.table_title {
             height: 40px;
             font-size: xx-large;
@@ -182,65 +278,53 @@
                     <i class="glyphicon glyphicon-lock"></i>
                 </li>
                 <li>
-                    <div class="progress progress-striped active" style="height:10px; margin-top:30px;">
+                    <div class="progress progress-striped active" style="height: 10px; margin-top: 30px;">
                         <div class="progress-bar progress-bar-success" role="progressbar"
                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                             style="width: 40%;">
                             <span class="sr-only">40% 完成</span>
                         </div>
                     </div>
-                     <p>当前已销售10</p>
+                    <p>当前已销售10</p>
                 </li>
             </ul>
-
-
-
         </div>
         <div id="div_right">
-
             <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
                 <asp:View ID="View_TotalView" runat="server">
                     <div>
-                        <table id="table_user_overview" border="1">
-                            <tr>
-                                <td colspan="3" class="table_title">账户总览</td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style3">用户名：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label>
-                                    </div>
-                                </td>
-                                <td style="text-align: center" rowspan="5">
-                                    <asp:Image ID="Image1" runat="server" Height="150px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" Width="150px" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style3">昵称：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:Label ID="Label_NickName" runat="server" Text="Label_NickName"></asp:Label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style3">用户类型：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:Label ID="Label_UserType" runat="server" Text="Label_UserType"></asp:Label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style3">账户余额：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:Label ID="Label_Money" runat="server" Text="Label_Money"></asp:Label>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                        
+                        <div class="title-container">
+                            
+                            <div class="shadow-img"></div>
+                            <h2 class="rotate-out">Welcome To <span class="invert">User Overview</span></h2>
+                            <!--HOME TITLE-->
+                        </div>
+                        <div class="content-container">
+                            <div class="strong-text">Hello, I am <span>John Doe</span></div>
+                            <h3 class="personal-info-title">Personal Info</h3>
+                            <ul class="personal-info">
+                               
+                                <li class="rotate-out rotated">
+                                    <label>姓名</label><asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label></li>
+                                <li class="rotate-out rotated">
+                                    <label>昵称</label><asp:Label ID="Label_NickName" runat="server" Text="Label_NickName"></asp:Label></li>
+                                <li class="rotate-out rotated">
+                                    <label>用户类型</label><asp:Label ID="Label_UserType" runat="server" Text="Label_UserType"></asp:Label></li>
+                                <li class="rotate-out rotated">
+                                    <label>账户余额</label><asp:Label ID="Label_Money" runat="server" Text="Label_Money"></asp:Label></li>
+                            </ul>
+                            <!--/ul.personal-info-->
+                        </div>
+                        <div id="namecard">
+                            <h1 class="maintitle">
+                                John
+                                <span class="invert">Doe</span>
+                                
+                            </h1>
+                            <h3>Web</h3>
+                            <asp:Image ID="Image1" runat="server" Height="150px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" Width="150px" />
+                        </div>
                     </div>
                 </asp:View>
                 <asp:View ID="View_UserInfo" runat="server">
