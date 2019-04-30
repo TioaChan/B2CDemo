@@ -499,7 +499,7 @@
 							</table>
 						</ItemTemplate>
 					</asp:DataList>
-					<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="SELECT [order_id], [isPay], [order_price], [order_date] FROM [Cart_Info] WHERE ([UID] = @UID)">
+					<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="SELECT [order_id], [isPay], [order_price], [order_date] FROM [Cart_Info] WHERE ([UID] = @UID) ORDER BY [order_date] DESC">
 						<SelectParameters>
 							<asp:SessionParameter Name="UID" SessionField="uid" Type="String" />
 						</SelectParameters>
