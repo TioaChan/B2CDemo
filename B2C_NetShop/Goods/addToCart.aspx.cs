@@ -75,7 +75,7 @@ namespace B2C_NetShop.Goods
 			//填充
 			row["BookName"] = ds.Tables[0].Rows[0][0].ToString(); //读取名称
 			row["picUrl"] = ds.Tables[0].Rows[0][2].ToString();
-			row["BookUrl"] = "~/Goods/Detail.aspx?id=" + bookid;
+            row["BookUrl"] = "~/Goods/Detail.aspx?id=" + bookid;
 			dtTable.Rows.Add(row);
 			current_info.DataSource = dtTable.DefaultView;
 			current_info.DataBind();
