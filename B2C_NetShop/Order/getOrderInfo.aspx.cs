@@ -109,12 +109,13 @@ namespace B2C_NetShop.Order
                 String id1 = key.ToString();
                 String bookid = id1.Replace("id=", "");   //获取id ，纯数字
                 String booknum = hashCart[key].ToString(); //获取数量
-                String sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum) values(@orderid,@bookid,@booknum)";
+                String sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum,uid) values(@orderid,@bookid,@booknum,@uid)";
                 SqlParameter[] parameters1 = {
                     new SqlParameter("@orderid",order_id),
                     new SqlParameter("@bookid",bookid),
-                    new SqlParameter("@booknum",booknum)
-                };
+                    new SqlParameter("@booknum",booknum),
+					new SqlParameter("@uid",uid)
+				};
                 int i = operate.OperateData(sql1, parameters1);
                 if (i == 1)
                 {
