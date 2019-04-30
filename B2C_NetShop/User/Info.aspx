@@ -486,11 +486,12 @@
                         <ItemTemplate>
                             <table class="table table-hover">
                                 <tr>
-                                    <td><%# Eval("order_id") %></td>
+                                    <td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
                                     <td><%# Eval("order_date") %></td>
                                     <td><%# Eval("order_price") %></td>
                                     <td>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" Enabled="false" />
+										<p><%# Eval("isPay") %></p>
+                                        <%--<asp:CheckBox ID="CheckBox1" runat="server" Enabled="False" Checked='<%# Convert.ToString(Eval("isPay")) == "False" ? true:false%>' />--%>
                                     </td>
                                 </tr>
                             </table>

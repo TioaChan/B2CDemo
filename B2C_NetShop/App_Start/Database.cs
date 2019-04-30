@@ -51,15 +51,6 @@ namespace B2C_NetShop.App_Start
 			return ds;
 		}
 
-        public DataSet GetTable(string sql)//返回dataset
-        {
-            SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            ds.Dispose();
-            return ds;
-        }
-
         public int ExecuteScalar(String sql, params SqlParameter[] parameters)
 		{
 			conn.Open();
