@@ -89,7 +89,7 @@
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="/img/DefaultImg/1.png" alt="First slide">
+                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556640635490&di=308d586b640442c6b003426269c5c38f&imgtype=0&src=http%3A%2F%2Fpic3.16pic.com%2F00%2F00%2F09%2F16pic_9380_b.jpg" alt="First slide">
                 </div>
                 <div class="item">
                     <img src="/img/DefaultImg/2.png" alt="Second slide">
@@ -187,7 +187,7 @@
             }
 
         .bookImg {
-            width: 120px;
+            height:171px;   
             display: block;
             margin: 7px auto;
         }
