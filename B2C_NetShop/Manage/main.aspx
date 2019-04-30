@@ -10,6 +10,67 @@
             text-align:center;
         }
 
+        #div_left {
+            float: left;
+            display: block;
+            width: 247px;
+            min-height: 100%;
+            font-size: 15px;
+        }
+
+            #div_left ul { /* 左导航条 */
+                padding: 0px 13px;
+                margin: 0px;
+                list-style: none;
+                min-height: 1380px;
+                background: -webkit-linear-gradient(0deg, #690089, #F70054); /* Safari 5.1 - 6.0 */
+                background: -o-linear-gradient(0deg, #690089, #F70054); /* Opera 11.1 - 12.0 */
+                background: -moz-linear-gradient(0deg, #690089, #F70054); /* Firefox 3.6 - 15 */
+                background: linear-gradient(0deg, #690089, #F70054); /* 标准的语法（必须放在最后） */
+            }
+
+                #div_left ul li {
+                    padding: 10px;
+                    width: 100%;
+                    -webkit-transition-duration: .25s;
+                    -moz-transition-duration: .25s;
+                    -o-transition-duration: .25s;
+                    transition-duration: .25s;
+                    border-bottom: 1px solid rgba(255, 255, 255, .4);
+                }
+
+                    #div_left ul li:hover {
+                        border-bottom: 1px solid #fff;
+                        background: rgba(255,255,255,0.2);
+                    }
+
+                    #div_left ul li input {
+                        font-size: 13px;
+                        text-align: left;
+                        width: 92%;
+                        color: rgba(255,255,255,0.7);
+                    }
+
+            #div_left p {
+                margin: 0px;
+                font-size: 13px;
+                text-align: center;
+                color: rgba(255,255,255,0.7);
+            }
+
+                #div_left ul li input:hover, #div_left p:hover {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+            #div_left ul li i {
+                height: 19px;
+                line-height: 19px;
+                color: #fff;
+                float: right;
+            }
+
+
         #div_right {
             display: block;
             float: left;
@@ -33,25 +94,35 @@
             text-align: center;
         }
     </style>
-    <h2>欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
-    <br />
+    <h2 style="display:none;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
     <div id="div_content" class="auto-style1">
-        <div id="div_left">
-            <div style="margin: 10px">
-                <asp:Button ID="Button_Default" runat="server" Text="欢迎" CssClass="btn-link" OnClick="Button_Default_Click" />
-            </div>
-            <div  style="margin: 10px">
-                <asp:Button ID="Button_RootUser" runat="server" Text="管理员管理" CssClass="btn-link" OnClick="Button_RootUser_Click" />
-            </div>
-            <div  style="margin: 10px">
-                <asp:Button ID="Button1" runat="server" Text="用户管理" CssClass="btn-link" OnClick="Button1_Click" />
-            </div>
-            <div  style="margin: 10px">
-                <asp:Button ID="Button_Goods" runat="server" Text="图书管理" CssClass="btn-link" OnClick="Button_Goods_Click" />
-            </div>
-            <div  style="margin: 10px">
-                <asp:Button ID="Button_Exit" runat="server" Text="退出" CssClass="btn-link" />
-            </div>
+         <div id="div_left">
+            <ul>
+                <li>
+                    <asp:Button ID="Button_Default" runat="server" Text="欢迎" CssClass="btn-link" OnClick="Button_Default_Click" />
+                    <i class="glyphicon glyphicon-user"></i>
+                </li>
+                <li>
+                    <asp:Button ID="Button_RootUser" runat="server" Text="管理员管理" CssClass="btn-link" OnClick="Button_RootUser_Click" />
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </li>
+                <li>
+                    <asp:Button ID="Button1" runat="server" Text="用户管理" CssClass="btn-link" OnClick="Button1_Click" />
+
+                    <i class="glyphicon glyphicon-barcode"></i>
+
+                </li>
+                <li>
+                    <asp:Button ID="Button_Goods" runat="server" Text="图书管理" CssClass="btn-link" OnClick="Button_Goods_Click" />
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </li>
+                <li>
+                    <asp:Button ID="Button_Exit" runat="server" Text="退出" CssClass="btn-link" />
+                    <i class="glyphicon glyphicon-home"></i>
+                </li>
+               
+            </ul>
+        </div>
         </div>
         <div id="div_right">
             <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">

@@ -25,6 +25,7 @@
             /*border:1px red solid;*/
             margin: 10px 0;
             padding: 0 100px;
+            background:#fff;
         }
 
         #Master_header_left { /*logo容器*/
@@ -112,6 +113,10 @@
             font-size: 16px;
 			overflow:hidden;
 			border-radius:2px;
+            background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(0deg, #f85032, #FF0000); /* Firefox 3.6 - 15 */
+            background: linear-gradient(0deg, #f85032, #FF0000); /* 标准的语法（必须放在最后） */
         }
 
         #type-container-titler { /*图书分类标题*/
@@ -131,21 +136,21 @@
         }
 
         .type-css { /*图书分类详细的a标签*/
-            color: black;
             display: block;
             margin: 5px 10px;
             height: 45px;
+            color: #fff;
             position: relative;
         }
 
             .type-css:link { /*a标签 未访问的链接 */
-                color: #000000;
+                color: #fff;
                 text-decoration: none;
             }
 
             .type-css:hover {
                 /*background: #FFE4DC*/;
-                color: #FF5000;
+                color: #000;
             }
 
             .type-css:before {
@@ -155,7 +160,7 @@
                 height: 2px;
                 bottom: -5px;
                 left: 0;
-                background-color: #000;
+                background-color: #fff;
                 visibility: hidden;
                 -webkit-transform: scaleX(0);
                 -o-transform: scaleX(0);
@@ -163,7 +168,6 @@
                 -webkit-transition: all 0.3s ease-in-out 0s;
                 -o-transition: all 0.3s ease-in-out 0s;
                 transition: all 0.3s ease-in-out 0s;
-                background: red;
             }
 
             .type-css:hover:before {

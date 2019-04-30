@@ -109,8 +109,8 @@
         /* ============================= datalist order manager =============================*/
         /* 订单管理 */
         .asp_datalist_om {
-            width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
+            background: #fff;
         }
 
             .asp_datalist_om .table {
@@ -118,7 +118,7 @@
             }
 
                 .asp_datalist_om .table tr td {
-                    width: 200px;
+                    width: 220.75px;
                     height: 38px;
                     text-align: left;
                 }
@@ -126,126 +126,134 @@
         th {
             text-align: center;
         }
-        /* ============================= 表格 =============================*/
-        #user-overview{
-            font-family:'Oswald', sans-serif;
+        /* ============================= div =============================*/
+        #user-overview {
+            font-family: 'Oswald', sans-serif;
         }
 
-        .title-container{
-            background:#000;
-            font-family:'Oswald', sans-serif;
-            font-size:30px;
-            font-weight:400;
-            margin:20px;
+        .title-container {
+            background: #000;
+            font-family: 'Oswald', sans-serif;
+            font-size: 30px;
+            font-weight: 400;
+            margin: 20px;
         }
 
-            .title-container .rotate-out{
-                color:#f4d03f;
-                height:130px;
-                padding:15px;
+            .title-container .rotate-out {
+                color: #f4d03f;
+                height: 130px;
+                padding: 15px;
             }
 
-            .title-container .invert{
-                color:white;
+            .title-container .invert {
+                color: white;
             }
-        
-        .content-container{
-            background:#fff;
-            margin:20px;
-            padding:30px 15px;
-            width:441.5px;
-            float:left;
+
+        .content-container {
+            background: #fff;
+            margin: 20px;
+            padding: 30px 15px;
+            width: 441.5px;
+            float: left;
         }
 
-            .content-container .strong-text{
-                font-family:'Oswald', sans-serif;
-                font-size:22.5px;
-                margin:10px 0px;
+            .content-container .strong-text {
+                font-family: 'Oswald', sans-serif;
+                font-size: 22.5px;
+                margin: 10px 0px;
             }
 
-            .content-container .personal-info-title{
-                margin-top:65px;
-                font-size:21px;
-                font-family:'Oswald', sans-serif;
+            .content-container .personal-info-title {
+                margin-top: 65px;
+                font-size: 21px;
+                font-family: 'Oswald', sans-serif;
             }
 
-            .strong-text span{
-                background:#f4d03f;
-                padding:2px 5px;
-                padding-bottom:2px;
-                color:#111;
-                margin-left:5px;
-            }
-
-            .content-container ul{
-                padding:0px;
-                margin:0px;
-                list-style:none;
-            }
-
-            .content-container ul li label{
-                width:75px;
-                min-width:75px;
-                font-size:12.5px;
-                background:#f4d03f;
-                padding:4px 10px 5px;
-            }
-
-            .content-container ul li span{
-                background:#111111;
-                padding:4px 10px 5px;
-                color:#fff;
-                display:inline-block;
-                margin-left:9px;
-                text-transform:capitalize;
-            }
-        
-        #namecard{
-            float:left;
-            width:421.5px;
-            background:#fff;
-            height:333.9px;
-            margin-top:20px;
-            background:#000000;
-            font-family:'Oswald', sans-serif;
-            text-align:center;
+        .strong-text span {
+            background: #f4d03f;
+            padding: 2px 5px;
+            padding-bottom: 2px;
+            color: #111;
+            margin-left: 5px;
         }
 
-        #namecard .maintitle{
-            color:#f4d03f;
-            display:inline-block;
-            text-transform:uppercase;
+        .content-container ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
         }
 
-        #namecard .invert{
-            color:#fff;
-        }
-
-        #table_user_overview, #table_personal_info, #table_address_update, #table_change_pwd {
-            width: 880px;
-            margin: 0 auto;
-            margin-top: 20px;
-        }
-
-            #table_user_overview td, #table_personal_info td, #table_address_update td, table_change_pwd td, #table_change_pwd td {
-                border: 1px solid #d5d5d5;
-                text-align: left;
-                padding: 8px;
+            .content-container ul li label {
+                width: 75px;
+                min-width: 75px;
+                font-size: 12.5px;
+                background: #f4d03f;
+                padding: 4px 10px 5px;
             }
 
-                #table_user_overview td:hover {
-                    background: #d5d5d5;
+            .content-container ul li span {
+                background: #111111;
+                padding: 4px 10px 5px;
+                color: #fff;
+                display: inline-block;
+                margin-left: 9px;
+                text-transform: capitalize;
+            }
+
+        div.card-body {
+            margin: 20px;
+            background: #fff;
+            padding: 30px;
+        }
+
+            div.card-body h4 {
+                margin-bottom: 18px;
+                font-weight: bold;
+            }
+
+            div.card-body div.form-group {
+                margin-bottom: 16px;
+            }
+
+            div.card-body input {
+                border: 1px solid #e6ecf5;
+                height: 30px;
+                padding: 0px 8px;
+                width: 100%;
+            }
+
+                div.card-body input:focus {
+                    border: 1px solid #80BDFF;
                 }
 
-            #table_address_update .tb_address_tbox {
-                width: 80%;
+            div.card-body p {
+                margin-bottom: 15px;
             }
 
-        td.table_title {
-            height: 40px;
-            font-size: xx-large;
-            font-style: normal;
+            div.card-body label {
+                font-weight: unset;
+            }
+
+        #namecard {
+            float: left;
+            width: 421.5px;
+            background: #fff;
+            height: 333.9px;
+            margin-top: 20px;
+            background: #000000;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
         }
+
+            #namecard .maintitle {
+                color: #f4d03f;
+                display: inline-block;
+                text-transform: uppercase;
+            }
+
+            #namecard .invert {
+                color: #fff;
+            }
     </style>
     <h2 style="background: red; display: none; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
     <div id="div_content">
@@ -293,9 +301,9 @@
             <asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
                 <asp:View ID="View_TotalView" runat="server">
                     <div>
-                        
+
                         <div class="title-container">
-                            
+
                             <div class="shadow-img"></div>
                             <h2 class="rotate-out">Welcome To <span class="invert">User Overview</span></h2>
                             <!--HOME TITLE-->
@@ -304,7 +312,7 @@
                             <div class="strong-text">Hello, I am <span>John Doe</span></div>
                             <h3 class="personal-info-title">Personal Info</h3>
                             <ul class="personal-info">
-                               
+
                                 <li class="rotate-out rotated">
                                     <label>姓名</label><asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label></li>
                                 <li class="rotate-out rotated">
@@ -317,10 +325,9 @@
                             <!--/ul.personal-info-->
                         </div>
                         <div id="namecard">
-                            <h1 class="maintitle">
-                                John
+                            <h1 class="maintitle">John
                                 <span class="invert">Doe</span>
-                                
+
                             </h1>
                             <h3>Web</h3>
                             <asp:Image ID="Image1" runat="server" Height="150px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" Width="150px" />
@@ -329,111 +336,82 @@
                 </asp:View>
                 <asp:View ID="View_UserInfo" runat="server">
                     <div>
-                        <table id="table_personal_info">
-                            <tr>
-                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">个人信息</td>
-                            </tr>
-                            <tr>
-                                <td style="width: 101px; height: 40px;" class="text-right">输入新昵称：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox_NewNickName" runat="server" Width="250px"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
+                        <div class="card-body">
+                            <h4>修改信息</h4>
 
-                                <td colspan="2" style="height: 30px; text-align: center">
-                                    <asp:Button ID="Button_SetNewNickName" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewNickName_Click" />
-                                </td>
-                            </tr>
-                        </table>
+                            <div class="form-group">
+                                <label>输入新昵称:</label>
+                                <br />
+                                <asp:TextBox ID="TextBox_NewNickName" runat="server" Width="250px"></asp:TextBox>
+                            </div>
+                            <asp:Button ID="Button_SetNewNickName" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewNickName_Click" />
+                        </div>
                     </div>
                 </asp:View>
                 <asp:View ID="View_Address" runat="server">
                     <div>
-                        <table id="table_address_update">
-                            <tr>
-                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal;">收货地址更新</td>
-                            </tr>
-                            <tr>
-                                <td style="width: 101px; height: 40px;" class="text-right">真实姓名：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 101px; height: 40px;" class="text-right">邮政编码：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 101px; height: 40px;" class="text-right">电话号码：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 101px; height: 80px;" class="text-right">收货地址：</td>
-                                <td style="width: 441px; height: 80px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
+                        <div>
+                            <div class="card-body">
+                                <h4>收货地址更新</h4>
 
-                                <td colspan="2" style="text-align: center; height: 30px;">
-                                    <asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
-                                </td>
-                            </tr>
-                        </table>
+                                <div class="form-group">
+                                    <label>真实姓名</label>
+                                    <br />
+                                    <asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>邮政编码</label>
+                                    <br />
+                                    <asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>电话号码</label>
+                                    <br />
+                                    <asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>收货地址</label>
+                                    <br />
+                                    <asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
+                                </div>
+
+                                <asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
+                            </div>
+                        </div>
+
+
+
                     </div>
                 </asp:View>
                 <asp:View ID="View_Security" runat="server">
                     <div>
-                        <table id="table_change_pwd">
-                            <tr>
-                                <td colspan="2" style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">密码修改</td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">原密码：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">密码：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style1">确认密码：</td>
-                                <td style="width: 441px; height: 40px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
-                                    </div>
-                                </td>
-                            </tr>
+                                                <div>
+                            <div class="card-body">
+                                <h4>密码修改</h4>
 
-                            <tr>
-                                <td colspan="2" style="text-align: center;">
-                                    <asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
-                                </td>
-                            </tr>
-                        </table>
+                                <div class="form-group">
+                                    <label>原密码</label>
+                                    <br />
+                                    <asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>密码</label>
+                                    <br />
+                                    <asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>确认密码</label>
+                                    <br />
+                                    <asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
+                                </div>
+                                <asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
+                            </div>
+                        </div>
                     </div>
                     <br />
                     <br />
@@ -472,8 +450,10 @@
                     <br />
                 </asp:View>
                 <asp:View ID="View_Order" runat="server">
+
                     <asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
                         <HeaderTemplate>
+                            <h4 style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">订单管理</h4>
                             <table class="table table-hover">
                                 <tr>
                                     <th>订单ID</th>
