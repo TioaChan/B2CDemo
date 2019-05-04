@@ -187,7 +187,7 @@
             }
 
         .bookImg {
-            height:171px;   
+            height: 171px;
             display: block;
             margin: 7px auto;
         }
@@ -200,12 +200,14 @@
         .book_name, .book_author, .book_price {
             display: block;
         }
-        .book_name{
-            font-family:Times New Roman;
-            color:#000;
+
+        .book_name {
+            font-family: Times New Roman;
+            color: #000;
         }
-        .book_author{
-            color:rgba(0, 0, 0, 0.5);
+
+        .book_author {
+            color: rgba(0, 0, 0, 0.5);
         }
 
 
@@ -214,7 +216,7 @@
             background: #ff6700;
             width: 100%;
             display: none;
-            margin:0 auto;
+            margin: 0 auto;
         }
 
         .footer_btn {
@@ -237,7 +239,7 @@
             width: 230px;
         }
 
-        .btn-default{
+        .btn-default {
             -webkit-transition-duration: .25s;
             -moz-transition-duration: .25s;
             -o-transition-duration: .25s;
@@ -268,19 +270,19 @@
                 <%--datalist test start--%>
                 <asp:DataList ID="DataList_RefinementGoods" runat="server" RepeatDirection="Horizontal">
                     <ItemTemplate>
-                       
-                            <div class="footer_goods_detail">
-                                 <a style="display:block;" href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-                                    <%--bookimg--%>
-                                        <div class="product-card">
-                                        <img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-                                        <span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-                                        <span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-                                        <div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-                                        <%--hotprice--%>
-                                   </a>
-                            </div>
-                       
+
+                        <div class="footer_goods_detail">
+                            <a style="display: block;" href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+                                <%--bookimg--%>
+                                <div class="product-card">
+                                    <img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+                                    <span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+                                    <span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+                                    <div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
+                                    <%--hotprice--%>
+                            </a>
+                        </div>
+
                     </ItemTemplate>
                 </asp:DataList>
                 <%--datalist test end--%>
@@ -345,6 +347,147 @@
             </div>
             <div class="clear"></div>
         </div>
+    </div>
+
+
+    <script>
+        $(function () {
+            $('#myModal').modal('show')
+        });
+
+
+    </script>
+
+    <style>
+        #myModal {
+            display: flex;
+            /* 设置flex布局 */
+            flex-direction: row;
+            /* 设置主轴 */
+            height: 100vh;
+            /* 相对视口高度 */
+            justify-content: center;
+            /* 设置主轴的对其方式 =>水平居中 */
+            align-items: center;
+            /* 设置交叉轴的对其方式 =>垂直居中 */
+            -webkit-transition-duration: .25s;
+            -moz-transition-duration: .25s;
+            -o-transition-duration: .25s;
+            transition-duration: .25s;
+        }
+
+        .modal-content {
+        }
+
+        .input-group input {
+            width: 100%;
+            max-width: 502px;
+            height: 50px;
+            margin-top: 20px;
+        }
+
+        .input-group {
+            width: 100%;
+        }
+
+        .btn-primary {
+            width: 209px;
+            height: 32px;
+            margin-top: 20px;
+        }
+
+        .nav-tabs {
+            border-bottom: none;
+        }
+
+        #myTab li a {
+            font-family: 微软雅黑;
+            width: 100px;
+            display: block;
+            color: #000;
+            border: 0px;
+            border-radius: 0px;
+            line-height: 25px;
+            border: 1px solid #000;
+            text-align: center;
+            font-size: 15px;
+            -webkit-transition-duration: .25s;
+            -moz-transition-duration: .25s;
+            -o-transition-duration: .25s;
+            transition-duration: .25s;
+        }
+
+            #myTab li a:hover {
+                width: 100px;
+                background: #3c43a4;
+                color: #fff;
+            }
+
+            #myTab li a:focus {
+                width: 100px;
+                background: #3c43a4;
+                color: #fff;
+            }
+
+        #myTab li.active a {
+            background: #3c43a4;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background: #333;
+            border-radius:0px;
+            height:40px;
+            -webkit-transition-duration: .25s;
+            -moz-transition-duration: .25s;
+            -o-transition-duration: .25s;
+            transition-duration: .25s;
+        }
+
+            .btn-primary:hover {
+                background: #3c43a4;
+            }
+    </style>
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#home" data-toggle="tab">SIGN IN
+                            </a>
+                        </li>
+                        <li><a href="#ios" data-toggle="tab" style="margin-left: 20px;">SIGN UP</a></li>
+
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <div class="input-group">
+                                <input type="text" placeholder="请输入你的账号" class="form-control">
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="请输入你的密码" class="form-control">
+                            </div>
+                            <button type="button" class="btn btn-primary">登陆</button>
+                        </div>
+                        <div class="tab-pane fade" id="ios">
+                            <p>
+                                iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+			TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
     </div>
     <br />
 </asp:Content>
