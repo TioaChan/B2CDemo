@@ -38,7 +38,6 @@ namespace B2C_NetShop.User
                     BindUserInfo();
                     BindUserAddress();
                     BindDataList();
-                    IsChecked();
                 }
             }
         }
@@ -230,26 +229,45 @@ namespace B2C_NetShop.User
 
         public void BindDataList()
         {
-            ds = operate.GetTable("select * from Cart_Info;");
-            DataList1.DataSource = ds; // 设置数据源，用于填充控件中的项的值列表
-            DataList1.DataBind();      // 将控件及其所有子控件绑定到指定的数据源
-        }
+			DataTable dtTable = new DataTable();
+			DataColumn[] dataColumns = new DataColumn[5];
+			String[] test = { "order_id", "order_date", "order_price", "isPay", "order_url" };
+			for (int k = 0; k < test.Length; k++)
+			{
+				dataColumns[k] = new DataColumn(test[k]);
+				dtTable.Columns.Add(dataColumns[k]);
+			}
+			String sql = "select DISTINCT order_id,order_date,order_price,isPay from Cart_Info where uid=@uid order by order_date desc";
+			SqlParameter[] parameters ={
+				new SqlParameter("@uid",Session["uid"].ToString())
+			};
+			DataSet ds = operate.GetTable(sql, parameters);
+			DataRow row;
+			int i = 0;
+			foreach (DataRow drRow in ds.Tables[0].Rows)
+			{
+				row = dtTable.NewRow();
+				row["order_id"] = ds.Tables[0].Rows[i][0].ToString();
+				row["order_date"] = ds.Tables[0].Rows[i][1].ToString();
+				row["order_price"] = ds.Tables[0].Rows[i][2].ToString();
+				//row["isPay"] = Convert.ToBoolean(ds.Tables[0].Rows[i][3]);
+				if (ds.Tables[0].Rows[i][3].ToString() == "True")
+				{
+					row["isPay"] = "已付款";
+				}
+				else
+				{
+					row["isPay"] = "未付款";
+				}
+				row["order_url"] = "order.aspx?orderid=" + ds.Tables[0].Rows[i][0].ToString();
+				i++;
+				dtTable.Rows.Add(row);
+			}
+			DataList1.DataSource = dtTable.DefaultView;
+			DataList1.DataBind();
+		}
 
 
-        public void IsChecked() {
-            CheckBox cb;
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                cb = (CheckBox)DataList1.Items[i].FindControl("CheckBox1");
-                if ((bool)ds.Tables[0].Rows[i][8])
-                {
-                    cb.Checked = true;
-                }
-                else
-                {
-                    cb.Checked = false;
-                }
-            }
-        } 
+        
     }
 }
