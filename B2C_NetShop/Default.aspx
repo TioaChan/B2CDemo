@@ -3,11 +3,11 @@
 <%@ MasterType VirtualPath="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HalfPageContentPlaceHolder" runat="server">
-    <style>
+	<style>
         #myCarousel {
             float: left;
             width: 760px;
-            height: 480px;
+            height: 315px;
             margin: 2px 5px;
             /*border: 1px red solid;*/
         }
@@ -89,13 +89,13 @@
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556640635490&di=308d586b640442c6b003426269c5c38f&imgtype=0&src=http%3A%2F%2Fpic3.16pic.com%2F00%2F00%2F09%2F16pic_9380_b.jpg" alt="First slide">
+                    <img src="img/DefaultImg/4.jpg" alt="First slide">
                 </div>
                 <div class="item">
-                    <img src="/img/DefaultImg/2.png" alt="Second slide">
+                    <img src="img/DefaultImg/5.jpg" alt="Second slide">
                 </div>
                 <div class="item">
-                    <img src="/img/DefaultImg/3.png" alt="Third slide">
+                    <img src="img/DefaultImg/6.jpg" alt="Third slide">
                 </div>
             </div>
             <!-- 轮播（Carousel）导航 -->
@@ -131,7 +131,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <style>
+	<style>
         body {
             background: #f6f6f6;
         }
@@ -166,7 +166,7 @@
             background: #fff;
             width: 220px;
             height: 400px;
-            margin: 0px 5px;
+            margin: 0px 8px;
             display: flex;
             text-align: center;
             flex-direction: row;
@@ -187,7 +187,7 @@
             }
 
         .bookImg {
-            height:171px;   
+            height: 171px;
             display: block;
             margin: 7px auto;
         }
@@ -200,12 +200,14 @@
         .book_name, .book_author, .book_price {
             display: block;
         }
-        .book_name{
-            font-family:Times New Roman;
-            color:#000;
+
+        .book_name {
+            font-family: Times New Roman;
+            color: #000;
         }
-        .book_author{
-            color:rgba(0, 0, 0, 0.5);
+
+        .book_author {
+            color: rgba(0, 0, 0, 0.5);
         }
 
 
@@ -214,7 +216,7 @@
             background: #ff6700;
             width: 100%;
             display: none;
-            margin:0 auto;
+            margin: 0 auto;
         }
 
         .footer_btn {
@@ -237,7 +239,7 @@
             width: 230px;
         }
 
-        .btn-default{
+        .btn-default {
             -webkit-transition-duration: .25s;
             -moz-transition-duration: .25s;
             -o-transition-duration: .25s;
@@ -245,15 +247,12 @@
         }
     </style>
     <script>
-        var flag = 0;
         $(function () {
             $(".footer_goods_detail").hover(function () {
-                if (flag == 0) {
-                    $(this).find(".book_price").slideDown();
-                } else {
-                    $(this).find(".book_price").stop(true, false).slideUp();
-                }
-                flag = !flag;
+                console.log($(this).is(":visible"));
+                $(this).find(".book_price").slideDown();
+            }, function () {
+                $(this).find(".book_price").stop(true, false).slideUp();
             });
         });
     </script>
@@ -268,19 +267,19 @@
                 <%--datalist test start--%>
                 <asp:DataList ID="DataList_RefinementGoods" runat="server" RepeatDirection="Horizontal">
                     <ItemTemplate>
-                       
-                            <div class="footer_goods_detail">
-                                 <a style="display:block;" href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-                                    <%--bookimg--%>
-                                        <div class="product-card">
-                                        <img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-                                        <span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-                                        <span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-                                        <div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-                                        <%--hotprice--%>
-                                   </a>
-                            </div>
-                       
+
+                        <div class="footer_goods_detail">
+                            <a style="display: block;" href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+                                <%--bookimg--%>
+                                <div class="product-card">
+                                    <img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+                                    <span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+                                    <span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+                                    <div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
+                                    <%--hotprice--%>
+                            </a>
+                        </div>
+
                     </ItemTemplate>
                 </asp:DataList>
                 <%--datalist test end--%>

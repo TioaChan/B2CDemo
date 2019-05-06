@@ -25,7 +25,7 @@
             /*border:1px red solid;*/
             margin: 10px 0;
             padding: 0 100px;
-            background:#fff;
+            background: #fff;
         }
 
         #Master_header_left { /*logo容器*/
@@ -104,15 +104,15 @@
 
         #Left_GoodsList { /*主容器左半部，用于显示图书类别*/ /*放置图书分类的容器*/
             float: left;
-            height: 480px;
+            height: 315px;
             width: 190px;
             margin: 3px auto;
             border: 1px #FF0000 solid;
             text-align: center;
             line-height: 45px;
             font-size: 16px;
-			overflow:hidden;
-			border-radius:2px;
+            overflow: hidden;
+            border-radius: 2px;
             background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
             background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
             background: -moz-linear-gradient(0deg, #f85032, #FF0000); /* Firefox 3.6 - 15 */
@@ -183,9 +183,10 @@
 
         #Right_PlaceHolder {
             float: left;
-            width: 980px;
+            width: 990px;
+			height:315px;
             margin: 2px auto;
-			background-color:white;
+            background-color: white;
         }
 
         .datalist_guide {
@@ -219,58 +220,55 @@
                 <%--站点脚本--%>
             </Scripts>
         </asp:ScriptManager>
-
-
-
         <div id="Master_Main">
-                    <div id="Master_header">
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a runat="server" href="~/">主页</a></li>
-                            <li><a runat="server" href="~/Contact">联系方式</a></li>
-                            <li><a runat="server" href="~/About">关于</a></li>
-                            <li>
-                                <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
-                            <li>
-                                <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
-                            <li>
-                                <asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
-                        </ul>
+            <div id="Master_header">
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a runat="server" href="~/">主页</a></li>
+                                <li><a runat="server" href="~/Contact">联系方式</a></li>
+                                <li><a runat="server" href="~/About">关于</a></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="Master_header_left">
-                <a href="../Default.aspx" style="display: block">
-                    <img src="/img/B2CDemo_Logo.png" style="width: 100px; height: 100px" /></a>
-            </div>
+                <div id="Master_header_left">
+                    <a href="../Default.aspx" style="display: block">
+                        <img src="/img/B2CDemo_Logo.png" style="width: 100px; height: 100px" /></a>
+                </div>
 
-            <div id="Master_header_right">
-                <div>
-                    <div id="search_bar">
-                        <asp:TextBox ID="TextBox1" CssClass="search_bar_input" runat="server"></asp:TextBox>
-                        <asp:Button ID="Button1" runat="server" Text="搜索" CssClass="search_bar_btn" OnClick="Button1_Click" />
-                        <div id="hot_keywords" class="clear">热搜</div>
+                <div id="Master_header_right">
+                    <div>
+                        <div id="search_bar">
+                            <asp:TextBox ID="TextBox1" CssClass="search_bar_input" runat="server"></asp:TextBox>
+                            <asp:Button ID="Button1" runat="server" Text="搜索" CssClass="search_bar_btn" OnClick="Button1_Click" />
+                            <div id="hot_keywords" class="clear">热搜</div>
+                        </div>
+                        <div id="cart">
+                            <%--<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/mycart.png" PostBackUrl="~/Goods/cart.aspx" />--%>
+                            <a id="cart_frame" href="../Goods/cart.aspx">
+                                <div id="cart_img">
+                                    <img src="/img/cart.png" style="width: 40px; height: 40px" />
+                                </div>
+                                <div id="cart_text">我的购物车</div>
+                                <div class="clear"></div>
+                            </a>
+                        </div>
+                        <div class="clear"></div>
                     </div>
-                    <div id="cart">
-                        <%--<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/mycart.png" PostBackUrl="~/Goods/cart.aspx" />--%>
-                        <a id="cart_frame" href="../Goods/cart.aspx">
-                            <div id="cart_img">
-                                <img src="/img/cart.png" style="width: 40px; height: 40px" />
-                            </div>
-                            <div id="cart_text">我的购物车</div>
-                            <div class="clear"></div>
-                        </a>
-                    </div>
-                    <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
             </div>
-            <div class="clear"></div>
-        </div>
             <div id="Master_content">
                 <div id="Left_GoodsList">
                     <div id="type-container-titler">图书分类</div>
