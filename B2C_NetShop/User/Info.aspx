@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="Info.aspx.cs" Inherits="B2C_NetShop.User.Info" %>
+﻿<%@ Page Title="个人信息" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="Info.aspx.cs" Inherits="B2C_NetShop.User.Info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">
     <style>
         /* ============================= 左右盒子外加一个做导航条 ============================= */
         /* 设置大盒子宽度防止挤压 */
@@ -120,11 +120,12 @@
                 .asp_datalist_om .table tr td {
                     width: 220.75px;
                     height: 38px;
-                    text-align: left;
+                    text-align: center;
                 }
 
         th {
             text-align: center;
+			width: 220.75px;
         }
         /* ============================= div =============================*/
         #user-overview {
@@ -449,34 +450,34 @@
                     <br />
                     <br />
                 </asp:View>
-                <asp:View ID="View_Order" runat="server">
-
-                    <asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
-                        <HeaderTemplate>
-                            <h4 style="height: 40px; font-size: xx-large; font-style: normal; text-align: center">订单管理</h4>
-                            <table class="table table-hover">
-                                <tr>
-                                    <th>订单ID</th>
-                                    <th>订单时间</th>
-                                    <th>订单价格</th>
-                                    <th>付款状态</th>
-                                </tr>
-                            </table>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <table class="table table-hover">
-                                <tr>
-                                    <td><%# Eval("order_id") %></td>
-                                    <td><%# Eval("order_date") %></td>
-                                    <td><%# Eval("order_price") %></td>
-                                    <td>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" Enabled="false" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </ItemTemplate>
-                    </asp:DataList>
-                </asp:View>
+				<asp:View ID="View_Order" runat="server">
+					<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
+						<HeaderTemplate>
+							<table class="table table-hover">
+								<tr>
+									<th>订单ID</th>
+									<th>订单时间</th>
+									<th>订单价格</th>
+									<th>付款状态</th>
+								</tr>
+							</table>
+						</HeaderTemplate>
+						<ItemTemplate>
+							<table class="table table-hover">
+								<tr>
+									<td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
+									<td><%# Eval("order_date") %></td>
+									<td><%# Eval("order_price") %></td>
+									<td>
+										<p>
+											<%# Eval("isPay") %>
+										</p>
+									</td>
+								</tr>
+							</table>
+						</ItemTemplate>
+					</asp:DataList>
+				</asp:View>
             </asp:MultiView>
         </div>
         <div class="clear" id="div_clr">
