@@ -416,18 +416,18 @@
 
             #myTab li a:hover {
                 width: 100px;
-                background: #3c43a4;
+                background: #E41818;
                 color: #fff;
             }
 
             #myTab li a:focus {
                 width: 100px;
-                background: #3c43a4;
+                background: #E41818;
                 color: #fff;
             }
 
         #myTab li.active a {
-            background: #3c43a4;
+            background: #E41818;
             color: #fff;
         }
 
@@ -442,7 +442,7 @@
         }
 
             .btn-primary:hover {
-                background: #3c43a4;
+                background: #E41818;
             }
     </style>
 
