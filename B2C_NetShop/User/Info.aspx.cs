@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using B2C_NetShop.App_Start;
+using System.IO;
 
 namespace B2C_NetShop.User
 {
@@ -142,59 +143,47 @@ namespace B2C_NetShop.User
 			}
 		}
 
-		protected void Btnupload_Click(object sender, EventArgs e)
+		protected void setNewUserImg(object sender, EventArgs e)
 		{
 			if (FileUpload1.HasFile)
 			{
-				if (FileUpload1.PostedFile.ContentLength > 409600)
+				string fileName = this.FileUpload1.FileName;
+				String fileExtension = System.IO.Path.GetExtension(fileName).ToLower();
+				if ((fileExtension == ".png" || fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".bmp") && (FileUpload1.PostedFile.ContentLength < 409600))
 				{
-					Response.Write("<script language='javascript'>alert('您选择的图片过大！');</script>");
-				}
-				else
-				{
-					string fileName = this.FileUpload1.FileName;
-					String path = Server.MapPath("../User/ImagesUpload/");
-					String fileExtension = System.IO.Path.GetExtension(fileName).ToLower();
-					String newname = DateTime.Now.ToFileTimeUtc().ToString() + fileExtension;
-					if (fileExtension == ".png" || fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".bmp")
+					String path = Server.MapPath("../User/ImagesUpload/" + Session["UID"].ToString() + "/");
+					if (!Directory.Exists(path))
 					{
-						FileUpload1.PostedFile.SaveAs(path + newname);
-						String imgPath = "/User/ImagesUpload/" + newname;
-						Image2.ImageUrl = imgPath;
-						Session["newImgPath"] = null;
-						Session["newImgPath"]= imgPath;
+						Directory.CreateDirectory(path);
+					}
+					String newname = DateTime.Now.ToFileTimeUtc().ToString() + fileExtension;
+					FileUpload1.PostedFile.SaveAs(path + newname);
+					String imgPath = "/User/ImagesUpload/" + Session["UID"].ToString() + "/" + newname;
+					String sql = "update User_Info set userImgUrl=@imgPath where uid=@uid";
+					SqlParameter[] parameters = {
+							new SqlParameter("@imgPath",imgPath),
+							new SqlParameter("@uid", Session["UID"].ToString())
+						};
+					int i = operate.OperateData(sql, parameters);
+					if (i == 1)
+					{
+						Response.Write("<script type='text/javascript'>alert('修改成功！');</script>");
+						BindUserInfo();
+						MultiView1.SetActiveView(View_TotalView);
 					}
 					else
 					{
-						Response.Write("<script type='text/javascript'>alert('请选择图片');</script>");
+						Response.Write("<script type='text/javascript'>alert('修改失败');</script>");
 					}
-				}
-			}
-		}
-		protected void setNewUserImg_Click(object sender, EventArgs e)
-		{
-			if (Convert.ToString(Session["newImgPath"]) != "")
-			{
-				String sql = "update User_Info set userImgUrl=@imgPath where uid=@uid";
-				SqlParameter[] parameters = {
-							new SqlParameter("@imgPath", Session["newImgPath"].ToString()),
-							new SqlParameter("@uid", Session["UID"].ToString())
-						};
-				int i = operate.OperateData(sql, parameters);
-				if (i == 1)
-				{
-					Response.Write("<script type='text/javascript'>alert('修改成功！');</script>");
-					BindUserInfo();
-					MultiView1.SetActiveView(View_TotalView);
 				}
 				else
 				{
-					Response.Write("<script type='text/javascript'>alert('修改失败');</script>");
+					Response.Write("<script language='javascript'>alert('请选择一张图片或图片大小超过限制');</script>");
 				}
 			}
 			else
 			{
-				Response.Write("<script type='text/javascript'>alert('请先预览头像');</script>");
+				Response.Write("<script language='javascript'>alert('请选择一张图片');</script>");
 			}
 		}
 
@@ -218,6 +207,8 @@ namespace B2C_NetShop.User
 			//账户总览页
 			Label_UID1.Text = nickname;
 			Label_UID2.Text = Session["uid"].ToString();
+			Label_UID3.Text = nickname;
+			Label_UID4.Text = nickname;
 			if (usertype == "1")
 			{
 				Label_UserType.Text = "注册用户";

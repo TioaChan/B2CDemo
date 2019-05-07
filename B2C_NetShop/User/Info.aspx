@@ -308,11 +308,11 @@
 					<div>
 						<div class="title-container">
 							<div class="shadow-img"></div>
-							<h2 class="rotate-out">Welcome To <span class="invert">User Overview</span></h2>
+							<h2 class="rotate-out" style="padding-top:50px;">Welcome To <span class="invert">User Overview</span></h2>
 							<!--HOME TITLE-->
 						</div>
 						<div class="content-container">
-							<div class="strong-text">Hello, I am <span>John Doe</span></div>
+							<div class="strong-text">Hello, I am <span><asp:Label ID="Label_UID3" runat="server" Text="Label_UID"></asp:Label></span></div>
 							<h3 class="personal-info-title">Personal Info</h3>
 							<ul class="personal-info">
 
@@ -328,11 +328,10 @@
 							<!--/ul.personal-info-->
 						</div>
 						<div id="namecard">
-							<h1 class="maintitle">John
-								<span class="invert">Doe</span>
+							<h1 class="maintitle"><asp:Label ID="Label_UID4" runat="server" Text="Label_UID"></asp:Label>
 							</h1>
-							<h3>Web</h3>
-							<asp:Image ID="Image1" runat="server" Height="150px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" Width="150px" />
+							<br />
+							<asp:Image ID="Image1" runat="server" Height="240px" Width="240px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" />
 						</div>
 					</div>
 				</asp:View>
@@ -419,8 +418,8 @@
 							<tr>
 								<td>
 									<div>
-										<asp:FileUpload ID="FileUpload1" runat="server" CssClass="imgUpload"/>
-										<asp:Button ID="Btnupload" runat="server" Text="预览" OnClick="Btnupload_Click" CssClass="imgUpload"/>
+										<asp:FileUpload ID="FileUpload1" runat="server" onchange="onFileChange(this);"/>
+										
 										<div class="clear"></div>
 										<p style="padding-top:10px;font-size:12px;">仅支持JPG、PNG、JPEG、BMP格式，文件小于4M</p>
 									</div>
@@ -430,10 +429,19 @@
 								<td>
 									<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
 								</td>
+								<script type="text/javascript"> 
+									function onFileChange(sender) {
+										document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
+									}
+								</script> 
+							</tr>
+							<tr>
+								<td style="height: 20px;"></td>
 							</tr>
 							<tr>
 								<td>
-									<asp:Button ID="setNewUserImg" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="setNewUserImg_Click" />
+								<asp:Button ID="btn_setNewUserImg" runat="server" Text="保存" OnClick="setNewUserImg" CssClass="asp_button"/>
+<%--									<asp:Button ID="setNewUserImg" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="setNewUserImg_Click" />--%>
 								</td>
 							</tr>
 						</table>

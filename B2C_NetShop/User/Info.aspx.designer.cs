@@ -94,6 +94,15 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.View View_TotalView;
         
         /// <summary>
+        /// Label_UID3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_UID3;
+        
+        /// <summary>
         /// Label_UID2 控件。
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace B2C_NetShop.User {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Money;
+        
+        /// <summary>
+        /// Label_UID4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_UID4;
         
         /// <summary>
         /// Image1 控件。
@@ -283,15 +301,6 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// Btnupload 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Btnupload;
-        
-        /// <summary>
         /// Image2 控件。
         /// </summary>
         /// <remarks>
@@ -301,13 +310,13 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.Image Image2;
         
         /// <summary>
-        /// setNewUserImg 控件。
+        /// btn_setNewUserImg 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button setNewUserImg;
+        protected global::System.Web.UI.WebControls.Button btn_setNewUserImg;
         
         /// <summary>
         /// View_Order 控件。
