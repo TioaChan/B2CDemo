@@ -4,299 +4,379 @@
 
 <html lang="zh">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - 我的 ASP.NET 应用程序</title>
-    <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-    <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <style>
-        #Master_Main { /*主容器*/
-            width: 1180px;
-            /*background: #fff;*/
-            margin: 0 auto;
-        }
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title><%: Page.Title %> - 我的 ASP.NET 应用程序</title>
+	<asp:PlaceHolder runat="server">
+		<%: Scripts.Render("~/bundles/modernizr") %>
+	</asp:PlaceHolder>
+	<webopt:BundleReference runat="server" Path="~/Content/css" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<style>
+		#Master_Main { /*主容器*/
+			width: 1180px;
+			/*background: #fff;*/
+			margin: 0 auto;
+		}
 
-        #Master_header { /*头部容器*/
-            height: 100px;
-            /*border:1px red solid;*/
-            margin: 10px 0;
-            padding: 0 100px;
-            background: #fff;
-        }
+		#Master_header { /*头部容器*/
+			border-bottom: 3px red solid;
+			margin: 0px 0px 10px 0px;
+			padding: 0 100px;
+			background: #fff;
+		}
 
-        #Master_header_left { /*logo容器*/
-            float: left;
-            margin-right: 55px;
-        }
+		#Master_header_left { /*logo容器*/
+			float: left;
+			width: 300px;
+		}
 
-        #Master_header_right { /*搜索栏（内含：搜索框、搜索按钮、热搜词）&购物车 容器*/
-            float: left;
-        }
+		#Master_header_right { /*搜索栏（内含：搜索框、搜索按钮、热搜词）&购物车 容器*/
+			float: left;
+		}
 
-        #search_bar { /*搜索栏（内含：搜索框、搜索按钮、热搜词）容器*/
-            /*border:1px black solid;*/
-            float: left;
-            margin-right: 10px;
-            margin-top: 20px;
-        }
+		.head-menu-container {
+			margin: 10px auto 0px auto;
+		}
 
-        .search_bar_input { /*搜索框*/
-            float: left;
-            width: 500px;
-            max-width: none;
-            height: 40px;
-            margin-right: 10px;
-            border: 1px red solid;
-            padding-left: 1em;
-        }
+		.head-menu {
+			margin: 0px;
+			padding: 0px;
+			font-weight: bolder;
+		}
 
-        .search_bar_btn { /*搜索按钮*/
-            float: left;
-            width: 100px;
-            height: 40px;
-            background-color: red;
-            color: white;
-            border: none;
-        }
+			.head-menu-container, .head-menu, .head-menu li {
+				height: 40px;
+			}
 
-        #hot_keywords { /*热搜词*/
-            color: grey;
-            height: 30px;
-            padding-top: 5px;
-            padding-left: 10px;
-        }
+		.head-menu-container, .head-menu {
+			width: 1180px;
+		}
 
-        #cart { /*购物车容器*/
-            width: 200px;
-            float: left;
-            height: 80px;
-            padding-top: 20px;
-            padding-left: 40px;
-        }
+			.head-menu-container .head-menu li {
+				margin-left: 15px;
+				list-style: none;
+				line-height: 40px;
+				float: left;
+			}
 
-        #cart_frame { /*购物车边框，a标签*/
-            display: block;
-            border: 1px #eaeaea solid;
-            background-color: white;
-            padding-left: 20px;
-        }
+				.head-menu-container .head-menu li a {
+					color: #000;
+					cursor: pointer;
+				}
 
-        #cart_img { /*购物车logo*/
-            width: 40px;
-            height: 40px;
-            float: left;
-        }
+					.head-menu-container .head-menu li a:hover {
+						color: red;
+					}
 
-        #cart_text { /*购物车字样*/
-            padding-top: 13px;
-            padding-left: 10px;
-            height: 40px;
-            float: left;
-            background-color: white;
-            color: red;
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
+				.head-menu-container .head-menu li.all {
+					width: 200px;
+					margin-left: 0px;
+					padding-left: 5px;
+					background: red;
+				}
 
-        #Left_GoodsList { /*主容器左半部，用于显示图书类别*/ /*放置图书分类的容器*/
-            float: left;
-            height: 315px;
-            width: 190px;
-            margin: 3px auto;
-            border: 1px #FF0000 solid;
-            text-align: center;
-            line-height: 45px;
-            font-size: 16px;
-            overflow: hidden;
-            border-radius: 2px;
-            background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
-            background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
-            background: -moz-linear-gradient(0deg, #f85032, #FF0000); /* Firefox 3.6 - 15 */
-            background: linear-gradient(0deg, #f85032, #FF0000); /* 标准的语法（必须放在最后） */
-        }
+			.head-menu-container .head-menu .all a:hover, .head-menu-container .head-menu .all a {
+				width: 191px;
+				display: block;
+				background: url(/img/head_sprite.png) no-repeat 161px -567px;
+				color: #fff;
+			}
 
-        #type-container-titler { /*图书分类标题*/
-            height: 45px;
-            text-align: center;
-            margin: auto;
-            font-size: 20px;
-            color: #fff;
-            font-weight: bolder;
-            background: #FF0000;
-        }
+			.head-menu-container .head-menu li.all {
+				margin-left: 0px;
+			}
 
-        #type-container > table { /*放置图书分类详细类别的容器*/
-            margin: 10px 0;
-            text-align: left;
-            /*border: 1px black solid;*/
-        }
+		#search_bar { /*搜索栏（内含：搜索框、搜索按钮、热搜词）容器*/
+			/*border:1px black solid;*/
+			float: left;
+			margin-right: 10px;
+			margin-top: 20px;
+		}
 
-        .type-css { /*图书分类详细的a标签*/
-            display: block;
-            margin: 5px 10px;
-            height: 45px;
-            color: #fff;
-            position: relative;
-        }
+		.search_bar_input { /*搜索框*/
+			float: left;
+			width: 500px;
+			max-width: none;
+			height: 40px;
+			border: 1px red solid;
+			padding-left: 1em;
+		}
 
-            .type-css:link { /*a标签 未访问的链接 */
-                color: #fff;
-                text-decoration: none;
-            }
+		.search_bar_btn { /*搜索按钮*/
+			float: left;
+			width: 100px;
+			height: 40px;
+			background-color: red;
+			color: white;
+			border: none;
+			background: url(/img/head_sprite.png) no-repeat 0 -346px;
+		}
 
-            .type-css:hover {
-                /*background: #FFE4DC*/;
-                color: #000;
-            }
+		#hot_keywords { /*热搜词*/
+			color: grey;
+			height: 30px;
+			padding-top: 5px;
+			padding-left: 10px;
+		}
 
-            .type-css:before {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                bottom: -5px;
-                left: 0;
-                background-color: #fff;
-                visibility: hidden;
-                -webkit-transform: scaleX(0);
-                -o-transform: scaleX(0);
-                transform: scaleX(0);
-                -webkit-transition: all 0.3s ease-in-out 0s;
-                -o-transition: all 0.3s ease-in-out 0s;
-                transition: all 0.3s ease-in-out 0s;
-            }
+		#cart { /*购物车容器*/
+			width: 200px;
+			float: left;
+			height: 80px;
+			padding-top: 20px;
+			padding-left: 40px;
+		}
 
-            .type-css:hover:before {
-                visibility: visible;
-                -webkit-transform: scaleX(1);
-                -o-transform: scaleX(1);
-                transform: scaleX(1);
-            }
+		#cart_frame { /*购物车边框，a标签*/
+			display: block;
+			border: 1px #eaeaea solid;
+			background-color: white;
+			padding-left: 20px;
+		}
 
-        #type-container > table > td {
-            height: 40px;
-        }
+		#cart_img { /*购物车logo*/
+			width: 40px;
+			height: 40px;
+			float: left;
+		}
 
-        #Right_PlaceHolder {
-            float: left;
-            width: 990px;
-			height:315px;
-            margin: 2px auto;
-            background-color: white;
-        }
+		#cart_text { /*购物车字样*/
+			padding-top: 13px;
+			padding-left: 10px;
+			height: 40px;
+			float: left;
+			background-color: white;
+			color: red;
+			font-size: 12px;
+			letter-spacing: 1px;
+		}
 
-        .datalist_guide {
-            width: 188px;
-        }
+		#Left_GoodsList { /*主容器左半部，用于显示图书类别*/ /*放置图书分类的容器*/
+			float: left;
+			height: 315px;
+			width: 190px;
+			border: 1px #FF0000 solid;
+			text-align: center;
+			line-height: 45px;
+			font-size: 16px;
+			overflow: hidden;
+			border-radius: 2px;
+			background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(0deg, #f85032, #FF0000); /* Firefox 3.6 - 15 */
+			background: linear-gradient(0deg, #f85032, #FF0000); /* 标准的语法（必须放在最后） */
+		}
 
-        .clear {
-            clear: both;
-        }
-    </style>
+		#type-container-titler { /*图书分类标题*/
+			height: 45px;
+			text-align: center;
+			margin: auto;
+			font-size: 20px;
+			color: #fff;
+			font-weight: bolder;
+			background: #FF0000;
+		}
+
+		#type-container > table { /*放置图书分类详细类别的容器*/
+			margin: 10px 0;
+			text-align: left;
+			/*border: 1px black solid;*/
+		}
+
+		.type-css { /*图书分类详细的a标签*/
+			display: block;
+			margin: 5px 10px;
+			height: 45px;
+			color: #fff;
+			position: relative;
+		}
+
+			.type-css:link { /*a标签 未访问的链接 */
+				color: #fff;
+				text-decoration: none;
+			}
+
+			.type-css:hover {
+				/*background: #FFE4DC*/;
+				color: #fff;
+			}
+
+			.type-css:before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				bottom: -5px;
+				left: 0;
+				background-color: #fff;
+				visibility: hidden;
+				-webkit-transform: scaleX(0);
+				-o-transform: scaleX(0);
+				transform: scaleX(0);
+				-webkit-transition: all 0.3s ease-in-out 0s;
+				-o-transition: all 0.3s ease-in-out 0s;
+				transition: all 0.3s ease-in-out 0s;
+			}
+
+			.type-css:hover:before {
+				visibility: visible;
+				-webkit-transform: scaleX(1);
+				-o-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+
+		#type-container > table > td {
+			height: 40px;
+		}
+
+		#Right_PlaceHolder {
+			float: left;
+			width: 990px;
+		}
+
+		.datalist_guide {
+			width: 188px;
+		}
+
+		.clear {
+			clear: both;
+		}
+	</style>
 </head>
 <body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--若要了解有关在 ScriptManager 中绑定脚本的详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--框架脚本--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="respond" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--站点脚本--%>
-            </Scripts>
-        </asp:ScriptManager>
-        <div id="Master_Main">
-            <div id="Master_header">
-                <div class="navbar navbar-inverse navbar-fixed-top">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a runat="server" href="~/">主页</a></li>
-                                <li><a runat="server" href="~/Contact">联系方式</a></li>
-                                <li><a runat="server" href="~/About">关于</a></li>
-                                <li>
-                                    <asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
-                                <li>
-                                    <asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
-                                <li>
-                                    <asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div id="Master_header_left">
-                    <a href="../Default.aspx" style="display: block">
-                        <img src="/img/B2CDemo_Logo.png" style="width: 100px; height: 100px" /></a>
-                </div>
-
-                <div id="Master_header_right">
-                    <div>
-                        <div id="search_bar">
-                            <asp:TextBox ID="TextBox1" CssClass="search_bar_input" runat="server"></asp:TextBox>
-                            <asp:Button ID="Button1" runat="server" Text="搜索" CssClass="search_bar_btn" OnClick="Button1_Click" />
-                            <div id="hot_keywords" class="clear">热搜</div>
-                        </div>
-                        <div id="cart">
-                            <%--<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/mycart.png" PostBackUrl="~/Goods/cart.aspx" />--%>
-                            <a id="cart_frame" href="../Goods/cart.aspx">
-                                <div id="cart_img">
-                                    <img src="/img/cart.png" style="width: 40px; height: 40px" />
-                                </div>
-                                <div id="cart_text">我的购物车</div>
-                                <div class="clear"></div>
-                            </a>
-                        </div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div id="Master_content">
-                <div id="Left_GoodsList">
-                    <div id="type-container-titler">图书分类</div>
-                    <asp:DataList ID="DataList1" runat="server" DataKeyField="ClassID" DataSourceID="SqlDataSource1" CssClass="datalist_guide">
-                        <ItemTemplate>
-                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("ClassID","~/Goods/list.aspx?id={0}") %>' Text='<%# Eval("ClassName") %>' CssClass="type-css"></asp:HyperLink>
-                        </ItemTemplate>
-                    </asp:DataList>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="select top 10 * from Goods_Class"></asp:SqlDataSource>
-                </div>
-                <div id="Right_PlaceHolder">
-                    <asp:ContentPlaceHolder ID="HalfPageContentPlaceHolder" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div id="fullPagePlaceHolder">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
-            <hr />
-            <div id="Master_foot" class="container body-content">
-                <footer>
-                    <div class="clear"></div>
-                    <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
-                </footer>
-            </div>
-        </div>
-    </form>
+	<form runat="server">
+		<asp:ScriptManager runat="server">
+			<Scripts>
+				<%--若要了解有关在 ScriptManager 中绑定脚本的详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+				<%--框架脚本--%>
+				<asp:ScriptReference Name="MsAjaxBundle" />
+				<asp:ScriptReference Name="jquery" />
+				<asp:ScriptReference Name="bootstrap" />
+				<asp:ScriptReference Name="respond" />
+				<asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+				<asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+				<asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+				<asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+				<asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+				<asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+				<asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+				<asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+				<asp:ScriptReference Name="WebFormsBundle" />
+				<%--站点脚本--%>
+			</Scripts>
+		</asp:ScriptManager>
+		<div>
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
+					</div>
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li><a runat="server" href="~/">主页</a></li>
+							<li><a runat="server" href="~/Contact">联系方式</a></li>
+							<li><a runat="server" href="~/About">关于</a></li>
+							<li>
+								<asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
+							<li>
+								<asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
+							<li>
+								<asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div id="Master_header">
+				<div style="width: 1180px; height: 100px; margin: 0 auto">
+					<div id="Master_header_left">
+						<a href="../Default.aspx" style="display: block">
+							<img src="/img/B2CDemo_Logo.png" style="width: 100px; height: 100px" /></a>
+					</div>
+					<div id="Master_header_right">
+						<div>
+							<div id="search_bar">
+								<asp:TextBox ID="TextBox1" CssClass="search_bar_input" runat="server"></asp:TextBox>
+								<asp:Button ID="Button1" runat="server" Text="" CssClass="search_bar_btn" OnClick="Button1_Click" />
+								<div id="hot_keywords" class="clear">热搜</div>
+							</div>
+							<div id="cart">
+								<%--<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/mycart.png" PostBackUrl="~/Goods/cart.aspx" />--%>
+								<a id="cart_frame" href="../Goods/cart.aspx">
+									<div id="cart_img">
+										<img src="/img/cart.png" style="width: 40px; height: 40px" />
+									</div>
+									<div id="cart_text">我的购物车</div>
+									<div class="clear"></div>
+								</a>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				<div class="head-menu-container">
+					<ul class="head-menu">
+						<li class="all"><a>全部商品分类 </a>
+							<li>
+						<li><a>图书 </a>
+							<li>
+						<li><a>电子书 </a>
+							<li>
+						<li><a>网络文学 </a>
+							<li>
+						<li><a>安奈儿 </a>
+							<li>
+						<li><a>运动户外 </a>
+							<li>
+						<li><a>孕婴童 </a>
+							<li>
+						<li><a>家居 </a>
+							<li>
+						<li><a>拍卖 </a>
+							<li>
+						<li><a>食品 </a>
+							<li>
+						<li><a>Apple </a>
+							<li>
+						<li><a>电器城 </a>
+							<li>
+					</ul>
+				</div>
+			</div>
+			<div id="Master_Main">
+				<div style="margin-bottom: 10px;">
+					<img style="width: 1180px;" src="/img/ad_banner.jpg" alt="Alternate Text" />
+				</div>
+				<div id="Master_content">
+					<div id="Left_GoodsList">
+						<div id="type-container-titler">图书分类</div>
+						<asp:DataList ID="DataList1" runat="server" DataKeyField="ClassID" DataSourceID="SqlDataSource1" CssClass="datalist_guide">
+							<ItemTemplate>
+								<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("ClassID","~/Goods/list.aspx?id={0}") %>' Text='<%# Eval("ClassName") %>' CssClass="type-css"></asp:HyperLink>
+							</ItemTemplate>
+						</asp:DataList>
+						<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>" SelectCommand="select top 10 * from Goods_Class"></asp:SqlDataSource>
+					</div>
+					<div id="Right_PlaceHolder">
+						<asp:ContentPlaceHolder ID="HalfPageContentPlaceHolder" runat="server">
+						</asp:ContentPlaceHolder>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div id="fullPagePlaceHolder">
+					<asp:ContentPlaceHolder ID="MainContent" runat="server">
+					</asp:ContentPlaceHolder>
+				</div>
+				<hr />
+				<div id="Master_foot" class="container body-content">
+					<footer>
+						<div class="clear"></div>
+						<p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
+					</footer>
+				</div>
+			</div>
+		</div>
+	</form>
 </body>
 </html>

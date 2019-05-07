@@ -157,9 +157,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="img\ad_banner.jpg" />
     <Content Include="img\DefaultImg\4.jpg" />
     <Content Include="img\DefaultImg\5.jpg" />
     <Content Include="img\DefaultImg\6.jpg" />
+    <Content Include="img\head_sprite.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
