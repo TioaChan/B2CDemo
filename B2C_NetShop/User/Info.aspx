@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="个人信息" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="Info.aspx.cs" Inherits="B2C_NetShop.User.Info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">
+	<%--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">--%>
 	<style>
 		/* ============================= 左右盒子外加一个做导航条 ============================= */
 		/* 设置大盒子宽度防止挤压 */
@@ -420,20 +420,20 @@
 								<td>
 									<div>
 										<asp:FileUpload ID="FileUpload1" runat="server" CssClass="imgUpload"/>
-										<asp:Button ID="Btnupload" runat="server" Text="上传" OnClick="Btnupload_Click" CssClass="imgUpload"/>
+										<asp:Button ID="Btnupload" runat="server" Text="预览" OnClick="Btnupload_Click" CssClass="imgUpload"/>
 										<div class="clear"></div>
-										<p style="padding-top:10px;font-size:12px;">仅支持JPG、GIF、PNG、JPEG、BMP格式，文件小于4M</p>
+										<p style="padding-top:10px;font-size:12px;">仅支持JPG、PNG、JPEG、BMP格式，文件小于4M</p>
 									</div>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<asp:Image ID="Image2" runat="server" Height="150px" Width="150px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
+									<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<asp:Button ID="Button1" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
+									<asp:Button ID="setNewUserImg" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="setNewUserImg_Click" />
 								</td>
 							</tr>
 						</table>

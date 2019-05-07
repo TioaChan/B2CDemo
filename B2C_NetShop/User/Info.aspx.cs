@@ -144,35 +144,57 @@ namespace B2C_NetShop.User
 
 		protected void Btnupload_Click(object sender, EventArgs e)
 		{
-			int length = this.FileUpload1.PostedFile.ContentLength;//获取图片大小，以字节为单位
-			if (length < 4096)
+			if (FileUpload1.HasFile)
 			{
-				Response.Write("<script language='javascript'>alert('您选择的图片过大！');</script>");
-			}
-			else
-			{
-				String type = FileUpload1.PostedFile.ContentType;//获取上传文件类型
-				String fullfilename = FileUpload1.PostedFile.FileName;//获取上传文件在客户端的路径及名称
-				String filename = fullfilename.Substring(fullfilename.LastIndexOf("\\") + 1);
-				String extensions = filename.Substring(filename.LastIndexOf(".") + 1);//获取文件扩展名
-				String name = Session["UID"].ToString() + DateTime.Now.ToString("yyyyMMddHHmmss");
-				if (type == "image/jpeg" || type == "image/png")//限制上传格式 
+				if (FileUpload1.PostedFile.ContentLength > 409600)
 				{
-					FileUpload1.SaveAs(Server.MapPath("~/") + "\\" + "ImagesUpload" + "\\" + name + "." + extensions);
-					//将图片以当前时间命名保存，避免上传图片命名重复
-					//设置上传图片大小为原图片大小
-					//System.Drawing.Image img = System.Drawing.Image.FromFile(this.Server.MapPath("Photo") + "\\" + name + "." + extensions);
-					//获得图片文件 
-					//int width = img.Width; 
-					//this.Image1.Width = width;//这是宽设置Image控件的宽度为图片宽度 
-					//int height = img.Height; 
-					//this.Image1.Height = height;//这是高，设置Image控件的高度为图片的高度 
-					Image1.ImageUrl = "~/User/ImagesUpload" + name + "." + extensions;
+					Response.Write("<script language='javascript'>alert('您选择的图片过大！');</script>");
 				}
 				else
 				{
-					Response.Write("<script language='javascript'>alert('您选择的图片有误！');</script>");
+					string fileName = this.FileUpload1.FileName;
+					String path = Server.MapPath("../User/ImagesUpload/");
+					String fileExtension = System.IO.Path.GetExtension(fileName).ToLower();
+					String newname = DateTime.Now.ToFileTimeUtc().ToString() + fileExtension;
+					if (fileExtension == ".png" || fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension == ".bmp")
+					{
+						FileUpload1.PostedFile.SaveAs(path + newname);
+						String imgPath = "/User/ImagesUpload/" + newname;
+						Image2.ImageUrl = imgPath;
+						Session["newImgPath"] = null;
+						Session["newImgPath"]= imgPath;
+					}
+					else
+					{
+						Response.Write("<script type='text/javascript'>alert('请选择图片');</script>");
+					}
 				}
+			}
+		}
+		protected void setNewUserImg_Click(object sender, EventArgs e)
+		{
+			if (Convert.ToString(Session["newImgPath"]) != "")
+			{
+				String sql = "update User_Info set userImgUrl=@imgPath where uid=@uid";
+				SqlParameter[] parameters = {
+							new SqlParameter("@imgPath", Session["newImgPath"].ToString()),
+							new SqlParameter("@uid", Session["UID"].ToString())
+						};
+				int i = operate.OperateData(sql, parameters);
+				if (i == 1)
+				{
+					Response.Write("<script type='text/javascript'>alert('修改成功！');</script>");
+					BindUserInfo();
+					MultiView1.SetActiveView(View_TotalView);
+				}
+				else
+				{
+					Response.Write("<script type='text/javascript'>alert('修改失败');</script>");
+				}
+			}
+			else
+			{
+				Response.Write("<script type='text/javascript'>alert('请先预览头像');</script>");
 			}
 		}
 
@@ -192,7 +214,7 @@ namespace B2C_NetShop.User
 			String nickname = ds.Tables[0].Rows[0][0].ToString();
 			String money = ds.Tables[0].Rows[0][1].ToString();
 			String usertype = ds.Tables[0].Rows[0][2].ToString();
-			String userImgUrl= ds.Tables[0].Rows[0][3].ToString();
+			String userImgUrl = ds.Tables[0].Rows[0][3].ToString();
 			//账户总览页
 			Label_UID1.Text = nickname;
 			Label_UID2.Text = Session["uid"].ToString();
@@ -207,6 +229,7 @@ namespace B2C_NetShop.User
 			Label_Money.Text = money;
 			Label_NickName.Text = nickname;
 			Image1.ImageUrl = userImgUrl;
+			Image2.ImageUrl = userImgUrl;
 		}
 
 		public void BindUserAddress()
@@ -266,5 +289,7 @@ namespace B2C_NetShop.User
 			DataList1.DataSource = dtTable.DefaultView;
 			DataList1.DataBind();
 		}
+
+
 	}
 }
