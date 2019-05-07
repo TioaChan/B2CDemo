@@ -18,9 +18,10 @@ namespace B2C_NetShop
 			HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
 			String uid = Convert.ToString(Session["uid"]);
 			String nickname = Convert.ToString(Session["nickname"]);
+			String url = Convert.ToString(Session["userImgUrl"]);
 			int status = Convert.ToInt32(Session["Status"]);
 			load.HyperLinkBind(hl1, hl2, hl3, uid, status);
-			load.MainPageBind(HyperLink1, HyperLink2, Label1, uid, nickname);
+			load.MainPageBind(HyperLink1, HyperLink2, Label1, uid, nickname,Image1,url);
 			BindDataList("Isrefinement", DataList_RefinementGoods);
 			BindDataList("IsHot",DataList_HotGoods);
 			BindDataList("IsDiscount",DataList_DiscountGoods);

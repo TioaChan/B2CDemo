@@ -183,17 +183,16 @@ namespace B2C_NetShop.User
 
 		public void BindUserInfo()
 		{
-			//String sql = "select NickName,Money,UserType from User_Info where UID='" + Session["uid"].ToString() + "'";
-			String sql = "select NickName,Money,UserType from User_Info where UID=@uid";
+			String sql = "select NickName,Money,UserType,userImgUrl from User_Info where UID=@uid";
 			SqlParameter[] parameters = {
 				new SqlParameter("@uid",Session["uid"].ToString())
 				 };
-			//DataSet ds = operate.GetTable(sql);
 			DataSet ds = operate.GetTable(sql, parameters);
 			ds.Dispose();
 			String nickname = ds.Tables[0].Rows[0][0].ToString();
 			String money = ds.Tables[0].Rows[0][1].ToString();
 			String usertype = ds.Tables[0].Rows[0][2].ToString();
+			String userImgUrl= ds.Tables[0].Rows[0][3].ToString();
 			//账户总览页
 			Label_UID1.Text = nickname;
 			Label_UID2.Text = Session["uid"].ToString();
@@ -207,6 +206,7 @@ namespace B2C_NetShop.User
 			}
 			Label_Money.Text = money;
 			Label_NickName.Text = nickname;
+			Image1.ImageUrl = userImgUrl;
 		}
 
 		public void BindUserAddress()

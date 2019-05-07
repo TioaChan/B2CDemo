@@ -42,7 +42,7 @@ namespace B2C_NetShop.Account
             int n = (int)operate.ExecuteScalar(sql,parameters);
             if (n == 1)
             {
-                String userpower = "select NickName,UserType from User_Info where UID=@uid";
+                String userpower = "select NickName,UserType,userImgUrl from User_Info where UID=@uid";
                 SqlParameter[] parameters1 = {
                 new SqlParameter("@uid",uid)
                 };
@@ -50,9 +50,11 @@ namespace B2C_NetShop.Account
                 ds.Dispose();
                 String nickname = ds.Tables[0].Rows[0][0].ToString();
                 String power = ds.Tables[0].Rows[0][1].ToString();
-                Session["uid"] = uid;
+				String userImgUrl= ds.Tables[0].Rows[0][2].ToString();
+				Session["uid"] = uid;
                 Session["nickname"] = nickname;
                 Session["Status"] = power;   //power=1：普通用户，power=2,3,4：管理员
+				Session["userImgUrl"] = userImgUrl;
                 Hashtable hashCart = new Hashtable();
                 Session["ShopCart"] = hashCart;
                 Response.Redirect("~/Default.aspx");
