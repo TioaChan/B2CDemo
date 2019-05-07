@@ -114,7 +114,8 @@
             <div id="user_info_container">
                 <div id="user_img">
                     <a href="User/Info.aspx" target="_blank">
-                        <img id="" src="Account/UserImg/DefaultUserImg.png" style="width: 50px; height: 50px"></a>
+                        <%--<img id="" src="Account/UserImg/DefaultUserImg.png" style="width: 50px; height: 50px">--%>
+					<asp:Image ID="Image1" runat="server" style="width: 50px; height: 50px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" /></a>
                 </div>
                 <div id="user_info">
                     <div id="user_info_name">

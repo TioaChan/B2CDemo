@@ -18,9 +18,10 @@ namespace B2C_NetShop
 			HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
 			String uid = Convert.ToString(Session["uid"]);
 			String nickname = Convert.ToString(Session["nickname"]);
+			String url = Convert.ToString(Session["userImgUrl"]);
 			int status = Convert.ToInt32(Session["Status"]);
 			load.HyperLinkBind(hl1, hl2, hl3, uid, status);
-			load.MainPageBind(HyperLink1, HyperLink2, Label1, uid, nickname);
+			load.MainPageBind(HyperLink1, HyperLink2, Label1, uid, nickname,Image1,url);
 			BindDataList("Isrefinement", DataList_RefinementGoods);
 			BindDataList("IsHot",DataList_HotGoods);
 			BindDataList("IsDiscount",DataList_DiscountGoods);
@@ -41,7 +42,7 @@ namespace B2C_NetShop
 				dataColumns[k] = new DataColumn(test[k]);
 				dtTable.Columns.Add(dataColumns[k]);
 			}
-			String sql = "select top 5 BookID,BookName,Author,HotPrice,picUrl from Goods_Info where " + type + "=@" + type ;
+			String sql = "select top 5 BookID,BookName,Author,HotPrice,picUrl from Goods_Info where " + type + "=@" + type + " order by lastOperateDate desc";
 			SqlParameter[] parameters = {
 						new SqlParameter(type,'1') };
 			DataSet ds = operate.GetTable(sql, parameters);
