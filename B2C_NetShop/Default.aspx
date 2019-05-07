@@ -6,19 +6,15 @@
 	<style>
         #myCarousel {
             float: left;
-            width: 760px;
             height: 315px;
-            margin: 0px 5px;
             /*border: 1px red solid;*/
         }
 
         #div_right { /*右侧功能区*/
-            width: 190px;
+			width:240px;
 			height:315px;
-            margin: 0px 2px;
 			float: left;
 			background:#fff;
-            /*border: 1px red solid;*/
         }
 
         #user_info_container { /*用户容器*/
@@ -359,6 +355,7 @@
 
     <style>
         #myModal {
+			
             display: flex;
             /* 设置flex布局 */
             flex-direction: row;
@@ -374,6 +371,10 @@
             -o-transition-duration: .25s;
             transition-duration: .25s;
         }
+
+		.modal-dialog{
+			width:300px;
+		}
 
         .modal-content {
         }
@@ -398,6 +399,10 @@
         .nav-tabs {
             border-bottom: none;
         }
+
+		#myTab{
+			width:300px;
+		}
 
         #myTab li a {
             font-family: 微软雅黑;
@@ -454,10 +459,10 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="active">
-                            <a href="#home" data-toggle="tab">SIGN IN
+                            <a href="#home" data-toggle="tab">登陆
                             </a>
                         </li>
-                        <li><a href="#ios" data-toggle="tab" style="margin-left: 20px;">SIGN UP</a></li>
+                        <li><a href="#ios" data-toggle="tab" style="margin-left: 20px;">注册</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade in active" id="home">

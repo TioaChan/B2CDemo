@@ -21,21 +21,72 @@
 		}
 
 		#Master_header { /*头部容器*/
-			height: 100px;
-			/*border:1px red solid;*/
-			margin: 10px 0;
+			border-bottom: 3px red solid;
+			margin: 0px 0px 10px 0px;
 			padding: 0 100px;
 			background: #fff;
 		}
 
 		#Master_header_left { /*logo容器*/
 			float: left;
-			margin-right: 55px;
+			width: 300px;
 		}
 
 		#Master_header_right { /*搜索栏（内含：搜索框、搜索按钮、热搜词）&购物车 容器*/
 			float: left;
 		}
+
+		.head-menu-container {
+			margin: 10px auto 0px auto;
+		}
+
+		.head-menu {
+			margin: 0px;
+			padding: 0px;
+			font-weight: bolder;
+		}
+
+			.head-menu-container, .head-menu, .head-menu li {
+				height: 40px;
+			}
+
+		.head-menu-container, .head-menu {
+			width: 1180px;
+		}
+
+			.head-menu-container .head-menu li {
+				margin-left: 15px;
+				list-style: none;
+				line-height: 40px;
+				float: left;
+			}
+
+				.head-menu-container .head-menu li a {
+					color: #000;
+					cursor: pointer;
+				}
+
+					.head-menu-container .head-menu li a:hover {
+						color: red;
+					}
+
+				.head-menu-container .head-menu li.all {
+					width: 200px;
+					margin-left: 0px;
+					padding-left: 5px;
+					background: red;
+				}
+
+			.head-menu-container .head-menu .all a:hover, .head-menu-container .head-menu .all a {
+				width: 191px;
+				display: block;
+				background: url(/img/head_sprite.png) no-repeat 161px -567px;
+				color: #fff;
+			}
+
+			.head-menu-container .head-menu li.all {
+				margin-left: 0px;
+			}
 
 		#search_bar { /*搜索栏（内含：搜索框、搜索按钮、热搜词）容器*/
 			/*border:1px black solid;*/
@@ -49,7 +100,6 @@
 			width: 500px;
 			max-width: none;
 			height: 40px;
-			margin-right: 10px;
 			border: 1px red solid;
 			padding-left: 1em;
 		}
@@ -61,6 +111,7 @@
 			background-color: red;
 			color: white;
 			border: none;
+			background: url(/img/head_sprite.png) no-repeat 0 -346px;
 		}
 
 		#hot_keywords { /*热搜词*/
@@ -216,30 +267,29 @@
 				<%--站点脚本--%>
 			</Scripts>
 		</asp:ScriptManager>
-
 		<div>
-			<div id="Master_header">
-				<div class="navbar navbar-inverse navbar-fixed-top">
-					<div class="container">
-						<div class="navbar-header">
-							<a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
-						</div>
-						<div class="navbar-collapse collapse">
-							<ul class="nav navbar-nav">
-								<li><a runat="server" href="~/">主页</a></li>
-								<li><a runat="server" href="~/Contact">联系方式</a></li>
-								<li><a runat="server" href="~/About">关于</a></li>
-								<li>
-									<asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
-								<li>
-									<asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
-								<li>
-									<asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
-							</ul>
-						</div>
+			<div class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand" runat="server" href="~/">B2CDemo</a>
+					</div>
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li><a runat="server" href="~/">主页</a></li>
+							<li><a runat="server" href="~/Contact">联系方式</a></li>
+							<li><a runat="server" href="~/About">关于</a></li>
+							<li>
+								<asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
+							<li>
+								<asp:HyperLink ID="HyperLink2" runat="server">HyperLink</asp:HyperLink></li>
+							<li>
+								<asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
+						</ul>
 					</div>
 				</div>
-				<div style="width:1180px; margin:0 auto">
+			</div>
+			<div id="Master_header">
+				<div style="width: 1180px; height: 100px; margin: 0 auto">
 					<div id="Master_header_left">
 						<a href="../Default.aspx" style="display: block">
 							<img src="/img/B2CDemo_Logo.png" style="width: 100px; height: 100px" /></a>
@@ -248,7 +298,7 @@
 						<div>
 							<div id="search_bar">
 								<asp:TextBox ID="TextBox1" CssClass="search_bar_input" runat="server"></asp:TextBox>
-								<asp:Button ID="Button1" runat="server" Text="搜索" CssClass="search_bar_btn" OnClick="Button1_Click" />
+								<asp:Button ID="Button1" runat="server" Text="" CssClass="search_bar_btn" OnClick="Button1_Click" />
 								<div id="hot_keywords" class="clear">热搜</div>
 							</div>
 							<div id="cart">
@@ -265,11 +315,38 @@
 						</div>
 					</div>
 				</div>
-				<div class="clear"></div>
+				<div class="head-menu-container">
+					<ul class="head-menu">
+						<li class="all"><a>全部商品分类 </a>
+							<li>
+						<li><a>图书 </a>
+							<li>
+						<li><a>电子书 </a>
+							<li>
+						<li><a>网络文学 </a>
+							<li>
+						<li><a>安奈儿 </a>
+							<li>
+						<li><a>运动户外 </a>
+							<li>
+						<li><a>孕婴童 </a>
+							<li>
+						<li><a>家居 </a>
+							<li>
+						<li><a>拍卖 </a>
+							<li>
+						<li><a>食品 </a>
+							<li>
+						<li><a>Apple </a>
+							<li>
+						<li><a>电器城 </a>
+							<li>
+					</ul>
+				</div>
 			</div>
 			<div id="Master_Main">
 				<div style="margin-bottom: 10px;">
-					<img style="width: 1180px;" src="img/ad_banner.jpg" alt="Alternate Text" />
+					<img style="width: 1180px;" src="/img/ad_banner.jpg" alt="Alternate Text" />
 				</div>
 				<div id="Master_content">
 					<div id="Left_GoodsList">
