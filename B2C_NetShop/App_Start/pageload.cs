@@ -44,7 +44,7 @@ namespace B2C_NetShop.App_Start
                 }
             }
         }
-        public void MainPageBind(HyperLink HyperLink1,HyperLink HyperLink2, Label lable1,String id,String nickname)
+		public void MainPageBind(HyperLink HyperLink1, HyperLink HyperLink2, Label lable1, String id, String nickname, Image userImgUrl, String url)
         {
             if ("".Equals(id))
             //if (id == null)
@@ -55,8 +55,9 @@ namespace B2C_NetShop.App_Start
                 HyperLink1.NavigateUrl = "~/Account/Login.aspx";
                 HyperLink2.Text = "注册";
                 HyperLink2.NavigateUrl = "~/Account/Register.aspx";
-                //主页面用户信息栏end
-            }
+				userImgUrl.ImageUrl= "~/User/ImagesUpload/DefaultImage.png";
+				//主页面用户信息栏end
+			}
             else
             {
                 //主页面用户信息栏start
@@ -65,6 +66,7 @@ namespace B2C_NetShop.App_Start
                 HyperLink1.NavigateUrl = "~/User/Info.aspx";
                 HyperLink2.Text = "注销";
                 HyperLink2.NavigateUrl = "~/Account/logout.aspx";
+				userImgUrl.ImageUrl = url;
                 //主页面用户信息栏end
             }
         }
