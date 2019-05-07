@@ -8,15 +8,16 @@
             float: left;
             width: 760px;
             height: 315px;
-            margin: 2px 5px;
+            margin: 0px 5px;
             /*border: 1px red solid;*/
         }
 
         #div_right { /*右侧功能区*/
-            float: left;
             width: 190px;
-            height: 480px;
-            margin: 2px;
+			height:315px;
+            margin: 0px 2px;
+			float: left;
+			background:#fff;
             /*border: 1px red solid;*/
         }
 
@@ -445,22 +446,17 @@
                 background: #E41818;
             }
     </style>
-
-
-
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
                     <ul id="myTab" class="nav nav-tabs">
                         <li class="active">
                             <a href="#home" data-toggle="tab">SIGN IN
                             </a>
                         </li>
                         <li><a href="#ios" data-toggle="tab" style="margin-left: 20px;">SIGN UP</a></li>
-
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade in active" id="home">
