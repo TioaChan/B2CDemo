@@ -71,6 +71,12 @@ namespace B2C_NetShop.User
 			MultiView1.SetActiveView(View_UserImage);
 		}
 
+		protected void Button_Analyze_Click(object sender, EventArgs e)
+		{
+			MultiView1.SetActiveView(View_Analyze);
+			this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "", "<script>init();</script>", true);
+		}
+
 		protected void Button_SetNewNickName_Click(object sender, EventArgs e)
 		{
 			String newnickname = TextBox_NewNickName.Text.Trim();
@@ -281,6 +287,6 @@ namespace B2C_NetShop.User
 			DataList1.DataBind();
 		}
 
-
+		
 	}
 }

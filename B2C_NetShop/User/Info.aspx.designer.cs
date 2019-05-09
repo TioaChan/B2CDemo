@@ -76,6 +76,24 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.Button Button_Security;
         
         /// <summary>
+        /// Button_Analyze 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Analyze;
+        
+        /// <summary>
+        /// UpdatePanel1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// MultiView1 控件。
         /// </summary>
         /// <remarks>
@@ -335,5 +353,14 @@ namespace B2C_NetShop.User {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DataList1;
+        
+        /// <summary>
+        /// View_Analyze 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View_Analyze;
     }
 }
