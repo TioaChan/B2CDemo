@@ -123,6 +123,10 @@
 					text-align: center;
 				}
 
+					.asp_datalist_om .table tr td a, .asp_datalist_om .table tr td span {
+						line-height: 38px;
+					}
+
 		th {
 			text-align: center;
 			width: 220.75px;
@@ -255,14 +259,17 @@
 			#namecard .invert {
 				color: #fff;
 			}
-			/* ============================= user img =============================*/
-			.imgUpload{
-				display:block;
-				float:left;
-			}
-
+		/* ============================= user img =============================*/
+		.imgUpload {
+			display: block;
+			float: left;
+		}
 	</style>
-    <h2 style="background: red; display: none; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
+
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+
+
+	<h2 style="background: red; display: none; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
 	<div id="div_content">
 		<div id="div_left">
 			<ul>
@@ -291,6 +298,10 @@
 					<i class="glyphicon glyphicon-lock"></i>
 				</li>
 				<li>
+					<asp:Button ID="Button_Analyze" runat="server" Text="表格分析" CssClass="btn-link" OnClick="Button_Analyze_Click" />
+					<i class="glyphicon glyphicon-lock"></i>
+				</li>
+				<li>
 					<div class="progress progress-striped active" style="height: 10px; margin-top: 30px;">
 						<div class="progress-bar progress-bar-success" role="progressbar"
 							aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
@@ -303,181 +314,255 @@
 			</ul>
 		</div>
 		<div id="div_right">
-			<asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
-				<asp:View ID="View_TotalView" runat="server">
-					<div>
-						<div class="title-container">
-							<div class="shadow-img"></div>
-							<h2 class="rotate-out" style="padding-top:50px;">Welcome To <span class="invert">User Overview</span></h2>
-							<!--HOME TITLE-->
-						</div>
-						<div class="content-container">
-							<div class="strong-text">Hello, I am <span><asp:Label ID="Label_UID3" runat="server" Text="Label_UID"></asp:Label></span></div>
-							<h3 class="personal-info-title">Personal Info</h3>
-							<ul class="personal-info">
-
-								<li class="rotate-out rotated">
-									<label>姓名</label><asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label></li>
-								<li class="rotate-out rotated">
-									<label>昵称</label><asp:Label ID="Label_NickName" runat="server" Text="Label_NickName"></asp:Label></li>
-								<li class="rotate-out rotated">
-									<label>用户类型</label><asp:Label ID="Label_UserType" runat="server" Text="Label_UserType"></asp:Label></li>
-								<li class="rotate-out rotated">
-									<label>账户余额</label><asp:Label ID="Label_Money" runat="server" Text="Label_Money"></asp:Label></li>
-							</ul>
-							<!--/ul.personal-info-->
-						</div>
-						<div id="namecard">
-							<h1 class="maintitle"><asp:Label ID="Label_UID4" runat="server" Text="Label_UID"></asp:Label>
-							</h1>
-							<br />
-							<asp:Image ID="Image1" runat="server" Height="240px" Width="240px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" />
-						</div>
-					</div>
-				</asp:View>
-				<asp:View ID="View_UserInfo" runat="server">
-					<div>
-						<div class="card-body">
-							<h4>修改信息</h4>
-							<div class="form-group">
-								<label>输入新昵称:</label>
-								<br />
-								<asp:TextBox ID="TextBox_NewNickName" runat="server" Width="250px"></asp:TextBox>
-							</div>
-							<asp:Button ID="Button_SetNewNickName" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewNickName_Click" />
-						</div>
-					</div>
-				</asp:View>
-				<asp:View ID="View_Address" runat="server">
-					<div>
-						<div>
-							<div class="card-body">
-								<h4>收货地址更新</h4>
-								<div class="form-group">
-									<label>真实姓名</label>
-									<br />
-									<asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+			<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+				<ContentTemplate>
+					<asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+						<asp:View ID="View_TotalView" runat="server">
+							<div>
+								<div class="title-container">
+									<div class="shadow-img"></div>
+									<h2 class="rotate-out" style="padding-top: 50px;">Welcome To <span class="invert">User Overview</span></h2>
+									<!--HOME TITLE-->
 								</div>
-								<div class="form-group">
-									<label>邮政编码</label>
-									<br />
-									<asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-								</div>
-								<div class="form-group">
-									<label>电话号码</label>
-									<br />
-									<asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-								</div>
-								<div class="form-group">
-									<label>收货地址</label>
-									<br />
-									<asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
-								</div>
-								<asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
-							</div>
-						</div>
-					</div>
-				</asp:View>
-				<asp:View ID="View_Security" runat="server">
-					<div>
-						<div>
-							<div class="card-body">
-								<h4>密码修改</h4>
-								<div class="form-group">
-									<label>原密码</label>
-									<br />
-									<asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
-								</div>
-								<div class="form-group">
-									<label>密码</label>
-									<br />
-									<asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
-								</div>
-								<div class="form-group">
-									<label>确认密码</label>
-									<br />
-									<asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
-								</div>
-								<asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
-							</div>
-						</div>
-					</div>
-					<br />
-					<br />
-					<br />
-				</asp:View>
-				<asp:View ID="View_UserImage" runat="server">
-					<div style="margin-left:5px;background-color:white;padding:50px 100px;">
-						<table border="0" style="width:800px;">
-							<tr>
-								<td style="font-size: 18px;">头像修改</td>
-							</tr>
-							<tr>
-								<td style="height:20px;"></td>
-							</tr>
-							<tr>
-								<td>
-									<div>
-										<asp:FileUpload ID="FileUpload1" runat="server" onchange="onFileChange(this);"/>
-										
-										<div class="clear"></div>
-										<p style="padding-top:10px;font-size:12px;">仅支持JPG、PNG、JPEG、BMP格式，文件小于4M</p>
+								<div class="content-container">
+									<div class="strong-text">
+										Hello, I am <span>
+											<asp:Label ID="Label_UID3" runat="server" Text="Label_UID"></asp:Label></span>
 									</div>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
-								</td>
-								<script type="text/javascript"> 
-									function onFileChange(sender) {
-										document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
-									}
-								</script> 
-							</tr>
-							<tr>
-								<td style="height: 20px;"></td>
-							</tr>
-							<tr>
-								<td>
-								<asp:Button ID="btn_setNewUserImg" runat="server" Text="保存" OnClick="setNewUserImg" CssClass="asp_button"/>
-<%--									<asp:Button ID="setNewUserImg" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="setNewUserImg_Click" />--%>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</asp:View>
-				<asp:View ID="View_Order" runat="server">
-					<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
-						<HeaderTemplate>
-							<table class="table table-hover">
-								<tr>
-									<th>订单ID</th>
-									<th>订单时间</th>
-									<th>订单价格</th>
-									<th>付款状态</th>
-								</tr>
-							</table>
-						</HeaderTemplate>
-						<ItemTemplate>
-							<table class="table table-hover">
-								<tr>
-									<td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
-									<td><%# Eval("order_date") %></td>
-									<td><%# Eval("order_price") %></td>
-									<td>
-										<p>
-											<%# Eval("isPay") %>
-										</p>
-									</td>
-								</tr>
-							</table>
-						</ItemTemplate>
-					</asp:DataList>
-				</asp:View>
-			</asp:MultiView>
+									<h3 class="personal-info-title">Personal Info</h3>
+									<ul class="personal-info">
+
+										<li class="rotate-out rotated">
+											<label>姓名</label><asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label></li>
+										<li class="rotate-out rotated">
+											<label>昵称</label><asp:Label ID="Label_NickName" runat="server" Text="Label_NickName"></asp:Label></li>
+										<li class="rotate-out rotated">
+											<label>用户类型</label><asp:Label ID="Label_UserType" runat="server" Text="Label_UserType"></asp:Label></li>
+										<li class="rotate-out rotated">
+											<label>账户余额</label><asp:Label ID="Label_Money" runat="server" Text="Label_Money"></asp:Label></li>
+									</ul>
+									<!--/ul.personal-info-->
+								</div>
+								<div id="namecard">
+									<h1 class="maintitle">
+										<asp:Label ID="Label_UID4" runat="server" Text="Label_UID"></asp:Label>
+									</h1>
+									<br />
+									<asp:Image ID="Image1" runat="server" Height="240px" Width="240px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" />
+								</div>
+							</div>
+						</asp:View>
+						<asp:View ID="View_UserInfo" runat="server">
+							<div>
+								<div class="card-body">
+									<h4>修改信息</h4>
+									<div class="form-group">
+										<label>输入新昵称:</label>
+										<br />
+										<asp:TextBox ID="TextBox_NewNickName" runat="server" Width="250px"></asp:TextBox>
+									</div>
+									<asp:Button ID="Button_SetNewNickName" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewNickName_Click" />
+								</div>
+							</div>
+						</asp:View>
+						<asp:View ID="View_Address" runat="server">
+							<div>
+								<div>
+									<div class="card-body">
+										<h4>收货地址更新</h4>
+										<div class="form-group">
+											<label>真实姓名</label>
+											<br />
+											<asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+										</div>
+										<div class="form-group">
+											<label>邮政编码</label>
+											<br />
+											<asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+										</div>
+										<div class="form-group">
+											<label>电话号码</label>
+											<br />
+											<asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+										</div>
+										<div class="form-group">
+											<label>收货地址</label>
+											<br />
+											<asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
+										</div>
+										<asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
+									</div>
+								</div>
+							</div>
+						</asp:View>
+						<asp:View ID="View_Security" runat="server">
+							<div>
+								<div>
+									<div class="card-body">
+										<h4>密码修改</h4>
+										<div class="form-group">
+											<label>原密码</label>
+											<br />
+											<asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
+										</div>
+										<div class="form-group">
+											<label>密码</label>
+											<br />
+											<asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
+										</div>
+										<div class="form-group">
+											<label>确认密码</label>
+											<br />
+											<asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
+										</div>
+										<asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
+									</div>
+								</div>
+							</div>
+							<br />
+							<br />
+							<br />
+						</asp:View>
+						<asp:View ID="View_UserImage" runat="server">
+							<div style="margin-left: 5px; background-color: white; padding: 50px 100px;">
+								<table border="0" style="width: 800px;">
+									<tr>
+										<td style="font-size: 18px;">头像修改</td>
+									</tr>
+									<tr>
+										<td style="height: 20px;"></td>
+									</tr>
+									<tr>
+										<td>
+											<div>
+												<asp:FileUpload ID="FileUpload1" runat="server" onchange="onFileChange(this);" />
+
+												<div class="clear"></div>
+												<p style="padding-top: 10px; font-size: 12px;">仅支持JPG、PNG、JPEG、BMP格式，文件小于4M</p>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
+										</td>
+										<script type="text/javascript"> 
+											function onFileChange(sender) {
+												document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
+											}
+										</script>
+									</tr>
+									<tr>
+										<td style="height: 20px;"></td>
+									</tr>
+									<tr>
+										<td>
+											<asp:Button ID="btn_setNewUserImg" runat="server" Text="保存" OnClick="setNewUserImg" CssClass="asp_button" />
+											<%--									<asp:Button ID="setNewUserImg" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="setNewUserImg_Click" />--%>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</asp:View>
+						<asp:View ID="View_Order" runat="server">
+							<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
+								<HeaderTemplate>
+									<table class="table table-hover">
+										<tr>
+											<th>订单ID</th>
+											<th>订单时间</th>
+											<th>订单价格</th>
+											<th>付款状态</th>
+										</tr>
+									</table>
+								</HeaderTemplate>
+								<ItemTemplate>
+									<table class="table table-hover">
+										<tr>
+											<td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
+											<td><span><%# Eval("order_date") %></span></td>
+											<td><span><%# Eval("order_price") %></span></td>
+											<td>
+												<span>
+													<%# Eval("isPay") %>
+												</span>
+											</td>
+										</tr>
+									</table>
+								</ItemTemplate>
+							</asp:DataList>
+						</asp:View>
+						<asp:View ID="View_Analyze" runat="server">
+							<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+						</asp:View>
+					</asp:MultiView>
+				</ContentTemplate>
+				<Triggers>
+					<asp:AsyncPostBackTrigger ControlID="Button_Address" EventName="Click" />
+					<asp:AsyncPostBackTrigger ControlID="Button_Security" EventName="Click" />
+					<asp:AsyncPostBackTrigger ControlID="Button_UserImage" EventName="Click" />
+					<asp:AsyncPostBackTrigger ControlID="Button_UserInfo" EventName="Click" />
+					<asp:AsyncPostBackTrigger ControlID="Button_TotalView" EventName="Click" />
+					<asp:AsyncPostBackTrigger ControlID="Btn_Order" EventName="Click" />
+					<asp:AsyncPostBackTrigger ControlID="Button_Analyze" EventName="Click" />
+				</Triggers>
+			</asp:UpdatePanel>
 		</div>
 		<div class="clear" id="div_clr">
 		</div>
+		<script>
+			prm.add_endRequest(init);
+			function init() {
+				var chart = {
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false
+				};
+				var title = {
+					text: '2014 年各浏览器市场占有比例'
+				};
+				var tooltip = {
+					pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+				};
+				var plotOptions = {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: true,
+							format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+							style: {
+								color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+							}
+						}
+					}
+				};
+				var series = [{
+					type: 'pie',
+					name: 'Browser share',
+					data: [
+						['Firefox', 45.0],
+						['IE', 26.8],
+						{
+							name: 'Chrome',
+							y: 12.8,
+							sliced: true,
+							selected: true
+						},
+						['Safari', 8.5],
+						['Opera', 6.2],
+						['Others', 0.7]
+					]
+				}];
+
+				var json = {};
+				json.chart = chart;
+				json.title = title;
+				json.tooltip = tooltip;
+				json.series = series;
+				json.plotOptions = plotOptions;
+				$('#container').highcharts(json);
+			}
+		</script>
 	</div>
 </asp:Content>
