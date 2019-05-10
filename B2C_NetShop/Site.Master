@@ -155,8 +155,8 @@
 
 		#Left_GoodsList { /*主容器左半部，用于显示图书类别*/ /*放置图书分类的容器*/
 			float: left;
-			height: 315px;
-			width: 190px;
+			height: 475px;
+			width: 228px;
 			border: 1px #FF0000 solid;
 			text-align: center;
 			line-height: 45px;
@@ -233,7 +233,7 @@
 
 		#Right_PlaceHolder {
 			float: left;
-			width: 990px;
+			width: 952px;
 		}
 
 		.datalist_guide {
