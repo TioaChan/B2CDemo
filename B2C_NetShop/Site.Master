@@ -186,9 +186,10 @@
 		}
 
 		.type-css { /*图书分类详细的a标签*/
+			width:206px;
+			height: 45px;
 			display: block;
 			margin: 5px 10px;
-			height: 45px;
 			color: #fff;
 			position: relative;
 		}
