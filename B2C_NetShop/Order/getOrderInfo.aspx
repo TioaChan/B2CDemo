@@ -1,6 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="getOrderInfo.aspx.cs" Inherits="B2C_NetShop.Order.getOrderInfo" %>
+﻿<%@ Page Title="提交订单" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="getOrderInfo.aspx.cs" Inherits="B2C_NetShop.Order.getOrderInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+	<style>
+		.settltment_btn {
+			Height: 40px;
+			Width: 140px;
+			background-color:red;
+			color:white;
+			border:none;
+			text-align:center;
+		}
+	</style>
     <div id="content_main" style="height: auto; display: block;" runat="server">
         <div id="div_title" style="width: 100%; height: 40px; display: block; padding-top: 10px; padding-left: 10px; margin-top: 10px; margin-left: 10px; font-size: 16px; font-family: '微软雅黑 Light';">填写并核对订单信息</div>
         <div id="order_info" style="border: 1px solid #f0f0f0; width: 90%; height: auto; display: block; padding: 10px 10px 30px 10px; margin: 10px 10px 10px 10px;">
@@ -131,8 +141,9 @@
                     <div style="clear: both"></div>
                 </div>
                 <div style="margin: 10px; padding: 10px; text-align: right;">
-                    <asp:ImageButton ID="ImageButton1" Height="40px" Width="140px" runat="server" ImageUrl="~/img/jiesuan.png" OnClick="ImageButton1_Click" />
-                </div>
+                    <%--<asp:ImageButton ID="ImageButton1" Height="40px" Width="140px" runat="server" ImageUrl="~/img/jiesuan.png" OnClick="ImageButton1_Click" />--%>
+					<asp:Button ID="Button1" runat="server" CssClass="settltment_btn" Text="结算" OnClick="Button1_Click" />
+				</div>
             </div>
         </div>
     </div>

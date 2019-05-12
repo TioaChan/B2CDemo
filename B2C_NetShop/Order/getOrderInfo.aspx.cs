@@ -95,15 +95,14 @@ namespace B2C_NetShop.Order
             Label2.Text = i1.ToString();
         }
 
+		protected void Button1_Click(object sender, EventArgs e)
+		{
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-
-            String totalprice1 = Label3.Text.ToString();
-            String totalprice = totalprice1.Replace("￥", "");//获取总价
-            String uid = Session["UID"].ToString();
-            String order_date = DateTime.Now.ToLocalTime().ToString();
-            String order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
+			String totalprice1 = Label3.Text.ToString();
+			String totalprice = totalprice1.Replace("￥", "");//获取总价
+			String uid = Session["UID"].ToString();
+			String order_date = DateTime.Now.ToLocalTime().ToString();
+			String order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
 			String todo = "功能未实现";
 			String sql2 = "insert into Cart_Info " +
 				"(order_id,UID,receiver_address,receiver_name,receiver_phone,order_date,isSend,isPay,order_price) " +
@@ -121,21 +120,21 @@ namespace B2C_NetShop.Order
 			};
 			operate.OperateData(sql2, parameters3);
 			Hashtable hashCart = (Hashtable)Session["ShopCart"];
-            foreach (object key in hashCart.Keys)
-            {
-                String id1 = key.ToString();
-                String bookid = id1.Replace("id=", "");   //获取id ，纯数字
-                String booknum = hashCart[key].ToString(); //获取数量
-                String sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum,uid) values(@orderid,@bookid,@booknum,@uid)";
-                SqlParameter[] parameters1 = {
-                    new SqlParameter("@orderid",order_id),
-                    new SqlParameter("@bookid",bookid),
-                    new SqlParameter("@booknum",booknum),
+			foreach (object key in hashCart.Keys)
+			{
+				String id1 = key.ToString();
+				String bookid = id1.Replace("id=", "");   //获取id ，纯数字
+				String booknum = hashCart[key].ToString(); //获取数量
+				String sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum,uid) values(@orderid,@bookid,@booknum,@uid)";
+				SqlParameter[] parameters1 = {
+					new SqlParameter("@orderid",order_id),
+					new SqlParameter("@bookid",bookid),
+					new SqlParameter("@booknum",booknum),
 					new SqlParameter("@uid",uid)
 				};
-                operate.OperateData(sql1, parameters1);
-            }
-            Response.Redirect("~/Order/confirm.aspx?orderid=" + order_id + "");
-        }
-    }
+				operate.OperateData(sql1, parameters1);
+			}
+			Response.Redirect("~/Order/confirm.aspx?orderid=" + order_id + "");
+		}
+	}
 }
