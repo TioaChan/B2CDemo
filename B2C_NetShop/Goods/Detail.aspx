@@ -182,19 +182,6 @@
 								商城价：<asp:Label ID="HotPriceLabel" runat="server" Text='<%# Eval("HotPrice") %>' Font-Bold="True" Font-Size="Large" ForeColor="Red" />&nbsp;CNY
 							</div>
 						</div>
-						<%--						<div id="addtocart_frame">
-							<div id="addtocart_addnum">
-								<asp:TextBox ID="TextBox1" runat="server" CssClass="addtocart_addnum_num">1</asp:TextBox>
-								<div id="addtocart_addnum_btn">
-									<asp:Button ID="btn_plus" runat="server" Text="+" />
-									<asp:Button ID="btn_minus" runat="server" Text="-" />
-								</div>
-								<div class="clear"></div>
-							</div>
-							<asp:Button ID="btn_AddtoCart" CssClass="addtocart_addbtn" runat="server" Text="加入购物车" CommandName="Add" OnClick="btn_AddtoCart_Click" />
-							
-							<div class="clear"></div>
-						</div>--%>
 					</div>
 					<div class="clear"></div>
 				</div>
@@ -216,25 +203,28 @@
 				<div class="clear"></div>
 			</div>
 			<asp:Button ID="btn_AddtoCart" CssClass="addtocart_addbtn" runat="server" Text="加入购物车" CommandName="Add" OnClick="btn_AddtoCart_Click" />
-
 			<div class="clear"></div>
 		</div>
-		<%--<asp:Label ID="Label_Addtips" CssClass="addtocart_addtips" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="false" Visible="false"></asp:Label>--%>
 	</div>
-
-
 	<!-- 模态框 -->
-
 	<script>
 		$(function () {
-			$('#myModal').modal('show')
+			var uid = '<%=Session["uid"]%>';
+			if (uid == "") {
+				$("#MainContent_btn_AddtoCart").click(function () {
+					modalshow();
+					return false;
+				});
+			}
 		});
-
-
+		function modalshow() {
+			$('#myModal').css("display", "flex");
+			$('#myModal').modal('show');
+		}
 	</script>
 	<style>
 		#myModal {
-			display: flex;
+			display: none;
 			/* 设置flex布局 */
 			flex-direction: row;
 			/* 设置主轴 */
@@ -340,25 +330,18 @@
 							<a href="#home" data-toggle="tab">登陆
 							</a>
 						</li>
-						<li><a href="#ios" data-toggle="tab" style="margin-left: 20px;">注册</a></li>
 					</ul>
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane fade in active" id="home">
 							<div class="input-group">
-								<input type="text" placeholder="请输入你的账号" class="form-control">
+								<asp:TextBox ID="TextBox1" runat="server" CssClass="form-control" placeholder="请输入你的账号"></asp:TextBox>
 							</div>
 							<div class="input-group">
-								<input type="text" placeholder="请输入你的密码" class="form-control">
+								<asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder="请输入你的密码"></asp:TextBox>
 							</div>
-							<button type="button" class="btn btn-primary">登陆</button>
+							<%--<button type="button" class="btn btn-primary" id="btn_Login"></button>--%>
+							<asp:Button ID="btnLogin" runat="server" Text="登陆" CssClass="btn btn-primary" OnClick="btnLogin_Click"/>
 						</div>
-						<div class="tab-pane fade" id="ios">
-							<p>
-								iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-			TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
-							</p>
-						</div>
-
 					</div>
 				</div>
 			</div>
