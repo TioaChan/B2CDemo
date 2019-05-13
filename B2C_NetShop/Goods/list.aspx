@@ -8,8 +8,6 @@
 			border-left:1px #eaeaea solid;
 		}
 		#goods_info{/*搜索结果信息容器*/
-			width: 200px;
-			height:340px;
 			/*border:1px red solid;*/
 			margin:0px 10px 20px 10px;
 			padding:5px;
@@ -40,7 +38,7 @@
 				<div id="goods_info">
 					<div id="goods_image">
 						<a href='<%# Eval("BookID","Detail.aspx?id={0}") %>'>
-							<asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("picUrl") %>' Height="250px" Width="180px" /></a>
+							<asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("picUrl") %>'  Width="180px" /></a>
 					</div>
 					<div id="goods_detail">
 						<div id="goods_price">￥<asp:Label ID="MarketPriceLabel" runat="server" Text='<%# Eval("MarketPrice") %>' /></div>
