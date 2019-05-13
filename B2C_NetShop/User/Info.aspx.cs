@@ -117,13 +117,13 @@ namespace B2C_NetShop.User
 
 		protected void Button_SetNewPWD_Click(object sender, EventArgs e)
 		{
-			String pwd = "select * from User_Account where UID=@uid";
+			String pwd = "select Password from User_Account where UID=@uid";
 			SqlParameter[] parameters1 = {
 				new SqlParameter("@uid",Session["uid"].ToString())
 				 };
 			DataSet ds = operate.GetTable(pwd, parameters1);
 			ds.Dispose();
-			String pwd1 = ds.Tables[0].Rows[0][2].ToString();
+			String pwd1 = ds.Tables[0].Rows[0][0].ToString();
 			String pwd2 = TextBox3.Text.Trim();
 			if (pwd1 == pwd2)
 			{

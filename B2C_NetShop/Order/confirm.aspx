@@ -1,5 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="confirm.aspx.cs" Inherits="B2C_NetShop.Order.confirm" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+	<style>
+		.pay_btn {
+			width: 140px;
+			height: 45px;
+			border: none;
+			background-color: red;
+			color: white;
+			display: block;
+			float: left;
+		}
+	</style>
     <div id="content_main" style="height: 400px; display: block;" runat="server">
         <div id="div_title" style="width: 100%; height: 40px; display: block; padding-top: 10px; padding-left: 10px; margin-top: 10px; margin-left: 10px; font-size: 16px; font-family: '微软雅黑 Light';">确认订单信息并付款</div>
         <div id="order_info" style="border: 1px solid #f0f0f0; width: 90%; height: auto; display: block; padding: 10px 10px 30px 10px; margin: 10px 10px 10px 10px;">
@@ -12,8 +23,9 @@
                 <br />
                 <br />
                 <br />
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" ImageUrl="~/img/fukuan.png" OnClick="ImageButton1_Click" Width="140px" />
-                <asp:Label ID="Label4" runat="server" Enabled="False" Text="Label" Visible="False"></asp:Label>
+<%--                <asp:ImageButton ID="ImageButton1" runat="server" Height="40px" ImageUrl="~/img/fukuan.png" OnClick="ImageButton1_Click" Width="140px" />--%>
+				<asp:Button ID="Button1" runat="server" CssClass="pay_btn" Text="付款" OnClick="Button1_Click" />
+				<asp:Label ID="Label4" runat="server" Enabled="False" Text="Label" Visible="False"></asp:Label>
             </div>
         </div>
     </div>

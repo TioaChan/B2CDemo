@@ -56,44 +56,45 @@ namespace B2C_NetShop.Order
             Label3.Text = money + " CNY";
             if (price > money)  //余额不足
             {
-                ImageButton1.Enabled = false;
-                ImageButton1.Visible = false;
+                Button1.Enabled = false;
+                Button1.Visible = false;
                 Label4.Enabled = true;
                 Label4.Visible = true;
-            }
+				Label4.Text = "余额不足";
+			}
             Session["price"] = price;
             Session["money"] = money;
         }
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            String uid = Session["UID"].ToString();
-            String orderid = Request.QueryString["orderid"];
-            float price = float.Parse(Session["price"].ToString());
-            float money = float.Parse(Session["money"].ToString());
-            float newmoney = money - price;
-            String update1 = "update User_Info set Money=@newmoney where UID=@uid";
-            SqlParameter[] parameters1 = {
-                new SqlParameter("@newmoney",newmoney),
-                new SqlParameter("@uid",uid)
-            };
-            int x = operate.OperateData(update1,parameters1);
-            String update2 = "update Cart_Info set isPay=@isPay where order_id=@orderid";
-            SqlParameter[] parameters2 = {
-                new SqlParameter("@isPay",'1'),
-                new SqlParameter("@orderid",orderid)
-            };
-            int y = operate.OperateData(update2,parameters2);
-            if (x == 1 || y == 1)
-            {
-                Hashtable hashCart = new Hashtable();
-                Session["ShopCart"] = hashCart;
-                Response.Write("<script type='text/javascript'>alert('付款成功');location='../Default.aspx';</script>");
-            }
-            else
-            {
-                Response.Write("<script type='text/javascript'>alert('付款失败，请在订单管理中重新付款');location='../Default.aspx';</script>");
-            }
-        }
-    }
+		protected void Button1_Click(object sender, EventArgs e)
+		{
+			String uid = Session["UID"].ToString();
+			String orderid = Request.QueryString["orderid"];
+			float price = float.Parse(Session["price"].ToString());
+			float money = float.Parse(Session["money"].ToString());
+			float newmoney = money - price;
+			String update1 = "update User_Info set Money=@newmoney where UID=@uid";
+			SqlParameter[] parameters1 = {
+				new SqlParameter("@newmoney",newmoney),
+				new SqlParameter("@uid",uid)
+			};
+			int x = operate.OperateData(update1, parameters1);
+			String update2 = "update Cart_Info set isPay=@isPay where order_id=@orderid";
+			SqlParameter[] parameters2 = {
+				new SqlParameter("@isPay",'1'),
+				new SqlParameter("@orderid",orderid)
+			};
+			int y = operate.OperateData(update2, parameters2);
+			if (x == 1 || y == 1)
+			{
+				Hashtable hashCart = new Hashtable();
+				Session["ShopCart"] = hashCart;
+				Response.Write("<script type='text/javascript'>alert('付款成功');location='../Default.aspx';</script>");
+			}
+			else
+			{
+				Response.Write("<script type='text/javascript'>alert('付款失败，请在订单管理中重新付款');location='../Default.aspx';</script>");
+			}
+		}
+	}
 }
