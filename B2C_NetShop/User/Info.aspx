@@ -511,7 +511,7 @@
 		<div class="clear" id="div_clr">
 		</div>
 		<script>
-			prm.add_endRequest(init);
+			Sys.WebForms.PageRequestManager.getInstance().add_endRequest(init);
 			function init() {
 				var chart = {
 					plotBackgroundColor: null,

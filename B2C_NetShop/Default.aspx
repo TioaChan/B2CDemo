@@ -583,6 +583,7 @@
 			<div class="clear"></div>
 		</div>
 	</div>
+
 	<script>
 		$(function () {
 			$('#myModal').modal('show')
@@ -717,12 +718,5 @@
 							</p>
 						</div>
 
-					</div>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal -->
-	</div>
 	<br />
 </asp:Content>

@@ -221,5 +221,150 @@
 		</div>
 		<%--<asp:Label ID="Label_Addtips" CssClass="addtocart_addtips" runat="server" Text="加入购物车成功，快去看看吧！" Enabled="false" Visible="false"></asp:Label>--%>
 	</div>
+
+
+	<!-- 模态框 -->
+
+	<script>
+		$(function () {
+			$('#myModal').modal('show')
+		});
+
+
+	</script>
+	<style>
+		#myModal {
+			display: flex;
+			/* 设置flex布局 */
+			flex-direction: row;
+			/* 设置主轴 */
+			height: 100vh;
+			/* 相对视口高度 */
+			justify-content: center;
+			/* 设置主轴的对其方式 =>水平居中 */
+			align-items: center;
+			/* 设置交叉轴的对其方式 =>垂直居中 */
+			-webkit-transition-duration: .25s;
+			-moz-transition-duration: .25s;
+			-o-transition-duration: .25s;
+			transition-duration: .25s;
+		}
+
+		.modal-dialog {
+			width: 300px;
+		}
+
+		.modal-content {
+		}
+
+		.input-group input {
+			width: 100%;
+			max-width: 502px;
+			height: 50px;
+			margin-top: 20px;
+		}
+
+		.input-group {
+			width: 100%;
+		}
+
+		.btn-primary {
+			width: 209px;
+			height: 32px;
+			margin-top: 20px;
+		}
+
+		.nav-tabs {
+			border-bottom: none;
+		}
+
+		#myTab {
+			width: 300px;
+		}
+
+			#myTab li a {
+				font-family: 微软雅黑;
+				width: 100px;
+				display: block;
+				color: #000;
+				border: 0px;
+				border-radius: 0px;
+				line-height: 25px;
+				border: 1px solid #000;
+				text-align: center;
+				font-size: 15px;
+				-webkit-transition-duration: .25s;
+				-moz-transition-duration: .25s;
+				-o-transition-duration: .25s;
+				transition-duration: .25s;
+			}
+
+				#myTab li a:hover {
+					width: 100px;
+					background: #E41818;
+					color: #fff;
+				}
+
+				#myTab li a:focus {
+					width: 100px;
+					background: #E41818;
+					color: #fff;
+				}
+
+			#myTab li.active a {
+				background: #E41818;
+				color: #fff;
+			}
+
+		.btn-primary {
+			background: #333;
+			border-radius: 0px;
+			height: 40px;
+			-webkit-transition-duration: .25s;
+			-moz-transition-duration: .25s;
+			-o-transition-duration: .25s;
+			transition-duration: .25s;
+		}
+
+			.btn-primary:hover {
+				background: #E41818;
+			}
+	</style>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active">
+							<a href="#home" data-toggle="tab">登陆
+							</a>
+						</li>
+						<li><a href="#ios" data-toggle="tab" style="margin-left: 20px;">注册</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<div class="input-group">
+								<input type="text" placeholder="请输入你的账号" class="form-control">
+							</div>
+							<div class="input-group">
+								<input type="text" placeholder="请输入你的密码" class="form-control">
+							</div>
+							<button type="button" class="btn btn-primary">登陆</button>
+						</div>
+						<div class="tab-pane fade" id="ios">
+							<p>
+								iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+			TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+							</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
 </asp:Content>
 
