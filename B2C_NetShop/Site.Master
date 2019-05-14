@@ -6,8 +6,8 @@
 <head runat="server">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title><%: Page.Title %> - 我的 ASP.NET 应用程序</title>
+	<%--<meta name="viewport" content="width=device-width, initial-scale=1.0" />--%>
+	<title><%: Page.Title %> - B2CDemo</title>
 	<asp:PlaceHolder runat="server">
 		<%: Scripts.Render("~/bundles/modernizr") %>
 	</asp:PlaceHolder>
@@ -372,7 +372,7 @@
 				<div id="Master_foot" class="container body-content">
 					<footer>
 						<div class="clear"></div>
-						<p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET 应用程序</p>
+						<p>&copy; <%: DateTime.Now.Year %> - B2CDemo</p>
 					</footer>
 				</div>
 			</div>

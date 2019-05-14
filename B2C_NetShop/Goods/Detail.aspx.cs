@@ -76,7 +76,7 @@ namespace B2C_NetShop.Goods
 			}
 			else
 			{
-
+				Response.Write("<script>alert('用户名或密码错误')</script>");
 			}
 		}
 	}
