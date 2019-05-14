@@ -147,8 +147,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Default\keleyiimagebox.css" />
-    <Content Include="Content\Default\keleyiimagebox.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -157,6 +155,18 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Goods\img\01.jpg" />
+    <Content Include="Goods\img\02.jpg" />
+    <Content Include="Goods\img\03.jpg" />
+    <Content Include="Goods\img\04.jpg" />
+    <Content Include="Goods\img\05.jpg" />
+    <Content Include="Goods\img\06.jpg" />
+    <Content Include="Goods\img\07.jpg" />
+    <Content Include="Goods\img\08.jpg" />
+    <Content Include="Goods\img\09.jpg" />
+    <Content Include="Goods\img\10.jpg" />
+    <Content Include="Goods\img\11.jpg" />
+    <Content Include="Goods\img\12.jpg" />
     <Content Include="img\ad_banner.jpg" />
     <Content Include="img\DefaultImg\4.jpg" />
     <Content Include="img\DefaultImg\5.jpg" />
@@ -192,6 +202,7 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="img\addtocart-icons.png" />
     <Content Include="Goods\addToCart.aspx" />
@@ -199,8 +210,6 @@
     <Content Include="Goods\Detail.aspx" />
     <Content Include="Goods\discount.aspx" />
     <Content Include="Goods\hot.aspx" />
-    <Content Include="Goods\img\fukuan.png" />
-    <Content Include="Goods\img\jiesuan.png" />
     <Content Include="Goods\list.aspx" />
     <Content Include="Goods\refinement.aspx" />
     <Content Include="Goods\search.aspx" />
@@ -257,6 +266,8 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="User\ImagesUpload\admin\132016977567747537.png" />
+    <Content Include="User\ImagesUpload\admin\132016978690631237.jpg" />
     <Content Include="User\ImagesUpload\DefaultImage.png" />
     <Content Include="User\Info.aspx" />
     <Content Include="User\order.aspx" />
@@ -437,6 +448,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
