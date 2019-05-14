@@ -435,7 +435,7 @@
 									<tr>
 										<td>
 											<div>
-												<asp:FileUpload ID="FileUpload1" runat="server" onchange="onFileChange(this);" />
+												<asp:FileUpload ID="FileUpload1" runat="server" onchange="onFileChange(this);" accept=".png,.jpg,.jpeg" />
 
 												<div class="clear"></div>
 												<p style="padding-top: 10px; font-size: 12px;">仅支持JPG、PNG、JPEG、BMP格式，文件小于4M</p>
@@ -446,11 +446,7 @@
 										<td>
 											<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
 										</td>
-										<script type="text/javascript"> 
-											function onFileChange(sender) {
-												document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
-											}
-										</script>
+										
 									</tr>
 									<tr>
 										<td style="height: 20px;"></td>
@@ -505,8 +501,16 @@
 					<asp:AsyncPostBackTrigger ControlID="Button_TotalView" EventName="Click" />
 					<asp:AsyncPostBackTrigger ControlID="Btn_Order" EventName="Click" />
 					<asp:AsyncPostBackTrigger ControlID="Button_Analyze" EventName="Click" />
+					<asp:PostBackTrigger ControlID="Button_SetNewNickName" />
+					<asp:PostBackTrigger ControlID="btn_setNewUserImg" />
 				</Triggers>
 			</asp:UpdatePanel>
+			<script type="text/javascript"> 
+
+											function onFileChange(sender) {
+												document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
+											}
+										</script>
 		</div>
 		<div class="clear" id="div_clr">
 		</div>

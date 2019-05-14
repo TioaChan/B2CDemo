@@ -86,6 +86,7 @@ namespace B2C_NetShop.User
 			if (i == 1)
 			{
 				Session["nickname"] = newnickname;
+			
 				Response.Write("<script type='text/javascript'>alert('修改成功！');location='Info.aspx';</script>");
 			}
 			else
