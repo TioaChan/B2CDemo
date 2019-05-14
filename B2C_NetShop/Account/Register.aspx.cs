@@ -2,6 +2,8 @@
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using B2C_NetShop.App_Start;
+using System.Data;
+using System.Configuration;
 
 namespace B2C_NetShop.Account
 {
@@ -20,56 +22,30 @@ namespace B2C_NetShop.Account
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (TextBox_uid.Text.Trim() == "" || TextBox_pwd.Text.Trim() == "" || TextBox_pwd0.Text.Trim() == "")
+            if (TextBox_uid.Text.Trim() != "" && TextBox_pwd.Text.Trim() != "" && TextBox_pwd0.Text.Trim() != "")
             {
-                Response.Write("<script type='text/javascript'>alert('请输入必要的信息！');</script>");
-            }
-            else
-            {
-                String sql = "select count(*) from User_Account where UID=@uid";
-                SqlParameter[] parameter ={
-                    new SqlParameter("@uid", TextBox_uid.Text.Trim())
-                };
-                int n = operate.ExecuteScalar(sql, parameter);
-                if (n == 0)
-                {
-                    String regist1 = "insert into User_Account (UID,Password) values(@uid,@pwd)";
-                    SqlParameter[] parameter1 ={
-                        new SqlParameter("@uid", TextBox_uid.Text.Trim()),
-                        new SqlParameter("@pwd", TextBox_pwd.Text.Trim())
-                    };
-                    String regist2 = "insert into User_Info(UID,NickName,UserType) values(@uid,@nickname,@usertype)";
-                    SqlParameter[] parameter2 ={
-                        new SqlParameter("@uid", TextBox_uid.Text.Trim()),
-                        new SqlParameter("@nickname", TextBox_uid.Text.Trim()),
-                        new SqlParameter("@usertype", '1')
-                    };
-                    String regist3 = "insert into User_Address(UID) values(@uid)";
-                    SqlParameter[] parameter3 ={
-                        new SqlParameter("@uid", TextBox_uid.Text.Trim()),
-                    };
-                    int n1 = operate.OperateData(regist1,parameter1);
-                    int n2 = operate.OperateData(regist2,parameter2);
-                    int n3 = operate.OperateData(regist3,parameter3);
-                    if (n1 == 1 && n2 == 1 && n3 == 1)
-                    {
-                        Response.Write("<script type='text/javascript'>alert('恭喜您，注册成功！');location='login.aspx';</script>");
-                    }
-                    else
-                    {
-                        Response.Write("<script type='text/javascript'>alert('注册失败，请换一个用户名重试！');location='Register.aspx';</script>");
-                    }
-
-                }
-                else if (n == 1)
-                {
-                    Response.Write("<script type='text/javascript'>alert('用户名重复！');</script>");
-                }
-                else
-                {
-                    Response.Write("<script type='text/javascript'>alert('系统异常，请尝试重新注册');location='../Default.aspx';</script>");
-                }
-            }
+				String procName = "UserRegister";
+				SqlParameter[] parameters =
+				{
+					new SqlParameter("@uid",TextBox_uid.Text.Trim()),
+					new SqlParameter("@pwd",TextBox_pwd.Text.Trim()),
+					new SqlParameter("@NickName",TextBox_uid.Text.Trim()),
+					new SqlParameter("@UserType", '1')
+				};
+				decimal i= operate.Proc(procName, parameters);
+				if (i == 0)
+				{
+					Response.Write("<script type='text/javascript'>alert('恭喜您，注册成功！');location='login.aspx';</script>");
+				}
+				else if (i == -1)
+				{
+					Response.Write("<script type='text/javascript'>alert('用户名重复！');</script>");
+				}
+			}
+			else
+			{
+				Response.Write("<script type='text/javascript'>alert('请输入必要的信息！');</script>");
+			}
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
