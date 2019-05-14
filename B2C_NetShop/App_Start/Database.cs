@@ -25,6 +25,26 @@ namespace B2C_NetShop.App_Start
 			return i;
 		}
 
+		/// <summary>
+		/// 存储过程
+		/// </summary>
+		/// <param name="procName">存储过程</param>
+		/// <param name="parameters">存储过程参数</param>
+		/// <returns>0：成功</returns>
+		public decimal Proc(string procName,params SqlParameter[] parameters)
+		{
+			conn.Open();
+			SqlCommand cmd = new SqlCommand(procName, conn);
+			cmd.CommandType = CommandType.StoredProcedure;
+			foreach (SqlParameter s in parameters)
+			{
+				cmd.Parameters.Add(s);
+			}
+			cmd.Parameters.Add("@FLAG", SqlDbType.Decimal).Direction = ParameterDirection.Output;
+			cmd.ExecuteNonQuery();
+			return (decimal)cmd.Parameters["@FLAG"].Value;
+		}
+
 		public DataSet GetTable(string sql, params SqlParameter[] parameters)//返回dataset
 		{
 			/**
