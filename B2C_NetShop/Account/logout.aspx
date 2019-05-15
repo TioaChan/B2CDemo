@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="css/logout-error.css" rel="stylesheet" />
+     <link href="Style/logout-error.css" rel="stylesheet" />
     <title>注销页面</title>
 </head>
 <body style="background-color: #282828">

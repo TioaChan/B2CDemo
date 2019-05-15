@@ -1,0 +1,113 @@
+﻿body {
+	background: #f6f6f6;
+}
+
+#footer .footer_goods_frame {
+	height: 400px;
+}
+
+#footer #MainContent_DataList_RefinementGoods {
+	height: 234px;
+}
+
+.footer_type h2 {
+	margin: 0px;
+}
+
+#footer_1st, #footer_2nd, #footer_3rd { /*三个推荐栏目容器*/
+	height: auto;
+	border-bottom: 1px #eaeaea solid;
+}
+
+.footer_type { /*推荐栏目说明和按钮容器*/
+	float: left;
+}
+
+.footer_goods_frame {
+	height: 234px;
+}
+
+.footer_goods_detail {
+	/*float:left;*/
+	background: #fff;
+	width: 220px;
+	height: 400px;
+	margin: 0px 8px;
+	display: flex;
+	text-align: center;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 280px;
+	margin-bottom: 10px;
+	-webkit-transition-duration: .25s;
+	-moz-transition-duration: .25s;
+	-o-transition-duration: .25s;
+	transition-duration: .25s;
+}
+
+	.footer_goods_detail:hover {
+		-webkit-box-shadow: 3px 3px 3px;
+		-moz-box-shadow: 3px 3px 3px;
+		box-shadow: 5px 5px 5px;
+	}
+
+.bookImg {
+	height: 171px;
+	display: block;
+	margin: 7px auto;
+}
+
+.footer_type {
+	margin: 20px;
+}
+
+
+.book_name, .book_author, .book_price {
+	display: block;
+}
+
+.book_name {
+	font-family: Times New Roman;
+	color: #000;
+}
+
+.book_author {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+
+.book_price {
+	color: #fff;
+	background: #ff6700;
+	width: 100%;
+	display: none;
+	margin: 0 auto;
+}
+
+.footer_btn {
+	float: right;
+	margin-top: 30px;
+}
+
+	.footer_btn > a { /*推荐位按钮样式，使用a代替按钮*/
+		padding-top: 10px;
+		height: 40px;
+		width: 100px;
+		text-align: center;
+	}
+
+a:hover {
+	text-decoration: none;
+}
+
+.product-card {
+	width: 230px;
+}
+
+.btn-default {
+	-webkit-transition-duration: .25s;
+	-moz-transition-duration: .25s;
+	-o-transition-duration: .25s;
+	transition-duration: .25s;
+}

@@ -446,7 +446,7 @@
 										<td>
 											<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
 										</td>
-										
+
 									</tr>
 									<tr>
 										<td style="height: 20px;"></td>
@@ -496,21 +496,21 @@
 				<Triggers>
 					<asp:AsyncPostBackTrigger ControlID="Button_Address" EventName="Click" />
 					<asp:AsyncPostBackTrigger ControlID="Button_Security" EventName="Click" />
-					<asp:AsyncPostBackTrigger ControlID="Button_UserImage" EventName="Click" />
 					<asp:AsyncPostBackTrigger ControlID="Button_UserInfo" EventName="Click" />
 					<asp:AsyncPostBackTrigger ControlID="Button_TotalView" EventName="Click" />
 					<asp:AsyncPostBackTrigger ControlID="Btn_Order" EventName="Click" />
 					<asp:AsyncPostBackTrigger ControlID="Button_Analyze" EventName="Click" />
+					<asp:PostBackTrigger ControlID="Button_UserImage" />
 					<asp:PostBackTrigger ControlID="Button_SetNewNickName" />
 					<asp:PostBackTrigger ControlID="btn_setNewUserImg" />
 				</Triggers>
 			</asp:UpdatePanel>
 			<script type="text/javascript"> 
 
-											function onFileChange(sender) {
-												document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
-											}
-										</script>
+				function onFileChange(sender) {
+					document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
+				}
+			</script>
 		</div>
 		<div class="clear" id="div_clr">
 		</div>
