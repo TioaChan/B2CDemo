@@ -157,6 +157,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Goods\Style\common.css" />
     <Content Include="img\ad_banner.jpg" />
     <Content Include="img\DefaultImg\4.jpg" />
     <Content Include="img\DefaultImg\5.jpg" />
