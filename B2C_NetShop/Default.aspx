@@ -500,7 +500,7 @@
 				<h2>商城精选</h2>
 				<p>精选图书，值得一看</p>
 			</div>
-			<div class="footer_btn"><a class="btn btn-default" href="Goods/refinement.aspx">查看更多 &raquo;</a></div>
+			<div class="footer_btn"><a  target="_blank" class="btn btn-default" href="Goods/refinement.aspx">查看更多 &raquo;</a></div>
 			<div class="footer_goods_frame">
 				<%--datalist test start--%>
 				<asp:DataList ID="DataList_RefinementGoods" runat="server" RepeatDirection="Horizontal">
@@ -529,7 +529,7 @@
 				<h2>商城热卖</h2>
 				<p>人气图书，每天更新</p>
 			</div>
-			<div class="footer_btn"><a class="btn btn-default" href="Goods/hot.aspx">查看更多 &raquo;</a></div>
+			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/hot.aspx">查看更多 &raquo;</a></div>
 			<div class="footer_goods_frame">
 				<%--datalist test start--%>
 				<asp:DataList ID="DataList_HotGoods" runat="server" RepeatDirection="Horizontal">
@@ -557,7 +557,7 @@
 				<h2>商城折扣</h2>
 				<p>折扣图书，低至一折</p>
 			</div>
-			<div class="footer_btn"><a class="btn btn-default" href="Goods/discount.aspx">查看更多 &raquo;</a></div>
+			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/discount.aspx">查看更多 &raquo;</a></div>
 			<div class="footer_goods_frame">
 				<%--datalist test start--%>
 				<asp:DataList ID="DataList_DiscountGoods" runat="server" RepeatDirection="Horizontal">

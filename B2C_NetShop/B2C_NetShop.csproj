@@ -155,6 +155,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+
+    <Content Include="Goods\Style\common.css" />
     <Content Include="Goods\img\01.jpg" />
     <Content Include="Goods\img\02.jpg" />
     <Content Include="Goods\img\03.jpg" />

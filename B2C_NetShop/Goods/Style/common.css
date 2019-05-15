@@ -1,0 +1,55 @@
+﻿#Left_GoodsList {
+	display: none;
+}
+
+
+#list_detail {
+	width: 1180px;
+	text-align: center;
+}
+
+.goods-info {
+	
+	margin-bottom: 10px;
+	-webkit-transition-duration: .25s;
+	-moz-transition-duration: .25s;
+	-o-transition-duration: .25s;
+	transition-duration: .25s;
+}
+
+	.goods-info:hover {
+		box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.24), 0 5px 5px 0 rgba(0, 0, 0, 0.17);
+	}
+
+hr {
+	clear: both;
+}
+
+.order-class{
+	font-size:18px;
+	padding:5px;
+	float:left;
+}
+
+.currency-sign{
+	color:red;
+}
+
+.book-name {
+	font-size: large;
+	display:block;
+}
+
+.book-author{
+
+}
+
+.book-marketprice{
+	font-size:large;
+	color:red;
+}
+
+.book-img{
+	width:200px;
+	height:200px;
+}
