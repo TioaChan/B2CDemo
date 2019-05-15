@@ -583,6 +583,5 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-
 	<br />
 </asp:Content>

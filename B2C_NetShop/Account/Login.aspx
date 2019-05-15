@@ -11,7 +11,7 @@
         #login-window {
             width: 345px;
             height: 400px;
-            margin:auto;            
+            margin:auto;
             background:#fff
         }
 
