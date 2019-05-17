@@ -368,9 +368,11 @@
 					<asp:ContentPlaceHolder ID="MainContent" runat="server">
 					</asp:ContentPlaceHolder>
 				</div>
-				<hr />
+				
 				<div id="Master_foot" class="container body-content">
+					
 					<footer>
+						<hr />
 						<div class="clear"></div>
 						<p>&copy; <%: DateTime.Now.Year %> - B2CDemo</p>
 					</footer>

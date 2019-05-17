@@ -2,515 +2,299 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 	<%--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">--%>
-	<style>
-		/* ============================= 左右盒子外加一个做导航条 ============================= */
-		/* 设置大盒子宽度防止挤压 */
-
-		body {
-			background: #f6f6f6;
-			font-family: 微软雅黑;
-		}
-
-		#div_content {
-			width: 1170px;
-		}
-
-		#div_left {
-			float: left;
-			display: block;
-			width: 247px;
-			min-height: 100%;
-			font-size: 15px;
-		}
-
-			#div_left ul { /* 左导航条 */
-				padding: 0px 13px;
-				margin: 0px;
-				list-style: none;
-				min-height: 1380px;
-				background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
-				background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
-				background: -moz-linear-gradient(0deg, #f85032, #FF0000); /* Firefox 3.6 - 15 */
-				background: linear-gradient(0deg, #f85032, #FF0000); /* 标准的语法（必须放在最后） */
-			}
-
-				#div_left ul li {
-					padding: 10px;
-					width: 100%;
-					-webkit-transition-duration: .25s;
-					-moz-transition-duration: .25s;
-					-o-transition-duration: .25s;
-					transition-duration: .25s;
-					border-bottom: 1px solid rgba(255, 255, 255, .4);
-				}
-
-					#div_left ul li:hover {
-						border-bottom: 1px solid #fff;
-						background: rgba(255,255,255,0.2);
-					}
-
-					#div_left ul li input {
-						font-size: 13px;
-						text-align: left;
-						width: 92%;
-						color: rgba(255,255,255,0.7);
-					}
-
-			#div_left p {
-				margin: 0px;
-				font-size: 13px;
-				text-align: center;
-				color: rgba(255,255,255,0.7);
-			}
-
-				#div_left ul li input:hover, #div_left p:hover {
-					text-decoration: none;
-					color: #fff;
-				}
-
-			#div_left ul li i {
-				height: 19px;
-				line-height: 19px;
-				color: #fff;
-				float: right;
-			}
-
-
-
-		#div_right {
-			display: block;
-			float: left;
-			width: 923px;
-		}
-
-		.clear {
-			clear: both;
-		}
-
-		/* ============================= 页面asp Button样式 ============================= */
-		.asp_button {
-			background: red;
-			color: #fff;
-			border: 0px;
-			border-radius: 5px;
-			padding: 10px 15px;
-			width: 130px;
-			font-size: 15px;
-			-webkit-transition-duration: .25s;
-			-moz-transition-duration: .25s;
-			-o-transition-duration: .25s;
-			transition-duration: .25s;
-		}
-
-			.asp_button:hover {
-				background: #000000;
-			}
-
-		/* ============================= datalist order manager =============================*/
-		/* 订单管理 */
-		.asp_datalist_om {
-			margin: 20px auto;
-			background: #fff;
-		}
-
-			.asp_datalist_om .table {
-				margin: 0px;
-			}
-
-				.asp_datalist_om .table tr td {
-					width: 220.75px;
-					height: 38px;
-					text-align: center;
-				}
-
-					.asp_datalist_om .table tr td a, .asp_datalist_om .table tr td span {
-						line-height: 38px;
-					}
-
-		th {
-			text-align: center;
-			width: 220.75px;
-		}
-		/* ============================= div =============================*/
-		#user-overview {
-			font-family: 'Oswald', sans-serif;
-		}
-
-		.title-container {
-			background: #000;
-			font-family: 'Oswald', sans-serif;
-			font-size: 30px;
-			font-weight: 400;
-			margin: 20px;
-		}
-
-			.title-container .rotate-out {
-				color: #f4d03f;
-				height: 130px;
-				padding: 15px;
-			}
-
-			.title-container .invert {
-				color: white;
-			}
-
-		.content-container {
-			background: #fff;
-			margin: 20px;
-			padding: 30px 15px;
-			width: 441.5px;
-			float: left;
-		}
-
-			.content-container .strong-text {
-				font-family: 'Oswald', sans-serif;
-				font-size: 22.5px;
-				margin: 10px 0px;
-			}
-
-			.content-container .personal-info-title {
-				margin-top: 65px;
-				font-size: 21px;
-				font-family: 'Oswald', sans-serif;
-			}
-
-		.strong-text span {
-			background: #f4d03f;
-			padding: 2px 5px;
-			padding-bottom: 2px;
-			color: #111;
-			margin-left: 5px;
-		}
-
-		.content-container ul {
-			padding: 0px;
-			margin: 0px;
-			list-style: none;
-		}
-
-			.content-container ul li label {
-				width: 75px;
-				min-width: 75px;
-				font-size: 12.5px;
-				background: #f4d03f;
-				padding: 4px 10px 5px;
-			}
-
-			.content-container ul li span {
-				background: #111111;
-				padding: 4px 10px 5px;
-				color: #fff;
-				display: inline-block;
-				margin-left: 9px;
-				text-transform: capitalize;
-			}
-
-		div.card-body {
-			margin: 20px;
-			background: #fff;
-			padding: 30px;
-		}
-
-			div.card-body h4 {
-				margin-bottom: 18px;
-				font-weight: bold;
-			}
-
-			div.card-body div.form-group {
-				margin-bottom: 16px;
-			}
-
-			div.card-body input {
-				border: 1px solid #e6ecf5;
-				height: 30px;
-				padding: 0px 8px;
-				width: 100%;
-			}
-
-				div.card-body input:focus {
-					border: 1px solid #80BDFF;
-				}
-
-			div.card-body p {
-				margin-bottom: 15px;
-			}
-
-			div.card-body label {
-				font-weight: unset;
-			}
-
-		#namecard {
-			float: left;
-			width: 421.5px;
-			background: #fff;
-			height: 333.9px;
-			margin-top: 20px;
-			background: #000000;
-			font-family: 'Oswald', sans-serif;
-			text-align: center;
-		}
-
-			#namecard .maintitle {
-				color: #f4d03f;
-				display: inline-block;
-				text-transform: uppercase;
-			}
-
-			#namecard .invert {
-				color: #fff;
-			}
-		/* ============================= user img =============================*/
-		.imgUpload {
-			display: block;
-			float: left;
-		}
-	</style>
-
+	<link href="UserStyle/info-style.css" rel="stylesheet" />
 	<script src="http://code.highcharts.com/highcharts.js"></script>
-
-
 	<h2 style="background: red; display: none; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
-	<div id="div_content">
-		<div id="div_left">
-			<ul>
-				<li>
-					<asp:Button ID="Button_TotalView" runat="server" Text="账户总览" CssClass="btn-link" OnClick="Button_TotalView_Click" />
-					<i class="glyphicon glyphicon-user"></i>
-				</li>
-				<li>
-					<asp:Button ID="Button_UserInfo" runat="server" Text="个人信息" CssClass="btn-link" OnClick="Button_UserInfo_Click" />
-					<i class="glyphicon glyphicon-eye-open"></i>
-				</li>
-				<li>
-					<asp:Button ID="Btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="Btn_Order_Click" />
-					<i class="glyphicon glyphicon-barcode"></i>
-				</li>
-				<li>
-					<asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
-					<i class="glyphicon glyphicon-eye-open"></i>
-				</li>
-				<li>
-					<asp:Button ID="Button_Address" runat="server" Text="收货地址" CssClass="btn-link" OnClick="Button_Address_Click" />
-					<i class="glyphicon glyphicon-home"></i>
-				</li>
-				<li>
-					<asp:Button ID="Button_Security" runat="server" Text="安全设置" CssClass="btn-link" OnClick="Button_Security_Click" />
-					<i class="glyphicon glyphicon-lock"></i>
-				</li>
-				<li>
-					<asp:Button ID="Button_Analyze" runat="server" Text="表格分析" CssClass="btn-link" OnClick="Button_Analyze_Click" />
-					<i class="glyphicon glyphicon-lock"></i>
-				</li>
-				<li>
-					<div class="progress progress-striped active" style="height: 10px; margin-top: 30px;">
-						<div class="progress-bar progress-bar-success" role="progressbar"
-							aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-							style="width: 40%;">
-							<span class="sr-only">40% 完成</span>
+	<div id="main-container">
+		<nav class="navbar navbar-default mynav-bar" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">B2CDemo</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<asp:HyperLink ID="hylIconPersonalInfo" runat="server" CssClass="icon-a">
+								<asp:Image ID="Image1" runat="server" Height="50px" Width="50px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" CssClass="icon" />
+							</asp:HyperLink></li>
+						<li class="active">
+							<a href="../Default.aspx"><span class="glyphicon glyphicon-home"></span>主页</a>
+						</li>
+						<li><a href="../Contact.aspx"><span class="glyphicon glyphicon-phone-alt"></span>联系方式</a></li>
+						<li>
+							<asp:HyperLink ID="hylAdmin" runat="server"><span class="glyphicon glyphicon-lock"></span>后台管理</asp:HyperLink>
+						</li>
+						<li class="dropdown mydropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">设置
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu mymenu">
+								<li>
+									<asp:HyperLink ID="hylPersonalInfo" runat="server"><span class="glyphicon glyphicon-user"></span>个人信息</asp:HyperLink></li>
+								<li class="divider"></li>
+								<li><a href="#">退出</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="main-content">
+			<div id="side-bar">
+				<ul>
+					<li>
+						<asp:Button ID="Button_TotalView" runat="server" Text="账户总览" CssClass="btn-link" OnClick="Button_TotalView_Click" />
+						<i class="glyphicon glyphicon-user"></i>
+					</li>
+					<li>
+						<asp:Button ID="Button_UserInfo" runat="server" Text="个人信息" CssClass="btn-link" OnClick="Button_UserInfo_Click" />
+						<i class="glyphicon glyphicon-eye-open"></i>
+					</li>
+					<li>
+						<asp:Button ID="Btn_Order" CssClass="btn-link" runat="server" Text="订单管理" OnClick="Btn_Order_Click" />
+						<i class="glyphicon glyphicon-barcode"></i>
+					</li>
+					<li>
+						<asp:Button ID="Button_UserImage" runat="server" Text="头像修改" CssClass="btn-link" OnClick="Button_UserImage_Click" />
+						<i class="glyphicon glyphicon-eye-open"></i>
+					</li>
+					<li>
+						<asp:Button ID="Button_Address" runat="server" Text="收货地址" CssClass="btn-link" OnClick="Button_Address_Click" />
+						<i class="glyphicon glyphicon-home"></i>
+					</li>
+					<li>
+						<asp:Button ID="Button_Security" runat="server" Text="安全设置" CssClass="btn-link" OnClick="Button_Security_Click" />
+						<i class="glyphicon glyphicon-lock"></i>
+					</li>
+					<li>
+						<asp:Button ID="Button_Analyze" runat="server" Text="表格分析" CssClass="btn-link" OnClick="Button_Analyze_Click" />
+						<i class="glyphicon glyphicon-lock"></i>
+					</li>
+					<li>
+						<div class="progress progress-striped active" style="height: 10px; margin-top: 30px;">
+							<div class="progress-bar progress-bar-success" role="progressbar"
+								aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+								style="width: 40%;">
+								<span class="sr-only">40% 完成</span>
+							</div>
 						</div>
-					</div>
-					<p>当前已销售10</p>
-				</li>
-			</ul>
-		</div>
-		<div id="div_right">
-			<asp:UpdatePanel ID="UpdatePanel1" runat="server">
-				<ContentTemplate>
-					<asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
-						<asp:View ID="View_TotalView" runat="server">
-							<div>
-								<div class="title-container">
-									<div class="shadow-img"></div>
-									<h2 class="rotate-out" style="padding-top: 50px;">Welcome To <span class="invert">User Overview</span></h2>
-									<!--HOME TITLE-->
-								</div>
-								<div class="content-container">
-									<div class="strong-text">
-										Hello, I am <span>
-											<asp:Label ID="Label_UID3" runat="server" Text="Label_UID"></asp:Label></span>
-									</div>
-									<h3 class="personal-info-title">Personal Info</h3>
-									<ul class="personal-info">
-
-										<li class="rotate-out rotated">
-											<label>姓名</label><asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label></li>
-										<li class="rotate-out rotated">
-											<label>昵称</label><asp:Label ID="Label_NickName" runat="server" Text="Label_NickName"></asp:Label></li>
-										<li class="rotate-out rotated">
-											<label>用户类型</label><asp:Label ID="Label_UserType" runat="server" Text="Label_UserType"></asp:Label></li>
-										<li class="rotate-out rotated">
-											<label>账户余额</label><asp:Label ID="Label_Money" runat="server" Text="Label_Money"></asp:Label></li>
-									</ul>
-									<!--/ul.personal-info-->
-								</div>
-								<div id="namecard">
-									<h1 class="maintitle">
-										<asp:Label ID="Label_UID4" runat="server" Text="Label_UID"></asp:Label>
-									</h1>
-									<br />
-									<asp:Image ID="Image1" runat="server" Height="240px" Width="240px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" />
-								</div>
-							</div>
-						</asp:View>
-						<asp:View ID="View_UserInfo" runat="server">
-							<div>
-								<div class="card-body">
-									<h4>修改信息</h4>
-									<div class="form-group">
-										<label>输入新昵称:</label>
-										<br />
-										<asp:TextBox ID="TextBox_NewNickName" runat="server" Width="250px"></asp:TextBox>
-									</div>
-									<asp:Button ID="Button_SetNewNickName" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewNickName_Click" />
-								</div>
-							</div>
-						</asp:View>
-						<asp:View ID="View_Address" runat="server">
-							<div>
-								<div>
-									<div class="card-body">
-										<h4>收货地址更新</h4>
-										<div class="form-group">
-											<label>真实姓名</label>
-											<br />
-											<asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-										</div>
-										<div class="form-group">
-											<label>邮政编码</label>
-											<br />
-											<asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-										</div>
-										<div class="form-group">
-											<label>电话号码</label>
-											<br />
-											<asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-										</div>
-										<div class="form-group">
-											<label>收货地址</label>
-											<br />
-											<asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
-										</div>
-										<asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
-									</div>
-								</div>
-							</div>
-						</asp:View>
-						<asp:View ID="View_Security" runat="server">
-							<div>
-								<div>
-									<div class="card-body">
-										<h4>密码修改</h4>
-										<div class="form-group">
-											<label>原密码</label>
-											<br />
-											<asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
-										</div>
-										<div class="form-group">
-											<label>密码</label>
-											<br />
-											<asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
-										</div>
-										<div class="form-group">
-											<label>确认密码</label>
-											<br />
-											<asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
-										</div>
-										<asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
-									</div>
-								</div>
-							</div>
-							<br />
-							<br />
-							<br />
-						</asp:View>
-						<asp:View ID="View_UserImage" runat="server">
-							<div style="margin-left: 5px; background-color: white; padding: 50px 100px;">
-								<table border="0" style="width: 800px;">
-									<tr>
-										<td style="font-size: 18px;">头像修改</td>
-									</tr>
-									<tr>
-										<td style="height: 20px;"></td>
-									</tr>
-									<tr>
-										<td>
-											<div>
-												<asp:FileUpload ID="FileUpload1" runat="server" onchange="onFileChange(this);" accept=".png,.jpg,.jpeg" />
-
-												<div class="clear"></div>
-												<p style="padding-top: 10px; font-size: 12px;">仅支持JPG、PNG、JPEG、BMP格式，文件小于4M</p>
+						<p>当前已销售10</p>
+					</li>
+				</ul>
+			</div>
+			<div id="right-content">
+				<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+					<ContentTemplate>
+						<asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
+							<asp:View ID="View_TotalView" runat="server">
+								<div class="content-wrapper">
+									<div class="row">
+										<div class="col-md-4 stretch-card grid-margin">
+											<div class="card bg-gradient-warning text-white">
+												<div class="card-body">
+													<h4 class="font-weight-normal mb-3">欢迎你！</h4>
+													<h2 class="font-weight-normal mb-5">
+														<asp:Label ID="Label_UID2" runat="server" Text="Label_UID"></asp:Label></h2>
+													<p class="card-text">用户类型：<asp:Label ID="Label_UserType" runat="server" Text="Label_UserType"></asp:Label></p>
+												</div>
 											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
-										</td>
+										</div>
+										<div class="col-md-4 stretch-card grid-margin">
+											<div class="card bg-gradient-info text-white">
+												<div class="card-body">
+													<h4 class="font-weight-normal mb-3">账户余额</h4>
+													<h2 class="font-weight-normal mb-5">￥<asp:Label ID="Label_Money" runat="server" Text="Label_Money"></asp:Label></h2>
+													<p class="card-text">Decreased by 10%</p>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4 stretch-card grid-margin">
+											<div class="card bg-gradient-success text-white">
+												<div class="card-body">
+													<h4 class="font-weight-normal mb-3">账户积分</h4>
+													<h2 class="font-weight-normal mb-5">955741235</h2>
+													<p class="card-text">Increased by 5%</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row"></div>
+								</div>
 
-									</tr>
-									<tr>
-										<td style="height: 20px;"></td>
-									</tr>
-									<tr>
-										<td>
-											<asp:Button ID="btn_setNewUserImg" runat="server" Text="保存" OnClick="setNewUserImg" CssClass="asp_button" />
-											<%--									<asp:Button ID="setNewUserImg" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="setNewUserImg_Click" />--%>
-										</td>
-									</tr>
-								</table>
-							</div>
-						</asp:View>
-						<asp:View ID="View_Order" runat="server">
-							<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
-								<HeaderTemplate>
-									<table class="table table-hover">
+
+							</asp:View>
+							<asp:View ID="View_UserInfo" runat="server">
+								<div>
+									<div class="card-body-new">
+										<h4>修改信息</h4>
+										<div class="form-group">
+											<label>输入新昵称:</label>
+											<br />
+											<asp:TextBox ID="TextBox_NewNickName" runat="server" Width="250px"></asp:TextBox>
+										</div>
+										<asp:Button ID="Button_SetNewNickName" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewNickName_Click" />
+									</div>
+								</div>
+							</asp:View>
+							<asp:View ID="View_Address" runat="server">
+								<div>
+									<div>
+										<div class="card-body-new">
+											<h4>收货地址更新</h4>
+											<div class="form-group">
+												<label>真实姓名</label>
+												<br />
+												<asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+											</div>
+											<div class="form-group">
+												<label>邮政编码</label>
+												<br />
+												<asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+											</div>
+											<div class="form-group">
+												<label>电话号码</label>
+												<br />
+												<asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
+											</div>
+											<div class="form-group">
+												<label>收货地址</label>
+												<br />
+												<asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
+											</div>
+											<asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
+										</div>
+									</div>
+								</div>
+							</asp:View>
+							<asp:View ID="View_Security" runat="server">
+								<div>
+									<div>
+										<div class="card-body-new">
+											<h4>密码修改</h4>
+											<div class="form-group">
+												<label>原密码</label>
+												<br />
+												<asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
+											</div>
+											<div class="form-group">
+												<label>密码</label>
+												<br />
+												<asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
+											</div>
+											<div class="form-group">
+												<label>确认密码</label>
+												<br />
+												<asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
+											</div>
+											<asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
+										</div>
+									</div>
+								</div>
+								<br />
+								<br />
+								<br />
+							</asp:View>
+							<asp:View ID="View_UserImage" runat="server">
+								<div class="card-body-new">
+									<table border="0" style="width: 800px;">
 										<tr>
-											<th>订单ID</th>
-											<th>订单时间</th>
-											<th>订单价格</th>
-											<th>付款状态</th>
+											<td style="font-size: 18px;">头像修改</td>
 										</tr>
-									</table>
-								</HeaderTemplate>
-								<ItemTemplate>
-									<table class="table table-hover">
 										<tr>
-											<td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
-											<td><span><%# Eval("order_date") %></span></td>
-											<td><span><%# Eval("order_price") %></span></td>
+											<td style="height: 20px;"></td>
+										</tr>
+										<tr>
 											<td>
-												<span>
-													<%# Eval("isPay") %>
-												</span>
+												<div>
+													<asp:FileUpload ID="FileUpload1" runat="server" onchange="onFileChange(this);" accept=".png,.jpg,.jpeg" />
+
+													<div class="clear"></div>
+													<p style="padding-top: 10px; font-size: 12px;">仅支持JPG、PNG、JPEG、BMP格式，文件小于4M</p>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<asp:Image ID="Image2" runat="server" Height="320px" Width="320px" ImageUrl="~/User/ImagesUpload/DefaultImage.png" />
+											</td>
+
+										</tr>
+										<tr>
+											<td style="height: 20px;"></td>
+										</tr>
+										<tr>
+											<td>
+												<asp:Button ID="btn_setNewUserImg" runat="server" Text="保存" OnClick="setNewUserImg" CssClass="asp_button" />
+												<%--									<asp:Button ID="setNewUserImg" runat="server" Text="保存" Width="100px" CssClass="asp_button" OnClick="setNewUserImg_Click" />--%>
 											</td>
 										</tr>
 									</table>
-								</ItemTemplate>
-							</asp:DataList>
-						</asp:View>
-						<asp:View ID="View_Analyze" runat="server">
-							<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
-						</asp:View>
-					</asp:MultiView>
-				</ContentTemplate>
-				<Triggers>
-					<asp:AsyncPostBackTrigger ControlID="Button_Address" EventName="Click" />
-					<asp:AsyncPostBackTrigger ControlID="Button_Security" EventName="Click" />
-					<asp:AsyncPostBackTrigger ControlID="Button_UserInfo" EventName="Click" />
-					<asp:AsyncPostBackTrigger ControlID="Button_TotalView" EventName="Click" />
-					<asp:AsyncPostBackTrigger ControlID="Btn_Order" EventName="Click" />
-					<asp:AsyncPostBackTrigger ControlID="Button_Analyze" EventName="Click" />
-					<asp:PostBackTrigger ControlID="Button_UserImage" />
-					<asp:PostBackTrigger ControlID="Button_SetNewNickName" />
-					<asp:PostBackTrigger ControlID="btn_setNewUserImg" />
-				</Triggers>
-			</asp:UpdatePanel>
-			<script type="text/javascript"> 
+								</div>
+							</asp:View>
+							<asp:View ID="View_Order" runat="server">
 
-				function onFileChange(sender) {
-					document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
-				}
-			</script>
+								<div class="userinfo-wrapper">
+									<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
+										<HeaderTemplate>
+											<table class="table table-hover">
+												<tr>
+													<th>订单ID</th>
+													<th>订单时间</th>
+													<th>订单价格</th>
+													<th>付款状态</th>
+												</tr>
+											</table>
+										</HeaderTemplate>
+										<ItemTemplate>
+											<table class="table table-hover">
+												<tr>
+													<td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
+													<td><span><%# Eval("order_date") %></span></td>
+													<td><span><%# Eval("order_price") %></span></td>
+													<td>
+														<span>
+															<%# Eval("isPay") %>
+														</span>
+													</td>
+												</tr>
+											</table>
+										</ItemTemplate>
+									</asp:DataList>
+								</div>
+
+
+							</asp:View>
+							<asp:View ID="View_Analyze" runat="server">
+								<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+							</asp:View>
+						</asp:MultiView>
+					</ContentTemplate>
+					<Triggers>
+						<asp:AsyncPostBackTrigger ControlID="Button_Address" EventName="Click" />
+						<asp:AsyncPostBackTrigger ControlID="Button_Security" EventName="Click" />
+						<asp:AsyncPostBackTrigger ControlID="Button_UserInfo" EventName="Click" />
+						<asp:AsyncPostBackTrigger ControlID="Button_TotalView" EventName="Click" />
+						<asp:AsyncPostBackTrigger ControlID="Btn_Order" EventName="Click" />
+						<asp:AsyncPostBackTrigger ControlID="Button_Analyze" EventName="Click" />
+						<asp:PostBackTrigger ControlID="Button_UserImage" />
+						<asp:PostBackTrigger ControlID="Button_SetNewNickName" />
+						<asp:PostBackTrigger ControlID="btn_setNewUserImg" />
+					</Triggers>
+				</asp:UpdatePanel>
+				<script type="text/javascript"> 
+
+					function onFileChange(sender) {
+						document.getElementById("MainContent_Image2").src = window.URL.createObjectURL(sender.files[0]);
+					}
+				</script>
+
+
+				<%--<div class=".footer">
+				<hr />
+				<p>helloworld</p>
+			</div>--%>
+			</div>
 		</div>
 		<div class="clear" id="div_clr">
 		</div>

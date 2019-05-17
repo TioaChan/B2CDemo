@@ -22,6 +22,42 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.Label Label_UID1;
         
         /// <summary>
+        /// hylIconPersonalInfo 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hylIconPersonalInfo;
+        
+        /// <summary>
+        /// Image1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+        
+        /// <summary>
+        /// hylAdmin 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hylAdmin;
+        
+        /// <summary>
+        /// hylPersonalInfo 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hylPersonalInfo;
+        
+        /// <summary>
         /// Button_TotalView 控件。
         /// </summary>
         /// <remarks>
@@ -112,15 +148,6 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.View View_TotalView;
         
         /// <summary>
-        /// Label_UID3 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_UID3;
-        
-        /// <summary>
         /// Label_UID2 控件。
         /// </summary>
         /// <remarks>
@@ -128,15 +155,6 @@ namespace B2C_NetShop.User {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_UID2;
-        
-        /// <summary>
-        /// Label_NickName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NickName;
         
         /// <summary>
         /// Label_UserType 控件。
@@ -155,24 +173,6 @@ namespace B2C_NetShop.User {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Money;
-        
-        /// <summary>
-        /// Label_UID4 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_UID4;
-        
-        /// <summary>
-        /// Image1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// View_UserInfo 控件。

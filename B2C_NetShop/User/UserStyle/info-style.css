@@ -1,0 +1,317 @@
+﻿/* ============================= 左右盒子外加一个做导航条 ============================= */
+/* 设置大盒子宽度防止挤压 */
+.navbar, .aspNetHidden, .aspNetHidden {
+	display: none;
+}
+
+.body-content {
+	display: block;
+	width: 100%;
+}
+
+.main-content{
+	width:100%
+	;
+}
+
+body {
+	padding: 0px;
+	background: #f6f6f6;
+	font-family: 微软雅黑;
+}
+
+footer, hr {
+	display: none;
+}
+
+
+#container {
+	width: 100%;
+}
+
+#side-bar {
+	width: 247px;
+	min-height: 1593.9px;
+	min-height: 100%;
+	float: left;
+	display: block;
+	font-size: 15px;
+}
+
+	#side-bar ul { /* 左导航条 */
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+		min-height: 1380px;
+		background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
+		background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
+		background: -moz-linear-gradient(0deg, #f85032, #FF0000); /* Firefox 3.6 - 15 */
+		background: linear-gradient(0deg, #f85032, #FF0000); /* 标准的语法（必须放在最后） */
+	}
+
+		#side-bar ul li {
+			padding: 10px;
+			width: 100%;
+			-webkit-transition-duration: .25s;
+			-moz-transition-duration: .25s;
+			-o-transition-duration: .25s;
+			transition-duration: .25s;
+			border-bottom: 1px solid rgba(255, 255, 255, .4);
+		}
+
+			#side-bar ul li:hover {
+				border-bottom: 1px solid #fff;
+				background: rgba(255,255,255,0.2);
+			}
+
+			#side-bar ul li input {
+				font-size: 13px;
+				text-align: left;
+				width: 92%;
+				color: rgba(255,255,255,0.7);
+			}
+
+	#side-bar p {
+		margin: 0px;
+		font-size: 13px;
+		text-align: center;
+		color: rgba(255,255,255,0.7);
+	}
+
+		#side-bar ul li input:hover, #side-bar p:hover {
+			text-decoration: none;
+			color: #fff;
+		}
+
+	#side-bar ul li i {
+		height: 19px;
+		line-height: 19px;
+		color: #fff;
+		float: right;
+	}
+
+
+
+#right-content {
+	width: calc(100% - 247px);
+	display: block;
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+/* ============================= 页面asp Button样式 ============================= */
+.asp_button {
+	background: red;
+	color: #fff;
+	border: 0px;
+	border-radius: 5px;
+	padding: 10px 15px;
+	width: 130px;
+	font-size: 15px;
+	-webkit-transition-duration: .25s;
+	-moz-transition-duration: .25s;
+	-o-transition-duration: .25s;
+	transition-duration: .25s;
+}
+
+	.asp_button:hover {
+		background: #000000;
+	}
+
+/* ============================= datalist order manager =============================*/
+/* 订单管理 */
+
+
+
+.userinfo-wrapper {
+	width: 883px;
+	padding: 30px;
+	background: #fff;
+	margin: 0 auto;
+}
+
+	.asp_datalist_om .table {
+		margin: 0px;
+	}
+
+		.asp_datalist_om .table tr td {
+			width: 220.75px;
+			height: 38px;
+			text-align: center;
+		}
+
+			.asp_datalist_om .table tr td a, .asp_datalist_om .table tr td span {
+				line-height: 38px;
+			}
+
+th {
+	text-align: center;
+	width: 220.75px;
+}
+
+
+div.card-body {
+	margin: 20px;
+	padding: 30px;
+}
+
+.card-body-new {
+	margin: 20px;
+	padding: 30px;
+	background: #fff;
+}
+
+div.card-body h4 {
+	margin-bottom: 18px;
+	font-weight: bold;
+}
+
+div.card-body div.form-group {
+	margin-bottom: 16px;
+}
+
+div.card-body input {
+	border: 1px solid #e6ecf5;
+	height: 30px;
+	padding: 0px 8px;
+	width: 100%;
+}
+
+	div.card-body input:focus {
+		border: 1px solid #80BDFF;
+	}
+
+div.card-body p {
+	margin-bottom: 15px;
+}
+
+div.card-body label {
+	font-weight: unset;
+}
+
+
+/* ============================= user img =============================*/
+.imgUpload {
+	display: block;
+	float: left;
+}
+
+.icon {
+	border-radius: 100%;
+	vertical-align: middle;
+	margin-right: 1rem;
+}
+
+.icon-a {
+	padding: 0px !important;
+}
+
+.mynav-bar {
+	display: block!important;
+	margin: 0px;
+	background: #fff;
+	-webkit-box-shadow: 0px 8px 74px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0px 8px 74px rgba(0, 0, 0, 0.15);
+	box-shadow: 0px 8px 74px rgba(0, 0, 0, 0.15);
+}
+
+.mynav-bar span {
+	margin-right: 15px;
+}
+
+.mynav-bar a {
+	color: #000 !important;
+}
+
+
+.mynav-bar li:hover {
+	-webkit-transition-duration: .25s;
+	-moz-transition-duration: .25s;
+	-o-transition-duration: .25s;
+	transition-duration: .25s;
+	background: #e7e7e7;
+}
+
+
+.mynav-bar .dropdown-menu {
+	-webkit-transition-duration: .25s !important;
+	-moz-transition-duration: .25s !important;
+	-o-transition-duration: .25s !important;
+	transition-duration: .25s !important;
+}
+
+
+.content-wrapper {
+	background: #F6F8FA;
+	min-height: 100vh;
+	padding: 1.5rem 1.7rem;
+	transition: width 0.25s ease, margin 0.25s ease;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.grid-margin {
+	margin-bottom: 1.875rem;
+}
+
+.col-md-4 {
+	flex: 0 0 33.33333%;
+	max-width: 33.33333%;
+}
+
+
+.text-white {
+	color: #fff !important;
+}
+
+.stretch-card {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: stretch;
+	align-items: stretch;
+	-webkit-justify-content: stretch;
+	justify-content: stretch;
+}
+
+	.stretch-card > .card {
+		width: 520.65px;
+	}
+
+.bg-gradient-warning {
+	background: linear-gradient(to right, rgba(255, 88, 88, 0.9), rgba(240, 152, 25, 0.9));
+}
+
+.bg-gradient-info {
+	background: linear-gradient(to right, rgba(68, 129, 235, 0.9), rgba(4, 190, 254, 0.9));
+}
+
+.bg-gradient-success {
+	background: linear-gradient(to right, rgba(80, 204, 127, 0.9), rgba(245, 209, 0, 0.9));
+}
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.3125rem;
+}
+
+	.card .card-body {
+		padding: 1.88rem 1.81rem;
+	}
+
+
+

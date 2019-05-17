@@ -135,7 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Account\css\logout-error.css" />
+    <Content Include="Account\Style\logout-error.css" />
     <Content Include="Account\Error.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\logout.aspx" />
@@ -155,7 +155,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-
     <Content Include="Goods\Style\common.css" />
     <Content Include="Goods\img\01.jpg" />
     <Content Include="Goods\img\02.jpg" />
@@ -186,6 +185,8 @@
     <Content Include="img\product-ad-img\b.jpg" />
     <Content Include="img\product-ad-img\c.jpg" />
     <Content Include="img\product-ad-img\sponsor.jpg" />
+    <Content Include="IndexStyle\default-banner-login-style.css" />
+    <Content Include="IndexStyle\default-product-list.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -450,7 +451,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Default\" />
+    <Folder Include="Content\MainContent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

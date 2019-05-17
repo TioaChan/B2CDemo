@@ -34,6 +34,9 @@ namespace B2C_NetShop.User
 				HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
 				int status = Convert.ToInt32(Session["Status"]);
 				load.HyperLinkBind(hl1, hl2, hl3, uid, status);
+				load.HyperLinkBind(hylPersonalInfo, hylAdmin, hl3,uid,status);
+				hylIconPersonalInfo.NavigateUrl = hylPersonalInfo.NavigateUrl;
+
 				if (!IsPostBack)
 				{
 					BindUserInfo();
@@ -214,8 +217,6 @@ namespace B2C_NetShop.User
 			//账户总览页
 			Label_UID1.Text = nickname;
 			Label_UID2.Text = Session["uid"].ToString();
-			Label_UID3.Text = nickname;
-			Label_UID4.Text = nickname;
 			if (usertype == "1")
 			{
 				Label_UserType.Text = "注册用户";
@@ -225,7 +226,7 @@ namespace B2C_NetShop.User
 				Label_UserType.Text = "管理员";
 			}
 			Label_Money.Text = money;
-			Label_NickName.Text = nickname;
+			
 			Image1.ImageUrl = userImgUrl;
 			Image2.ImageUrl = userImgUrl;
 		}
