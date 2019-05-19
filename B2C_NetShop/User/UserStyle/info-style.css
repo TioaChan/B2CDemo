@@ -39,9 +39,10 @@ footer, hr {
 }
 
 	#side-bar ul { /* 左导航条 */
-		padding: 0px;
+		padding: 0px 13px;
 		margin: 0px;
 		list-style: none;
+		outline:none;
 		min-height: 1380px;
 		background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
 		background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
@@ -208,7 +209,7 @@ div.card-body label {
 .icon-a {
 	padding: 0px !important;
 }
-
+/* ============================= mybar =============================*/
 .mynav-bar {
 	display: block!important;
 	margin: 0px;

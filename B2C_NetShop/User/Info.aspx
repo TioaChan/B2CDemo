@@ -9,7 +9,7 @@
 		<nav class="navbar navbar-default mynav-bar" role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">B2CDemo</a>
+					<a class="navbar-brand" href="../Default.aspx">B2CDemo</a>
 				</div>
 				<div>
 					<ul class="nav navbar-nav navbar-right">
