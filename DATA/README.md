@@ -1,7 +1,8 @@
 # 数据库数据表说明
 
 
-B2C_Demo.bak 支持`SQL Server 2017`以上版本；
+B2CDemo_SS14.bak支持`SQL Server 2017`以上版本；
 
+B2CDemo_SS13.bak支持`SQL Server 2016`以上版本，最后一次更新时间 ：`2019/05/21 20:09`；
 
-script.sql 支持`SQL Server 2005`以上版本,在手动新建数据库`B2C_Demo`后执行。
+script.sql 支持`SQL Server 2008`以上版本,在手动新建数据库`B2C_Demo`后执行,最后一次更新时间 ：`2019/05/21 20:09`。
