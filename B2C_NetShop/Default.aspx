@@ -25,22 +25,22 @@
 			}, function () {
 				$(this).find(".book_price").stop(true, false).slideUp();
 			});
-			$(".tabh_0").hover(
+			$("#notice .tabh_0").hover(
 				function () {
 					$(this).removeClass("first");
 					$(this).addClass("on");
-					$(".tabh_1").removeClass("on");
-					$(".tab_1").show();
-					$(".tab_2").hide();
+					$("#notice .tabh_1").removeClass("on");
+					$("#notice .tab_1").show();
+					$("#notice .tab_2").hide();
 				}
 			);
-			$(".tabh_1").hover(
+			$("#notice .tabh_1").hover(
 				function () {
 					$(this).removeClass("first");
 					$(this).addClass("on");
-					$(".tabh_0").removeClass("on");
-					$(".tab_2").show();
-					$(".tab_1").hide();
+					$("#notice .tabh_0").removeClass("on");
+					$("#notice .tab_2").show();
+					$("#notice .tab_1").hide();
 				}
 			);
 		});
@@ -347,215 +347,229 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-			$(".tab_2").css("display","block");
-			$(".tab_2").siblings().css("display","none");
-			$(function(){
-				$(".tab_aa li").hover(function(){
-					var clz=$(this).attr("class");
-					clz=clz.substr(5,1);
-					var i=parseInt(clz)+1;
-					$(this).addClass("on").siblings().removeClass("on");
-					$(".tab_"+String(i)).css("display","block");
-					$(".tab_"+String(i)).siblings().css("display","none");
-					console.log(".tab_"+clz);
-				});
-				$(".list_ab .bar").hover(function(){
-					var clz=$(this).attr("class");
-					clz=clz.substr(4,1);
-					console.log(clz);
-					$(this).addClass("hidden");
-					$(this).siblings().removeClass("hidden");
-					$(this).next().attr("style","display:list-item;");
-					$(this).next().siblings(".item").css("display","none");
-					
-				});
+		$(".tab_2").css("display", "block");
+		$(".tab_2").siblings().css("display", "none");
+		$(function () {
+			$(".bd_body .tab_box_aa li").hover(function () {
+				
+
+				var clz = $(this).attr("class");
+				clz = clz.substr(5, 1);
+				var i = parseInt(clz) + 1;
+				$(this).addClass("on").siblings().removeClass("on");
+				$(".left-tab_" + String(i)).css("display", "block");
+				$(".left-tab_" + String(i)).siblings().css("display", "none");
+				console.log(".left-tab_" + String(i));
 			});
-		</script>
+
+			$(".bd_body .floor_tab_bang .tab_aa li").hover(function () {
+				console.log("2");
+				var clz = $(this).attr("class");
+				clz = clz.substr(5, 1);
+				var i = parseInt(clz) + 1;
+				$(this).addClass("on").siblings().removeClass("on");
+				$(".floor_tab_bang .tab_" + String(i)).css("display", "block");
+				$(".floor_tab_bang .tab_" + String(i)).siblings().css("display", "none");
+			});
+
+			$(".bd_body .list_ab .bar").hover(function () {
+				console.log("3");
+				var clz = $(this).attr("class");
+				clz = clz.substr(4, 2);
+				$(this).addClass("hidden");
+				$(this).siblings().removeClass("hidden");
+				$(this).next().attr("style", "display:list-item;");
+				$(this).next().siblings(".item").css("display", "none");
+
+			});
+		});
+	</script>
 	<style type="text/css">
-				.bd_body {
-					width: 1200px;
-					margin: 20px auto;
+		.bd_body {
+			width: 1200px;
+			margin: 20px auto 0px auto;
+			background-color: #fff;
+		}
 
-					background-color: #fff;
-				}
+		html {
+			font-size: 12px;
+		}
 
-				html {
-					font-size: 12px;
-				}
-
-				a {
-					text-decoration: none;
-					color: #666;
-				}
+		a {
+			text-decoration: none;
+			color: #666;
+		}
 
 
-				body,
-				ul,
-				li,
-				ol,
-				p,
-				dl,
-				dd,
-				h1,
-				h2,
-				h3,
-				h4,
-				h5,
-				h6,
-				img,
-				iframe,
-				form {
-					margin: 0;
-					padding: 0;
-					list-style-type: none;
-					border: 0;
-				}
+		body,
+		ul,
+		li,
+		ol,
+		p,
+		dl,
+		dd,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		img,
+		iframe,
+		form {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			border: 0;
+		}
 
-				.book_new {
-					height: 499px;
-					overflow: hidden;
-					position: relative;
-					margin: 0 auto 30px;
-				}
+		.book_new {
+			height: 499px;
+			overflow: hidden;
+			position: relative;
+			margin: 0 auto 30px;
+		}
 
-				.book_new .home_screen_head {
-					position: absolute;
-					top: 0;
-					left: 0;
-					overflow: hidden;
-					width: 910px;
-					height: 44px;
-					border-bottom: 2px solid #000;
-					color: #323232;
-					font: bold 20px/44px "Microsoft YaHei";
-				}
+			.book_new .home_screen_head {
+				position: absolute;
+				top: 0;
+				left: 0;
+				overflow: hidden;
+				width: 910px;
+				height: 44px;
+				border-bottom: 2px solid #000;
+				color: #323232;
+				font: bold 20px/44px "Microsoft YaHei";
+			}
 
-				.book_new .tab_box_aa {
-					position: absolute;
-					top: 56px;
-					left: 0;
-					width: 910px;
-					height: 443px;
-				}
+			.book_new .tab_box_aa {
+				position: absolute;
+				top: 56px;
+				left: 0;
+				width: 910px;
+				height: 443px;
+			}
 
-				.book_new .floor_tab_bang {
-					width: 278px;
-					height: 497px;
-					position: absolute;
-					right: 0;
-					top: 0;
-					border: 1px solid #e6e6e6;
-					overflow: hidden;
-				}
+			.book_new .floor_tab_bang {
+				width: 278px;
+				height: 497px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				border: 1px solid #e6e6e6;
+				overflow: hidden;
+			}
 
-				/*--------------------------------------*/
-				/*--------------.home_screen_head------------------------*/
+			/*--------------------------------------*/
+			/*--------------.home_screen_head------------------------*/
 
-				.book_new .home_screen_head a,
-				.book_new .home_screen_head a:hover {
-					color: #323232;
-					text-decoration: none;
-					cursor: pointer;
-				}
+			.book_new .home_screen_head a,
+			.book_new .home_screen_head a:hover {
+				color: #323232;
+				text-decoration: none;
+				cursor: pointer;
+			}
 
-				.book_new .home_screen_head span {
-					font-size: 16px;
-					position: relative;
-					top: -3px;
-				}
+			.book_new .home_screen_head span {
+				font-size: 16px;
+				position: relative;
+				top: -3px;
+			}
 
-			
 
-				/*--------------------------------------*/
-				/*--------------.tab_box_aa ------------------------*/
-				/*--------------.head ------------------------*/
-				.book_new .tab_box_aa .head {
-					height: 44px;
-					width: 655px;
-					border-right: 1px solid #e6e6e6;
-					position: absolute;
-					top: -56px;
-					right: 0;
-				}
+
+			/*--------------------------------------*/
+			/*--------------.tab_box_aa ------------------------*/
+			/*--------------.head ------------------------*/
+			.book_new .tab_box_aa .head {
+				height: 44px;
+				width: 655px;
+				border-right: 1px solid #e6e6e6;
+				position: absolute;
+				top: -56px;
+				right: 0;
+			}
 
 				.book_new .tab_box_aa .head .tab_aa {
 					float: right;
 				}
 
-				.book_new .tab_box_aa .tab_aa li {
-					float: left;
-					width: 114px;
-					height: 42px;
-					padding-top: 1px;
-					border: 1px solid #e6e6e6;
-					border-width: 1px 0 0 1px;
-					text-align: center;
-					background-color: #f5f5f5;
-					font: 14px/42px "Microsoft YaHei";
-					color: #646464;
-					cursor: default;
-					overflow: hidden;
-				}
+			.book_new .tab_box_aa .tab_aa li {
+				float: left;
+				width: 114px;
+				height: 42px;
+				padding-top: 1px;
+				border: 1px solid #e6e6e6;
+				border-width: 1px 0 0 1px;
+				text-align: center;
+				background-color: #f5f5f5;
+				font: 14px/42px "Microsoft YaHei";
+				color: #646464;
+				cursor: default;
+				overflow: hidden;
+			}
 
 				.book_new .tab_box_aa .tab_aa li.first {
 					margin-right: 0;
 				}
 
-				/*--------------.tab_box_aa ------------------------*/
-				/*--------------.tab_content_aa tab_content_aa  ------------------------*/
-				.book_new .tab_box_aa .tab_content_aa {
-					border-top: 1px solid #e6e6e6;
-					border-bottom: 1px solid #e6e6e6;
-					width: 910px;
-					height: 441px;
-					overflow: hidden;
-					position: relative;
-				}
-	.book_new .tab_box_aa .tab_aa li.on {
-					font-weight: bold;
-					background-color: #fff;
-					width: 112px;
-					border: 2px solid #000;
-					border-bottom: 0;
-					padding: 0 0 2px 0;
-					margin-bottom: -2px;
-					color: #525252;
-				}
-				.con {
-					clear: both;
-				}
+			/*--------------.tab_box_aa ------------------------*/
+			/*--------------.tab_content_aa tab_content_aa  ------------------------*/
+			.book_new .tab_box_aa .tab_content_aa {
+				border-top: 1px solid #e6e6e6;
+				border-bottom: 1px solid #e6e6e6;
+				width: 910px;
+				height: 441px;
+				overflow: hidden;
+				position: relative;
+			}
 
-				.book_new .tab_box_aa .tab_content_aa .book_left_pic {
-					width: 238px;
-					height: 441px;
-					border: 1px solid #e6e6e6;
-					border-width: 0 1px;
-					position: absolute;
-					top: 0;
-					left: 0;
-					display: block;
-					overflow: hidden;
-					text-align: center;
-				}
+			.book_new .tab_box_aa .tab_aa li.on {
+				font-weight: bold;
+				background-color: #fff;
+				width: 112px;
+				border: 2px solid #000;
+				border-bottom: 0;
+				padding: 0 0 2px 0;
+				margin-bottom: -2px;
+				color: #525252;
+			}
 
-				.book_new .book_tab_img {
-					position: absolute;
-					bottom: 0;
-					left: 1px;
-					width: 237px;
-					padding-left: 1px;
-					background-color: #fff;
-					background: url(http://img63.ddimg.cn/upload_img/00111/home/home_bg_1509.png) 0 0;
-				}
+		.con {
+			clear: both;
+		}
 
-				.book_new .book_tab_img li {
-					float: left;
-					width: 63px;
-					height: 28px;
-					line-height: 28px;
-					padding-left: 16px;
-					overflow: hidden;
-				}
+		.book_new .tab_box_aa .tab_content_aa .book_left_pic {
+			width: 238px;
+			height: 441px;
+			border: 1px solid #e6e6e6;
+			border-width: 0 1px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		.book_new .book_tab_img {
+			position: absolute;
+			bottom: 0;
+			left: 1px;
+			width: 237px;
+			padding-left: 1px;
+			background-color: #fff;
+			background: url(http://img63.ddimg.cn/upload_img/00111/home/home_bg_1509.png) 0 0;
+		}
+
+			.book_new .book_tab_img li {
+				float: left;
+				width: 63px;
+				height: 28px;
+				line-height: 28px;
+				padding-left: 16px;
+				overflow: hidden;
+			}
 
 				.book_new .book_tab_img li a,
 				.book_new .book_tab_img li a:hover {
@@ -563,231 +577,231 @@
 					font: 12px/28px "Microsoft YaHei";
 				}
 
-				.book_new .book_tab_img li a:hover {
-					color: #ff2832;
-				}
+					.book_new .book_tab_img li a:hover {
+						color: #ff2832;
+					}
 
-				/*--------------.tab_box_aa ------------------------*/
-				/*--------------.tab_content_aa tab_content_aa  ------------------------*/
-				/*--------------.roll_aa  ------------------------*/
-				.book_new .roll_aa {
-					width: 335px;
-					height: 220px;
-					border-right: 1px solid #e6e6e6;
-					border-bottom: 1px solid #e6e6e6;
-					top: 0;
-					left: 240px;
-					overflow: hidden;
-					position: absolute;
-				}
+		/*--------------.tab_box_aa ------------------------*/
+		/*--------------.tab_content_aa tab_content_aa  ------------------------*/
+		/*--------------.roll_aa  ------------------------*/
+		.book_new .roll_aa {
+			width: 335px;
+			height: 220px;
+			border-right: 1px solid #e6e6e6;
+			border-bottom: 1px solid #e6e6e6;
+			top: 0;
+			left: 240px;
+			overflow: hidden;
+			position: absolute;
+		}
 
-				.book_new .roll_aa .over {
-					width: 335px;
-					height: 220px;
-				}
+			.book_new .roll_aa .over {
+				width: 335px;
+				height: 220px;
+			}
 
-				.book_new .book_upper2 {
-					position: absolute;
-					top: 0;
-					right: 0;
-					height: 220px;
-					overflow: hidden;
-					border-bottom: 1px solid #e6e6e6;
-				}
+		.book_new .book_upper2 {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 220px;
+			overflow: hidden;
+			border-bottom: 1px solid #e6e6e6;
+		}
 
-				.book_new .book_upper2 .list_aa {
-					float: left;
-					width: 166px;
-					height: 220px;
-					border-right: 1px solid #e6e6e6;
-					position: relative;
-				}
+			.book_new .book_upper2 .list_aa {
+				float: left;
+				width: 166px;
+				height: 220px;
+				border-right: 1px solid #e6e6e6;
+				position: relative;
+			}
 
-				.book_new .book_upper2 li .img,
-				.book_new .book_lower4 li .img {
-					display: block;
-					width: 150px;
-					height: 150px;
-					overflow: hidden;
-					text-align: center;
-					margin: 7px auto 0;
-				}
+			.book_new .book_upper2 li .img,
+			.book_new .book_lower4 li .img {
+				display: block;
+				width: 150px;
+				height: 150px;
+				overflow: hidden;
+				text-align: center;
+				margin: 7px auto 0;
+			}
 
-				.book_new .book_upper2 li .name,
-				.book_new .book_lower4 li .name {
-					height: 16px;
-					line-height: 16px;
-					width: 150px;
-					margin: 5px auto 0;
-					overflow: hidden;
-				}
+			.book_new .book_upper2 li .name,
+			.book_new .book_lower4 li .name {
+				height: 16px;
+				line-height: 16px;
+				width: 150px;
+				margin: 5px auto 0;
+				overflow: hidden;
+			}
 
-				.book_new .book_upper2 li .price,
-				.book_new .book_lower4 li .price {
-					width: 150px;
-					margin: 3px auto 0;
-				}
+			.book_new .book_upper2 li .price,
+			.book_new .book_lower4 li .price {
+				width: 150px;
+				margin: 3px auto 0;
+			}
 
-				.book_new .book_upper2 li .rob,
-				.book_new .book_lower4 li .rob {
-					color: #ff2832;
-					font: 14px Arial;
-					display: inline-block;
-					margin-right: 10px;
-				}
+			.book_new .book_upper2 li .rob,
+			.book_new .book_lower4 li .rob {
+				color: #ff2832;
+				font: 14px Arial;
+				display: inline-block;
+				margin-right: 10px;
+			}
 
-				.book_new .book_upper2 li .price_r,
-				.book_new .book_lower4 li .price_r {
-					font: 12px Arial;
-					color: #969696;
-					text-decoration: line-through;
-				}
+			.book_new .book_upper2 li .price_r,
+			.book_new .book_lower4 li .price_r {
+				font: 12px Arial;
+				color: #969696;
+				text-decoration: line-through;
+			}
 
 
 
-				.book_new .book_lower4 {
-					position: absolute;
-					top: 221px;
-					right: 0;
-					height: 220px;
-					overflow: hidden;
-				}
+		.book_new .book_lower4 {
+			position: absolute;
+			top: 221px;
+			right: 0;
+			height: 220px;
+			overflow: hidden;
+		}
 
-				.book_new .book_lower4 .list_aa {
-					float: left;
-					width: 166px;
-					height: 220px;
-					border-right: 1px solid #e6e6e6;
-					position: relative;
-				}
+			.book_new .book_lower4 .list_aa {
+				float: left;
+				width: 166px;
+				height: 220px;
+				border-right: 1px solid #e6e6e6;
+				position: relative;
+			}
 
-				.book_new .book_upper2 li .img,
-				.book_new .book_lower4 li .img {
-					display: block;
-					width: 150px;
-					height: 150px;
-					overflow: hidden;
-					text-align: center;
-					margin: 7px auto 0;
-				}
+			.book_new .book_upper2 li .img,
+			.book_new .book_lower4 li .img {
+				display: block;
+				width: 150px;
+				height: 150px;
+				overflow: hidden;
+				text-align: center;
+				margin: 7px auto 0;
+			}
 
-				/*--------------.tab_box_aa ------------------------*/
-				/*--------------.tab_content_aa floor_tab_bang   ------------------------*/
-				/*head*/
-				.book_new .floor_tab_bang .headfloor_tab_bang {
-					height: 46px;
-					width: 280px;
-				}
+		/*--------------.tab_box_aa ------------------------*/
+		/*--------------.tab_content_aa floor_tab_bang   ------------------------*/
+		/*head*/
+		.book_new .floor_tab_bang .headfloor_tab_bang {
+			height: 46px;
+			width: 280px;
+		}
 
-				.book_new .floor_tab_bang .headfloor_tab_bang li {
-					float: left;
-					height: 46px;
-					width: 139px;
-					border-right: 1px solid #e6e6e6;
-					text-align: center;
-					color: #464646;
-					font: 16px/46px "Microsoft YaHei", Simsun;
-					background-color: #f5f5f5;
-					cursor: default;
-					border-bottom: 1px solid #e6e6e6;
-				}
+			.book_new .floor_tab_bang .headfloor_tab_bang li {
+				float: left;
+				height: 46px;
+				width: 139px;
+				border-right: 1px solid #e6e6e6;
+				text-align: center;
+				color: #464646;
+				font: 16px/46px "Microsoft YaHei", Simsun;
+				background-color: #f5f5f5;
+				cursor: default;
+				border-bottom: 1px solid #e6e6e6;
+			}
 
 				.book_new .floor_tab_bang .headfloor_tab_bang li.on {
 					background-color: #fff;
 					border-bottom: 1px solid #fff;
 				}
 
-				.book_new .book_top li.line2 .num,
-				.book_new .book_top li.line3 .num {
-					color: #ff3228;
-				}
+		.book_new .book_top li.line2 .num,
+		.book_new .book_top li.line3 .num {
+			color: #ff3228;
+		}
 
-				/*content*/
-				.book_new .book_top ul {
-					height: 429px;
-					width: 278px;
-					overflow: hidden;
-				}
+		/*content*/
+		.book_new .book_top ul {
+			height: 429px;
+			width: 278px;
+			overflow: hidden;
+		}
 
-				.book_new .book_top li {
-					border-bottom: 1px solid #e5e5e5;
-					width: 278px;
-					clear: both;
-					vertical-align: top;
-				}
+		.book_new .book_top li {
+			border-bottom: 1px solid #e5e5e5;
+			width: 278px;
+			clear: both;
+			vertical-align: top;
+		}
 
-				.book_new .book_top li.item {
-					height: 132px;
-				}
+			.book_new .book_top li.item {
+				height: 132px;
+			}
 
-				.book_new .book_top li.bar {
-					height: 32px;
-					line-height: 32px;
-				}
+			.book_new .book_top li.bar {
+				height: 32px;
+				line-height: 32px;
+			}
 
-				.book_new .book_top li.line1 .num {
-					color: #ff3228;
-					font-weight: bold;
-				}
+			.book_new .book_top li.line1 .num {
+				color: #ff3228;
+				font-weight: bold;
+			}
 
-				.book_new .book_top li .num {
-					float: left;
-					width: 25px;
-					height: 33px;
-					font: 12px/33px Arial;
-					padding-left: 15px;
-					background: #fff;
-					margin-bottom: -1px;
-					overflow: hidden;
-				}
+			.book_new .book_top li .num {
+				float: left;
+				width: 25px;
+				height: 33px;
+				font: 12px/33px Arial;
+				padding-left: 15px;
+				background: #fff;
+				margin-bottom: -1px;
+				overflow: hidden;
+			}
 
 
-				.book_new .book_top li .img {
-					width: 90px;
-					height: 90px;
-					overflow: hidden;
-					float: left;
-					margin: 15px 0 0;
-				}
+			.book_new .book_top li .img {
+				width: 90px;
+				height: 90px;
+				overflow: hidden;
+				float: left;
+				margin: 15px 0 0;
+			}
 
 				.book_new .book_top li .img img {
 					width: 90px;
 					height: 90px;
 				}
 
-				.book_new .book_top li .name {
-					float: left;
-					width: 140px;
-					height: 32px;
-					line-height: 32px;
-					overflow: hidden;
-				}
+			.book_new .book_top li .name {
+				float: left;
+				width: 140px;
+				height: 32px;
+				line-height: 32px;
+				overflow: hidden;
+			}
 
-				.book_new .book_top li.item .name {
-					height: 100px;
-					margin: 15px 0 0 5px;
-					_display: inline;
-				}
-
-				.book_new .book_top li.item .name a {
-					line-height: 20px;
-				}
-
-				.book_new .book_top li.item .name a span {
-					display: block;
-					color: #969696;
-				}
-
-				.book_new .book_top li.item .name a span {
-					display: block;
-					color: #969696;
-				}
+			.book_new .book_top li.item .name {
+				height: 100px;
+				margin: 15px 0 0 5px;
+				_display: inline;
+			}
 
 				.book_new .book_top li.item .name a {
 					line-height: 20px;
+				}
+
+					.book_new .book_top li.item .name a span {
+						display: block;
+						color: #969696;
+					}
+
+					.book_new .book_top li.item .name a span {
+						display: block;
+						color: #969696;
+					}
+
+				.book_new .book_top li.item .name a {
+					line-height: 20px;
 					display: block;
 				}
-			</style>
+	</style>
 	<div class="bd_body">
 		<div class="book_new " type="ajax" page_id="317715" domain="mixpage.dangdang.com" areaid="0" page_type="3" areatype="0"
 			name="m3208542_pid0_t15677" dd_name="图书A版" hvid="31192" component_map_id="3208542" ddt-area="3208542" is_loaded="true">
@@ -818,7 +832,7 @@
 
 				</div>
 				<div class="tab_content_aa tab_content_aa ">
-					<div class="content tab_1" type="item" ddt-area="9354" dd_name="最新上架" style="display: none;">
+					<div class="content left-tab_1" type="item" ddt-area="9354" dd_name="最新上架" style="display: none;">
 						<div class=" " name="m3208542_pid9370_9354_t15678">
 							<div class="con " name="m3208542_pid9370_9354_t15679">
 								<a class="book_left_pic book_left_pic_1  pic" ddt-area="9341" href="http://baby.dangdang.com/20190430_ln31"
@@ -1003,7 +1017,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="content tab_2" type="item" style="display: display;" ddt-area="9356" dd_name="独家畅品">
+					<div class="content left-tab_2" type="item" style="display: display;" ddt-area="9356" dd_name="独家畅品">
 						<div class=" " name="m3208542_pid9370_9356_t15678">
 							<div class="con " name="m3208542_pid9370_9356_t15679">
 								<a class="book_left_pic book_left_pic_1  pic" ddt-area="9341" href="http://baby.dangdang.com/20190430_ln31"
@@ -1188,7 +1202,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="content tab_3" type="item" style="display: none;" ddt-area="9358" dd_name="重点推荐">
+					<div class="content left-tab_3" type="item" style="display: none;" ddt-area="9358" dd_name="重点推荐">
 						<div class=" " name="m3208542_pid9370_9358_t15678">
 							<div class="con " name="m3208542_pid9370_9358_t15679">
 								<a class="book_left_pic book_left_pic_1  pic" ddt-area="9341" href="http://book.dangdang.com/20190522_fayt"
@@ -1371,7 +1385,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="content tab_4" type="item" style="display: none;" ddt-area="10020" dd_name="电子书">
+					<div class="content left-tab_4" type="item" style="display: none;" ddt-area="10020" dd_name="电子书">
 						<div class=" " name="m3208542_pid9370_10020_t15678">
 							<div class="con " name="m3208542_pid9370_10020_t15679">
 								<a class="book_left_pic book_left_pic_1  pic" ddt-area="9341" href="http://book.dangdang.com/20190521_kbiz"
@@ -1548,7 +1562,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="content tab_5" type="item" style="display: none;" ddt-area="10073" dd_name="网络文学">
+					<div class="content left-tab_5" type="item" style="display: none;" ddt-area="10073" dd_name="网络文学">
 						<div class=" " name="m3208542_pid9370_10073_t15678">
 							<div class="con " name="m3208542_pid9370_10073_t15679">
 								<a class="book_left_pic book_left_pic_1  pic" ddt-area="10052" href="http://e.dangdang.com/special_page.html?stId=4160"
@@ -1963,10 +1977,7 @@
 				</div>
 
 			</div>
-
-
 		</div>
 	</div>
-
 	<br />
 </asp:Content>
