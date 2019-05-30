@@ -121,35 +121,21 @@ namespace B2C_NetShop.User
 
 		protected void Button_SetNewPWD_Click(object sender, EventArgs e)
 		{
-			String pwd = "select Password from User_Account where UID=@uid";
-			SqlParameter[] parameters1 = {
-				new SqlParameter("@uid",Session["uid"].ToString())
-				 };
-			DataSet ds = operate.GetTable(pwd, parameters1);
-			ds.Dispose();
-			String pwd1 = ds.Tables[0].Rows[0][0].ToString();
-			String pwd2 = TextBox3.Text.Trim();
-			if (pwd1 == pwd2)
+			String procName = "UserSetNewPwd";
+			SqlParameter[] parameters =
 			{
-				String sql = "update User_Account set Password=@pwd where UID=@uid";
-				SqlParameter[] parameters3 = {
-					new SqlParameter("@pwd",TextBox1.Text.Trim()),
-					new SqlParameter("@uid",Session["UID"].ToString())
-				};
-				int n = operate.OperateData(sql, parameters3);
-				if (n == 1)
-				{
-					Session["uid"] = "";
-					Response.Write("<script type='text/javascript'>alert('修改成功，请使用新密码重新登录！');location='../Account/Login.aspx';</script>");
-				}
-				else
-				{
-					Response.Write("<script type='text/javascript'>alert('修改失败！');location='Info.aspx';</script>");
-				}
+				new SqlParameter("@uid",Session["uid"].ToString()),
+				new SqlParameter("@oldpwd",TextBox_OldPwd.Text.Trim()),
+				new SqlParameter("@newpwd",TextBox_NewPwd1.Text.Trim()),
+			};
+			decimal i = operate.Proc(procName, parameters);
+			if (i == 0)
+			{
+				Response.Write("<script type='text/javascript'>alert('修改成功，请重新登陆');location='../Account/Login.aspx';</script>");
 			}
-			else
+			else if (i == -1)
 			{
-				Response.Write("<script type='text/javascript'>alert('密码校验错误！');location='Info.aspx';</script>");
+				Response.Write("<script type='text/javascript'>alert('原密码校验错误');location='Info.aspx'</script>");
 			}
 		}
 

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="个人信息" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="Info.aspx.cs" Inherits="B2C_NetShop.User.Info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-	<%--<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">--%>
+	<%# Eval("order_id") %>
 	<link href="UserStyle/info-style.css" rel="stylesheet" />
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<h2 style="background: red; display: none; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
@@ -174,17 +174,18 @@
 											<div class="form-group">
 												<label>原密码</label>
 												<br />
-												<asp:TextBox ID="TextBox3" runat="server" Width="250px"></asp:TextBox>
+												<asp:TextBox ID="TextBox_OldPwd" runat="server" Width="250px" TextMode="Password"></asp:TextBox>
 											</div>
 											<div class="form-group">
 												<label>密码</label>
 												<br />
-												<asp:TextBox ID="TextBox1" runat="server" Width="250px"></asp:TextBox>
+												<asp:TextBox ID="TextBox_NewPwd1" runat="server" Width="250px" TextMode="Password"></asp:TextBox>
 											</div>
 											<div class="form-group">
 												<label>确认密码</label>
 												<br />
-												<asp:TextBox ID="TextBox2" runat="server" Width="250px"></asp:TextBox>
+												<asp:TextBox ID="TextBox_NewPwd2" runat="server" Width="250px" TextMode="Password"></asp:TextBox>
+												<asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="两次密码不一致" ForeColor="Red" ControlToCompare="TextBox_NewPwd1" ControlToValidate="TextBox_NewPwd2" Display="Dynamic"></asp:CompareValidator>
 											</div>
 											<asp:Button ID="Button_SetNewPWD" runat="server" Text=" 修 改 " CssClass="asp_button" OnClick="Button_SetNewPWD_Click" />
 										</div>
@@ -279,6 +280,7 @@
 						<asp:PostBackTrigger ControlID="Button_UserImage" />
 						<asp:PostBackTrigger ControlID="Button_SetNewNickName" />
 						<asp:PostBackTrigger ControlID="btn_setNewUserImg" />
+						<asp:PostBackTrigger ControlID="Button_SetNewPWD" />
 					</Triggers>
 				</asp:UpdatePanel>
 				<script type="text/javascript"> 
@@ -289,10 +291,7 @@
 				</script>
 
 
-				<%--<div class=".footer">
-				<hr />
-				<p>helloworld</p>
-			</div>--%>
+				<%# Eval("order_price") %>
 			</div>
 		</div>
 		<div class="clear" id="div_clr">
