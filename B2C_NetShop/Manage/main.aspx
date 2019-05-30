@@ -1,165 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="B2C_NetShop.Manage.main" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-	<style>
-		body {
-			padding: 0px;
-		}
-
-		footer, hr {
-			display: none;
-		}
-
-		.container {
-			width: 100%;
-		}
-
-		.navbar, .aspNetHidden, .aspNetHidden {
-			display: none;
-		}
-
-		#div_content {
-			margin: 0px;
-		}
-
-		#div_left {
-			float: left;
-			display: block;
-			width: 15%;
-			height: 800px;
-			text-align: center;
-		}
-
-		#div_left {
-			float: left;
-			display: block;
-			width: 247px;
-			min-height: 100%;
-			font-size: 15px;
-		}
-
-			#div_left ul { /* 左导航条 */
-				padding: 0px 13px;
-				margin: 0px;
-				list-style: none;
-				min-height: 1380px;
-				background: -webkit-linear-gradient(0deg, #690089, #F70054); /* Safari 5.1 - 6.0 */
-				background: -o-linear-gradient(0deg, #690089, #F70054); /* Opera 11.1 - 12.0 */
-				background: -moz-linear-gradient(0deg, #690089, #F70054); /* Firefox 3.6 - 15 */
-				background: linear-gradient(0deg, #690089, #F70054); /* 标准的语法（必须放在最后） */
-			}
-
-				#div_left ul li {
-					padding: 10px;
-					width: 100%;
-					-webkit-transition-duration: .25s;
-					-moz-transition-duration: .25s;
-					-o-transition-duration: .25s;
-					transition-duration: .25s;
-					border-bottom: 1px solid rgba(255, 255, 255, .4);
-				}
-
-					#div_left ul li:hover {
-						border-bottom: 1px solid #fff;
-						background: rgba(255,255,255,0.2);
-					}
-
-					#div_left ul li input {
-						font-size: 13px;
-						text-align: left;
-						width: 92%;
-						color: rgba(255,255,255,0.7);
-						outline:none;
-					}
-
-			#div_left p {
-				margin: 0px;
-				font-size: 13px;
-				text-align: center;
-				color: rgba(255,255,255,0.7);
-			}
-
-				#div_left ul li input:hover, #div_left p:hover {
-					text-decoration: none;
-					color: #fff;
-				}
-
-			#div_left ul li i {
-				height: 19px;
-				line-height: 19px;
-				color: #fff;
-				float: right;
-			}
-
-
-		#div_right {
-			display: block;
-			float: left;
-			width: calc(100% - 247px);
-			height: auto;
-			text-align: center;
-		}
-
-		.clear {
-			clear: both;
-		}
-
-		.auto-style1 {
-			margin: 0 auto;
-			text-align: center;
-			width: 100%;
-			height: auto;
-		}
-
-		.div_button {
-			text-align: center;
-		}
-
-
-		.mynav-bar {
-			display: block !important;
-			margin: 0px;
-			background: #fff;
-			-webkit-box-shadow: 0px 8px 74px rgba(0, 0, 0, 0.15);
-			-moz-box-shadow: 0px 8px 74px rgba(0, 0, 0, 0.15);
-			box-shadow: 0px 8px 74px rgba(0, 0, 0, 0.15);
-		}
-
-			.mynav-bar span {
-				margin-right: 15px;
-			}
-
-			.mynav-bar a {
-				color: #000 !important;
-			}
-
-
-			.mynav-bar li:hover {
-				-webkit-transition-duration: .25s;
-				-moz-transition-duration: .25s;
-				-o-transition-duration: .25s;
-				transition-duration: .25s;
-				background: #e7e7e7;
-			}
-
-
-			.mynav-bar .dropdown-menu {
-				-webkit-transition-duration: .25s !important;
-				-moz-transition-duration: .25s !important;
-				-o-transition-duration: .25s !important;
-				transition-duration: .25s !important;
-			}
-
-		.icon {
-			border-radius: 100%;
-			vertical-align: middle;
-			margin-right: 1rem;
-		}
-
-		.icon-a {
-			padding: 0px !important;
-		}
-	</style>
+	<link href="style/main-style.css" rel="stylesheet" />
 	<h2 style="display: none;" >欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
 	<div id="div_content" class="auto-style1">
 		<nav class="navbar navbar-default mynav-bar" role="navigation">
@@ -195,9 +37,7 @@
 				</div>
 			</div>
 		</nav>
-
-
-		<div id="div_left">
+		<div id="left-sidebar">
 			<ul>
 				<li>
 					<asp:Button ID="Button_Default" runat="server" Text="欢迎" CssClass="btn-link" OnClick="Button_Default_Click" />
@@ -224,17 +64,15 @@
 
 			</ul>
 		</div>
-		<div id="div_right">
+		<div id="right-content">
 			<asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
 				<asp:View ID="View_Main" runat="server">
-					<br />
 					<div style="text-align: center; width: 100%; height: 400px; display: block">
 						欢迎页面
 					</div>
 				</asp:View>
 				<asp:View ID="View_RootUser" runat="server">
-					<br />
-					<div style="width: 100%; margin-left: 30px; margin-right: 20px;">
+					<div style="width: 100%;">
 						<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="UID" DataSourceID="SqlDataSource1" GridLines="Horizontal" Width="100%">
 							<AlternatingRowStyle BackColor="#F7F7F7" />
 							<Columns>
@@ -287,8 +125,7 @@
 					</div>
 				</asp:View>
 				<asp:View ID="View_User" runat="server">
-					<br />
-					<div style="width: 100%; margin-left: 30px; margin-right: 20px;">
+					<div style="width: 100%;">
 						<asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="UID" DataSourceID="SqlDataSource2" GridLines="Horizontal" Width="100%">
 							<AlternatingRowStyle BackColor="#F7F7F7" />
 							<Columns>
@@ -342,10 +179,29 @@
 					</div>
 				</asp:View>
 				<asp:View ID="View_Goods" runat="server">
-					<br />
-					<div style="width: 100%; margin-left: 30px; margin-right: 20px;">
-						<div style="text-align: right"><a href="AddGoods.aspx">新增图书信息点此</a></div>
-						<br />
+					<div style="width: 100%;">
+						<asp:GridView ID="GridView3" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="BookID" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Width="100%" PageSize="8">
+							<AlternatingRowStyle BackColor="White" />
+							<Columns>
+								<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+								<asp:BoundField DataField="ClassID" HeaderText="ClassID" SortExpression="ClassID" />
+								<asp:BoundField DataField="BookName" HeaderText="BookName" SortExpression="BookName" />
+								<asp:BoundField DataField="BookIntroduce" HeaderText="BookIntroduce" SortExpression="BookIntroduce" />
+								<asp:BoundField DataField="Author" HeaderText="Author" SortExpression="Author" />
+								<asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
+								<asp:BoundField DataField="MarketPrice" HeaderText="MarketPrice" SortExpression="MarketPrice" />
+							</Columns>
+							<EditRowStyle BackColor="#2461BF" />
+							<FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+							<HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+							<PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+							<RowStyle BackColor="#EFF3FB" />
+							<SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+							<SortedAscendingCellStyle BackColor="#F5F7FB" />
+							<SortedAscendingHeaderStyle BackColor="#6D95E1" />
+							<SortedDescendingCellStyle BackColor="#E9EBEF" />
+							<SortedDescendingHeaderStyle BackColor="#4870BE" />
+						</asp:GridView>
 						<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>"
 							DeleteCommand="DELETE FROM [Goods_Info] WHERE [BookID] = @BookID"
 							SelectCommand="SELECT * FROM [Goods_Info] ORDER BY [ClassID], [BookID]"
@@ -383,30 +239,8 @@
 								<asp:Parameter Name="BookID" Type="Int32" />
 							</UpdateParameters>
 						</asp:SqlDataSource>
-						<asp:GridView ID="GridView3" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="BookID" DataSourceID="SqlDataSource3" ForeColor="#333333" GridLines="None" Width="100%" PageSize="8">
-							<AlternatingRowStyle BackColor="White" />
-							<Columns>
-								<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-								<asp:BoundField DataField="ClassID" HeaderText="ClassID" SortExpression="ClassID" />
-								<asp:BoundField DataField="BookName" HeaderText="BookName" SortExpression="BookName" />
-								<asp:BoundField DataField="BookIntroduce" HeaderText="BookIntroduce" SortExpression="BookIntroduce" />
-								<asp:BoundField DataField="Author" HeaderText="Author" SortExpression="Author" />
-								<asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
-								<asp:BoundField DataField="MarketPrice" HeaderText="MarketPrice" SortExpression="MarketPrice" />
-							</Columns>
-							<EditRowStyle BackColor="#2461BF" />
-							<FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-							<HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-							<PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-							<RowStyle BackColor="#EFF3FB" />
-							<SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-							<SortedAscendingCellStyle BackColor="#F5F7FB" />
-							<SortedAscendingHeaderStyle BackColor="#6D95E1" />
-							<SortedDescendingCellStyle BackColor="#E9EBEF" />
-							<SortedDescendingHeaderStyle BackColor="#4870BE" />
-						</asp:GridView>
 					</div>
-
+					<div style="text-align: right"><a href="AddGoods.aspx">新增图书信息点此</a></div>
 				</asp:View>
 			</asp:MultiView>
 		</div>

@@ -39,7 +39,6 @@
 				</div>
 			</div>
 		</nav>
-
 		<div class="main-content">
 			<div id="side-bar">
 				<ul>
