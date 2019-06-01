@@ -60,7 +60,9 @@
 					<div class="carousel-inner">
 						<div class="item active">
 							<img src="img/DefaultImg/4.jpg" alt="First slide">
-						</div>
+							<asp:DataList ID="DataList1" runat="server">
+							</asp:DataList>
+						&nbsp;</div>
 						<div class="item">
 							<img src="img/DefaultImg/5.jpg" alt="Second slide">
 						</div>
@@ -256,7 +258,7 @@
 	</div>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	<link href="IndexStyle/default-product-list.css" rel="stylesheet" />
+	
 	<div id="footer" style="display: none;">
 		<div id="footer_1st">
 			<div class="footer_type">
@@ -351,8 +353,6 @@
 		$(".tab_2").siblings().css("display", "none");
 		$(function () {
 			$(".bd_body .tab_box_aa li").hover(function () {
-				
-
 				var clz = $(this).attr("class");
 				clz = clz.substr(5, 1);
 				var i = parseInt(clz) + 1;
@@ -363,7 +363,6 @@
 			});
 
 			$(".bd_body .floor_tab_bang .tab_aa li").hover(function () {
-				console.log("2");
 				var clz = $(this).attr("class");
 				clz = clz.substr(5, 1);
 				var i = parseInt(clz) + 1;
@@ -373,7 +372,6 @@
 			});
 
 			$(".bd_body .list_ab .bar").hover(function () {
-				console.log("3");
 				var clz = $(this).attr("class");
 				clz = clz.substr(4, 2);
 				$(this).addClass("hidden");
@@ -384,10 +382,10 @@
 			});
 		});
 	</script>
-	<style type="text/css">
+	<style type="text/css">!
 		.bd_body {
 			width: 1200px;
-			margin: 20px auto 0px auto;
+			margin: 0 auto;
 			background-color: #fff;
 		}
 
@@ -595,10 +593,54 @@
 			position: absolute;
 		}
 
-			.book_new .roll_aa .over {
-				width: 335px;
-				height: 220px;
+		.book_new .mix_marquee_tab {
+			position: absolute;
+			bottom: 6px;
+			left: 50%;
+			z-index: 666;
+		}
+
+			.book_new .mix_marquee_tab li.current {
+				background: #5e5e5e;
 			}
+
+			.book_new .mix_marquee_tab li {
+				float: left;
+				width: 10px;
+				height: 3px;
+				margin-right: 4px;
+				_display: inline;
+				font-size: 0;
+				line-height: 9px;
+				overflow: hidden;
+				background: #fff;
+			}
+
+		.book_new .roll_aa .btn_brand_prev,
+		.book_new .roll_aa .btn_brand_next {
+			display: block;
+			position: absolute;
+			width: 30px;
+			height: 43px;
+			top: 7px;
+			background-image: url(http://img60.ddimg.cn/upload_img/00111/home/home_sprite_1507.png);
+			background-repeat: no-repeat;
+			background-color: #000;
+			z-index: 20;
+			cursor: pointer;
+			opacity: 0.2;
+			filter: alpha(opacity=20);
+		}
+
+		.book_new .roll_aa .btn_brand_prev {
+			left: 0;
+			background-position: 0px -83px;
+		}
+
+		.book_new .roll_aa .btn_brand_next {
+			right: 0;
+			background-position: -36px -83px;
+		}
 
 		.book_new .book_upper2 {
 			position: absolute;
@@ -608,6 +650,15 @@
 			overflow: hidden;
 			border-bottom: 1px solid #e6e6e6;
 		}
+
+			.book_new .book_upper2 .pic,
+			.book_new .book_lower4 .pic {
+				float: left;
+				width: 166px;
+				height: 220px;
+				overflow: hidden;
+				border-right: 1px solid #e6e6e6;
+			}
 
 			.book_new .book_upper2 .list_aa {
 				float: left;
@@ -663,6 +714,7 @@
 			position: absolute;
 			top: 221px;
 			right: 0;
+			width: 668px;
 			height: 220px;
 			overflow: hidden;
 		}
@@ -885,25 +937,23 @@
 
 
 
-									<div class="btn_brand_prev" type="rollpre" style="display: none;"></div>
-									<div class="btn_brand_next" type="rollnext" style="display: none;"></div>
-									<ul class="mix_marquee_tab" style="margin-left: -12px;">
-										<li class="current">1</li>
-										<li class="">2</li>
-									</ul>
-									<div class="over">
-
-										<ul class="" style="left: 0px;">
-											<li class="_li_1" nname="mixpage-317715-15640_8_1" ddt-pit="1" dd_name="图书A版_轮播banner区_TAB1"><a href="http://book.dangdang.com/20190214_kfqo"
-												target="_blank" class="pic" title="豆瓣读书榜单" dd_src="lou-1558507603_4c3eab7be5d5d6b4" dd_name="图书A版_轮播banner区_TAB1">
-												<img
-													src="http://img63.ddimg.cn/upload_img/00779/xmj/lou-1558507603.jpg" alt="豆瓣读书榜单" ddt-src="lou-1558507603_4c3eab7be5d5d6b4"></a></li>
-											<li class="_li_2" nname="mixpage-317715-15640_8_2" ddt-pit="2" dd_name="图书A版_轮播banner区_TAB1"><a href="http://baby.dangdang.com/2019new5"
-												target="_blank" class="pic" title="童书5月新书速递" dd_src="lcbanner-1556618423_b9a441d70e1f9f79" dd_name="图书A版_轮播banner区_TAB1">
-												<img
-													src="http://img60.ddimg.cn/upload_img/00678/zsts/lcbanner-1556618423.jpg" alt="童书5月新书速递" ddt-src="lcbanner-1556618423_b9a441d70e1f9f79"></a></li>
+									<!-- <div class="btn_brand_prev" type="rollpre" style="display: none;"></div>
+										<div class="btn_brand_next" type="rollnext" style="display: none;"></div>
+										<ul class="mix_marquee_tab" style="margin-left: -12px;">
+											<li class="current">1</li>
+											<li class="">2</li>
 										</ul>
-									</div>
+										<div class="over">
+
+											<ul class="" style="left: 0px;">
+												<li class="_li_1" nname="mixpage-317715-15640_8_1" ddt-pit="1" dd_name="图书A版_轮播banner区_TAB1"><a href="http://book.dangdang.com/20190214_kfqo"
+													 target="_blank" class="pic" title="豆瓣读书榜单" dd_src="lou-1558507603_4c3eab7be5d5d6b4" dd_name="图书A版_轮播banner区_TAB1"><img
+														 src="http://img63.ddimg.cn/upload_img/00779/xmj/lou-1558507603.jpg" alt="豆瓣读书榜单" ddt-src="lou-1558507603_4c3eab7be5d5d6b4"></a></li>
+												<li class="_li_2" nname="mixpage-317715-15640_8_2" ddt-pit="2" dd_name="图书A版_轮播banner区_TAB1"><a href="http://baby.dangdang.com/2019new5"
+													 target="_blank" class="pic" title="童书5月新书速递" dd_src="lcbanner-1556618423_b9a441d70e1f9f79" dd_name="图书A版_轮播banner区_TAB1"><img
+														 src="http://img60.ddimg.cn/upload_img/00678/zsts/lcbanner-1556618423.jpg" alt="童书5月新书速递" ddt-src="lcbanner-1556618423_b9a441d70e1f9f79"></a></li>
+											</ul>
+										</div> -->
 								</div>
 								<div class="book_upper2 " name="m3208542_pid9370_9354_9348_t15680">
 									<ul class="list_aa " id="component_3208542__9370_9354_9348_9346__9346" ddt-area="9346">
@@ -1684,9 +1734,9 @@
 											target="_blank" dd_name="1">神奇校车·图画书版（全12册，新增《科学博览会》1册）<span></span></a>
 									</p>
 								</li>
-								<li class="line1 item" ddt-pit="1" type="item" style="display: list-item;"><span
-									class="num num1">1</span><a class="img" href="http://product.dangdang.com/25252408.html" target="_blank"
-										dd_name="1"><img src="http://img3m8.ddimg.cn/82/19/25252408-1_l.jpg" alt="神奇校车·图画书版（全12册，新增《科学博览会》1册）"></a>
+								<li class="line1 item" ddt-pit="1" type="item" style="display: list-item;"><span class="num num1">1</span><a
+									class="img" href="http://product.dangdang.com/25252408.html" target="_blank" dd_name="1"><img src="http://img3m8.ddimg.cn/82/19/25252408-1_l.jpg"
+										alt="神奇校车·图画书版（全12册，新增《科学博览会》1册）"></a>
 									<p class="name">
 										<a title="神奇校车·图画书版（全12册，新增《科学博览会》1册）" href="http://product.dangdang.com/25252408.html?ref=mixpage-317715-15640_8-0"
 											target="_blank" dd_name="1">神奇校车·图画书版（全12册，新增《科学博览会》1册）<span>风靡全世界的“神奇校车”再次出发！搭乘神奇校车，</span></a>
@@ -1698,9 +1748,9 @@
 											target="_blank" dd_name="2">人间失格（日本小说家太宰治的自传体小说）<span></span></a>
 									</p>
 								</li>
-								<li class="line2 item" ddt-pit="2" type="item" style="display: none;"><span
-									class="num num2">2</span><a class="img" href="http://product.dangdang.com/23761145.html" target="_blank"
-										dd_name="2"><img src="http://img3m5.ddimg.cn/56/4/23761145-1_l.jpg" alt="人间失格（日本小说家太宰治的自传体小说）"></a>
+								<li class="line2 item" ddt-pit="2" type="item" style="display: none;"><span class="num num2">2</span><a class="img"
+									href="http://product.dangdang.com/23761145.html" target="_blank" dd_name="2"><img src="http://img3m5.ddimg.cn/56/4/23761145-1_l.jpg"
+										alt="人间失格（日本小说家太宰治的自传体小说）"></a>
 									<p class="name">
 										<a title="人间失格（日本小说家太宰治的自传体小说）" href="http://product.dangdang.com/23761145.html?ref=mixpage-317715-15640_8-1"
 											target="_blank" dd_name="2">人间失格（日本小说家太宰治的自传体小说）<span>超燃！“丧文化”流行，《人间失格》成了现象级畅销书，创当当3</span></a>
@@ -1712,9 +1762,9 @@
 											target="_blank" dd_name="3">夏洛的网（新）<span></span></a>
 									</p>
 								</li>
-								<li class="line3 item" ddt-pit="3" type="item" style="display: none;"><span
-									class="num num3">3</span><a class="img" href="http://product.dangdang.com/23546266.html" target="_blank"
-										dd_name="3"><img src="http://img3m6.ddimg.cn/7/21/23546266-1_l.jpg" alt="夏洛的网（新）"></a>
+								<li class="line3 item" ddt-pit="3" type="item" style="display: none;"><span class="num num3">3</span><a class="img"
+									href="http://product.dangdang.com/23546266.html" target="_blank" dd_name="3"><img src="http://img3m6.ddimg.cn/7/21/23546266-1_l.jpg"
+										alt="夏洛的网（新）"></a>
 									<p class="name">
 										<a title="夏洛的网（新）" href="http://product.dangdang.com/23546266.html?ref=mixpage-317715-15640_8-2"
 											target="_blank" dd_name="3">夏洛的网（新）<span>“美国*伟大的十部儿童文学名著”之首，全球行销千万册，关于爱、友谊、生死，一本读到流泪</span></a>
@@ -1726,9 +1776,9 @@
 											target="_blank" dd_name="4">神奇校车·桥梁书版（全20册）<span></span></a>
 									</p>
 								</li>
-								<li class="line4 item" ddt-pit="4" type="item" style="display: none;"><span
-									class="num num4">4</span><a class="img" href="http://product.dangdang.com/23444350.html" target="_blank"
-										dd_name="4"><img src="http://img3m0.ddimg.cn/61/3/23444350-1_l.jpg" alt="神奇校车·桥梁书版（全20册）"></a>
+								<li class="line4 item" ddt-pit="4" type="item" style="display: none;"><span class="num num4">4</span><a class="img"
+									href="http://product.dangdang.com/23444350.html" target="_blank" dd_name="4"><img src="http://img3m0.ddimg.cn/61/3/23444350-1_l.jpg"
+										alt="神奇校车·桥梁书版（全20册）"></a>
 									<p class="name">
 										<a title="神奇校车·桥梁书版（全20册）" href="http://product.dangdang.com/23444350.html?ref=mixpage-317715-15640_8-3"
 											target="_blank" dd_name="4">神奇校车·桥梁书版（全20册）<span>（新老版本交替发货）美国Scholastic学子出版社金牌畅销系列，继续打造神奇</span></a>
@@ -1740,9 +1790,9 @@
 											target="_blank" dd_name="5">流浪的地球（刘慈欣著，无删节无改写，大人孩子均可阅读，此版本当当网销量遥遥领先！根据本书改编的同名电影2019春节上映。）<span></span></a>
 									</p>
 								</li>
-								<li class="line5 item" ddt-pit="5" type="item" style="display: none;"><span
-									class="num num5">5</span><a class="img" href="http://product.dangdang.com/25259300.html" target="_blank"
-										dd_name="5"><img src="http://img3m0.ddimg.cn/44/29/25259300-1_l.jpg" alt="流浪的地球（刘慈欣著，无删节无改写，大人孩子均可阅读，此版本当当网销量遥遥领先！根据本书改编的同名电影2019春节上映。）"></a>
+								<li class="line5 item" ddt-pit="5" type="item" style="display: none;"><span class="num num5">5</span><a class="img"
+									href="http://product.dangdang.com/25259300.html" target="_blank" dd_name="5"><img src="http://img3m0.ddimg.cn/44/29/25259300-1_l.jpg"
+										alt="流浪的地球（刘慈欣著，无删节无改写，大人孩子均可阅读，此版本当当网销量遥遥领先！根据本书改编的同名电影2019春节上映。）"></a>
 									<p class="name">
 										<a title="流浪的地球（刘慈欣著，无删节无改写，大人孩子均可阅读，此版本当当网销量遥遥领先！根据本书改编的同名电影2019春节上映。）" href="http://product.dangdang.com/25259300.html?ref=mixpage-317715-15640_8-4"
 											target="_blank" dd_name="5">流浪的地球（刘慈欣著，无删节无改写，大人孩子均可阅读，此版本当当网销量遥遥领先！根据本书改编的同名电</a>
@@ -1755,9 +1805,9 @@
 												（8册。亚洲首位“雨果奖”得主刘慈欣主编，根据《流浪地球》改编的电影大年初一上映。套装内图书获银河奖特等奖等多项国际大奖，全球销量超500万册）<span></span></a>
 									</p>
 								</li>
-								<li class="line6 item" ddt-pit="6" type="item" style="display: none;"><span
-									class="num num6">6</span><a class="img" href="http://product.dangdang.com/25259302.html" target="_blank"
-										dd_name="6"><img src="http://img3m2.ddimg.cn/46/31/25259302-1_l.jpg" alt="银火箭少年科幻系列 （8册。亚洲首位“雨果奖”得主刘慈欣主编，根据《流浪地球》改编的电影大年初一上映。套装内图书获银河奖特等奖等多项国际大奖，全球销量超500万册）"></a>
+								<li class="line6 item" ddt-pit="6" type="item" style="display: none;"><span class="num num6">6</span><a class="img"
+									href="http://product.dangdang.com/25259302.html" target="_blank" dd_name="6"><img src="http://img3m2.ddimg.cn/46/31/25259302-1_l.jpg"
+										alt="银火箭少年科幻系列 （8册。亚洲首位“雨果奖”得主刘慈欣主编，根据《流浪地球》改编的电影大年初一上映。套装内图书获银河奖特等奖等多项国际大奖，全球销量超500万册）"></a>
 									<p class="name">
 										<a title="银火箭少年科幻系列 （8册。亚洲首位“雨果奖”得主刘慈欣主编，根据《流浪地球》改编的电影大年初一上映。套装内图书获银河奖特等奖等多项国际大奖，全球销量超500万册）"
 											href="http://product.dangdang.com/25259302.html?ref=mixpage-317715-15640_8-5" target="_blank" dd_name="6">银火箭少年科幻系列&nbsp;（8册。亚洲首位“雨果奖”得主刘慈欣主编，根据《流浪地球》改编的电影大年初一上映。</a>
@@ -1769,9 +1819,9 @@
 											target="_blank" dd_name="7">我喜欢生命本来的样子(周国平经典散文作品集)<span></span></a>
 									</p>
 								</li>
-								<li class="line7 item" ddt-pit="7" type="item" style="display: none;"><span
-									class="num num7">7</span><a class="img" href="http://product.dangdang.com/24198400.html" target="_blank"
-										dd_name="7"><img src="http://img3m0.ddimg.cn/28/30/24198400-1_l.jpg" alt="我喜欢生命本来的样子(周国平经典散文作品集)"></a>
+								<li class="line7 item" ddt-pit="7" type="item" style="display: none;"><span class="num num7">7</span><a class="img"
+									href="http://product.dangdang.com/24198400.html" target="_blank" dd_name="7"><img src="http://img3m0.ddimg.cn/28/30/24198400-1_l.jpg"
+										alt="我喜欢生命本来的样子(周国平经典散文作品集)"></a>
 									<p class="name">
 										<a title="我喜欢生命本来的样子(周国平经典散文作品集)" href="http://product.dangdang.com/24198400.html?ref=mixpage-317715-15640_8-6"
 											target="_blank" dd_name="7">我喜欢生命本来的样子(周国平经典散文作品集)<span>影响和改变万千年轻人对人生的思考和生活的态度！上市半年以</span></a>
@@ -1783,9 +1833,9 @@
 											target="_blank" dd_name="8">丰子恺万般滋味，都是生活<span></span></a>
 									</p>
 								</li>
-								<li class="line8 item" ddt-pit="8" type="item" style="display: none;"><span
-									class="num num8">8</span><a class="img" href="http://product.dangdang.com/25308985.html" target="_blank"
-										dd_name="8"><img src="http://img3m5.ddimg.cn/31/23/25308985-1_l.jpg" alt="丰子恺万般滋味，都是生活"></a>
+								<li class="line8 item" ddt-pit="8" type="item" style="display: none;"><span class="num num8">8</span><a class="img"
+									href="http://product.dangdang.com/25308985.html" target="_blank" dd_name="8"><img src="http://img3m5.ddimg.cn/31/23/25308985-1_l.jpg"
+										alt="丰子恺万般滋味，都是生活"></a>
 									<p class="name">
 										<a title="丰子恺万般滋味，都是生活" href="http://product.dangdang.com/25308985.html?ref=mixpage-317715-15640_8-7"
 											target="_blank" dd_name="8">丰子恺万般滋味，都是生活<span>（回馈升级：现在下单即有机会获帆布包等丰子恺文创礼品一份，详见彩图）丰子恺</span></a>
@@ -1797,9 +1847,9 @@
 											target="_blank" dd_name="9">写给儿童的中国历史（全14册）<span></span></a>
 									</p>
 								</li>
-								<li class="line9 item" ddt-pit="9" type="item" style="display: none;"><span
-									class="num num9">9</span><a class="img" href="http://product.dangdang.com/23427436.html" target="_blank"
-										dd_name="9"><img src="http://img3m6.ddimg.cn/76/35/23427436-1_l.jpg" alt="写给儿童的中国历史（全14册）"></a>
+								<li class="line9 item" ddt-pit="9" type="item" style="display: none;"><span class="num num9">9</span><a class="img"
+									href="http://product.dangdang.com/23427436.html" target="_blank" dd_name="9"><img src="http://img3m6.ddimg.cn/76/35/23427436-1_l.jpg"
+										alt="写给儿童的中国历史（全14册）"></a>
 									<p class="name">
 										<a title="写给儿童的中国历史（全14册）" href="http://product.dangdang.com/23427436.html?ref=mixpage-317715-15640_8-8"
 											target="_blank" dd_name="9">写给儿童的中国历史（全14册）<span>第十届文津奖获奖图书，畅销台湾三十载，贯通上下五千年。学会了解自己，评</span></a>
@@ -1811,9 +1861,9 @@
 											target="_blank" dd_name="10">活着（2017年新版）<span></span></a>
 									</p>
 								</li>
-								<li class="line10 item" ddt-pit="10" type="item" style="display: none;"><span
-									class="num num10">10</span><a class="img" href="http://product.dangdang.com/25137790.html" target="_blank"
-										dd_name="10"><img src="http://img3m0.ddimg.cn/7/27/25137790-1_l.jpg" alt="活着（2017年新版）"></a>
+								<li class="line10 item" ddt-pit="10" type="item" style="display: none;"><span class="num num10">10</span><a
+									class="img" href="http://product.dangdang.com/25137790.html" target="_blank" dd_name="10"><img src="http://img3m0.ddimg.cn/7/27/25137790-1_l.jpg"
+										alt="活着（2017年新版）"></a>
 									<p class="name">
 										<a title="活着（2017年新版）" href="http://product.dangdang.com/25137790.html?ref=mixpage-317715-15640_8-9"
 											target="_blank" dd_name="10">活着（2017年新版）<span>余华是我国当代著名作家，也是享誉世界的小说家，曾荣获众多国内外奖项。《活着》是其</span></a>
@@ -1837,9 +1887,9 @@
 											target="_blank" dd_name="1">我的神奇马桶（奇思妙趣三部曲）（全3册）<span></span></a>
 									</p>
 								</li>
-								<li class="line1 item" ddt-pit="1" type="item" style="display: none;"><span
-									class="num num1">1</span><a class="img" href="http://product.dangdang.com/27849730.html" target="_blank"
-										dd_name="1"><img src="http://img3m0.ddimg.cn/40/15/27849730-1_l.jpg" alt="我的神奇马桶（奇思妙趣三部曲）（全3册）"></a>
+								<li class="line1 item" ddt-pit="1" type="item" style="display: none;"><span class="num num1">1</span><a class="img"
+									href="http://product.dangdang.com/27849730.html" target="_blank" dd_name="1"><img src="http://img3m0.ddimg.cn/40/15/27849730-1_l.jpg"
+										alt="我的神奇马桶（奇思妙趣三部曲）（全3册）"></a>
 									<p class="name">
 										<a title="我的神奇马桶（奇思妙趣三部曲）（全3册）" href="http://product.dangdang.com/27849730.html?ref=mixpage-317715-15640_8-0"
 											target="_blank" dd_name="1">我的神奇马桶（奇思妙趣三部曲）（全3册）<span>从神奇马桶、百变浴缸到梦幻被子，脑洞大开，步步升级！意想不到</span></a>
@@ -1851,9 +1901,9 @@
 											target="_blank" dd_name="2">一看就会的思维导图启蒙绘本（歪歪兔童书馆出品）<span></span></a>
 									</p>
 								</li>
-								<li class="line2 item" ddt-pit="2" type="item" style="display: none;"><span
-									class="num num2">2</span><a class="img" href="http://product.dangdang.com/27854383.html" target="_blank"
-										dd_name="2"><img src="http://img3m3.ddimg.cn/40/6/27854383-1_l.jpg" alt="一看就会的思维导图启蒙绘本（歪歪兔童书馆出品）"></a>
+								<li class="line2 item" ddt-pit="2" type="item" style="display: none;"><span class="num num2">2</span><a class="img"
+									href="http://product.dangdang.com/27854383.html" target="_blank" dd_name="2"><img src="http://img3m3.ddimg.cn/40/6/27854383-1_l.jpg"
+										alt="一看就会的思维导图启蒙绘本（歪歪兔童书馆出品）"></a>
 									<p class="name">
 										<a title="一看就会的思维导图启蒙绘本（歪歪兔童书馆出品）" href="http://product.dangdang.com/27854383.html?ref=mixpage-317715-15640_8-1"
 											target="_blank" dd_name="2">一看就会的思维导图启蒙绘本（歪歪兔童书馆出品）<span>训练思维能力，大幅提升学习力。用绘本故事形象演示8种神</span></a>
@@ -1865,9 +1915,9 @@
 											target="_blank" dd_name="3">生活中的科学超厉害系列（套装全3册）（在生活中培养小小科学家，凯迪克金奖作者作品）<span></span></a>
 									</p>
 								</li>
-								<li class="line3 item" ddt-pit="3" type="item" style="display: none;"><span
-									class="num num3">3</span><a class="img" href="http://product.dangdang.com/27863701.html" target="_blank"
-										dd_name="3"><img src="http://img3m1.ddimg.cn/52/0/27863701-1_l.jpg" alt="生活中的科学超厉害系列（套装全3册）（在生活中培养小小科学家，凯迪克金奖作者作品）"></a>
+								<li class="line3 item" ddt-pit="3" type="item" style="display: none;"><span class="num num3">3</span><a class="img"
+									href="http://product.dangdang.com/27863701.html" target="_blank" dd_name="3"><img src="http://img3m1.ddimg.cn/52/0/27863701-1_l.jpg"
+										alt="生活中的科学超厉害系列（套装全3册）（在生活中培养小小科学家，凯迪克金奖作者作品）"></a>
 									<p class="name">
 										<a title="生活中的科学超厉害系列（套装全3册）（在生活中培养小小科学家，凯迪克金奖作者作品）" href="http://product.dangdang.com/27863701.html?ref=mixpage-317715-15640_8-2"
 											target="_blank" dd_name="3">生活中的科学超厉害系列（套装全3册）（在生活中培养小小科学家，凯迪克金奖作者作品）<span>从马桶开始，认识整</span></a>
@@ -1879,9 +1929,9 @@
 											target="_blank" dd_name="4">我的爸爸在火星（媲美《流浪地球》，治愈万千读者的儿童科幻佳作。接棒《许愿地球仪》，再次唱响勇气和希望的生命教育之书。）<span></span></a>
 									</p>
 								</li>
-								<li class="line4 item" ddt-pit="4" type="item" style="display: none;"><span
-									class="num num4">4</span><a class="img" href="http://product.dangdang.com/26923897.html" target="_blank"
-										dd_name="4"><img src="http://img3m7.ddimg.cn/55/33/26923897-1_l.jpg" alt="我的爸爸在火星（媲美《流浪地球》，治愈万千读者的儿童科幻佳作。接棒《许愿地球仪》，再次唱响勇气和希望的生命教育之书。）"></a>
+								<li class="line4 item" ddt-pit="4" type="item" style="display: none;"><span class="num num4">4</span><a class="img"
+									href="http://product.dangdang.com/26923897.html" target="_blank" dd_name="4"><img src="http://img3m7.ddimg.cn/55/33/26923897-1_l.jpg"
+										alt="我的爸爸在火星（媲美《流浪地球》，治愈万千读者的儿童科幻佳作。接棒《许愿地球仪》，再次唱响勇气和希望的生命教育之书。）"></a>
 									<p class="name">
 										<a title="我的爸爸在火星（媲美《流浪地球》，治愈万千读者的儿童科幻佳作。接棒《许愿地球仪》，再次唱响勇气和希望的生命教育之书。）" href="http://product.dangdang.com/26923897.html?ref=mixpage-317715-15640_8-3"
 											target="_blank" dd_name="4">我的爸爸在火星（媲美《流浪地球》，治愈万千读者的儿童科幻佳作。接棒《许愿地球仪》，再次唱响勇气和希望</a>
@@ -1893,9 +1943,9 @@
 											target="_blank" dd_name="5">DK幼儿百科全书系列套装（全2册）那些重要的事+那些重要的动物<span></span></a>
 									</p>
 								</li>
-								<li class="line5 item" ddt-pit="5" type="item" style="display: none;"><span
-									class="num num5">5</span><a class="img" href="http://product.dangdang.com/27847393.html" target="_blank"
-										dd_name="5"><img src="http://img3m3.ddimg.cn/79/9/27847393-1_l.jpg" alt="DK幼儿百科全书系列套装（全2册）那些重要的事+那些重要的动物"></a>
+								<li class="line5 item" ddt-pit="5" type="item" style="display: none;"><span class="num num5">5</span><a class="img"
+									href="http://product.dangdang.com/27847393.html" target="_blank" dd_name="5"><img src="http://img3m3.ddimg.cn/79/9/27847393-1_l.jpg"
+										alt="DK幼儿百科全书系列套装（全2册）那些重要的事+那些重要的动物"></a>
 									<p class="name">
 										<a title="DK幼儿百科全书系列套装（全2册）那些重要的事+那些重要的动物" href="http://product.dangdang.com/27847393.html?ref=mixpage-317715-15640_8-4"
 											target="_blank" dd_name="5">DK幼儿百科全书系列套装（全2册）那些重要的事+那些重要的动物<span>专为学龄前儿童设计的百科全书，献给对一切</span></a>
@@ -1907,9 +1957,9 @@
 											target="_blank" dd_name="6">我的第一本量子物理学（一本敲开物理大门的科普全图解，让孩子爱上求知与思考。）<span></span></a>
 									</p>
 								</li>
-								<li class="line6 item" ddt-pit="6" type="item" style="display: none;"><span
-									class="num num6">6</span><a class="img" href="http://product.dangdang.com/26923241.html" target="_blank"
-										dd_name="6"><img src="http://img3m1.ddimg.cn/92/6/26923241-1_l.jpg" alt="我的第一本量子物理学（一本敲开物理大门的科普全图解，让孩子爱上求知与思考。）"></a>
+								<li class="line6 item" ddt-pit="6" type="item" style="display: none;"><span class="num num6">6</span><a class="img"
+									href="http://product.dangdang.com/26923241.html" target="_blank" dd_name="6"><img src="http://img3m1.ddimg.cn/92/6/26923241-1_l.jpg"
+										alt="我的第一本量子物理学（一本敲开物理大门的科普全图解，让孩子爱上求知与思考。）"></a>
 									<p class="name">
 										<a title="我的第一本量子物理学（一本敲开物理大门的科普全图解，让孩子爱上求知与思考。）" href="http://product.dangdang.com/26923241.html?ref=mixpage-317715-15640_8-5"
 											target="_blank" dd_name="6">我的第一本量子物理学（一本敲开物理大门的科普全图解，让孩子爱上求知与思考。）<span>一本可以仰望“黑洞”，</span></a>
@@ -1921,9 +1971,9 @@
 											target="_blank" dd_name="7">拯救温斯洛（荣获纽伯瑞、卡内基双料殿堂级童书大奖，美国著名儿童文坛巨匠莎朗·克里奇生命教育力作！媲美《天蓝色的彼岸》）<span></span></a>
 									</p>
 								</li>
-								<li class="line7 item" ddt-pit="7" type="item" style="display: none;"><span
-									class="num num7">7</span><a class="img" href="http://product.dangdang.com/26924306.html" target="_blank"
-										dd_name="7"><img src="http://img3m6.ddimg.cn/68/35/26924306-1_l.jpg" alt="拯救温斯洛（荣获纽伯瑞、卡内基双料殿堂级童书大奖，美国著名儿童文坛巨匠莎朗·克里奇生命教育力作！媲美《天蓝色的彼岸》）"></a>
+								<li class="line7 item" ddt-pit="7" type="item" style="display: none;"><span class="num num7">7</span><a class="img"
+									href="http://product.dangdang.com/26924306.html" target="_blank" dd_name="7"><img src="http://img3m6.ddimg.cn/68/35/26924306-1_l.jpg"
+										alt="拯救温斯洛（荣获纽伯瑞、卡内基双料殿堂级童书大奖，美国著名儿童文坛巨匠莎朗·克里奇生命教育力作！媲美《天蓝色的彼岸》）"></a>
 									<p class="name">
 										<a title="拯救温斯洛（荣获纽伯瑞、卡内基双料殿堂级童书大奖，美国著名儿童文坛巨匠莎朗·克里奇生命教育力作！媲美《天蓝色的彼岸》）" href="http://product.dangdang.com/26924306.html?ref=mixpage-317715-15640_8-6"
 											target="_blank" dd_name="7">拯救温斯洛（荣获纽伯瑞、卡内基双料殿堂级童书大奖，美国著名儿童文坛巨匠莎朗·克里奇生命教育力作！媲美</a>
@@ -1935,9 +1985,9 @@
 											target="_blank" dd_name="8">女孩指南 动感青春期50课<span></span></a>
 									</p>
 								</li>
-								<li class="line8 item" ddt-pit="8" type="item" style="display: none;"><span
-									class="num num8">8</span><a class="img" href="http://product.dangdang.com/26922220.html" target="_blank"
-										dd_name="8"><img src="http://img3m0.ddimg.cn/61/21/26922220-1_l.jpg" alt="女孩指南 动感青春期50课"></a>
+								<li class="line8 item" ddt-pit="8" type="item" style="display: none;"><span class="num num8">8</span><a class="img"
+									href="http://product.dangdang.com/26922220.html" target="_blank" dd_name="8"><img src="http://img3m0.ddimg.cn/61/21/26922220-1_l.jpg"
+										alt="女孩指南 动感青春期50课"></a>
 									<p class="name">
 										<a title="女孩指南 动感青春期50课" href="http://product.dangdang.com/26922220.html?ref=mixpage-317715-15640_8-7"
 											target="_blank" dd_name="8">女孩指南&nbsp;动感青春期50课<span>9-16岁&nbsp;&nbsp;时尚动感的闺蜜私语，贴心实用的青春期指南。每一位妈妈都应该送给女儿的</span></a>
@@ -1949,9 +1999,9 @@
 											target="_blank" dd_name="9">小熊很忙系列（新版套装全16册）<span></span></a>
 									</p>
 								</li>
-								<li class="line9 item" ddt-pit="9" type="item" style="display: none;"><span
-									class="num num9">9</span><a class="img" href="http://product.dangdang.com/26924000.html" target="_blank"
-										dd_name="9"><img src="http://img3m0.ddimg.cn/59/25/26924000-1_l.jpg" alt="小熊很忙系列（新版套装全16册）"></a>
+								<li class="line9 item" ddt-pit="9" type="item" style="display: none;"><span class="num num9">9</span><a class="img"
+									href="http://product.dangdang.com/26924000.html" target="_blank" dd_name="9"><img src="http://img3m0.ddimg.cn/59/25/26924000-1_l.jpg"
+										alt="小熊很忙系列（新版套装全16册）"></a>
 									<p class="name">
 										<a title="小熊很忙系列（新版套装全16册）" href="http://product.dangdang.com/26924000.html?ref=mixpage-317715-15640_8-8"
 											target="_blank" dd_name="9">小熊很忙系列（新版套装全16册）<span>风靡全球的中英双语互动游戏纸板书，全球热销1000多万册！附赠地道英文音</span></a>
@@ -1963,9 +2013,8 @@
 											target="_blank" dd_name="10">亲爱的女儿+亲爱的儿子（全二册，父母送给孩子相伴一生的祝福，子女闯荡世界终身受益的话语）<span></span></a>
 									</p>
 								</li>
-								<li class="line10 item" ddt-pit="10" type="item" style=""><span class="num num10">10</span><a
-									class="img" href="http://product.dangdang.com/27863117.html" target="_blank" dd_name="10"><img src="http://img3m7.ddimg.cn/62/8/27863117-1_l.jpg"
-										alt="亲爱的女儿+亲爱的儿子（全二册，父母送给孩子相伴一生的祝福，子女闯荡世界终身受益的话语）"></a>
+								<li class="line10 item" ddt-pit="10" type="item" style=""><span class="num num10">10</span><a class="img" href="http://product.dangdang.com/27863117.html"
+									target="_blank" dd_name="10"><img src="http://img3m7.ddimg.cn/62/8/27863117-1_l.jpg" alt="亲爱的女儿+亲爱的儿子（全二册，父母送给孩子相伴一生的祝福，子女闯荡世界终身受益的话语）"></a>
 									<p class="name">
 										<a title="亲爱的女儿+亲爱的儿子（全二册，父母送给孩子相伴一生的祝福，子女闯荡世界终身受益的话语）" href="http://product.dangdang.com/27863117.html?ref=mixpage-317715-15640_8-9"
 											target="_blank" dd_name="10">亲爱的女儿+亲爱的儿子（全二册，父母送给孩子相伴一生的祝福，子女闯荡世界终身受益的话语）<span>写给所有儿子</span></a>
@@ -1979,5 +2028,6 @@
 			</div>
 		</div>
 	</div>
+	<link href="IndexStyle/default-product-list.css" rel="stylesheet" />
 	<br />
 </asp:Content>
