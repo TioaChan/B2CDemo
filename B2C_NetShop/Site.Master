@@ -22,7 +22,6 @@
 
 		#Master_header { /*头部容器*/
 			border-bottom: 3px red solid;
-			margin: 50px 0px 10px 0px;
 			background: #fff;
 		}
 

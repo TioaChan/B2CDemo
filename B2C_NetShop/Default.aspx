@@ -258,148 +258,24 @@
 	</div>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-	
-	<div id="footer" style="display: none;">
-		<div id="footer_1st">
-			<div class="footer_type">
-				<h2>商城精选</h2>
-				<p>精选图书，值得一看</p>
-			</div>
-			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/refinement.aspx">查看更多 &raquo;</a></div>
-			<div class="footer_goods_frame">
-				<%--datalist test start--%>
-				<asp:DataList ID="DataList_RefinementGoods" runat="server" RepeatDirection="Horizontal">
-					<ItemTemplate>
-
-						<div class="footer_goods_detail">
-							<a style="display: block;" href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-								<%--bookimg--%>
-								<div class="product-card">
-									<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-									<%--hotprice--%>
-							</a>
-						</div>
-
-					</ItemTemplate>
-				</asp:DataList>
-				<%--datalist test end--%>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div id="footer_2nd">
-			<div class="footer_type">
-				<h2>商城热卖</h2>
-				<p>人气图书，每天更新</p>
-			</div>
-			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/hot.aspx">查看更多 &raquo;</a></div>
-			<div class="footer_goods_frame">
-				<%--datalist test start--%>
-				<asp:DataList ID="DataList_HotGoods" runat="server" RepeatDirection="Horizontal">
-					<ItemTemplate>
-						<%--bookimg--%>
-						<div class="footer_goods_detail">
-							<div class="product-card">
-								<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-									<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-									<%--bookimg--%>
-									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-									<%--hotprice--%></a>
-							</div>
-						</div>
-					</ItemTemplate>
-				</asp:DataList>
-				<%--datalist test end--%>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div id="footer_3rd">
-			<div class="footer_type">
-				<h2>商城折扣</h2>
-				<p>折扣图书，低至一折</p>
-			</div>
-			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/discount.aspx">查看更多 &raquo;</a></div>
-			<div class="footer_goods_frame">
-				<%--datalist test start--%>
-				<asp:DataList ID="DataList_DiscountGoods" runat="server" RepeatDirection="Horizontal">
-					<ItemTemplate>
-						<div class="footer_goods_detail">
-							<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-								<%--bookimg--%>
-								<div class="product-card">
-									<a href="#">
-										<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-									</a>
-									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-									<%--hotprice--%>
-							</a>
-						</div>
-						</div>
-					</ItemTemplate>
-				</asp:DataList>
-				<%--datalist test end--%>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
-	<script type="text/javascript">
-		$(".tab_2").css("display", "block");
-		$(".tab_2").siblings().css("display", "none");
-		$(function () {
-			$(".bd_body .tab_box_aa li").hover(function () {
-				var clz = $(this).attr("class");
-				clz = clz.substr(5, 1);
-				var i = parseInt(clz) + 1;
-				$(this).addClass("on").siblings().removeClass("on");
-				$(".left-tab_" + String(i)).css("display", "block");
-				$(".left-tab_" + String(i)).siblings().css("display", "none");
-				console.log(".left-tab_" + String(i));
-			});
-
-			$(".bd_body .floor_tab_bang .tab_aa li").hover(function () {
-				var clz = $(this).attr("class");
-				clz = clz.substr(5, 1);
-				var i = parseInt(clz) + 1;
-				$(this).addClass("on").siblings().removeClass("on");
-				$(".floor_tab_bang .tab_" + String(i)).css("display", "block");
-				$(".floor_tab_bang .tab_" + String(i)).siblings().css("display", "none");
-			});
-
-			$(".bd_body .list_ab .bar").hover(function () {
-				var clz = $(this).attr("class");
-				clz = clz.substr(4, 2);
-				$(this).addClass("hidden");
-				$(this).siblings().removeClass("hidden");
-				$(this).next().attr("style", "display:list-item;");
-				$(this).next().siblings(".item").css("display", "none");
-
-			});
-		});
-	</script>
 	<style type="text/css">!
-		.bd_body {
+		#product-body {
 			width: 1200px;
-			margin: 0 auto;
+			
 			background-color: #fff;
 		}
 
-		html {
+		#product-body  {
 			font-size: 12px;
 		}
 
-		a {
+		#product-body a {
 			text-decoration: none;
 			color: #666;
 		}
 
 
-		body,
+		#product-body body,
 		ul,
 		li,
 		ol,
@@ -425,9 +301,15 @@
 			height: 499px;
 			overflow: hidden;
 			position: relative;
-			margin: 0 auto 30px;
+			margin: 20px auto 0px auto;
+			background:#fff;
 		}
+		.book_new *{
+			box-sizing:content-box;
+			-moz-box-sizing:content-box;
+			-webkit-box-sizing：content-box;
 
+		}
 			.book_new .home_screen_head {
 				position: absolute;
 				top: 0;
@@ -527,7 +409,7 @@
 				background-color: #fff;
 				width: 112px;
 				border: 2px solid #000;
-				border-bottom: 0;
+				border-bottom: 0 !important;
 				padding: 0 0 2px 0;
 				margin-bottom: -2px;
 				color: #525252;
@@ -854,7 +736,132 @@
 					display: block;
 				}
 	</style>
-	<div class="bd_body">
+	<link href="IndexStyle/default-product-list.css" rel="stylesheet" />
+	<div id="footer" style="display: none;">
+		<div id="footer_1st">
+			<div class="footer_type">
+				<h2>商城精选</h2>
+				<p>精选图书，值得一看</p>
+			</div>
+			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/refinement.aspx">查看更多 &raquo;</a></div>
+			<div class="footer_goods_frame">
+				<%--datalist test start--%>
+				<asp:DataList ID="DataList_RefinementGoods" runat="server" RepeatDirection="Horizontal">
+					<ItemTemplate>
+
+						<div class="footer_goods_detail">
+							<a style="display: block;" href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+								<%--bookimg--%>
+								<div class="product-card">
+									<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
+									<%--hotprice--%>
+							</a>
+						</div>
+
+					</ItemTemplate>
+				</asp:DataList>
+				<%--datalist test end--%>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="footer_2nd">
+			<div class="footer_type">
+				<h2>商城热卖</h2>
+				<p>人气图书，每天更新</p>
+			</div>
+			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/hot.aspx">查看更多 &raquo;</a></div>
+			<div class="footer_goods_frame">
+				<%--datalist test start--%>
+				<asp:DataList ID="DataList_HotGoods" runat="server" RepeatDirection="Horizontal">
+					<ItemTemplate>
+						<%--bookimg--%>
+						<div class="footer_goods_detail">
+							<div class="product-card">
+								<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+									<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+									<%--bookimg--%>
+									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
+									<%--hotprice--%></a>
+							</div>
+						</div>
+					</ItemTemplate>
+				</asp:DataList>
+				<%--datalist test end--%>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="footer_3rd">
+			<div class="footer_type">
+				<h2>商城折扣</h2>
+				<p>折扣图书，低至一折</p>
+			</div>
+			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/discount.aspx">查看更多 &raquo;</a></div>
+			<div class="footer_goods_frame">
+				<%--datalist test start--%>
+				<asp:DataList ID="DataList_DiscountGoods" runat="server" RepeatDirection="Horizontal">
+					<ItemTemplate>
+						<div class="footer_goods_detail">
+							<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
+								<%--bookimg--%>
+								<div class="product-card">
+									<a href="#">
+										<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
+									</a>
+									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
+									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
+									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
+									<%--hotprice--%>
+							</a>
+						</div>
+						</div>
+					</ItemTemplate>
+				</asp:DataList>
+				<%--datalist test end--%>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(".tab_2").css("display", "block");
+		$(".tab_2").siblings().css("display", "none");
+		$(function () {
+			$("#product-body .tab_box_aa li").hover(function () {
+				var clz = $(this).attr("class");
+				clz = clz.substr(5, 1);
+				var i = parseInt(clz) + 1;
+				$(this).addClass("on").siblings().removeClass("on");
+				$(".left-tab_" + String(i)).css("display", "block");
+				$(".left-tab_" + String(i)).siblings().css("display", "none");
+				console.log(".left-tab_" + String(i));
+			});
+
+			$("#product-body .floor_tab_bang .tab_aa li").hover(function () {
+				var clz = $(this).attr("class");
+				clz = clz.substr(5, 1);
+				var i = parseInt(clz) + 1;
+				$(this).addClass("on").siblings().removeClass("on");
+				$(".floor_tab_bang .tab_" + String(i)).css("display", "block");
+				$(".floor_tab_bang .tab_" + String(i)).siblings().css("display", "none");
+			});
+
+			$("#product-body .list_ab .bar").hover(function () {
+				var clz = $(this).attr("class");
+				clz = clz.substr(4, 2);
+				$(this).addClass("hidden");
+				$(this).siblings().removeClass("hidden");
+				$(this).next().attr("style", "display:list-item;");
+				$(this).next().siblings(".item").css("display", "none");
+
+			});
+		});
+	</script>
+	<div id="outer">
+	<div id="product-body">
 		<div class="book_new " type="ajax" page_id="317715" domain="mixpage.dangdang.com" areaid="0" page_type="3" areatype="0"
 			name="m3208542_pid0_t15677" dd_name="图书A版" hvid="31192" component_map_id="3208542" ddt-area="3208542" is_loaded="true">
 			<!-- use cache-->
@@ -937,7 +944,7 @@
 
 
 
-									<!-- <div class="btn_brand_prev" type="rollpre" style="display: none;"></div>
+									 <div class="btn_brand_prev" type="rollpre" style="display: none;"></div>
 										<div class="btn_brand_next" type="rollnext" style="display: none;"></div>
 										<ul class="mix_marquee_tab" style="margin-left: -12px;">
 											<li class="current">1</li>
@@ -953,7 +960,7 @@
 													 target="_blank" class="pic" title="童书5月新书速递" dd_src="lcbanner-1556618423_b9a441d70e1f9f79" dd_name="图书A版_轮播banner区_TAB1"><img
 														 src="http://img60.ddimg.cn/upload_img/00678/zsts/lcbanner-1556618423.jpg" alt="童书5月新书速递" ddt-src="lcbanner-1556618423_b9a441d70e1f9f79"></a></li>
 											</ul>
-										</div> -->
+										</div> 
 								</div>
 								<div class="book_upper2 " name="m3208542_pid9370_9354_9348_t15680">
 									<ul class="list_aa " id="component_3208542__9370_9354_9348_9346__9346" ddt-area="9346">
@@ -2028,6 +2035,6 @@
 			</div>
 		</div>
 	</div>
-	<link href="IndexStyle/default-product-list.css" rel="stylesheet" />
+	</div>
 	<br />
 </asp:Content>
