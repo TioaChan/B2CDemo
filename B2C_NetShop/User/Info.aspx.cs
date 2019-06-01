@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data;
 using B2C_NetShop.App_Start;
 using System.IO;
+using System.Web.Services;
 
 namespace B2C_NetShop.User
 {
@@ -100,7 +101,7 @@ namespace B2C_NetShop.User
 
 		protected void Button_SetNewAddress_Click(object sender, EventArgs e)
 		{
-			String sql = "update User_Address set RealName=@RealName,PostCode=@PostCode,Address=@Address,PhoneNumber=@PhoneNumber where UID=@uid";
+			String sql = "insert into  User_Address (UID,RealName,PostCode,Address,PhoneNumber) values (@uid,@RealName,@PostCode,@Address,@PhoneNumber)";
 			SqlParameter[] parameters2 = {
 				new SqlParameter("@RealName", TextBox_RealName.Text.Trim()),
 				new SqlParameter("@PostCode", TextBox_PostCode.Text.Trim()),
@@ -115,7 +116,7 @@ namespace B2C_NetShop.User
 			}
 			else
 			{
-				Response.Write("<script type='text/javascript'>alert('修改失败！');location='Info.aspx';</script>");
+				Response.Write("<script type='text/javascript'>alert('修改失败！');location='Info.aspx;</script>");
 			}
 		}
 
@@ -219,20 +220,14 @@ namespace B2C_NetShop.User
 
 		public void BindUserAddress()
 		{
-			String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID=@uid";
+			String sql = "select id,RealName,PostCode,Address,PhoneNumber,IsSelected from User_Address where UID=@uid order by AddTime DESC";
 			SqlParameter[] parameters = {
 				new SqlParameter("@uid",Session["uid"].ToString())
 				 };
 			DataSet ds = operate.GetTable(sql, parameters);
 			ds.Dispose();
-			String realname = ds.Tables[0].Rows[0][0].ToString();
-			String postcode = ds.Tables[0].Rows[0][1].ToString();
-			String address = ds.Tables[0].Rows[0][2].ToString();
-			String phone = ds.Tables[0].Rows[0][3].ToString();
-			TextBox_RealName.Text = realname;
-			TextBox_PostCode.Text = postcode;
-			TextBox_Address.Text = address;
-			TextBox_PhoneNum.Text = phone;
+			DataList_Address.DataSource = ds.Tables[0];
+			DataList_Address.DataBind();
 		}
 
 		public void BindDataList()
@@ -275,6 +270,52 @@ namespace B2C_NetShop.User
 			DataList1.DataBind();
 		}
 
-		
+		protected void DataList_Address_UpdateCommand(object source, DataListCommandEventArgs e)
+		{
+			int id = Convert.ToInt32(e.CommandArgument);
+			String procName = "SetUserDefaultAddress";
+			SqlParameter[] parameters =
+			{
+					new SqlParameter("@uid",Session["uid"].ToString()),
+					new SqlParameter("@id",id)
+				};
+			decimal i = operate.Proc(procName, parameters);
+			if (i == 0)
+			{
+				BindUserAddress();
+				MultiView1.SetActiveView(View_Address);
+			}
+			else if (i == -1)
+			{
+				BindUserAddress();
+				MultiView1.SetActiveView(View_Address);
+			}
+		}
+
+		protected void DataList_Address_DeleteCommand(object source, DataListCommandEventArgs e)
+		{
+			int id = Convert.ToInt32(e.CommandArgument);
+			string sql = "delete from User_Address where id=@id and uid=@uid";
+			SqlParameter[] parameters ={
+				new SqlParameter("@id",id),
+				new SqlParameter("@uid",Session["uid"].ToString())
+			};
+			int i = operate.OperateData(sql, parameters);
+			if (i == 1)
+			{
+				Response.Write("<script type='text/javascript'>alert('修改成功！');</script>");
+				BindUserAddress();
+				MultiView1.SetActiveView(View_Address);
+			}
+			else
+			{
+				Response.Write("<script type='text/javascript'>alert('修改失败');</script>");
+			}
+		}
+
+		protected void DataList_Address_EditCommand(object source, DataListCommandEventArgs e)
+		{
+			int id = Convert.ToInt32(e.CommandArgument);
+		}
 	}
 }

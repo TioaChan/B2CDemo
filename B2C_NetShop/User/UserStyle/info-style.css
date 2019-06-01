@@ -313,6 +313,39 @@ div.card-body label {
 	.card .card-body {
 		padding: 1.88rem 1.81rem;
 	}
+.tb_address_tbox{
+max-width:none;
+}
 
 
-
+#MainContent_DataList_Address > span, #newaddress {
+	border: 1px #eaeaea solid;
+	margin: 20px;
+	display: block;
+	width: 400px;
+	height: 240px;
+	float: left;
+	border-radius:4px;
+	padding:15px;
+}
+	#MainContent_DataList_Address > span:hover {
+		box-shadow: 4px 4px 10px #cdcdcd;
+	}
+	#newaddress:hover {
+		box-shadow: 4px 4px 10px #cdcdcd;
+	}
+.receiver_name{
+border-bottom:1px #efefef solid;
+display:block;
+height:50px;
+padding-top:20px;
+}
+.btn-ctrl{
+background:none;
+border:none;
+}
+#address-ctrl-panel{
+display:block;
+margin-top:30px;
+text-align:right;
+}

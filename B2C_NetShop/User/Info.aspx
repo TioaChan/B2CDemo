@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="个人信息" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="Info.aspx.cs" Inherits="B2C_NetShop.User.Info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-	<%# Eval("order_id") %>
 	<link href="UserStyle/info-style.css" rel="stylesheet" />
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<h2 style="background: red; display: none; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
@@ -137,31 +136,38 @@
 								</div>
 							</asp:View>
 							<asp:View ID="View_Address" runat="server">
-								<div>
+								<div class="card-body-new">
+									<h4>收货地址管理</h4>
 									<div>
-										<div class="card-body-new">
-											<h4>收货地址更新</h4>
-											<div class="form-group">
-												<label>真实姓名</label>
-												<br />
-												<asp:TextBox ID="TextBox_RealName" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-											</div>
-											<div class="form-group">
-												<label>邮政编码</label>
-												<br />
-												<asp:TextBox ID="TextBox_PostCode" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-											</div>
-											<div class="form-group">
-												<label>电话号码</label>
-												<br />
-												<asp:TextBox ID="TextBox_PhoneNum" CssClass="tb_address_tbox" runat="server"></asp:TextBox>
-											</div>
-											<div class="form-group">
-												<label>收货地址</label>
-												<br />
-												<asp:TextBox ID="TextBox_Address" CssClass="tb_address_tbox" runat="server" Height="80px" TextMode="MultiLine"></asp:TextBox>
-											</div>
-											<asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 修 改 " OnClick="Button_SetNewAddress_Click" />
+										<p>已有收货地址</p>
+										<div id="div_address">
+											<asp:DataList ID="DataList_Address" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" OnUpdateCommand="DataList_Address_UpdateCommand" OnDeleteCommand="DataList_Address_DeleteCommand" OnEditCommand="DataList_Address_EditCommand">
+												<ItemTemplate>
+													<p class="receiver_name">
+														<%# Eval("RealName") %>
+													</p>
+													<p class="receiver_address">
+														<%# Eval("Address") %>
+													</p>
+													<p class="receiver_number">
+														电话：<%# Eval("PhoneNumber") %></p>
+													<p class="receiver_postcode">
+														邮编：<%# Eval("PostCode") %></p>
+													<span id="address-ctrl-panel">
+													<asp:Button ID="Button1" runat="server" Text='<%# Eval("IsSelected").ToString()=="True"?"已设为默认":"设为默认" %>' CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>' CommandName="Update" Enabled='<%# Eval("IsSelected").ToString()=="True"? false:true %> ' />
+													<asp:Button ID="Button2" runat="server" Text="修改" CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>'  CommandName="Edit"/>
+													<asp:Button ID="Button3" runat="server" Text="删除" CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>' CommandName="Delete" />
+													</span>
+												</ItemTemplate>
+											</asp:DataList>
+											<span id="newaddress">
+												<asp:TextBox ID="TextBox_RealName" placeholder="真实姓名" runat="server"></asp:TextBox>
+												<asp:TextBox ID="TextBox_PostCode" placeholder="邮政编码" runat="server"></asp:TextBox>
+												<asp:TextBox ID="TextBox_PhoneNum" placeholder="电话号码" runat="server"></asp:TextBox>
+												<asp:TextBox ID="TextBox_Address" placeholder="收货地址" runat="server" Height="80px" TextMode="MultiLine" Width="480px"></asp:TextBox>
+												<asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 添 加 " OnClick="Button_SetNewAddress_Click" />
+											</span>
+											<div class="clear"></div>
 										</div>
 									</div>
 								</div>
@@ -281,6 +287,8 @@
 						<asp:PostBackTrigger ControlID="Button_SetNewNickName" />
 						<asp:PostBackTrigger ControlID="btn_setNewUserImg" />
 						<asp:PostBackTrigger ControlID="Button_SetNewPWD" />
+						<asp:PostBackTrigger ControlID="Button_SetNewAddress" />
+						<asp:PostBackTrigger ControlID="DataList_Address" />
 					</Triggers>
 				</asp:UpdatePanel>
 				<script type="text/javascript"> 
@@ -290,8 +298,6 @@
 					}
 				</script>
 
-
-				<%# Eval("order_price") %>
 			</div>
 		</div>
 		<div class="clear" id="div_clr">
