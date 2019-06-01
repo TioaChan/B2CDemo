@@ -79,5 +79,19 @@ namespace B2C_NetShop.Goods
 				Response.Write("<script>alert('用户名或密码错误')</script>");
 			}
 		}
+
+		protected void btn_plus_Click(object sender, EventArgs e)
+		{
+			int num = Convert.ToInt32(TextBox_booknum.Text.ToString());
+			TextBox_booknum.Text = Convert.ToString(num + 1);
+		}
+
+		protected void btn_minus_Click(object sender, EventArgs e)
+		{
+			int num = Convert.ToInt32(TextBox_booknum.Text.ToString());
+			if (num >1){
+				TextBox_booknum.Text = Convert.ToString(num - 1);
+			}
+		}
 	}
 }

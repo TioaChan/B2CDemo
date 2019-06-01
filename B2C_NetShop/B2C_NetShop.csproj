@@ -168,6 +168,7 @@
     <Content Include="Goods\img\10.jpg" />
     <Content Include="Goods\img\11.jpg" />
     <Content Include="Goods\img\12.jpg" />
+    <Content Include="Goods\Style\Detail.css" />
     <Content Include="img\ad_banner.jpg" />
     <Content Include="img\DefaultImg\4.jpg" />
     <Content Include="img\DefaultImg\5.jpg" />
