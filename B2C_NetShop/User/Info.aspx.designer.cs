@@ -220,6 +220,33 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.DataList DataList_Address;
         
         /// <summary>
+        /// Button_SetNewAddress 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_SetNewAddress;
+        
+        /// <summary>
+        /// View_UpdateAddress 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View_UpdateAddress;
+        
+        /// <summary>
+        /// AddressModalTitle 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AddressModalTitle;
+        
+        /// <summary>
         /// TextBox_RealName 控件。
         /// </summary>
         /// <remarks>
@@ -256,13 +283,13 @@ namespace B2C_NetShop.User {
         protected global::System.Web.UI.WebControls.TextBox TextBox_Address;
         
         /// <summary>
-        /// Button_SetNewAddress 控件。
+        /// AddressSubmitBtn 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_SetNewAddress;
+        protected global::System.Web.UI.WebControls.Button AddressSubmitBtn;
         
         /// <summary>
         /// View_Security 控件。

@@ -154,20 +154,30 @@
 													<p class="receiver_postcode">
 														邮编：<%# Eval("PostCode") %></p>
 													<span id="address-ctrl-panel">
-													<asp:Button ID="Button1" runat="server" Text='<%# Eval("IsSelected").ToString()=="True"?"已设为默认":"设为默认" %>' CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>' CommandName="Update" Enabled='<%# Eval("IsSelected").ToString()=="True"? false:true %> ' />
-													<asp:Button ID="Button2" runat="server" Text="修改" CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>'  CommandName="Edit"/>
-													<asp:Button ID="Button3" runat="server" Text="删除" CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>' CommandName="Delete" />
+														<asp:Button ID="Button1" runat="server" Text='<%# Eval("IsSelected").ToString()=="True"?"已设为默认":"设为默认" %>' CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>' CommandName="Update" Enabled='<%# Eval("IsSelected").ToString()=="True"? false:true %> ' />
+														<asp:Button ID="Button2" runat="server" Text="修改" CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>' CommandName="Edit" />
+														<asp:Button ID="Button3" runat="server" Text="删除" CssClass="btn-ctrl" CommandArgument='<%# Eval("id") %>' CommandName="Delete" />
 													</span>
 												</ItemTemplate>
 											</asp:DataList>
 											<span id="newaddress">
-												<asp:TextBox ID="TextBox_RealName" placeholder="真实姓名" runat="server"></asp:TextBox>
-												<asp:TextBox ID="TextBox_PostCode" placeholder="邮政编码" runat="server"></asp:TextBox>
-												<asp:TextBox ID="TextBox_PhoneNum" placeholder="电话号码" runat="server"></asp:TextBox>
-												<asp:TextBox ID="TextBox_Address" placeholder="收货地址" runat="server" Height="80px" TextMode="MultiLine" Width="480px"></asp:TextBox>
 												<asp:Button ID="Button_SetNewAddress" CssClass="asp_button" runat="server" Text=" 添 加 " OnClick="Button_SetNewAddress_Click" />
 											</span>
 											<div class="clear"></div>
+										</div>
+									</div>
+								</div>
+							</asp:View>
+							<asp:View ID="View_UpdateAddress" runat="server">
+								<div class="card-body-new">
+									<h4>收货地址管理&nbsp;>&nbsp;<asp:Label ID="AddressModalTitle" runat="server" Text="添加新地址"></asp:Label></h4>
+									<div>
+										<div>
+											<asp:TextBox ID="TextBox_RealName" placeholder="真实姓名" runat="server"></asp:TextBox>
+												<asp:TextBox ID="TextBox_PostCode" placeholder="邮政编码" runat="server"></asp:TextBox>
+												<asp:TextBox ID="TextBox_PhoneNum" placeholder="电话号码" runat="server"></asp:TextBox>
+												<asp:TextBox ID="TextBox_Address" placeholder="收货地址" runat="server" Height="80px" TextMode="MultiLine" Width="480px"></asp:TextBox>
+												<asp:Button ID="AddressSubmitBtn" runat="server" Text="提交" CssClass="btn asp_button" OnClick="AddressSubmitBtn_Click" />
 										</div>
 									</div>
 								</div>
@@ -239,7 +249,6 @@
 								</div>
 							</asp:View>
 							<asp:View ID="View_Order" runat="server">
-
 								<div class="userinfo-wrapper">
 									<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
 										<HeaderTemplate>
@@ -274,6 +283,7 @@
 							<asp:View ID="View_Analyze" runat="server">
 								<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
 							</asp:View>
+
 						</asp:MultiView>
 					</ContentTemplate>
 					<Triggers>
@@ -287,8 +297,9 @@
 						<asp:PostBackTrigger ControlID="Button_SetNewNickName" />
 						<asp:PostBackTrigger ControlID="btn_setNewUserImg" />
 						<asp:PostBackTrigger ControlID="Button_SetNewPWD" />
-						<asp:PostBackTrigger ControlID="Button_SetNewAddress" />
 						<asp:PostBackTrigger ControlID="DataList_Address" />
+						<asp:PostBackTrigger ControlID="Button_SetNewAddress" />
+						<asp:PostBackTrigger ControlID="AddressSubmitBtn" />
 					</Triggers>
 				</asp:UpdatePanel>
 				<script type="text/javascript"> 

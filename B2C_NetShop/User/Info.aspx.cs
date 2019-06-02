@@ -17,13 +17,31 @@ namespace B2C_NetShop.User
 	{
 		Database operate = new Database();
 		pageload load = new pageload();
-		//PagedDataSource pds = new PagedDataSource();
-		DataSet ds;
 
+		/// <summary>
+		/// AddressId
+		/// </summary>
+		public int AddressId
+		{
+			get
+			{
+				if (ViewState["AddressId"] != null)
+				{
+					return Convert.ToInt32(ViewState["AddressId"]);
+				}
+				else
+				{
+					return 0;
+				}
+			}
+			set
+			{
+				ViewState["AddressId"] = value;
+			}
+		}
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			String uid = Convert.ToString(Session["uid"]);
-			//String nickname = Convert.ToString(Session["nickname"]);
 			if ("".Equals(uid))
 			{
 				Response.Redirect("~/Account/Login.aspx");
@@ -37,7 +55,6 @@ namespace B2C_NetShop.User
 				load.HyperLinkBind(hl1, hl2, hl3, uid, status);
 				load.HyperLinkBind(hylPersonalInfo, hylAdmin, hl3,uid,status);
 				hylIconPersonalInfo.NavigateUrl = hylPersonalInfo.NavigateUrl;
-
 				if (!IsPostBack)
 				{
 					BindUserInfo();
@@ -49,19 +66,16 @@ namespace B2C_NetShop.User
 
 		protected void Button_TotalView_Click(object sender, EventArgs e)
 		{
-			//BindUserInfo();
 			MultiView1.SetActiveView(View_TotalView);
 		}
 
 		protected void Button_UserInfo_Click(object sender, EventArgs e)
 		{
-			//BindUserInfo();
 			MultiView1.SetActiveView(View_UserInfo);
 		}
 
 		protected void Button_Address_Click(object sender, EventArgs e)
 		{
-			//BindUserAddress();
 			MultiView1.SetActiveView(View_Address);
 		}
 
@@ -78,13 +92,13 @@ namespace B2C_NetShop.User
 		protected void Button_Analyze_Click(object sender, EventArgs e)
 		{
 			MultiView1.SetActiveView(View_Analyze);
-			this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "", "<script>init();</script>", true);
+			Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "", "<script>init();</script>", true);
 		}
 
 		protected void Button_SetNewNickName_Click(object sender, EventArgs e)
 		{
-			String newnickname = TextBox_NewNickName.Text.Trim();
-			String sql = "update User_Info set NickName=@newnickname where UID=@uid";
+			string newnickname = TextBox_NewNickName.Text.Trim();
+			string sql = "update User_Info set NickName=@newnickname where UID=@uid";
 			SqlParameter[] parameters1 = { new SqlParameter("@newnickname", newnickname), new SqlParameter("@uid", Session["UID"].ToString()) };
 			int i = operate.OperateData(sql, parameters1);
 			if (i == 1)
@@ -99,24 +113,126 @@ namespace B2C_NetShop.User
 			}
 		}
 
-		protected void Button_SetNewAddress_Click(object sender, EventArgs e)
+		protected void DataList_Address_UpdateCommand(object source, DataListCommandEventArgs e)
 		{
-			String sql = "insert into  User_Address (UID,RealName,PostCode,Address,PhoneNumber) values (@uid,@RealName,@PostCode,@Address,@PhoneNumber)";
-			SqlParameter[] parameters2 = {
-				new SqlParameter("@RealName", TextBox_RealName.Text.Trim()),
-				new SqlParameter("@PostCode", TextBox_PostCode.Text.Trim()),
-				new SqlParameter("@Address",TextBox_Address.Text.Trim()),
-				new SqlParameter("@PhoneNumber",TextBox_PhoneNum.Text.Trim()),
-				new SqlParameter("@uid", Session["UID"].ToString())
-			};
-			int n = operate.OperateData(sql, parameters2);
-			if (n == 1)
+			int id = Convert.ToInt32(e.CommandArgument);
+			String procName = "SetUserDefaultAddress";
+			SqlParameter[] parameters =
 			{
-				Response.Write("<script type='text/javascript'>alert('修改成功！');location='Info.aspx';</script>");
+					new SqlParameter("@uid",Session["uid"].ToString()),
+					new SqlParameter("@id",id)
+				};
+			decimal i = operate.Proc(procName, parameters);
+			if (i == 0)
+			{
+				BindUserAddress();
+				MultiView1.SetActiveView(View_Address);
+			}
+			else if (i == -1)
+			{
+				BindUserAddress();
+				MultiView1.SetActiveView(View_Address);
+			}
+		}
+
+		protected void DataList_Address_DeleteCommand(object source, DataListCommandEventArgs e)
+		{
+			int id = Convert.ToInt32(e.CommandArgument);
+			string sql = "delete from User_Address where id=@id and uid=@uid";
+			SqlParameter[] parameters ={
+				new SqlParameter("@id",id),
+				new SqlParameter("@uid",Session["uid"].ToString())
+			};
+			int i = operate.OperateData(sql, parameters);
+			if (i == 1)
+			{
+				Response.Write("<script type='text/javascript'>alert('修改成功！');</script>");
+				BindUserAddress();
+				MultiView1.SetActiveView(View_Address);
 			}
 			else
 			{
-				Response.Write("<script type='text/javascript'>alert('修改失败！');location='Info.aspx;</script>");
+				Response.Write("<script type='text/javascript'>alert('修改失败');</script>");
+			}
+		}
+
+		protected void DataList_Address_EditCommand(object source, DataListCommandEventArgs e)
+		{
+			int id = Convert.ToInt32(e.CommandArgument);
+			String sql = "select RealName,PostCode,Address,PhoneNumber from User_Address where UID=@uid and id=@id";
+			SqlParameter[] parameters = {
+				new SqlParameter("@uid",Session["uid"].ToString()),
+				new SqlParameter("@id",id)
+				 };
+			DataSet ds = operate.GetTable(sql, parameters);
+			ds.Dispose();
+			TextBox_RealName.Text = ds.Tables[0].Rows[0][0].ToString();
+			TextBox_PostCode.Text = ds.Tables[0].Rows[0][1].ToString();
+			TextBox_PhoneNum.Text = ds.Tables[0].Rows[0][3].ToString();
+			TextBox_Address.Text = ds.Tables[0].Rows[0][2].ToString();
+			AddressId = id;
+			AddressModalTitle.Text = "修改地址";
+			MultiView1.SetActiveView(View_UpdateAddress);
+		}
+
+
+		protected void Button_SetNewAddress_Click(object sender, EventArgs e)
+		{
+			//规定AddressId为0时为添加新地址，AddressId不为0时为修改ID为AddressId的地址
+			AddressId = 0;
+			AddressModalTitle.Text = "添加新地址";
+			MultiView1.SetActiveView(View_UpdateAddress);
+		}
+
+		protected void AddressSubmitBtn_Click(object sender, EventArgs e)
+		{
+			if(AddressId == 0) //判定为添加地址
+			{
+				String sql = "insert into  User_Address (UID,RealName,PostCode,Address,PhoneNumber) values (@uid,@RealName,@PostCode,@Address,@PhoneNumber)";
+				SqlParameter[] parameters2 = {
+					new SqlParameter("@RealName", TextBox_RealName.Text.Trim()),
+					new SqlParameter("@PostCode", TextBox_PostCode.Text.Trim()),
+					new SqlParameter("@Address",TextBox_Address.Text.Trim()),
+					new SqlParameter("@PhoneNumber",TextBox_PhoneNum.Text.Trim()),
+					new SqlParameter("@uid", Session["UID"].ToString())
+				};
+				int n = operate.OperateData(sql, parameters2);
+				if (n == 1)
+				{
+					Response.Write("<script type='text/javascript'>alert('添加成功！');</script>");
+					BindUserAddress();
+					MultiView1.SetActiveView(View_Address);
+				}
+				else
+				{
+					Response.Write("<script type='text/javascript'>alert('添加失败！');</script>");
+					BindUserAddress();
+					MultiView1.SetActiveView(View_Address);
+				}
+			}
+			else{
+				String sql = "update User_Address set RealName=@RealName,PostCode=@PostCode,Address=@Address,PhoneNumber=@PhoneNumber where UID=@uid and id=@id";
+				SqlParameter[] parameters2 = {
+					new SqlParameter("@RealName", TextBox_RealName.Text.Trim()),
+					new SqlParameter("@PostCode", TextBox_PostCode.Text.Trim()),
+					new SqlParameter("@Address",TextBox_Address.Text.Trim()),
+					new SqlParameter("@PhoneNumber",TextBox_PhoneNum.Text.Trim()),
+					new SqlParameter("@uid", Session["UID"].ToString()),
+					new SqlParameter("@id",AddressId)
+				};
+				int n = operate.OperateData(sql, parameters2);
+				if (n == 1)
+				{
+					Response.Write("<script type='text/javascript'>alert('修改成功！');</script>");
+					BindUserAddress();
+					MultiView1.SetActiveView(View_Address);
+				}
+				else
+				{
+					Response.Write("<script type='text/javascript'>alert('修改失败！');</script>");
+					BindUserAddress();
+					MultiView1.SetActiveView(View_Address);
+				}
 			}
 		}
 
@@ -268,54 +384,6 @@ namespace B2C_NetShop.User
 			}
 			DataList1.DataSource = dtTable.DefaultView;
 			DataList1.DataBind();
-		}
-
-		protected void DataList_Address_UpdateCommand(object source, DataListCommandEventArgs e)
-		{
-			int id = Convert.ToInt32(e.CommandArgument);
-			String procName = "SetUserDefaultAddress";
-			SqlParameter[] parameters =
-			{
-					new SqlParameter("@uid",Session["uid"].ToString()),
-					new SqlParameter("@id",id)
-				};
-			decimal i = operate.Proc(procName, parameters);
-			if (i == 0)
-			{
-				BindUserAddress();
-				MultiView1.SetActiveView(View_Address);
-			}
-			else if (i == -1)
-			{
-				BindUserAddress();
-				MultiView1.SetActiveView(View_Address);
-			}
-		}
-
-		protected void DataList_Address_DeleteCommand(object source, DataListCommandEventArgs e)
-		{
-			int id = Convert.ToInt32(e.CommandArgument);
-			string sql = "delete from User_Address where id=@id and uid=@uid";
-			SqlParameter[] parameters ={
-				new SqlParameter("@id",id),
-				new SqlParameter("@uid",Session["uid"].ToString())
-			};
-			int i = operate.OperateData(sql, parameters);
-			if (i == 1)
-			{
-				Response.Write("<script type='text/javascript'>alert('修改成功！');</script>");
-				BindUserAddress();
-				MultiView1.SetActiveView(View_Address);
-			}
-			else
-			{
-				Response.Write("<script type='text/javascript'>alert('修改失败');</script>");
-			}
-		}
-
-		protected void DataList_Address_EditCommand(object source, DataListCommandEventArgs e)
-		{
-			int id = Convert.ToInt32(e.CommandArgument);
 		}
 	}
 }
