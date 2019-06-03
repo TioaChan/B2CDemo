@@ -170,7 +170,8 @@
 							</asp:View>
 							<asp:View ID="View_UpdateAddress" runat="server">
 								<div class="card-body-new">
-									<h4>收货地址管理&nbsp;>&nbsp;<asp:Label ID="AddressModalTitle" runat="server" Text="添加新地址"></asp:Label></h4>
+									<h4>
+										<asp:Button ID="Button4" runat="server" Text="收货地址管理" OnClick="Button4_Click" CssClass="btn-ctrl" ForeColor="#0066FF" />&nbsp;>&nbsp;<asp:Label ID="AddressModalTitle" runat="server" Text="添加新地址"></asp:Label></h4>
 									<div>
 										<div>
 											<asp:TextBox ID="TextBox_RealName" placeholder="真实姓名" runat="server"></asp:TextBox>

@@ -1,0 +1,112 @@
+﻿.settltment_btn {
+	Height: 40px;
+	Width: 140px;
+	background-color: red;
+	color: white;
+	border: none;
+	text-align: center;
+}
+
+#content_main {
+	height: auto;
+	display: block;
+}
+
+#div_title {
+	width: 100%;
+	height: 40px;
+	display: block;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 16px;
+	font-family: '微软雅黑 Light';
+}
+
+#order_info {
+	border: 1px solid #f0f0f0;
+	width: 90%;
+	height: auto;
+	display: block;
+	padding: 10px 10px 30px 10px;
+	margin: 10px 10px 10px 10px;
+}
+
+#info1_1 {
+	font-family: Tahoma;
+	font-size: 14px;
+	float: left;
+}
+
+#info1_2 {
+	float: right;
+	font-family: Tahoma;
+	font-size: 14px;
+}
+
+#info1_detail {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+#info2 {
+	margin-top: 10px
+}
+
+#info2_1 {
+	font-family: Tahoma;
+	font-size: 14px;
+}
+
+#info2_detail {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+#info3 {
+	margin-top: 10px;
+}
+
+#info3_1 {
+	font-family: Tahoma;
+	font-size: 14px;
+}
+
+#info3_detail {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+#Gcart_previwe {
+	text-align: center;
+	padding-top: 15px;
+	padding-left: 10px;
+}
+
+#info4 {
+	margin-top: 10px
+}
+
+#info4_1 {
+	font-family: Tahoma;
+	font-size: 14px;
+}
+
+#info4_detail {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+#order_money {
+	width: 90%;
+	display: block;
+	padding: 10px 10px 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+.clear {
+	clear: both;
+}
