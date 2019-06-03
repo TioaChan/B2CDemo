@@ -2,20 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 	<link href="css/getOrderInfo.css" rel="stylesheet" />
-	<div id="content_main" runat="server">
-		<div id="div_title">
+	<div class="orderinfo-container">
+		<div class="orderinfo-frame-title">
 			填写并核对订单信息
 		</div>
-		<div id="order_info">
-			<div id="info1">
-				<div>
-					<div id="info1_1">
-						收货人信息：
-					</div>
-					<div id="info1_2"></div>
-					<div class="clear"></div>
-				</div>
-				<div id="info1_detail">
+		<div class="orderinfo-content">
+			<div class="orderinfo-address-frame orderinfo-frame">
+				<div class="frame-title">收货人信息：</div>
+				<div class="orderinfo-address-default frame-content">
 					<asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" Width="90%">
 						<ItemTemplate>
 							&nbsp;<asp:Label ID="RealNameLabel" runat="server" Text='<%# Eval("RealName") %>' />
@@ -35,31 +29,24 @@
 						</SelectParameters>
 					</asp:SqlDataSource>
 				</div>
+				<div class="orderinfo-address-overview frame-content">1</div>
 			</div>
-			<div id="info2">
-				<div>
-					<div id="info2_1">
-						支付方式：
-					</div>
-				</div>
-				<div id="info2_detail">
-					<asp:RadioButton ID="RadioButton1" runat="server" Text="余额支付" Font-Names="Tahoma"
-						Font-Size="12px" />
+			<div class="orderinfo-payment-frame orderinfo-frame">
+				<div class="frame-title">支付方式：</div>
+				<div class="orderinfo-payment frame-content">
+					<asp:RadioButton ID="RadioButton1" runat="server" Text="余额支付" Font-Names="Tahoma" Font-Size="12px" />
 				</div>
 			</div>
-			<div id="info3">
-				<div>
-					<div id="info3_1">
-						送货清单：
-					</div>
+			<div class="orderinfo-deliverymethod-frame orderinfo-frame">
+			<div class="frame-title">配送方式：</div>
+				<div class="orderinfo-deliverymethod frame-content">
+					<asp:RadioButton ID="RadioButton2" runat="server" Font-Names="Tahoma" Font-Size="12px" Text="EMS经济快递" />
 				</div>
-				<div id="info3_detail">
-					<asp:RadioButton ID="RadioButton2" runat="server" Font-Names="Tahoma" Font-Size="12px"
-						Text="EMS经济快递" />
-				</div>
-				<div>
-					<div id="Gcart_previwe" runat="server">
-						<asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False"
+			</div>
+			<div class="orderinfo-goods-frame orderinfo-frame">
+				<div class="frame-title">送货清单：</div>
+				<div class="orderinfo-goods">
+					<asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False"
 							AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
 							<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
 							<Columns>
@@ -107,34 +94,45 @@
 							<SortedDescendingCellStyle BackColor="#FFFDF8" />
 							<SortedDescendingHeaderStyle BackColor="#6F8DAE" />
 						</asp:GridView>
-					</div>
 				</div>
 			</div>
-			<div id="info4">
-				<div>
-					<div id="info4_1">
-						发票信息：
-					</div>
+			<div class="orderinfo-invoice-frame orderinfo-frame">
+				<div class="frame-title">
+					发票信息：
 				</div>
-				<div id="info4_detail">
+				<div class="orderinfo-invoice frame-content">
 					<asp:RadioButton ID="RadioButton3" runat="server" Font-Names="Tahoma" Font-Size="12px"
 						Text="纸质普通发票" />
 				</div>
 			</div>
 		</div>
-		<div id="order_money">
-			<div style="text-align: right; margin-top: 10px; margin-bottom: 10px;">
-				<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>件商品，总额：<asp:Label ID="Label1"
-					runat="server" Text="Label"></asp:Label>
-			</div>
-			<div style="">
-				<div style="text-align: right; margin-top: 10px; margin-bottom: 10px;">
-					应付总额：<asp:Label ID="Label3"
-						runat="server" Text="Label" Font-Size="18px" ForeColor="Red"></asp:Label>
+		<div class="orderinfo-controlpanel-frame">
+			<div class="orderinfo-controlpanel-amont">
+				<div class="orderinfo-overview-goodscount">
+					<span class="orderinfo-overview-mark">
+						<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>件商品，总额：
+					</span>
+					<asp:Label ID="Label1" runat="server" Text="Label" CssClass="orderinfo-overview-mark-right" ></asp:Label>
+					<div class="clear"></div>
 				</div>
-				<div>
-					<div style="text-align: right; margin-top: 10px; margin-bottom: 10px; display: block; float: right">
-						<asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource1">
+				<div class="orderinfo-overview-goodsfreight">
+					<span class="orderinfo-overview-mark">运费：</span>
+					<asp:Label ID="Label4" runat="server" Text="Label" CssClass="orderinfo-overview-mark-right" ></asp:Label>
+					<div class="clear"></div>
+				</div>
+				<div class="orderinfo-overview-goodsoffer">
+					<span class="orderinfo-overview-mark">优惠：</span>
+					<asp:Label ID="Label5" runat="server" Text="Label" CssClass="orderinfo-overview-mark-right" ></asp:Label>
+					<div class="clear"></div>
+				</div>
+			</div>
+				<div class="orderinfo-overview">
+					<div class="orderinfo-overview-price">
+						<span  class="orderinfo-overview-mark">应付总额：</span>
+						<asp:Label ID="Label3" runat="server" Text="Label" Font-Size="18px" ForeColor="Red" CssClass="orderinfo-overview-mark-right"></asp:Label><div class="clear"></div>
+					</div>
+					<div>
+						<asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource1" RepeatLayout="Flow" RepeatDirection="Horizontal" RepeatColumns="1">
 							<ItemTemplate>
 								寄送至：<asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
 								&nbsp; 收货人：
@@ -144,14 +142,8 @@
 							</ItemTemplate>
 						</asp:DataList>
 					</div>
-					<div style="float: left"><a href="../Goods/cart.aspx">返回购物车查看</a></div>
-					<div style="clear: both"></div>
 				</div>
-				<div style="margin: 10px; padding: 10px; text-align: right;">
-					<asp:Button ID="Button1" runat="server" CssClass="settltment_btn" Text="结算"
-						OnClick="Button1_Click" />
-				</div>
-			</div>
+				<asp:Button ID="Button1" runat="server" CssClass="settltment_btn" Text="结算" OnClick="Button1_Click" /><div class="clear"></div>
 		</div>
 	</div>
 </asp:Content>
