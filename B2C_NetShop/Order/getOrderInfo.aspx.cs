@@ -14,7 +14,26 @@ namespace B2C_NetShop.Order
 {
     public partial class getOrderInfo : System.Web.UI.Page
     {
-        pageload load = new pageload();
+		public int AddressId
+		{
+			get
+			{
+				if (ViewState["AddressId"] != null)
+				{
+					return Convert.ToInt32(ViewState["AddressId"]);
+				}
+				else
+				{
+					return 0;
+				}
+			}
+			set
+			{
+				ViewState["AddressId"] = value;
+			}
+		}
+
+		pageload load = new pageload();
         Database operate = new Database();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,7 +50,10 @@ namespace B2C_NetShop.Order
             load.HyperLinkBind(hl1, hl2, hl3, uid, status);
             if (!IsPostBack)
             {
-                BindCartList();
+				BindDataListAddressList();
+				BindDataListAddressSelected();
+				//BindDataListAddress(0, DataList_Address_All);
+				BindCartList();
             }
         }
 
@@ -95,24 +117,42 @@ namespace B2C_NetShop.Order
             Label2.Text = i1.ToString();
         }
 
+		protected void BindDataListAddressList(){
+			string sql = "select id,RealName,PhoneNumber,Address,PostCode,IsSelected from User_Address where UID=@uid Order by IsSelected DESC";
+			SqlParameter[] parameters ={
+				new SqlParameter ("@uid",Session["UID"].ToString()),
+			};
+			DataSet ds = operate.GetTable(sql, parameters);
+			AddressId = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+			ds.Dispose();
+			DataList_AddressList.DataSource = ds.Tables[0];
+			DataList_AddressList.DataBind();
+		}
+		protected void BindDataListAddressSelected(){
+			string sql = "select id,RealName,PhoneNumber,Address,PostCode,IsSelected from User_Address where UID=@uid and id=@id";
+			SqlParameter[] parameters ={
+				new SqlParameter ("@uid",Session["UID"].ToString()),
+				new SqlParameter("@id",AddressId)
+			};
+			DataSet ds = operate.GetTable(sql, parameters);
+			ds.Dispose();
+			DataList_Address_Selected.DataSource = ds.Tables[0];
+			DataList_Address_Selected.DataBind();
+		}
 		protected void Button1_Click(object sender, EventArgs e)
 		{
-
-			String totalprice1 = Label3.Text.ToString();
-			String totalprice = totalprice1.Replace("￥", "");//获取总价
-			String uid = Session["UID"].ToString();
-			String order_date = DateTime.Now.ToLocalTime().ToString();
-			String order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
-			String todo = "功能未实现";
-			String sql2 = "insert into Cart_Info " +
-				"(order_id,UID,receiver_address,receiver_name,receiver_phone,order_date,isSend,isPay,order_price) " +
-				"values (@orderid,@uid,@receiver_address,@receiver_name,@receiver_phone,@order_date,@isSend,@isPay,@order_price)";
+			string totalprice1 = Label3.Text.ToString();
+			string totalprice = totalprice1.Replace("￥", "");//获取总价
+			string uid = Session["UID"].ToString();
+			string order_date = DateTime.Now.ToLocalTime().ToString();
+			string order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
+			string sql2 = "insert into Cart_Info " +
+				"(order_id,UID,receiver_address_id,order_date,isSend,isPay,order_price) " +
+				"values (@orderid,@uid,@receiver_address_id,@order_date,@isSend,@isPay,@order_price)";
 			SqlParameter[] parameters3 = {
 				new SqlParameter("@orderid",order_id),
 				new SqlParameter("@uid",uid),
-				new SqlParameter("@receiver_address",todo),
-				new SqlParameter("@receiver_name",todo),
-				new SqlParameter("@receiver_phone",todo),
+				new SqlParameter("@receiver_address_id",AddressId),
 				new SqlParameter("@order_date",order_date),
 				new SqlParameter("@isSend",'0'),
 				new SqlParameter("@isPay",'0'),
@@ -122,10 +162,10 @@ namespace B2C_NetShop.Order
 			Hashtable hashCart = (Hashtable)Session["ShopCart"];
 			foreach (object key in hashCart.Keys)
 			{
-				String id1 = key.ToString();
-				String bookid = id1.Replace("id=", "");   //获取id ，纯数字
-				String booknum = hashCart[key].ToString(); //获取数量
-				String sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum,uid) values(@orderid,@bookid,@booknum,@uid)";
+				string id1 = key.ToString();
+				string bookid = id1.Replace("id=", "");   //获取id ，纯数字
+				string booknum = hashCart[key].ToString(); //获取数量
+				string sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum,uid) values(@orderid,@bookid,@booknum,@uid)";
 				SqlParameter[] parameters1 = {
 					new SqlParameter("@orderid",order_id),
 					new SqlParameter("@bookid",bookid),
@@ -135,6 +175,13 @@ namespace B2C_NetShop.Order
 				operate.OperateData(sql1, parameters1);
 			}
 			Response.Redirect("~/Order/confirm.aspx?orderid=" + order_id + "");
+		}
+
+		protected void DataList_AddressList_UpdateCommand(object source, DataListCommandEventArgs e)
+		{
+			int id = Convert.ToInt32(e.CommandArgument);
+			AddressId = id;
+			BindDataListAddressSelected();
 		}
 	}
 }

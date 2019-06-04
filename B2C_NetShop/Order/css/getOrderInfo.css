@@ -38,13 +38,15 @@
 	margin: 20px 0;
 	text-align: right;
 }
+
 .orderinfo-overview {
 	background-color: #eaeaea;
 	padding: 0 20px 10px 20px;
 }
+
 .orderinfo-controlpanel-amont {
-	padding:0 20px;
-	margin:0 0 10px 0;
+	padding: 0 20px;
+	margin: 0 0 10px 0;
 }
 
 .orderinfo-overview-mark {
@@ -53,13 +55,15 @@
 	float: left;
 	margin-left: 910px;
 }
+
 .orderinfo-overview-mark-right {
 	width: 80px;
 	display: block;
 	float: left;
 }
-.orderinfo-overview-price{
-	padding:10px 0;
+
+.orderinfo-overview-price {
+	padding: 10px 0;
 }
 
 .settltment_btn {
@@ -70,8 +74,27 @@
 	border: none;
 	text-align: center;
 	display: block;
-	float:right;
-	margin:10px 10px;
+	float: right;
+	margin: 10px 10px;
+}
+
+.btn-selected {	
+	border-color: red;
+}
+
+.btn-noselected {
+	border-color: #eaeaea;
+}
+
+.btn-selected, .btn-noselected {
+	background: none;
+	max-width:none;
+	width:120px;
+	
+}
+#MainContent_DataList_AddressList > span {
+	margin: 0 0 10px 0;
+	display: block;
 }
 
 .clear {

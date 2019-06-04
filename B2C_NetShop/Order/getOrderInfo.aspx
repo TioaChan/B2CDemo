@@ -10,26 +10,17 @@
 			<div class="orderinfo-address-frame orderinfo-frame">
 				<div class="frame-title">收货人信息：</div>
 				<div class="orderinfo-address-default frame-content">
-					<asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" Width="90%">
+					<asp:DataList ID="DataList_AddressList" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" OnUpdateCommand="DataList_AddressList_UpdateCommand">
 						<ItemTemplate>
-							&nbsp;<asp:Label ID="RealNameLabel" runat="server" Text='<%# Eval("RealName") %>' />
-							&nbsp;&nbsp;
-					<asp:Label ID="PostCodeLabel" runat="server" Text='<%# Eval("PostCode") %>' />
-							&nbsp;
-					<asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-							&nbsp;
-					<asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Eval("PhoneNumber") %>' />
+							<asp:Button ID="DataList_AddressList_Name" CssClass='<%# Eval("IsSelected").ToString()=="True"? "btn-selected":"btn-noselected" %>' runat="server" Text='<%# Eval("RealName") %>' CommandArgument='<%# Eval("id") %>' CommandName="Update" />
+							<span class="DataList_Address">
+								<asp:Label ID="DataList_AddressList_Address_Name" CssClass="AddressInfo" runat="server" Text='<%# Eval	("RealName") %>' />
+								<asp:Label ID="DataList_AddressList_Address_Address" CssClass="AddressInfo"  runat="server" Text='<%# Eval	("Address") %>' />
+								<asp:Label ID="DataList_AddressList_Address_Phone" CssClass="AddressInfo"  runat="server" Text='<%# Eval("PhoneNumber") %>' />
+							</span>
 						</ItemTemplate>
 					</asp:DataList>
-					<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>"
-						SelectCommand="SELECT [RealName], [PostCode], [Address], [PhoneNumber] FROM [User_Address] WHERE
-					([UID] = @UID)">
-						<SelectParameters>
-							<asp:SessionParameter Name="UID" SessionField="UID" Type="String" />
-						</SelectParameters>
-					</asp:SqlDataSource>
 				</div>
-				<div class="orderinfo-address-overview frame-content">1</div>
 			</div>
 			<div class="orderinfo-payment-frame orderinfo-frame">
 				<div class="frame-title">支付方式：</div>
@@ -132,15 +123,13 @@
 						<asp:Label ID="Label3" runat="server" Text="Label" Font-Size="18px" ForeColor="Red" CssClass="orderinfo-overview-mark-right"></asp:Label><div class="clear"></div>
 					</div>
 					<div>
-						<asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource1" RepeatLayout="Flow" RepeatDirection="Horizontal" RepeatColumns="1">
-							<ItemTemplate>
-								寄送至：<asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-								&nbsp; 收货人：
-						<asp:Label ID="RealNameLabel" runat="server" Text='<%# Eval("RealName") %>' />
-								&nbsp;
-						<asp:Label ID="PhoneNumberLabel" runat="server" Text='<%# Eval("PhoneNumber") %>' />
-							</ItemTemplate>
-						</asp:DataList>
+					<asp:DataList ID="DataList_Address_Selected" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal" RepeatColumns="1">
+						<ItemTemplate>
+							<asp:Label ID="DataList_Address_Selected_Address_Name" CssClass="AddressInfo" runat="server" Text='<%# Eval("RealName") %>' />
+							<asp:Label ID="DataList_Address_Selected_Address_Address" CssClass="AddressInfo"  runat="server" Text='<%# Eval("Address") %>' />
+							<asp:Label ID="DataList_Address_Selected_Address_Phone" CssClass="AddressInfo"  runat="server" Text='<%# Eval("PhoneNumber") %>' />
+						</ItemTemplate>
+					</asp:DataList>
 					</div>
 				</div>
 				<asp:Button ID="Button1" runat="server" CssClass="settltment_btn" Text="结算" OnClick="Button1_Click" /><div class="clear"></div>
