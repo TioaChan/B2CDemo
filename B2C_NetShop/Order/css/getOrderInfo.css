@@ -29,8 +29,6 @@
 	border-bottom: none;
 }
 
-.orderinfo-goods {}
-
 .orderinfo-controlpanel-frame {
 	margin: 20px 0;
 	text-align: right;
@@ -75,32 +73,14 @@
 	margin: 10px 10px;
 }
 
-.btn-selected {
-	border: 1px red solid !important;
-}
-
-.btn-noselected {
-	border: 1px #eaeaea solid !important;
-}
-
-.btn-selected,
-.btn-noselected {
-	background-color: white;
-	max-width: none;
-	width: 120px;
-	border: none;
-}
-
 #MainContent_DataList_AddressList>span {
 	margin: 0 0 10px 0;
 	display: block;
 }
 
 .DataList_Address{
-padding-left:20px;
+	padding-left:20px;
 }
-
-
 
 .clear {
 	clear: both;
