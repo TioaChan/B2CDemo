@@ -52,7 +52,6 @@ namespace B2C_NetShop.Order
             {
 				BindDataListAddressList();
 				BindDataListAddressSelected();
-				//BindDataListAddress(0, DataList_Address_All);
 				BindCartList();
             }
         }
@@ -116,14 +115,12 @@ namespace B2C_NetShop.Order
             int i1 = i - 1;
             Label2.Text = i1.ToString();
         }
-
 		protected void BindDataListAddressList(){
 			string sql = "select id,RealName,PhoneNumber,Address,PostCode,IsSelected from User_Address where UID=@uid Order by IsSelected DESC";
 			SqlParameter[] parameters ={
 				new SqlParameter ("@uid",Session["UID"].ToString()),
 			};
 			DataSet ds = operate.GetTable(sql, parameters);
-			AddressId = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
 			ds.Dispose();
 			DataList_AddressList.DataSource = ds.Tables[0];
 			DataList_AddressList.DataBind();
@@ -141,46 +138,60 @@ namespace B2C_NetShop.Order
 		}
 		protected void Button1_Click(object sender, EventArgs e)
 		{
-			string totalprice1 = Label3.Text.ToString();
-			string totalprice = totalprice1.Replace("￥", "");//获取总价
-			string uid = Session["UID"].ToString();
-			string order_date = DateTime.Now.ToLocalTime().ToString();
-			string order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
-			string sql2 = "insert into Cart_Info " +
-				"(order_id,UID,receiver_address_id,order_date,isSend,isPay,order_price) " +
-				"values (@orderid,@uid,@receiver_address_id,@order_date,@isSend,@isPay,@order_price)";
-			SqlParameter[] parameters3 = {
-				new SqlParameter("@orderid",order_id),
-				new SqlParameter("@uid",uid),
-				new SqlParameter("@receiver_address_id",AddressId),
-				new SqlParameter("@order_date",order_date),
-				new SqlParameter("@isSend",'0'),
-				new SqlParameter("@isPay",'0'),
-				new SqlParameter("@order_price",totalprice)
-			};
-			operate.OperateData(sql2, parameters3);
-			Hashtable hashCart = (Hashtable)Session["ShopCart"];
-			foreach (object key in hashCart.Keys)
+			if (Convert.ToString(AddressId) == "0")
 			{
-				string id1 = key.ToString();
-				string bookid = id1.Replace("id=", "");   //获取id ，纯数字
-				string booknum = hashCart[key].ToString(); //获取数量
-				string sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum,uid) values(@orderid,@bookid,@booknum,@uid)";
-				SqlParameter[] parameters1 = {
-					new SqlParameter("@orderid",order_id),
-					new SqlParameter("@bookid",bookid),
-					new SqlParameter("@booknum",booknum),
-					new SqlParameter("@uid",uid)
-				};
-				operate.OperateData(sql1, parameters1);
+				Response.Write("<script>alert('"+"请先选择收货地址"+"')</script>");
 			}
-			Response.Redirect("~/Order/confirm.aspx?orderid=" + order_id + "");
+			else
+			{
+				string totalprice1 = Label3.Text.ToString();
+				string totalprice = totalprice1.Replace("￥", "");//获取总价
+				string uid = Session["UID"].ToString();
+				string order_date = DateTime.Now.ToLocalTime().ToString();
+				string order_id = DateTime.Now.ToFileTimeUtc().ToString() + uid; //定义订单号
+				string sql2 = "insert into Cart_Info " +
+					"(order_id,UID,receiver_address_id,order_date,isSend,isPay,order_price) " +
+					"values (@orderid,@uid,@receiver_address_id,@order_date,@isSend,@isPay,@order_price)";
+				SqlParameter[] parameters3 = {
+					new SqlParameter("@orderid",order_id),
+					new SqlParameter("@uid",uid),
+					new SqlParameter("@receiver_address_id",AddressId),
+					new SqlParameter("@order_date",order_date),
+					new SqlParameter("@isSend",'0'),
+					new SqlParameter("@isPay",'0'),
+					new SqlParameter("@order_price",totalprice)
+				};
+				operate.OperateData(sql2, parameters3);
+				Hashtable hashCart = (Hashtable)Session["ShopCart"];
+				foreach (object key in hashCart.Keys)
+				{
+					string id1 = key.ToString();
+					string bookid = id1.Replace("id=", "");   //获取id ，纯数字
+					string booknum = hashCart[key].ToString(); //获取数量
+					string sql1 = "insert into Cart_Goods (order_id,order_bookid,order_booknum,uid) values  (@orderid,@bookid,@booknum,@uid)";
+					SqlParameter[] parameters1 = {
+						new SqlParameter("@orderid",order_id),
+						new SqlParameter("@bookid",bookid),
+						new SqlParameter("@booknum",booknum),
+						new SqlParameter("@uid",uid)
+					};
+					operate.OperateData(sql1, parameters1);
+				}
+				Response.Redirect("~/Order/confirm.aspx?orderid=" + order_id + "");
+			}
 		}
 
 		protected void DataList_AddressList_UpdateCommand(object source, DataListCommandEventArgs e)
 		{
 			int id = Convert.ToInt32(e.CommandArgument);
 			AddressId = id;
+			foreach (DataListItem item in DataList_AddressList.Items)
+			{
+				Button btn_noselect = (Button)item.FindControl("DataList_AddressList_Name");
+				btn_noselect.BorderColor = System.Drawing.Color.FromName("#eaeaea");
+			}
+			Button btn = (Button)e.Item.FindControl("DataList_AddressList_Name");
+			btn.BorderColor= System.Drawing.Color.Red;
 			BindDataListAddressSelected();
 		}
 	}

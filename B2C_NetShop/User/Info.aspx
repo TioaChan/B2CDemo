@@ -278,13 +278,10 @@
 										</ItemTemplate>
 									</asp:DataList>
 								</div>
-
-
 							</asp:View>
 							<asp:View ID="View_Analyze" runat="server">
 								<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
 							</asp:View>
-
 						</asp:MultiView>
 					</ContentTemplate>
 					<Triggers>
