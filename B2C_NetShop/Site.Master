@@ -197,7 +197,6 @@
 			}
 
 			.type-css:hover {
-				/*background: #FFE4DC*/;
 				color: #fff;
 			}
 

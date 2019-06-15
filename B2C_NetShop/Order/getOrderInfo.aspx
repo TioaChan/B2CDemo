@@ -83,7 +83,7 @@
 								<HeaderStyle HorizontalAlign="Center" />
 								<ItemStyle HorizontalAlign="Center" />
 								<ItemTemplate>
-									￥<%#Eval("price")%>
+									￥<%#Eval("HotPrice")%>
 								</ItemTemplate>
 							</asp:TemplateField>
 							<asp:TemplateField HeaderText="总价">

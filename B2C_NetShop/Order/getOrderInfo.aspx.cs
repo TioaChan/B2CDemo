@@ -12,8 +12,8 @@ using B2C_NetShop.App_Start;
 
 namespace B2C_NetShop.Order
 {
-    public partial class getOrderInfo : System.Web.UI.Page
-    {
+	public partial class getOrderInfo : System.Web.UI.Page
+	{
 		public int AddressId
 		{
 			get
@@ -32,90 +32,67 @@ namespace B2C_NetShop.Order
 				ViewState["AddressId"] = value;
 			}
 		}
-
 		pageload load = new pageload();
-        Database operate = new Database();
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Session["ShopCart"] == null)
-            {//购物车不存在
-                Response.Redirect("~/Default.aspx");
-            }
-            HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
-            HyperLink hl2 = (HyperLink)(Master.FindControl("HyperLink2"));//后台
-            HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
-            String uid = Convert.ToString(Session["uid"]);
-            String nickname = Convert.ToString(Session["nickname"]);
-            int status = Convert.ToInt32(Session["Status"]);
-            load.HyperLinkBind(hl1, hl2, hl3, uid, status);
-            if (!IsPostBack)
-            {
+		Database operate = new Database();
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			if (Session["ShopCart"] == null)
+			{//购物车不存在
+				Response.Redirect("~/Default.aspx");
+			}
+			HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
+			HyperLink hl2 = (HyperLink)(Master.FindControl("HyperLink2"));//后台
+			HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
+			String uid = Convert.ToString(Session["uid"]);
+			String nickname = Convert.ToString(Session["nickname"]);
+			int status = Convert.ToInt32(Session["Status"]);
+			load.HyperLinkBind(hl1, hl2, hl3, uid, status);
+			if (!IsPostBack)
+			{
 				BindDataListAddressList();
 				BindDataListAddressSelected();
 				BindCartList();
-            }
-        }
+			}
+		}
 
-        public void BindCartList()
-        {
-            DataTable dtTable = new DataTable();
-            DataColumn column1 = new DataColumn("No");
-            DataColumn column2 = new DataColumn("BookID");
-            DataColumn column3 = new DataColumn("BookName");
-            DataColumn column4 = new DataColumn("Num");
-            DataColumn column5 = new DataColumn("Price");
-            DataColumn column6 = new DataColumn("totalPrice");
-            dtTable.Columns.Add(column1);
-            dtTable.Columns.Add(column2);
-            dtTable.Columns.Add(column3);
-            dtTable.Columns.Add(column4);
-            dtTable.Columns.Add(column5);
-            dtTable.Columns.Add(column6);
-            DataRow row;
-            Hashtable hashCart = (Hashtable)Session["ShopCart"];
-            foreach (object key in hashCart.Keys)
-            {
-                row = dtTable.NewRow();
-                String id1 = key.ToString();
-                String bookid = id1.Replace("id=", "");
-                row["BookID"] = bookid;
-                row["Num"] = hashCart[key].ToString();
-                dtTable.Rows.Add(row);
-            }
-            int i = 1;
-            float price;
-            int count;
-            float totalPrice = 0;
-            foreach (DataRow drRow in dtTable.Rows)
-            {//遍历，获取图书名称，单价
-                String id1 = drRow["BookID"].ToString();
-                String BookID = id1.Replace("id=", "");
-                String sql = "select BookName,HotPrice from Goods_Info where BookID=@bookid";
-                SqlParameter[] parameters1 = {
-                    new SqlParameter("@bookid",BookID)
-                };
-                DataSet ds = operate.GetTable(sql, parameters1);
-
-
-                //填充
-                drRow["No"] = i;
-                drRow["BookName"] = ds.Tables[0].Rows[0][0].ToString(); //读取名称
-                drRow["price"] = (ds.Tables[0].Rows[0][1].ToString());  //读取单价
-                price = float.Parse(ds.Tables[0].Rows[0][1].ToString());
-                count = Int32.Parse(drRow["Num"].ToString());
-                drRow["totalPrice"] = price * count;
-                totalPrice += price * count;
-                i++;
-                Label1.Text = "￥" + totalPrice.ToString();
-                Label3.Text = "￥" + totalPrice.ToString();
-                gvShopCart.DataSource = dtTable.DefaultView;
-                gvShopCart.DataKeyNames = new string[] { "BookID" };
-                gvShopCart.DataBind();
-            }
-            int i1 = i - 1;
-            Label2.Text = i1.ToString();
-        }
-		protected void BindDataListAddressList(){
+		public void BindCartList()
+		{
+			DataTable dtTable = new DataTable();
+			DataColumn[] dataColumns = new DataColumn[8];
+			string[] colunm = { "No", "BookID", "BookName", "Num", "MarketPrice", "HotPrice", "picUrl", "totalPrice" };
+			for (int k = 0; k < colunm.Length; k++)
+			{
+				dataColumns[k] = new DataColumn(colunm[k]);
+				dtTable.Columns.Add(dataColumns[k]);
+			}
+			DataRow row;
+			Hashtable hashCart = (Hashtable)Session["ShopCart"];
+			int i = 1;
+			foreach (object key in hashCart.Keys)
+			{
+				row = dtTable.NewRow();
+				row["No"] = i;
+				row["BookID"] = key.ToString();
+				row["Num"] = hashCart[key].ToString();
+				//数据库遍历放在这里
+				string sql = "select BookName,MarketPrice,HotPrice,picUrl from Goods_Info where BookID=@bookid";
+				SqlParameter[] parameters = {
+					new SqlParameter("@bookid",key.ToString())
+				};
+				DataSet ds = operate.GetTable(sql, parameters);
+				row["BookName"]=ds.Tables[0].Rows[0][0].ToString();
+				row["MarketPrice"] = ds.Tables[0].Rows[0][1].ToString();
+				row["HotPrice"] = ds.Tables[0].Rows[0][2].ToString();
+				row["picUrl"] = ds.Tables[0].Rows[0][3].ToString();
+				row["totalPrice"] = Convert.ToDouble(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][2]);
+				i++;
+				dtTable.Rows.Add(row);
+			}
+			gvShopCart.DataSource = dtTable.DefaultView;
+			gvShopCart.DataBind();
+		}
+		protected void BindDataListAddressList()
+		{
 			string sql = "select id,RealName,PhoneNumber,Address,PostCode,IsSelected from User_Address where UID=@uid Order by IsSelected DESC";
 			SqlParameter[] parameters ={
 				new SqlParameter ("@uid",Session["UID"].ToString()),
@@ -125,7 +102,8 @@ namespace B2C_NetShop.Order
 			DataList_AddressList.DataSource = ds.Tables[0];
 			DataList_AddressList.DataBind();
 		}
-		protected void BindDataListAddressSelected(){
+		protected void BindDataListAddressSelected()
+		{
 			string sql = "select id,RealName,PhoneNumber,Address,PostCode,IsSelected from User_Address where UID=@uid and id=@id";
 			SqlParameter[] parameters ={
 				new SqlParameter ("@uid",Session["UID"].ToString()),
@@ -136,11 +114,24 @@ namespace B2C_NetShop.Order
 			DataList_Address_Selected.DataSource = ds.Tables[0];
 			DataList_Address_Selected.DataBind();
 		}
+		protected void DataList_AddressList_UpdateCommand(object source, DataListCommandEventArgs e)
+		{
+			int id = Convert.ToInt32(e.CommandArgument);
+			AddressId = id;
+			foreach (DataListItem item in DataList_AddressList.Items)
+			{
+				Button btn_noselect = (Button)item.FindControl("DataList_AddressList_Name");
+				btn_noselect.BorderColor = System.Drawing.Color.FromName("#eaeaea");
+			}
+			Button btn = (Button)e.Item.FindControl("DataList_AddressList_Name");
+			btn.BorderColor = System.Drawing.Color.Red;
+			BindDataListAddressSelected();
+		}
 		protected void Button1_Click(object sender, EventArgs e)
 		{
 			if (Convert.ToString(AddressId) == "0")
 			{
-				Response.Write("<script>alert('"+"请先选择收货地址"+"')</script>");
+				Response.Write("<script>alert('" + "请先选择收货地址" + "')</script>");
 			}
 			else
 			{
@@ -179,20 +170,6 @@ namespace B2C_NetShop.Order
 				}
 				Response.Redirect("~/Order/confirm.aspx?orderid=" + order_id + "");
 			}
-		}
-
-		protected void DataList_AddressList_UpdateCommand(object source, DataListCommandEventArgs e)
-		{
-			int id = Convert.ToInt32(e.CommandArgument);
-			AddressId = id;
-			foreach (DataListItem item in DataList_AddressList.Items)
-			{
-				Button btn_noselect = (Button)item.FindControl("DataList_AddressList_Name");
-				btn_noselect.BorderColor = System.Drawing.Color.FromName("#eaeaea");
-			}
-			Button btn = (Button)e.Item.FindControl("DataList_AddressList_Name");
-			btn.BorderColor= System.Drawing.Color.Red;
-			BindDataListAddressSelected();
 		}
 	}
 }
