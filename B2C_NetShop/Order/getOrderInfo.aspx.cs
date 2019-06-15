@@ -67,14 +67,17 @@ namespace B2C_NetShop.Order
 			}
 			DataRow row;
 			Hashtable hashCart = (Hashtable)Session["ShopCart"];
-			int i = 1;
+			int i = 1;//用于dtTable循环标识
+			int count = 0;//用于统计商品数量
+			double o_price = 0;//用于统计商品价格
+			double h_price = 0;//用于统计商品价格
 			foreach (object key in hashCart.Keys)
 			{
 				row = dtTable.NewRow();
 				row["No"] = i;
 				row["BookID"] = key.ToString();
 				row["Num"] = hashCart[key].ToString();
-				//数据库遍历放在这里
+				count += Convert.ToInt32(hashCart[key]);
 				string sql = "select BookName,MarketPrice,HotPrice,picUrl from Goods_Info where BookID=@bookid";
 				SqlParameter[] parameters = {
 					new SqlParameter("@bookid",key.ToString())
@@ -84,10 +87,17 @@ namespace B2C_NetShop.Order
 				row["MarketPrice"] = ds.Tables[0].Rows[0][1].ToString();
 				row["HotPrice"] = ds.Tables[0].Rows[0][2].ToString();
 				row["picUrl"] = ds.Tables[0].Rows[0][3].ToString();
-				row["totalPrice"] = Convert.ToDouble(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][2]);
+				row["totalPrice"] = Convert.ToInt32(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][2]);//数量*折扣价
+				h_price += Convert.ToDouble(row["totalPrice"]);//总折扣价
+				o_price += Convert.ToInt32(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][1]);//总原价
 				i++;
 				dtTable.Rows.Add(row);
 			}
+			Label2.Text = count.ToString();//商品总数量
+			Label1.Text = o_price.ToString();//商品总价格
+			Label4.Text = "0";//运费
+			Label3.Text = h_price.ToString();//商品总实际价格
+			Label5.Text = (o_price - h_price).ToString();//商品优惠
 			gvShopCart.DataSource = dtTable.DefaultView;
 			gvShopCart.DataBind();
 		}

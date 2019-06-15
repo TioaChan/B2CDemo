@@ -79,7 +79,14 @@
 										ReadOnly="true"></asp:TextBox>
 								</ItemTemplate>
 							</asp:TemplateField>
-							<asp:TemplateField HeaderText="单价">
+							<asp:TemplateField HeaderText="MarketPrice">
+								<HeaderStyle HorizontalAlign="Center" />
+								<ItemStyle HorizontalAlign="Center" />
+								<ItemTemplate>
+									￥<%#Eval("MarketPrice")%>
+								</ItemTemplate>
+							</asp:TemplateField>
+							<asp:TemplateField HeaderText="HotPrice">
 								<HeaderStyle HorizontalAlign="Center" />
 								<ItemStyle HorizontalAlign="Center" />
 								<ItemTemplate>
