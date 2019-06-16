@@ -59,61 +59,6 @@
 			<div class="orderinfo-goods-frame orderinfo-frame">
 				<div class="frame-title">送货清单：</div>
 				<div class="orderinfo-goods">
-<%--					<asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False"
-						AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
-						<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-						<Columns>
-							<asp:BoundField DataField="No" HeaderText="序号" ReadOnly="True">
-								<ItemStyle HorizontalAlign="Center" />
-								<HeaderStyle HorizontalAlign="Center" />
-							</asp:BoundField>
-							<asp:BoundField DataField="BookID" HeaderText="书籍ID" ReadOnly="True">
-								<ItemStyle HorizontalAlign="Center" />
-								<HeaderStyle HorizontalAlign="Center" />
-							</asp:BoundField>
-							<asp:BoundField DataField="BookName" HeaderText="书籍名称" ReadOnly="True">
-								<ItemStyle HorizontalAlign="Center" />
-								<HeaderStyle HorizontalAlign="Center" />
-							</asp:BoundField>
-							<asp:TemplateField HeaderText="数量">
-								<ItemTemplate>
-									<asp:TextBox ID="txtNum" runat="server" Text='<%#Eval("Num") %>' Width="60px"
-										ReadOnly="true"></asp:TextBox>
-								</ItemTemplate>
-							</asp:TemplateField>
-							<asp:TemplateField HeaderText="MarketPrice">
-								<HeaderStyle HorizontalAlign="Center" />
-								<ItemStyle HorizontalAlign="Center" />
-								<ItemTemplate>
-									￥<%#Eval("MarketPrice")%>
-								</ItemTemplate>
-							</asp:TemplateField>
-							<asp:TemplateField HeaderText="HotPrice">
-								<HeaderStyle HorizontalAlign="Center" />
-								<ItemStyle HorizontalAlign="Center" />
-								<ItemTemplate>
-									￥<%#Eval("HotPrice")%>
-								</ItemTemplate>
-							</asp:TemplateField>
-							<asp:TemplateField HeaderText="总价">
-								<HeaderStyle HorizontalAlign="Center" />
-								<ItemStyle HorizontalAlign="Center" />
-								<ItemTemplate>
-									￥<%#Eval("totalPrice")%>
-								</ItemTemplate>
-							</asp:TemplateField>
-						</Columns>
-						<EditRowStyle BackColor="#999999" />
-						<FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-						<HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-						<PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-						<RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-						<SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-						<SortedAscendingCellStyle BackColor="#E9E7E2" />
-						<SortedAscendingHeaderStyle BackColor="#506C8C" />
-						<SortedDescendingCellStyle BackColor="#FFFDF8" />
-						<SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-					</asp:GridView>--%>
 					<div id="order_head_frame">
 						<div class="order_head head_name">名称</div>
 						<div class="order_head head_MarketPrice">MarketPrice（元）</div>
