@@ -83,5 +83,51 @@
 }
 
 .clear {
-	clear: both;
+	clear: both !important;
 }
+/*=======================*/
+/*送货清单标题*/
+#order_head_frame {
+	width: 1070px;
+	overflow: hidden;
+	margin: 5px 40px;
+	text-align: center;
+}
+.order_head {
+	float: left;
+}
+.head_name{
+	width:200px;
+	margin-left:160px;
+}
+.head_MarketPrice, .head_HotPrice, .head_num, .head_totalPrice {
+	width: 150px;
+	margin-left:23px;
+}
+/*=======================*/
+.order_frame {
+	width: 1070px;
+	height: 100px;
+	overflow: hidden;
+	border: 1px #ebebeb solid;
+	margin: 5px 40px;
+	background-color: #FAFAFA;
+	display: block;
+	text-align: center;
+}
+
+.order{
+	display:block;
+	float:left;
+	margin:40px 10px;
+}
+.order_book_img {
+	display: block;
+	float: left;
+	margin: 15px 40px;
+}
+.bookImg {
+	width: 70px;
+	height: 70px;
+}
+

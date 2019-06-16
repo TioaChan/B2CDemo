@@ -58,8 +58,8 @@ namespace B2C_NetShop.Order
 		public void BindCartList()
 		{
 			DataTable dtTable = new DataTable();
-			DataColumn[] dataColumns = new DataColumn[8];
-			string[] colunm = { "No", "BookID", "BookName", "Num", "MarketPrice", "HotPrice", "picUrl", "totalPrice" };
+			DataColumn[] dataColumns = new DataColumn[9];
+			string[] colunm = { "No", "BookID", "BookName","BookUrl", "Num", "MarketPrice", "HotPrice", "picUrl", "totalPrice" };
 			for (int k = 0; k < colunm.Length; k++)
 			{
 				dataColumns[k] = new DataColumn(colunm[k]);
@@ -77,6 +77,7 @@ namespace B2C_NetShop.Order
 				row["No"] = i;
 				row["BookID"] = key.ToString();
 				row["Num"] = hashCart[key].ToString();
+				row["BookUrl"]= "../Goods/Detail.aspx?id=" + key.ToString();
 				count += Convert.ToInt32(hashCart[key]);
 				string sql = "select BookName,MarketPrice,HotPrice,picUrl from Goods_Info where BookID=@bookid";
 				SqlParameter[] parameters = {
@@ -98,8 +99,8 @@ namespace B2C_NetShop.Order
 			Label4.Text = "0";//运费
 			Label3.Text = h_price.ToString();//商品总实际价格
 			Label5.Text = (o_price - h_price).ToString();//商品优惠
-			gvShopCart.DataSource = dtTable.DefaultView;
-			gvShopCart.DataBind();
+			DataList_Order.DataSource = dtTable.DefaultView;
+			DataList_Order.DataBind();
 		}
 		protected void BindDataListAddressList()
 		{

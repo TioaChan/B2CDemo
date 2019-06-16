@@ -6,6 +6,7 @@
 		<div class="orderinfo-frame-title">
 			填写并核对订单信息
 		</div>
+
 		<script>
 			$(document).ready(function () {
 				$("#MainContent_DataList_AddressList > span").hover(
@@ -16,14 +17,15 @@
 						$(this).css("background-color", "white")
 					}
 				)
-			});
+			})
 		</script>
-				<div class="orderinfo-content">
+
+		<div class="orderinfo-content">
 			<div class="orderinfo-address-frame orderinfo-frame">
 				<div class="frame-title">收货人信息：</div>
 				<div class="orderinfo-address-default frame-content">
 					<asp:DataList ID="DataList_AddressList" runat="server" RepeatLayout="Flow"
-						RepeatDirection="Horizontal" OnUpdateCommand="DataList_AddressList_UpdateCommand" >
+						RepeatDirection="Horizontal" OnUpdateCommand="DataList_AddressList_UpdateCommand">
 						<ItemTemplate>
 							<asp:Button ID="DataList_AddressList_Name" runat="server"
 								Text='<%# Eval("RealName") %>' CommandArgument='<%# Eval("id") %>'
@@ -57,7 +59,7 @@
 			<div class="orderinfo-goods-frame orderinfo-frame">
 				<div class="frame-title">送货清单：</div>
 				<div class="orderinfo-goods">
-					<asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False"
+<%--					<asp:GridView ID="gvShopCart" DataKeyNames="BookID" runat="server" AutoGenerateColumns="False"
 						AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" Width="100%">
 						<AlternatingRowStyle BackColor="White" ForeColor="#284775" />
 						<Columns>
@@ -111,7 +113,43 @@
 						<SortedAscendingHeaderStyle BackColor="#506C8C" />
 						<SortedDescendingCellStyle BackColor="#FFFDF8" />
 						<SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-					</asp:GridView>
+					</asp:GridView>--%>
+					<div id="order_head_frame">
+						<div class="order_head head_name">名称</div>
+						<div class="order_head head_MarketPrice">MarketPrice（元）</div>
+						<div class="order_head head_HotPrice">HotPrice（元）</div>
+						<div class="order_head head_num">num</div>
+						<div class="order_head head_totalPrice">金额（元）</div>
+						<div class="clear"></div>
+					</div>
+					<asp:DataList ID="DataList_Order" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+						<ItemTemplate>
+							<span class="order_frame">
+								<span class="order_book_img">
+									<img src="<%# Eval("picUrl") %>" class="bookImg" />
+								</span>
+								<span class="order order_book_name">
+									<a href='<%# Eval("BookUrl") %>' runat="server">
+										<asp:Label ID="Label2" runat="server" Text='<%# Eval("BookName") %>' Width="200px" ></asp:Label>
+									</a>
+								</span>
+								<span class="order order_book_MarketPrice">
+									<asp:Label ID="Label4" runat="server" Text='<%# Eval("MarketPrice") %>' Width="150px" ></asp:Label>
+								</span>
+								<span class="order order_book_HotPrice">
+									<asp:Label ID="Label6" runat="server" Text='<%# Eval("HotPrice") %>' Width="150px" ></asp:Label>
+								</span>
+								<span class="order order_book_num">
+									<asp:Label ID="Label3" runat="server" Text='<%# Eval("Num") %>' Width="150px" ></asp:Label>
+								</span>
+								<span class="order order_book_totalPrice">
+									<asp:Label ID="Label5" runat="server" Text='<%# Eval("totalPrice") %>' Width="150px" ></asp:Label>
+								</span>
+								<span class="clear"></span>
+							</span>
+						</ItemTemplate>
+					</asp:DataList>
+
 				</div>
 			</div>
 			<div class="orderinfo-invoice-frame orderinfo-frame">
@@ -124,7 +162,7 @@
 				</div>
 			</div>
 		</div>
-				<div class="orderinfo-controlpanel-frame">
+		<div class="orderinfo-controlpanel-frame">
 			<div class="orderinfo-controlpanel-amont">
 				<div class="orderinfo-overview-goodscount">
 					<span class="orderinfo-overview-mark">
