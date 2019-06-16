@@ -32,17 +32,17 @@ namespace B2C_NetShop
 		/// </summary>
 		/// <param name="type">推荐/热卖/折扣类型</param>
 		/// <param name="dl">DataList控件ID</param>
-		protected void BindDataList(String type,DataList dl)
+		protected void BindDataList(string type,DataList dl)
 		{
 			DataTable dtTable = new DataTable();
 			DataColumn[] dataColumns = new DataColumn[5];
-			String[] test = { "BookName", "Author", "HotPrice", "picUrl", "BookUrl" };
-			for (int k = 0; k < test.Length; k++)
+			string[] colunm = { "BookName", "Author", "HotPrice", "picUrl", "BookUrl" };
+			for (int k = 0; k < colunm.Length; k++)
 			{
-				dataColumns[k] = new DataColumn(test[k]);
+				dataColumns[k] = new DataColumn(colunm[k]);
 				dtTable.Columns.Add(dataColumns[k]);
 			}
-			String sql = "select top 5 BookID,BookName,Author,HotPrice,picUrl from Goods_Info where " + type + "=@" + type + " order by lastOperateDate desc";
+			string sql = "select top 5 BookID,BookName,Author,HotPrice,picUrl from Goods_Info where " + type + "=@" + type + " order by lastOperateDate desc";
 			SqlParameter[] parameters = {
 						new SqlParameter(type,'1') };
 			DataSet ds = operate.GetTable(sql, parameters);

@@ -189,6 +189,7 @@
     <Content Include="IndexStyle\default-banner-login-style.css" />
     <Content Include="IndexStyle\default-product-list.css" />
     <Content Include="Manage\style\main-style.css" />
+    <Content Include="Order\css\getOrderInfo.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />

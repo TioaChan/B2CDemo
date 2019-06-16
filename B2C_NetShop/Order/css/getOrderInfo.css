@@ -1,0 +1,133 @@
+﻿.orderinfo-frame-title {
+	/*标题*/
+	padding: 20px 0;
+	font-size: 16px;
+}
+
+.orderinfo-content {
+	border: 1px solid #eaeaea;
+	border-radius: 4px;
+}
+
+.orderinfo-frame {
+	margin: 10px 10px;
+	padding: 0 10px 10px 10px;
+	border-bottom: 1px #f0f0f0 solid;
+}
+
+.frame-title {
+	padding: 10px 0;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.frame-content {
+	padding: 0 10px;
+}
+
+.orderinfo-invoice-frame {
+	border-bottom: none;
+}
+
+.orderinfo-controlpanel-frame {
+	margin: 20px 0;
+	text-align: right;
+}
+
+.orderinfo-overview {
+	background-color: #eaeaea;
+	padding: 0 20px 10px 20px;
+}
+
+.orderinfo-controlpanel-amont {
+	padding: 0 20px;
+	margin: 0 0 10px 0;
+}
+
+.orderinfo-overview-mark {
+	width: 140px;
+	display: block;
+	float: left;
+	margin-left: 910px;
+}
+
+.orderinfo-overview-mark-right {
+	width: 80px;
+	display: block;
+	float: left;
+}
+
+.orderinfo-overview-price {
+	padding: 10px 0;
+}
+
+.settltment_btn {
+	height: 40px;
+	width: 140px;
+	background-color: red;
+	color: white;
+	border: none;
+	text-align: center;
+	display: block;
+	float: right;
+	margin: 10px 10px;
+}
+
+#MainContent_DataList_AddressList>span {
+	margin: 0 0 10px 0;
+	display: block;
+}
+
+.DataList_Address{
+	padding-left:20px;
+}
+
+.clear {
+	clear: both !important;
+}
+/*=======================*/
+/*送货清单标题*/
+#order_head_frame {
+	width: 1070px;
+	overflow: hidden;
+	margin: 5px 40px;
+	text-align: center;
+}
+.order_head {
+	float: left;
+}
+.head_name{
+	width:200px;
+	margin-left:160px;
+}
+.head_MarketPrice, .head_HotPrice, .head_num, .head_totalPrice {
+	width: 150px;
+	margin-left:23px;
+}
+/*=======================*/
+.order_frame {
+	width: 1070px;
+	height: 100px;
+	overflow: hidden;
+	border: 1px #ebebeb solid;
+	margin: 5px 40px;
+	background-color: #FAFAFA;
+	display: block;
+	text-align: center;
+}
+
+.order{
+	display:block;
+	float:left;
+	margin:40px 10px;
+}
+.order_book_img {
+	display: block;
+	float: left;
+	margin: 15px 40px;
+}
+.bookImg {
+	width: 70px;
+	height: 70px;
+}
+

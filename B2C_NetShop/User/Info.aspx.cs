@@ -236,6 +236,12 @@ namespace B2C_NetShop.User
 			}
 		}
 
+		protected void Button4_Click(object sender, EventArgs e)
+		{
+			BindUserAddress();
+			MultiView1.SetActiveView(View_Address);
+		}
+
 		protected void Button_SetNewPWD_Click(object sender, EventArgs e)
 		{
 			String procName = "UserSetNewPwd";
@@ -385,5 +391,7 @@ namespace B2C_NetShop.User
 			DataList1.DataSource = dtTable.DefaultView;
 			DataList1.DataBind();
 		}
+
+
 	}
 }

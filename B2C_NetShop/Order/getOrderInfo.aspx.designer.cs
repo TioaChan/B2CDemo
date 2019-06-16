@@ -13,31 +13,13 @@ namespace B2C_NetShop.Order {
     public partial class getOrderInfo {
         
         /// <summary>
-        /// content_main 控件。
+        /// DataList_AddressList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content_main;
-        
-        /// <summary>
-        /// DataList1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList1;
-        
-        /// <summary>
-        /// SqlDataSource1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.DataList DataList_AddressList;
         
         /// <summary>
         /// RadioButton1 控件。
@@ -58,22 +40,13 @@ namespace B2C_NetShop.Order {
         protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
         
         /// <summary>
-        /// Gcart_previwe 控件。
+        /// DataList_Order 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Gcart_previwe;
-        
-        /// <summary>
-        /// gvShopCart 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvShopCart;
+        protected global::System.Web.UI.WebControls.DataList DataList_Order;
         
         /// <summary>
         /// RadioButton3 控件。
@@ -103,6 +76,24 @@ namespace B2C_NetShop.Order {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// Label4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+        
+        /// <summary>
+        /// Label5 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label5;
+        
+        /// <summary>
         /// Label3 控件。
         /// </summary>
         /// <remarks>
@@ -112,13 +103,13 @@ namespace B2C_NetShop.Order {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// DataList2 控件。
+        /// DataList_Address_Selected 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList2;
+        protected global::System.Web.UI.WebControls.DataList DataList_Address_Selected;
         
         /// <summary>
         /// Button1 控件。
