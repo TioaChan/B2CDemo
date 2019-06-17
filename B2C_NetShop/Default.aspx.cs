@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using B2C_NetShop.App_Start;
 
@@ -20,7 +21,9 @@ namespace B2C_NetShop
 			String nickname = Convert.ToString(Session["nickname"]);
 			String url = Convert.ToString(Session["userImgUrl"]);
 			int status = Convert.ToInt32(Session["Status"]);
-			load.HyperLinkBind(hl1, hl2, hl3, uid, status);
+			HtmlGenericControl line = (HtmlGenericControl)this.Master.FindControl("line");
+
+			load.HyperLinkBind(hl1, hl2, hl3, uid, status, line);
 			load.MainPageBind(HyperLink1, HyperLink2, Label1, uid, nickname,Image1,url);
 			BindDataList("Isrefinement", DataList_RefinementGoods);
 			BindDataList("IsHot",DataList_HotGoods);

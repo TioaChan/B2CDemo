@@ -40,24 +40,6 @@ namespace B2C_NetShop.Manage {
         protected global::System.Web.UI.WebControls.Image imgIcon;
         
         /// <summary>
-        /// hylAdmin 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hylAdmin;
-        
-        /// <summary>
-        /// hylPersonalInfo 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hylPersonalInfo;
-        
-        /// <summary>
         /// Button_Default 控件。
         /// </summary>
         /// <remarks>

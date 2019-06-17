@@ -2,43 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 	<link href="style/main-style.css" rel="stylesheet" />
-	<h2 style="display: none;" >欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
+	<h2 style="display: none;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
 	<div id="div_content" class="auto-style1">
-		<nav class="navbar navbar-default mynav-bar" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="../Default.aspx">B2CDemo</a>
-				</div>
-				<div>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<asp:HyperLink ID="hylIconPersonalInfo" runat="server" CssClass="icon-a">
-								<asp:Image ID="imgIcon" runat="server" Height="50px" Width="50px" ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" CssClass="icon" />
-							</asp:HyperLink></li>
-						<li class="active">
-							<a href="../Default.aspx"><span class="glyphicon glyphicon-home"></span>主页</a>
-						</li>
-						<li><a href="../Contact.aspx"><span class="glyphicon glyphicon-phone-alt"></span>联系方式</a></li>
-						<li>
-							<asp:HyperLink ID="hylAdmin" runat="server"><span class="glyphicon glyphicon-lock"></span>后台管理</asp:HyperLink>
-						</li>
-						<li class="dropdown mydropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">设置
-								<b class="caret"></b>
-							</a>
-							<ul class="dropdown-menu mymenu">
-								<li>
-									<asp:HyperLink ID="hylPersonalInfo" runat="server"><span class="glyphicon glyphicon-user"></span>个人信息</asp:HyperLink></li>
-								<li class="divider"></li>
-								<li><a href="#">退出</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
 		<div id="left-sidebar">
 			<ul>
+				<li>
+					<asp:HyperLink ID="hylIconPersonalInfo" runat="server" CssClass="icon-a">
+						<asp:Image ID="imgIcon" runat="server"  ImageAlign="Middle" ImageUrl="~/Account/UserImg/DefaultUserImg.png" CssClass="icon" />
+					</asp:HyperLink></li>
 				<li>
 					<asp:Button ID="Button_Default" runat="server" Text="欢迎" CssClass="btn-link" OnClick="Button_Default_Click" />
 					<i class="glyphicon glyphicon-user"></i>

@@ -53,8 +53,8 @@ namespace B2C_NetShop.User
 				HyperLink hl3 = (HyperLink)(Master.FindControl("HyperLink3"));//注册、注销
 				int status = Convert.ToInt32(Session["Status"]);
 				load.HyperLinkBind(hl1, hl2, hl3, uid, status);
-				load.HyperLinkBind(hylPersonalInfo, hylAdmin, hl3,uid,status);
-				hylIconPersonalInfo.NavigateUrl = hylPersonalInfo.NavigateUrl;
+
+				hylIconPersonalInfo.NavigateUrl = hl1.NavigateUrl;
 				if (!IsPostBack)
 				{
 					BindUserInfo();

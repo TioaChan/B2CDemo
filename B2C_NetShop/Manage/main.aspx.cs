@@ -29,12 +29,12 @@ namespace B2C_NetShop.Manage
 					Label_UID1.Text = nickname;
 					int status = Convert.ToInt32(Session["Status"]);
 					load.HyperLinkBind(hl1, hl2, hl3, uid, status);
-					load.HyperLinkBind(hylPersonalInfo, hylAdmin, hl3, uid, status);
+					
 
 					loadUserImage();
 
-					hylIconPersonalInfo.NavigateUrl = hylPersonalInfo.NavigateUrl;
-					hl2.Visible = false;
+					hylIconPersonalInfo.NavigateUrl = hl1.NavigateUrl;
+					
 					MultiView1.SetActiveView(View_Main);
 				}
 				else if (0.Equals(Convert.ToInt32(Session["Status"])))

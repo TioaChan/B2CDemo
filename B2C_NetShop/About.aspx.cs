@@ -20,7 +20,7 @@ namespace B2C_NetShop
             String uid = Convert.ToString(Session["uid"]);
             String nickname = Convert.ToString(Session["nickname"]);
             int status = Convert.ToInt32(Session["Status"]);
-            load.HyperLinkBind(hl1, hl2, hl3, uid, status);
+			load.HyperLinkBind(hl1, hl2, hl3, uid, status);
         }
     }
 }

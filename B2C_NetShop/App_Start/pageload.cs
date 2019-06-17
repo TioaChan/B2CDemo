@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace B2C_NetShop.App_Start
@@ -14,17 +15,17 @@ namespace B2C_NetShop.App_Start
         {
             if ("".Equals(id))
             {
-                hl1.Text = "欢迎，请登录";
+                hl1.Text = "请登录";
                 hl1.NavigateUrl = "~/Account/Login.aspx";
                 hl2.Enabled = false;
                 hl2.Visible = false;
-                hl3.Text = "[点击注册]";
+				hl3.Text = "[点击注册]";
                 hl3.NavigateUrl = "~/Account/Register.aspx";
             }
             else
             {
-                hl1.Text = id + "，欢迎你。";
-                hl1.NavigateUrl = "~/User/Info.aspx";
+				hl1.Text = "用户名：" + id + " | 个人信息";
+				hl1.NavigateUrl = "~/User/Info.aspx";
                 hl3.Text = "点击注销";
                 hl3.NavigateUrl = "~/Account/logout.aspx";
                 //判断power的值，1为普通用户，禁用后台管理功能；2 3 4为管理员；其他值为异常账户。
@@ -44,6 +45,44 @@ namespace B2C_NetShop.App_Start
                 }
             }
         }
+
+		public void HyperLinkBind(HyperLink hl1, HyperLink hl2, HyperLink hl3, String id, int power, HtmlGenericControl line)
+		{
+			if ("".Equals(id))
+			{
+				hl1.Text = "请登录";
+				hl1.NavigateUrl = "~/Account/Login.aspx";
+				hl2.Enabled = false;
+				hl2.Visible = false;
+				line.Visible = false;
+				hl3.Text = "[点击注册]";
+				hl3.NavigateUrl = "~/Account/Register.aspx";
+			}
+			else
+			{
+				hl1.Text = "用户名："+ id + " | 个人信息";
+				hl1.NavigateUrl = "~/User/Info.aspx";
+				hl3.Text = "点击注销";
+				hl3.NavigateUrl = "~/Account/logout.aspx";
+				//判断power的值，1为普通用户，禁用后台管理功能；2 3 4为管理员；其他值为异常账户。
+				if (power == 1 || power == 0)
+				{
+					hl2.Enabled = false;
+					hl2.Visible = false;
+				}
+				else if (power == 2 || power == 3 || power == 4)
+				{
+					hl2.Text = "后台管理";
+					hl2.NavigateUrl = "~/Manage/main.aspx";
+				}
+				else
+				{
+					System.Web.HttpContext.Current.Response.Redirect("~/Account/Error.aspx");
+				}
+			}
+		}
+
+
 		public void MainPageBind(HyperLink HyperLink1, HyperLink HyperLink2, Label lable1, String id, String nickname, Image userImgUrl, String url)
         {
             if ("".Equals(id))
