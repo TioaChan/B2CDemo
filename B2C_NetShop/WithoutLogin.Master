@@ -157,9 +157,6 @@
 							<li runat="server" id="line">|</li>
 							<li>
 								<asp:HyperLink ID="HyperLink3" runat="server">HyperLink</asp:HyperLink></li>
-
-
-
 						</ul>
 					</div>
 					<div class="clear"></div>

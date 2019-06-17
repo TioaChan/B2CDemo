@@ -432,6 +432,13 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Site1sdfs.Master.cs">
+      <DependentUpon>Site1sdfs.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1sdfs.Master.designer.cs">
+      <DependentUpon>Site1sdfs.Master</DependentUpon>
+    </Compile>
     <Compile Include="User\Info.aspx.cs">
       <DependentUpon>Info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -471,6 +478,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Site1sdfs.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

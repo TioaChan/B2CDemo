@@ -10,7 +10,8 @@
 namespace B2C_NetShop {
     
     
-    public partial class SiteMaster {
+    public partial class WithoutLogin
+	{
         
         /// <summary>
         /// HyperLink1 控件。

@@ -605,7 +605,7 @@
 						</ul>
 					</div>
 					<div class="right fr">
-						<div class="gouwuche fr"><a href="../Goods/cart.aspx">购物车</a></div>
+						<a href="../Goods/cart.aspx"><div class="gouwuche fr">购物车</div></a>
 						<div class="fr">
 							<ul>
 								<li><asp:HyperLink ID="HyperLink1" runat="server">HyperLink</asp:HyperLink></li>
