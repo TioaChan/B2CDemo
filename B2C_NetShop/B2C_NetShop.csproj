@@ -278,7 +278,7 @@
     <Content Include="User\ImagesUpload\DefaultImage.png" />
     <Content Include="User\Info.aspx" />
     <Content Include="User\order.aspx" />
-    <Content Include="User\UserStyle\info-style.css" />
+    <Content Include="User\css\info-style.css" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="WithoutLogin.Master" />
@@ -432,13 +432,6 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Site1sdfs.Master.cs">
-      <DependentUpon>Site1sdfs.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site1sdfs.Master.designer.cs">
-      <DependentUpon>Site1sdfs.Master</DependentUpon>
-    </Compile>
     <Compile Include="User\Info.aspx.cs">
       <DependentUpon>Info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -478,7 +471,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Site1sdfs.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="个人信息" Language="C#" MasterPageFile="~/WithoutLogin.Master" AutoEventWireup="true" CodeBehind="Info.aspx.cs" Inherits="B2C_NetShop.User.Info" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-	<link href="UserStyle/info-style.css" rel="stylesheet" />
+	<link href="css/info-style.css" rel="stylesheet" />
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<h2 style="background: red; display: none; color: white; padding: 10px;">欢迎您，<asp:Label ID="Label_UID1" runat="server" Text="Label_UID"></asp:Label></h2>
 	<div id="main-container">
