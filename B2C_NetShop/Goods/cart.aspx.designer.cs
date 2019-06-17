@@ -40,6 +40,15 @@ namespace B2C_NetShop.Goods {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl head_nav;
         
         /// <summary>
+        /// cart1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart1;
+        
+        /// <summary>
         /// dlShopcart 控件。
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace B2C_NetShop.Goods {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dlShopcart;
-        
-        /// <summary>
-        /// btn_cart_update 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_cart_update;
         
         /// <summary>
         /// btn_cart_clear 控件。
@@ -92,5 +92,14 @@ namespace B2C_NetShop.Goods {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_pay;
+        
+        /// <summary>
+        /// cart_ifEmpty 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cart_ifEmpty;
     }
 }
