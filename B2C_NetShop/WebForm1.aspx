@@ -12,22 +12,27 @@
 		span {
 			overflow: hidden;
 			display: block;
+			font-size: 12px;
 		}
 
 		.overview-frame {
-			background-color: #eaeaea;
-			margin: 5px 0;
+			width: 278px;
+			border-bottom: 1px solid #e5e5e5;
+			line-height: 12px;
+			height: 32px;
 		}
 
 		.detail-frame {
-			background-color: #eaeaea;
-			height: 200px;
+			width: 278px;
+			height: 132px;
+			border-bottom: 1px solid #e5e5e5;
 		}
 
 		.rank {
-			width: 20px;
-			height: 20px;
-			margin: 10px 15px;
+			width: 25px;
+			height: 33px;
+			padding: 10px 0 0 15px;
+			text-align: center;
 		}
 
 		.span-float {
@@ -35,17 +40,31 @@
 		}
 
 		.bookimg {
-			width: 100px;
-			height: 100px;
+			width: 90px;
+			height: 90px;
 			background-color: antiquewhite;
 		}
 
 		.goods-rank-frame {
+			color: #333333;
 			margin-top: 10px;
 		}
 
 		.goods-frame {
-			width: 150px;
+			width: 238px;
+		}
+
+		.goods-detail {
+			width: 140px;
+			height: 100px;
+			overflow: hidden;
+		}
+
+		.goods-detail-name {
+		}
+
+		.goods-detail-introduce {
+			color: #969696;
 		}
 
 		.clear {
@@ -54,6 +73,22 @@
 
 		.hide {
 			display: none;
+		}
+
+		a:link {
+			color: #333333;
+		}
+
+		a:visited {
+			color: #333333;
+		}
+
+		a:hover {
+			color: #333333;
+		}
+
+		a:active {
+			color: #333333;
 		}
 	</style>
 	<script>
@@ -87,14 +122,14 @@
 							<span class="rank span-float">
 								<%# Eval("Rank") %>
 							</span>
-							<span class="span-float"><a href='<%# Eval("BookUrl") %>'>
+							<span class="span-float goods-frame "><a href='<%# Eval("BookUrl") %>'>
 									<span class="span-float goods-rank-frame">
 										<img class="bookimg" src='<%# Eval("picUrl") %>'>
 									</span>
-									<span class="span-float goods-rank-frame goods-frame">
-										<%# Eval("BookName") %>
+									<span class="span-float goods-rank-frame goods-frame goods-detail">
+										<span class="goods-detail-name"><%# Eval("BookName") %></span>
 										<br />
-										<span><%# Eval("BookIntroduce") %></span>
+										<span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span>
 									</span>
 									<span class="clear"></span>
 								</a></span>
