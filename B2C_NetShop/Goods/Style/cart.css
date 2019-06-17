@@ -1,0 +1,153 @@
+﻿#Master_content {
+	display: none;
+}
+
+#main_content {
+	margin: 30px auto;
+}
+
+#cart_detile_frame { /*购物车容器*/
+	margin-top: 15px;
+	padding: 10px;
+}
+
+#cart_head_info, #cart_head_price, #cart_head_num, #cart_head_totalPrice, #cart_head_operate { /*购物车详细信息的标题*/
+	float: left;
+}
+
+#cart_head_info { /*购物车详细信息的标题*/
+	margin-left: 150px;
+	width: 400px;
+	text-align: center;
+}
+
+#cart_head_price { /*购物车详细信息的标题*/
+	margin-left: 60px;
+}
+
+#cart_head_num { /*购物车详细信息的标题*/
+	margin-left: 95px;
+}
+
+#cart_head_totalPrice { /*购物车详细信息的标题*/
+	margin-left: 107px;
+}
+#cart_detile_num > input {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	height: 26px;
+}
+.NumControl{
+	width:24px;
+	
+}
+
+#cart_head_operate { /*购物车详细信息的标题*/
+	margin-left: 60px;
+}
+
+#cart_detile {
+	width: 1070px;
+	border: 1px #ebebeb solid;
+	margin: 5px 40px;
+	background-color: #FAFAFA;
+}
+
+#cart_detile_img, #cart_detile_bookname, #cart_detile_num, #cart_detile_price, #cart_detile_totalPrice,#cart_detail_delete {
+	float: left;
+}
+
+#cart_detile_img {
+	background-color: white;
+	width: 100px;
+	height: 100px;
+}
+
+.bookImg {
+	width: 60px;
+	display: block;
+	margin: 7px auto;
+}
+
+#cart_detile_bookname, #cart_detile_num, #cart_detile_price, #cart_detile_totalPrice, #cart_detail_delete {
+	/*border:1px red solid;*/
+	margin: 40px 20px;
+	text-align: center;
+}
+
+#cart_detile_bookname {
+	text-align: left;
+	width: 400px;
+}
+
+#cart_detile_price {
+	width: 80px;
+}
+
+#cart_detile_num {
+	width: 100px;
+	margin: 40px 40px;
+}
+
+#cart_detile_totalPrice {
+	width: 80px;
+}
+#cart_detail_delete{
+padding-left:13px;
+}
+#cart_feature_frame { /*购物车功能区容器*/
+	width:1068px;
+	border:1px solid #eaeaea;
+	height: 47px;
+	margin-left:50px;
+}
+/*空购物车提示容器*/ /*MainContent_是因为runat="server"*/
+#MainContent_cart_ifEmpty{
+	height:400px;
+	background-color:#eaeaea;
+	text-align:center;
+	font-size:20px;
+	padding-top:35px;
+}
+#cart_feature_ifNotEmpty { /*购物车功能容器*/
+	background-color: #eaeaea;
+}
+
+#cart_feature_left { /*更新 清空 继续购物*/
+	float: left;
+}
+.btn-lablelike {
+	height: 25px;
+	border: none;
+	background: none;
+}
+
+.cart_feature_btn {
+	margin: 10px 10px;
+}
+
+#cart_feature_right { /*提交订单*/
+	text-align: right;
+	float: right;
+}
+
+#div_price {
+	margin-top: 10px;
+	float: left;
+	margin-right: 10px;
+}
+
+.cart_feature_btn_pay {
+	width: 140px;
+	height: 45px;
+	border: none;
+	background-color: red;
+	color: white;
+	display: block;
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
