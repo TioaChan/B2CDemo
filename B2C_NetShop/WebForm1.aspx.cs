@@ -24,7 +24,7 @@ namespace B2C_NetShop
 				dataColumns[k] = new DataColumn(colunm[k]);
 				dtTable.Columns.Add(dataColumns[k]);
 			}
-			string sql = "select BookID,BookName,BookIntroduce,picUrl from Goods_Sales_Rank_Top10 order by BookSalesCount desc";
+			string sql = "select top 2 BookID,BookName,BookIntroduce,picUrl from Goods_Sales_Rank_Top10 order by BookSalesCount desc";
 			DataSet ds = operate.GetTable(sql);
 			DataRow row;
 			int i = 0;

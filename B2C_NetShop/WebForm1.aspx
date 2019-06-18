@@ -8,109 +8,35 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title></title>
 	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
 	<style>
-		span {
-			overflow: hidden;
-			display: block;
-			font-size: 12px;
-		}
-
-		.overview-frame {
-			width: 278px;
-			border-bottom: 1px solid #e5e5e5;
-			line-height: 12px;
-			height: 32px;
-		}
-
-		.detail-frame {
-			width: 278px;
-			height: 132px;
-			border-bottom: 1px solid #e5e5e5;
-		}
-
-		.rank {
-			width: 25px;
-			height: 33px;
-			padding: 10px 0 0 15px;
-			text-align: center;
-		}
-
-		.span-float {
+		.list_aa {
 			float: left;
+			width: 166px;
+			height: 220px;
+			border-right: 1px solid #e6e6e6;
+			position: relative;
 		}
 
-		.bookimg {
-			width: 90px;
-			height: 90px;
-			background-color: antiquewhite;
+		#DataList1 span{
+			display:block;
+			float:left;
 		}
 
-		.goods-rank-frame {
-			color: #333333;
-			margin-top: 10px;
-		}
-
-		.goods-frame {
-			width: 238px;
-		}
-
-		.goods-detail {
-			width: 140px;
-			height: 100px;
-			overflow: hidden;
-		}
-
-		.goods-detail-name {
-		}
-
-		.goods-detail-introduce {
-			color: #969696;
-		}
-
-		.clear {
-			clear: both;
-		}
-
-		.hide {
-			display: none;
-		}
-
-		a:link {
-			color: #333333;
-		}
-
-		a:visited {
-			color: #333333;
-		}
-
-		a:hover {
-			color: #333333;
-		}
-
-		a:active {
-			color: #333333;
+		.bookimg{
+			width:150px;
+			height:150px;
 		}
 	</style>
-	<script>
-		$(document).ready(function () {
-			$(".detail-frame").addClass("hide")
-			$(".rank_frame").hover(function () {
-				// over
-				$(this).children(".overview-frame").addClass("hide").next().removeClass("hide").end();
-			}, function () {
-				// out
-				$(this).children(".overview-frame").removeClass("hide").next().addClass("hide").end();
-			});
-		});
-	</script>
+
 </head>
 
 <body>
 	<form id="form1" runat="server">
 		<div>
-			<asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow" Width="278px">
+			<asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
 				<ItemTemplate>
-					<span class="rank_frame">
+					<%--<span class="rank_frame" id= '<%#"rank"+Eval("Rank") %>'>
 						<span class="overview-frame">
 							<span class="rank span-float"><%# Eval("Rank") %></span>
 							<span class="span-float goods-rank-frame goods-frame">
@@ -135,7 +61,28 @@
 								</a></span>
 							<span class="clear"></span>
 						</span>
+					</span>--%>
+					<%--<span>
+						<a href="#"> <span></span> </a>
 					</span>
+					<span class="name"></span>
+					<span class="price">
+						<span class="rob"></span>
+						<span class="price_r"></span>
+					</span>--%>
+
+					<ul class="list_aa ">
+						<li class="line1 on"><a href='<%# Eval("BookUrl") %>'>
+							<img class="bookimg" src='<%# Eval("picUrl") %>'>
+							
+							<p class="name">
+								<span class="goods-detail-name"><%# Eval("BookName") %></span>
+							</p>
+							<p class="price">
+								
+							</p>
+						</li>
+					</ul>
 				</ItemTemplate>
 			</asp:DataList>
 		</div>
