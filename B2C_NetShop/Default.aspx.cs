@@ -28,6 +28,43 @@ namespace B2C_NetShop
 			BindDataList("Isrefinement", DataList_RefinementGoods);
 			BindDataList("IsHot",DataList_HotGoods);
 			BindDataList("IsDiscount",DataList_DiscountGoods);
+			string sql1 = "select BookID,BookName,BookIntroduce,picUrl from Goods_Sales_Rank_Top10 order by BookSalesCount desc";
+			string sql2 = "select BookID,BookName,BookIntroduce,picUrl from Goods_Sales_Rank_Top10 order by BookSalesCount asc";
+
+			BindDlGoodMarketTabData(DlGoodMarketTab1,sql1);
+			BindDlGoodMarketTabData(DlGoodMarketTab2,sql2);
+		}
+
+		/// <summary>
+		/// 绑定畅销榜数据
+		/// </summary>
+		/// <param name="DataList">列表</param>
+		protected void BindDlGoodMarketTabData(DataList tab,string sql){
+			DataTable dtTable = new DataTable();
+			DataColumn[] dataColumns = new DataColumn[6];
+			string[] colunm = { "Rank", "BookName", "BookIntroduce", "picUrl", "BookUrl" };
+			for (int k = 0; k < colunm.Length; k++)
+			{
+				dataColumns[k] = new DataColumn(colunm[k]);
+				dtTable.Columns.Add(dataColumns[k]);
+			}
+			
+			DataSet ds = operate.GetTable(sql);
+			DataRow row;
+			int i = 0;
+			foreach (DataRow drRow in ds.Tables[0].Rows)
+			{
+				row = dtTable.NewRow();
+				row["Rank"] = i + 1;
+				row["BookName"] = ds.Tables[0].Rows[i][1].ToString();
+				row["BookIntroduce"] = ds.Tables[0].Rows[i][2].ToString();
+				row["picUrl"] = ds.Tables[0].Rows[i][3].ToString();
+				row["BookUrl"] = "Goods/Detail.aspx?id=" + ds.Tables[0].Rows[i][0].ToString();
+				i++;
+				dtTable.Rows.Add(row);
+			}
+			tab.DataSource = dtTable.DefaultView;
+			tab.DataBind();
 		}
 
 		/// <summary>
