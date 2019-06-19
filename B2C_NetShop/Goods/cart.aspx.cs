@@ -49,7 +49,7 @@ namespace B2C_NetShop.Goods
 					cart_ifEmpty.Style["display"] = "none";
 					DataTable dtTable = new DataTable();
 					DataColumn[] dataColumns = new DataColumn[7];
-					string[] test = { "No", "BookID", "BookName", "Num", "Price", "totalPrice", "picUrl" };
+					string[] test = { "No", "BookID", "BookName", "Num", "MarketPrice", "totalPrice", "picUrl" };
 					for (int k = 0; k < test.Length; k++)
 					{
 						dataColumns[k] = new DataColumn(test[k]);
@@ -66,13 +66,13 @@ namespace B2C_NetShop.Goods
 						row["No"] = i;
 						row["BookID"] = key.ToString();
 						row["Num"] = hashCart[key].ToString();
-						string sql = "select BookName,HotPrice,picUrl from Goods_Info where BookID=@bookid";
+						string sql = "select BookName,MarketPrice,picUrl from Goods_Info where BookID=@bookid";
 						SqlParameter[] parameters = {
 							new SqlParameter("@bookid",key.ToString())
 						};
 						DataSet ds = operate.GetTable(sql, parameters);
 						row["BookName"] = ds.Tables[0].Rows[0][0].ToString(); //读取名称
-						row["price"] = ds.Tables[0].Rows[0][1].ToString();  //读取单价
+						row["MarketPrice"] = ds.Tables[0].Rows[0][1].ToString();  //读取单价
 						price = float.Parse(ds.Tables[0].Rows[0][1].ToString());
 						count = int.Parse(row["Num"].ToString());
 						row["totalPrice"] = price * count;

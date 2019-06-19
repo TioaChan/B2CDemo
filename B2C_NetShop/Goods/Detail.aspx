@@ -28,10 +28,10 @@
 						<div class="clear"></div>
 						<div id="detail_book_price">
 							<div id="detail_book_marketPrice">
-								定价：<asp:Label ID="MarketPriceLabel" runat="server" Text='<%# Eval("MarketPrice") %>' />&nbsp;CNY
+								原价：<asp:Label ID="MarketPriceLabel" runat="server" Text='<%# Eval("OriginalPrice") %>' />&nbsp;CNY
 							</div>
 							<div id="detail_book_hotPrice">
-								商城价：<asp:Label ID="HotPriceLabel" runat="server" Text='<%# Eval("HotPrice") %>' Font-Bold="True" Font-Size="Large" ForeColor="Red" />&nbsp;CNY
+								商城价：<asp:Label ID="HotPriceLabel" runat="server" Text='<%# Eval("MarketPrice") %>' Font-Bold="True" Font-Size="Large" ForeColor="Red" />&nbsp;CNY
 							</div>
 						</div>
 					</div>
@@ -40,7 +40,7 @@
 			</ItemTemplate>
 		</asp:DataList>
 		<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>"
-			SelectCommand="SELECT [ClassID], [BookName], [BookIntroduce], [Company], [Author], [MarketPrice], [HotPrice], [Isrefinement], [IsHot], [IsDiscount], [LoadDate], [picUrl] FROM [Goods_Info] WHERE ([BookID] = @BookID)">
+			SelectCommand="SELECT [ClassID], [BookName], [BookIntroduce], [Company], [Author], [MarketPrice], [OriginalPrice], [Isrefinement], [IsHot], [IsDiscount], [LoadDate], [picUrl] FROM [Goods_Info] WHERE ([BookID] = @BookID)">
 			<SelectParameters>
 				<asp:QueryStringParameter DefaultValue="1" Name="BookID" QueryStringField="id" Type="Int32" />
 			</SelectParameters>
