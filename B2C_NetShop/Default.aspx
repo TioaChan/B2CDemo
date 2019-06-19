@@ -892,51 +892,51 @@
 
 					</div>
 					<div class="tab_content_aa tab_content_aa ">
-						<div class="content left-tab_1" type="item" ddt-area="9354" dd_name="最新上架" style="display: none;">
-							<div class=" " name="m3208542_pid9370_9354_t15678">
-								<div class="con " name="m3208542_pid9370_9354_t15679">
+						<div class="content left-tab_1" type="item"  style="display: none;">
+							<div class=" ">
+								<div class="con" >
 									<a class="book_left_pic book_left_pic_1  pic" ddt-area="9341" href="http://baby.dangdang.com/20190430_ln31"
 										title="礼品童书 每满100减50" target="_blank" nname="mixpage-317715-15640_8_1" dd_src="lcdt238x441-1558317845_d37f59646f4883cc"
-										dd_name="图书A版_左_专题_TAB1">
+										>
 										<img src="http://img62.ddimg.cn/upload_img/00678/zsts/lcdt238x441-1558317845.jpg"
 											title="礼品童书 每满100减50" alt="礼品童书 每满100减50" ddt-pit="1" ddt-src="lcdt238x441-1558317845_d37f59646f4883cc"></a>
 									<ul class="book_tab_img">
-										<li nname="mixpage-317715-15640_8_1" class="line line1 on" ddt-area="9342" ddt-pit="1">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/children?ref=book-01-A" target="_blank"
+										<li  class="line line1 on"  ddt-pit="1">
+											<a   href="http://book.dangdang.com/children?ref=book-01-A" target="_blank"
 												class="" title="童书">童书</a> </li>
-										<li nname="mixpage-317715-15640_8_2" class="line line2 " ddt-area="9342" ddt-pit="2">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/study" target="_blank" class="" title="中小学教辅">中小学教辅</a>
+										<li class="line line2 "  ddt-pit="2">
+											<a   href="http://book.dangdang.com/study" target="_blank" class="" title="中小学教辅">中小学教辅</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_3" class="line line3 " ddt-area="9342" ddt-pit="3">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/language" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_3" class="line line3 "  ddt-pit="3">
+											<a   href="http://book.dangdang.com/language" target="_blank" class=""
 												title="外语">外语</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_4" class="line line4 " ddt-area="9342" ddt-pit="4">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/exam" target="_blank" class="" title="考试">考试</a>
+										<li nname="mixpage-317715-15640_8_4" class="line line4 "  ddt-pit="4">
+											<a   href="http://book.dangdang.com/exam" target="_blank" class="" title="考试">考试</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_5" class="line line5 " ddt-area="9342" ddt-pit="5">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/01.03.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_5" class="line line5 "  ddt-pit="5">
+											<a   href="http://book.dangdang.com/01.03.htm" target="_blank" class=""
 												title="小说">小说</a> </li>
-										<li nname="mixpage-317715-15640_8_6" class="line line6 " ddt-area="9342" ddt-pit="6">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/01.05.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_6" class="line line6 "  ddt-pit="6">
+											<a   href="http://book.dangdang.com/01.05.htm" target="_blank" class=""
 												title="文学">文学</a> </li>
-										<li nname="mixpage-317715-15640_8_7" class="line line7 " ddt-area="9342" ddt-pit="7">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/01.01.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_7" class="line line7 "  ddt-pit="7">
+											<a   href="http://book.dangdang.com/01.01.htm" target="_blank" class=""
 												title="青春文学">青春文学</a> </li>
-										<li nname="mixpage-317715-15640_8_8" class="line line8 " ddt-area="9342" ddt-pit="8">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/01.21.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_8" class="line line8 "  ddt-pit="8">
+											<a   href="http://book.dangdang.com/01.21.htm" target="_blank" class=""
 												title="成功/励志">成功/励志</a> </li>
-										<li nname="mixpage-317715-15640_8_9" class="line line9 " ddt-area="9342" ddt-pit="9">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/01.22.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_9" class="line line9 "  ddt-pit="9">
+											<a   href="http://book.dangdang.com/01.22.htm" target="_blank" class=""
 												title="管理">管理</a> </li>
-										<li class="line line10 " ddt-area="9342" ddt-pit="10">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/01.36.htm" target="_blank" class=""
+										<li class="line line10 "  ddt-pit="10">
+											<a   href="http://book.dangdang.com/01.36.htm" target="_blank" class=""
 												title="历史">历史</a> </li>
-										<li nname="mixpage-317715-15640_8_11" class="line line11 " ddt-area="9342" ddt-pit="11">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://book.dangdang.com/01.15.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_11" class="line line11 "  ddt-pit="11">
+											<a   href="http://book.dangdang.com/01.15.htm" target="_blank" class=""
 												title="亲子/家教">亲子/家教</a> </li>
-										<li nname="mixpage-317715-15640_8_12" class="line line12 " ddt-area="9342" ddt-pit="12">
-											<a dd_name="图书A版_左_分类_TAB1" dd_src="" href="http://category.dangdang.com/cp01.00.00.00.00.00.html" target="_blank"
+										<li nname="mixpage-317715-15640_8_12" class="line line12 "  ddt-pit="12">
+											<a   href="http://category.dangdang.com/cp01.00.00.00.00.00.html" target="_blank"
 												class="" title="全部分类>">全部分类&gt;</a> </li>
 									</ul>
 									<div class="roll_aa " id="mapid_3208542_parent_9370_9354_9345_part_9345" marquee="true" name="m3208542_pid9370_9354_9345_p9345"
@@ -965,163 +965,167 @@
 											</ul>
 										</div>
 									</div>
-									<div class="book_upper2 " name="m3208542_pid9370_9354_9348_t15680">
-										<ul class="list_aa " id="component_3208542__9370_9354_9348_9346__9346" ddt-area="9346">
-											<li class="line1" nname="mixpage-317715-15640_8_1" ddt-pit="1"><a dd_src="26484418_b83081951f4df886" dd_name="图书A版_上商品区1_TAB1"
-												title="世纪高教 张剑黄皮书考研英语二2020历年考研（二）真题解析及复习思路（经典试卷版)(2017-2019)MBA/MPA/MPAcc等专业学位专用" class="img" href="http://product.dangdang.com/26484418.html"
-												target="_blank">
-												<img src="http://img3m8.ddimg.cn/37/3/26484418-1_l_4.jpg" alt="世纪高教 张剑黄皮书考研英语二2020历年考研（二）真题解析及复习思路（经典试卷版)(2017-2019)MBA/MPA/MPAcc等专业学位专用"
-													dd_src="26484418_b83081951f4df886" ddt-src="26484418_b83081951f4df886"></a>
-												<div class="icon_pop"></div>
-												<p class="name">
-													<a dd_src="26484418_b83081951f4df886" ddt-src="26484418_b83081951f4df886" dd_name="图书A版_上商品区1_TAB1"
-														title="世纪高教 张剑黄皮书考研英语二2020历年考研（二）真题解析及复习思路（经典试卷版)(2017-2019)MBA/MPA/MPAcc等专业学位专用" href="http://product.dangdang.com/26484418.html"
-														target="_blank">世纪高教 张剑黄皮书考研英语二2020历年考研（二）真题解析及复习思路（经典试卷版)(2017-2019)MBA/MPA/MPAcc等专业学位专用</a>
-												</p>
-												<p class="price">
-													<span class="rob"><span class="sign">¥</span><span class="num">39</span><span class="tail">.80</span></span><span
-														class="price_r"><span class="sign">¥</span><span class="num">39</span><span class="tail">.80</span></span>
-												</p>
-											</li>
-										</ul>
-										<ul class="list_aa " id="component_3208542__9370_9354_9348_9347__9347" ddt-area="9347">
-											<li class="line1" nname="mixpage-317715-15640_8_1" ddt-pit="1"><a dd_src="27859553_ab092bb145826874" dd_name="图书A版_上商品区2_TAB1"
-												title="给孩子讲的中国故事（全20册）" class="img" href="http://product.dangdang.com/27859553.html" target="_blank">
-												<img
-													src="http://img3m3.ddimg.cn/62/33/27859553-1_l_5.jpg" alt="给孩子讲的中国故事（全20册）" dd_src="27859553_ab092bb145826874"
-													ddt-src="27859553_ab092bb145826874"></a>
-												<div class="icon_pop"></div>
-												<p class="name">
-													<a dd_src="27859553_ab092bb145826874" ddt-src="27859553_ab092bb145826874" dd_name="图书A版_上商品区2_TAB1"
-														title="给孩子讲的中国故事（全20册）" href="http://product.dangdang.com/27859553.html" target="_blank">给孩子讲的中国故事（全20册）</a>
-												</p>
-												<p class="price">
-													<span class="rob"><span class="sign">¥</span><span class="num">301</span><span class="tail">.60</span></span><span
-														class="price_r"><span class="sign">¥</span><span class="num">338</span><span class="tail">.00</span></span>
-												</p>
-											</li>
-										</ul>
+									<div class="book_upper2">
+										<style>
+											.m-left-tab ul, li {
+												padding: 0px;
+												margin: 0px;
+											}
+
+											.m-left-tab .list_aa {
+												float: left;
+												width: 166px;
+												height: 220px;
+												font-size: 12px;
+												border-right: 1px solid #e6e6e6;
+												border-bottom: 1px solid #e6e6e6;
+												position: relative;
+												list-style: none;
+											}
+
+											.m-left-tab #DataList1 span {
+												display: block;
+												float: left;
+											}
+
+											.m-left-tab .bookimg {
+												display: block;
+												width: 150px;
+												height: 150px;
+												overflow: hidden;
+												text-align: center;
+												margin: 7px auto 0;
+											}
+
+											.m-left-tab .name {
+												height: 16px;
+												line-height: 16px;
+												width: 150px;
+												margin: 5px auto 0;
+												overflow: hidden;
+											}
+
+											.m-left-tab .list_aa a {
+												text-decoration: none;
+												color: #666;
+											}
+
+											.m-left-tab #DataList1, #m-left-tab #DataList2 {
+												display: block;
+											}
+
+
+
+											.m-left-tab #list1 {
+											}
+
+											.m-left-tab #list2 {
+												clear: both;
+											}
+
+											.m-left-tab .price_r {
+												text-decoration: line-through;
+											}
+
+											.m-left-tab .rob {
+												color: #ff2832;
+												font: 14px Arial;
+												margin: 0px 10px;
+											}
+										</style>
+										<div class="m-left-tab">
+											<div id="list2">
+												<asp:DataList ID="dl_tab1" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+													<ItemTemplate>
+														<ul class="list_aa ">
+															<li class="line1 on"><a href='<%# Eval("BookUrl") %>'>
+																<img class="bookimg" src='<%# Eval("picUrl") %>'>
+																<p class="name">
+																	<span class="goods-detail-name"><%# Eval("BookName") %></span>
+																</p>
+																<p class="price">
+																	<span class="rob"><%# "¥"+Eval("MarketPrice") %></span>&nbsp;
+								<span class="price_r"><%# "¥"+Eval("OriginalPrice") %></span>
+																</p>
+															</a></li>
+														</ul>
+													</ItemTemplate>
+												</asp:DataList>
+											</div>
+										</div>
 									</div>
-									<div class="book_lower4 " name="m3208542_pid9370_9354_9353_t15681">
-										<ul class="list_aa " id="component_3208542__9370_9354_9353_9349__9349" ddt-area="9349">
-											<li class="line1" nname="mixpage-317715-15640_8_1" ddt-pit="1"><a dd_src="26921715_76c574f59a84513a" dd_name="图书A版_下商品区1_TAB1"
-												title="人生海海" class="img" href="http://product.dangdang.com/26921715.html" target="_blank">
-												<img src="http://img3m5.ddimg.cn/51/34/26921715-1_l_2.jpg"
-													alt="人生海海" dd_src="26921715_76c574f59a84513a" ddt-src="26921715_76c574f59a84513a"></a>
-												<div class="icon_pop"></div>
-												<p class="name">
-													<a dd_src="26921715_76c574f59a84513a" ddt-src="26921715_76c574f59a84513a" dd_name="图书A版_下商品区1_TAB1"
-														title="人生海海" href="http://product.dangdang.com/26921715.html" target="_blank">人生海海</a>
-												</p>
-												<p class="price">
-													<span class="rob"><span class="sign">¥</span><span class="num">55</span><span class="tail">.00</span></span><span
-														class="price_r"><span class="sign">¥</span><span class="num">55</span><span class="tail">.00</span></span><span
-															class="ebookprice_n"><span class="ebookprice_title">电子书</span><span class="sign">¥</span><span class="num">24</span><span
-																class="tail">.99</span></span>
-												</p>
-											</li>
-										</ul>
-										<ul class="list_aa " id="component_3208542__9370_9354_9353_9350__9350" ddt-area="9350">
-											<li class="line1" nname="mixpage-317715-15640_8_1" ddt-pit="1"><a dd_src="27847259_ec4e5ecd335e6f59" dd_name="图书A版_下商品区2_TAB1"
-												title="那一年 （左手韩新书亲笔签名版 畅销书漫画家左手韩10周年青春成长纪念之作人生最大的谎言就是你不行）" class="img" href="http://product.dangdang.com/27847259.html"
-												target="_blank">
-												<img src="http://img3m9.ddimg.cn/44/23/27847259-1_l_8.jpg" alt="那一年 （左手韩新书亲笔签名版 畅销书漫画家左手韩10周年青春成长纪念之作人生最大的谎言就是你不行）"
-													dd_src="27847259_ec4e5ecd335e6f59" ddt-src="27847259_ec4e5ecd335e6f59"></a>
-												<div class="icon_pop"></div>
-												<p class="name">
-													<a dd_src="27847259_ec4e5ecd335e6f59" ddt-src="27847259_ec4e5ecd335e6f59" dd_name="图书A版_下商品区2_TAB1"
-														title="那一年 （左手韩新书亲笔签名版 畅销书漫画家左手韩10周年青春成长纪念之作人生最大的谎言就是你不行）" href="http://product.dangdang.com/27847259.html"
-														target="_blank">那一年 （左手韩新书亲笔签名版 畅销书漫画家左手韩10周年青春成长纪念之作人生最大的谎言就是你不行）</a>
-												</p>
-												<p class="price">
-													<span class="rob"><span class="sign">¥</span><span class="num">42</span><span class="tail">.40</span></span><span
-														class="price_r"><span class="sign">¥</span><span class="num">46</span><span class="tail">.00</span></span>
-												</p>
-											</li>
-										</ul>
-										<ul class="list_aa " id="component_3208542__9370_9354_9353_9351__9351" ddt-area="9351">
-											<li class="line1" nname="mixpage-317715-15640_8_1" ddt-pit="1"><a dd_src="26923748_1c727cd764550cd1" dd_name="图书A版_下商品区3_TAB1"
-												title="玫瑰：黄有维的水彩玫瑰课（精华版）（全彩）" class="img" href="http://product.dangdang.com/26923748.html" target="_blank">
-												<img
-													src="http://img3m8.ddimg.cn/5/32/26923748-1_l_15.jpg" alt="玫瑰：黄有维的水彩玫瑰课（精华版）（全彩）" dd_src="26923748_1c727cd764550cd1"
-													ddt-src="26923748_1c727cd764550cd1"></a>
-												<div class="icon_pop"></div>
-												<p class="name">
-													<a dd_src="26923748_1c727cd764550cd1" ddt-src="26923748_1c727cd764550cd1" dd_name="图书A版_下商品区3_TAB1"
-														title="玫瑰：黄有维的水彩玫瑰课（精华版）（全彩）" href="http://product.dangdang.com/26923748.html" target="_blank">玫瑰：黄有维的水彩玫瑰课（精华版）（全彩）</a>
-												</p>
-												<p class="price">
-													<span class="rob"><span class="sign">¥</span><span class="num">83</span><span class="tail">.20</span></span><span
-														class="price_r"><span class="sign">¥</span><span class="num">99</span><span class="tail">.00</span></span>
-												</p>
-											</li>
-										</ul>
-										<ul class="list_aa " id="component_3208542__9370_9354_9353_9352__9352" ddt-area="9352">
-											<li class="line1" nname="mixpage-317715-15640_8_1" ddt-pit="1"><a dd_src="27858576_2b3645c0a6863e8c" dd_name="图书A版_下商品区4_TAB1"
-												title="资治通鉴（白话本）（全十册）" class="img" href="http://product.dangdang.com/27858576.html" target="_blank">
-												<img
-													src="http://img3m6.ddimg.cn/75/18/27858576-1_l_2.jpg" alt="资治通鉴（白话本）（全十册）" dd_src="27858576_2b3645c0a6863e8c"
-													ddt-src="27858576_2b3645c0a6863e8c"></a>
-												<div class="icon_pop"></div>
-												<p class="name">
-													<a dd_src="27858576_2b3645c0a6863e8c" ddt-src="27858576_2b3645c0a6863e8c" dd_name="图书A版_下商品区4_TAB1"
-														title="资治通鉴（白话本）（全十册）" href="http://product.dangdang.com/27858576.html" target="_blank">资治通鉴（白话本）（全十册）</a>
-												</p>
-												<p class="price">
-													<span class="rob"><span class="sign">¥</span><span class="num">661</span><span class="tail">.30</span></span><span
-														class="price_r"><span class="sign">¥</span><span class="num">698</span><span class="tail">.00</span></span>
-												</p>
-											</li>
-										</ul>
+									<div class="book_lower4">
+										<div class="m-left-tab">
+											<div id="list1">
+												<asp:DataList ID="dl_tab2" runat="server" RepeatDirection="Horizontal" RepeatLayout="Flow">
+													<ItemTemplate>
+														<ul class="list_aa ">
+															<li class="line1 on"><a href='<%# Eval("BookUrl") %>'>
+																<img class="bookimg" src='<%# Eval("picUrl") %>'>
+																<p class="name">
+																	<span class="goods-detail-name"><%# Eval("BookName") %></span>
+																</p>
+																<p class="price">
+																	<span class="rob"><%# "¥"+Eval("MarketPrice") %></span>&nbsp;
+								<span class="price_r"><%#  "¥"+Eval("OriginalPrice") %></span>
+																</p>
+															</a>
+																&nbsp;</li>
+														</ul>
+
+													</ItemTemplate>
+												</asp:DataList>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="content left-tab_2" type="item" style="display: display;" ddt-area="9356" dd_name="独家畅品">
-							<div class=" " name="m3208542_pid9370_9356_t15678">
+						<div class="content left-tab_2" type="item" style="display: display;" ddt-area="9356" >
+							<div>
 								<div class="con " name="m3208542_pid9370_9356_t15679">
 									<a class="book_left_pic book_left_pic_1  pic" ddt-area="9341" href="http://baby.dangdang.com/20190430_ln31"
 										title="童书 每满100减50" target="_blank" nname="mixpage-317715-15640_8_1" dd_src="lcdt238x441-1558317845_ce24e7ee86e3385a"
-										dd_name="图书A版_左_专题_TAB2">
+										>
 										<img src="http://img62.ddimg.cn/upload_img/00678/zsts/lcdt238x441-1558317845.jpg"
 											title="童书 每满100减50" alt="童书 每满100减50" ddt-pit="1" ddt-src="lcdt238x441-1558317845_ce24e7ee86e3385a"></a>
 									<ul class="book_tab_img">
-										<li nname="mixpage-317715-15640_8_1" class="line line1 on" ddt-area="9342" ddt-pit="1">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/children?ref=book-01-A" target="_blank"
+										<li  class="line line1 on"  ddt-pit="1">
+											<a   href="http://book.dangdang.com/children?ref=book-01-A" target="_blank"
 												class="" title="童书">童书</a> </li>
-										<li nname="mixpage-317715-15640_8_2" class="line line2 " ddt-area="9342" ddt-pit="2">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/study" target="_blank" class="" title="中小学教辅">中小学教辅</a>
+										<li  class="line line2 "  ddt-pit="2">
+											<a   href="http://book.dangdang.com/study" target="_blank" class="" title="中小学教辅">中小学教辅</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_3" class="line line3 " ddt-area="9342" ddt-pit="3">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/language" target="_blank" class=""
+										<li class="line line3 "  ddt-pit="3">
+											<a   href="http://book.dangdang.com/language" target="_blank" class=""
 												title="外语">外语</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_4" class="line line4 " ddt-area="9342" ddt-pit="4">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/exam" target="_blank" class="" title="考试">考试</a>
+										<li  class="line line4 "  ddt-pit="4">
+											<a   href="http://book.dangdang.com/exam" target="_blank" class="" title="考试">考试</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_5" class="line line5 " ddt-area="9342" ddt-pit="5">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/01.03.htm" target="_blank" class=""
+										<li class="line line5 "  ddt-pit="5">
+											<a   href="http://book.dangdang.com/01.03.htm" target="_blank" class=""
 												title="小说">小说</a> </li>
-										<li nname="mixpage-317715-15640_8_6" class="line line6 " ddt-area="9342" ddt-pit="6">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/01.05.htm" target="_blank" class=""
+										<li class="line line6 "  ddt-pit="6">
+											<a   href="http://book.dangdang.com/01.05.htm" target="_blank" class=""
 												title="文学">文学</a> </li>
-										<li nname="mixpage-317715-15640_8_7" class="line line7 " ddt-area="9342" ddt-pit="7">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/01.01.htm" target="_blank" class=""
+										<li class="line line7 "  ddt-pit="7">
+											<a   href="http://book.dangdang.com/01.01.htm" target="_blank" class=""
 												title="青春文学">青春文学</a> </li>
-										<li nname="mixpage-317715-15640_8_8" class="line line8 " ddt-area="9342" ddt-pit="8">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/01.21.htm" target="_blank" class=""
+										<li class="line line8 "  ddt-pit="8">
+											<a   href="http://book.dangdang.com/01.21.htm" target="_blank" class=""
 												title="成功/励志">成功/励志</a> </li>
-										<li nname="mixpage-317715-15640_8_9" class="line line9 " ddt-area="9342" ddt-pit="9">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/01.22.htm" target="_blank" class=""
+										<li  class="line line9 "  ddt-pit="9">
+											<a   href="http://book.dangdang.com/01.22.htm" target="_blank" class=""
 												title="管理">管理</a> </li>
-										<li class="line line10 " ddt-area="9342" ddt-pit="10">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/01.36.htm" target="_blank" class=""
+										<li class="line line10 "  ddt-pit="10">
+											<a   href="http://book.dangdang.com/01.36.htm" target="_blank" class=""
 												title="历史">历史</a> </li>
-										<li nname="mixpage-317715-15640_8_11" class="line line11 " ddt-area="9342" ddt-pit="11">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://book.dangdang.com/01.15.htm" target="_blank" class=""
+										<li class="line line11 "  ddt-pit="11">
+											<a   href="http://book.dangdang.com/01.15.htm" target="_blank" class=""
 												title="亲子/家教">亲子/家教</a> </li>
-										<li nname="mixpage-317715-15640_8_12" class="line line12 " ddt-area="9342" ddt-pit="12">
-											<a dd_name="图书A版_左_分类_TAB2" dd_src="" href="http://category.dangdang.com/cp01.00.00.00.00.00.html" target="_blank"
+										<li class="line line12 "  ddt-pit="12">
+											<a   href="http://category.dangdang.com/cp01.00.00.00.00.00.html" target="_blank"
 												class="" title="全部分类>">全部分类&gt;</a> </li>
 									</ul>
 									<div class="roll_aa " id="mapid_3208542_parent_9370_9356_9345_part_9345" marquee="true" name="m3208542_pid9370_9356_9345_p9345"
@@ -1271,42 +1275,42 @@
 										<img src="http://img50.ddimg.cn/9001320089129550.jpg" title="自出版" alt="自出版" ddt-pit="1"
 											ddt-src="9001320089129550_f5dd85b333601c06"></a>
 									<ul class="book_tab_img">
-										<li nname="mixpage-317715-15640_8_1" class="line line1 on" ddt-area="9342" ddt-pit="1">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/children?ref=book-01-A" target="_blank"
+										<li nname="mixpage-317715-15640_8_1" class="line line1 on"  ddt-pit="1">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/children?ref=book-01-A" target="_blank"
 												class="" title="童书">童书</a> </li>
-										<li nname="mixpage-317715-15640_8_2" class="line line2 " ddt-area="9342" ddt-pit="2">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/study" target="_blank" class="" title="中小学教辅">中小学教辅</a>
+										<li nname="mixpage-317715-15640_8_2" class="line line2 "  ddt-pit="2">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/study" target="_blank" class="" title="中小学教辅">中小学教辅</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_3" class="line line3 " ddt-area="9342" ddt-pit="3">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/language" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_3" class="line line3 "  ddt-pit="3">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/language" target="_blank" class=""
 												title="外语">外语</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_4" class="line line4 " ddt-area="9342" ddt-pit="4">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/exam" target="_blank" class="" title="考试">考试</a>
+										<li nname="mixpage-317715-15640_8_4" class="line line4 "  ddt-pit="4">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/exam" target="_blank" class="" title="考试">考试</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_5" class="line line5 " ddt-area="9342" ddt-pit="5">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/01.03.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_5" class="line line5 "  ddt-pit="5">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/01.03.htm" target="_blank" class=""
 												title="小说">小说</a> </li>
-										<li nname="mixpage-317715-15640_8_6" class="line line6 " ddt-area="9342" ddt-pit="6">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/01.05.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_6" class="line line6 "  ddt-pit="6">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/01.05.htm" target="_blank" class=""
 												title="文学">文学</a> </li>
-										<li nname="mixpage-317715-15640_8_7" class="line line7 " ddt-area="9342" ddt-pit="7">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/01.01.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_7" class="line line7 "  ddt-pit="7">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/01.01.htm" target="_blank" class=""
 												title="青春文学">青春文学</a> </li>
-										<li nname="mixpage-317715-15640_8_8" class="line line8 " ddt-area="9342" ddt-pit="8">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/01.21.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_8" class="line line8 "  ddt-pit="8">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/01.21.htm" target="_blank" class=""
 												title="成功/励志">成功/励志</a> </li>
-										<li nname="mixpage-317715-15640_8_9" class="line line9 " ddt-area="9342" ddt-pit="9">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/01.22.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_9" class="line line9 "  ddt-pit="9">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/01.22.htm" target="_blank" class=""
 												title="管理">管理</a> </li>
-										<li class="line line10 " ddt-area="9342" ddt-pit="10">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/01.36.htm" target="_blank" class=""
+										<li class="line line10 "  ddt-pit="10">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/01.36.htm" target="_blank" class=""
 												title="历史">历史</a> </li>
-										<li nname="mixpage-317715-15640_8_11" class="line line11 " ddt-area="9342" ddt-pit="11">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://book.dangdang.com/01.15.htm" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_11" class="line line11 "  ddt-pit="11">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://book.dangdang.com/01.15.htm" target="_blank" class=""
 												title="亲子/家教">亲子/家教</a> </li>
-										<li nname="mixpage-317715-15640_8_12" class="line line12 " ddt-area="9342" ddt-pit="12">
-											<a dd_name="图书A版_左_分类_TAB3" dd_src="" href="http://category.dangdang.com/cp01.00.00.00.00.00.html" target="_blank"
+										<li nname="mixpage-317715-15640_8_12" class="line line12 "  ddt-pit="12">
+											<a dd_name="图书A版_左_分类_TAB3"  href="http://category.dangdang.com/cp01.00.00.00.00.00.html" target="_blank"
 												class="" title="全部分类>">全部分类&gt;</a> </li>
 									</ul>
 									<div class="roll_aa " id="mapid_3208542_parent_9370_9358_9345_part_9345" marquee="true" name="m3208542_pid9370_9358_9345_p9345"
@@ -1453,32 +1457,32 @@
 										<img
 											src="http://img62.ddimg.cn/ddreader/dangebook/left_logo-74.jpg" title="电子书" alt="电子书" ddt-pit="1" ddt-src="left_logo-74_ce136bd855fc8630"></a>
 									<ul class="book_tab_img">
-										<li nname="mixpage-317715-15640_8_1" class="line line1 on" ddt-area="9342" ddt-pit="1">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/new_original_index_page.html" target="_blank"
+										<li nname="mixpage-317715-15640_8_1" class="line line1 on"  ddt-pit="1">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/new_original_index_page.html" target="_blank"
 												class="" title="网文">网文</a> </li>
-										<li nname="mixpage-317715-15640_8_2" class="line line2 " ddt-area="9342" ddt-pit="2">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=XS2&amp;dimension=dd_sale&amp;order=0"
+										<li nname="mixpage-317715-15640_8_2" class="line line2 "  ddt-pit="2">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/classification_list_page.html?category=XS2&amp;dimension=dd_sale&amp;order=0"
 												target="_blank" class="" title="小说">小说</a> </li>
-										<li nname="mixpage-317715-15640_8_3" class="line line3 " ddt-area="9342" ddt-pit="3">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=JG&amp;dimension=dd_sale&amp;order=0"
+										<li nname="mixpage-317715-15640_8_3" class="line line3 "  ddt-pit="3">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/classification_list_page.html?category=JG&amp;dimension=dd_sale&amp;order=0"
 												target="_blank" class="" title="经管励志">经管励志</a> </li>
-										<li nname="mixpage-317715-15640_8_4" class="line line4 " ddt-area="9342" ddt-pit="4">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=WY1&amp;dimension=dd_sale&amp;order=0"
+										<li nname="mixpage-317715-15640_8_4" class="line line4 "  ddt-pit="4">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/classification_list_page.html?category=WY1&amp;dimension=dd_sale&amp;order=0"
 												target="_blank" class="" title="文艺">文艺</a> </li>
-										<li nname="mixpage-317715-15640_8_5" class="line line5 " ddt-area="9342" ddt-pit="5">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=SK&amp;dimension=dd_sale&amp;order=0"
+										<li nname="mixpage-317715-15640_8_5" class="line line5 "  ddt-pit="5">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/classification_list_page.html?category=SK&amp;dimension=dd_sale&amp;order=0"
 												target="_blank" class="" title="社科">社科</a> </li>
-										<li nname="mixpage-317715-15640_8_6" class="line line6 " ddt-area="9342" ddt-pit="6">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=SH&amp;dimension=dd_sale&amp;order=0"
+										<li nname="mixpage-317715-15640_8_6" class="line line6 "  ddt-pit="6">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/classification_list_page.html?category=SH&amp;dimension=dd_sale&amp;order=0"
 												target="_blank" class="" title="生活">生活</a> </li>
-										<li nname="mixpage-317715-15640_8_7" class="line line7 " ddt-area="9342" ddt-pit="7">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/rank_detail_page.html?listType=ddds_sale&amp;channelType=all"
+										<li nname="mixpage-317715-15640_8_7" class="line line7 "  ddt-pit="7">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/rank_detail_page.html?listType=ddds_sale&amp;channelType=all"
 												target="_blank" class="" title="新书榜">新书榜</a> </li>
-										<li nname="mixpage-317715-15640_8_8" class="line line8 " ddt-area="9342" ddt-pit="8">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/rank_detail_page.html?listType=ddds_sale&amp;channelType=all"
+										<li nname="mixpage-317715-15640_8_8" class="line line8 "  ddt-pit="8">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/rank_detail_page.html?listType=ddds_sale&amp;channelType=all"
 												target="_blank" class="" title="畅销榜">畅销榜</a> </li>
-										<li nname="mixpage-317715-15640_8_9" class="line line9 " ddt-area="9342" ddt-pit="9">
-											<a dd_name="图书A版_左_分类_TAB4" dd_src="" href="http://e.dangdang.com/index_page.html" target="_blank" class=""
+										<li nname="mixpage-317715-15640_8_9" class="line line9 "  ddt-pit="9">
+											<a dd_name="图书A版_左_分类_TAB4"  href="http://e.dangdang.com/index_page.html" target="_blank" class=""
 												title="查看所有">查看所有</a> </li>
 									</ul>
 									<div class="roll_aa " id="mapid_3208542_parent_9370_10020_9345_part_9345" marquee="true" name="m3208542_pid9370_10020_9345_p9345"
@@ -1631,28 +1635,28 @@
 											src="http://img61.ddimg.cn/ww/zx/12/bzaddd.jpg" ddt-pit="1" ddt-src="bzaddd_c23fb62ad26a5c8b"></a>
 									<ul class="book_tab_img">
 										<li nname="mixpage-317715-15640_8_1" class="line line1 on" ddt-area="10053" ddt-pit="1">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=XHQH&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=XHQH&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="玄幻奇幻">玄幻奇幻</a> </li>
 										<li nname="mixpage-317715-15640_8_2" class="line line2 " ddt-area="10053" ddt-pit="2">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=XDDS&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=XDDS&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="现代都市">现代都市</a> </li>
 										<li nname="mixpage-317715-15640_8_3" class="line line3 " ddt-area="10053" ddt-pit="3">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=WXXX&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=WXXX&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="武侠仙侠">武侠仙侠</a> </li>
 										<li nname="mixpage-317715-15640_8_4" class="line line4 " ddt-area="10053" ddt-pit="4">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=LSJS&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=LSJS&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="历史军事">历史军事</a> </li>
 										<li nname="mixpage-317715-15640_8_5" class="line line5 " ddt-area="10053" ddt-pit="5">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=XDYQ&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=XDYQ&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="现代言情">现代言情</a> </li>
 										<li nname="mixpage-317715-15640_8_6" class="line line6 " ddt-area="10053" ddt-pit="6">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=CYCS&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=CYCS&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="穿越重生">穿越重生</a> </li>
 										<li nname="mixpage-317715-15640_8_7" class="line line7 " ddt-area="10053" ddt-pit="7">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=GZYQ&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=GZYQ&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="古装言情">古装言情</a> </li>
 										<li nname="mixpage-317715-15640_8_8" class="line line8 " ddt-area="10053" ddt-pit="8">
-											<a dd_name="图书A版_左_分类_TAB5" dd_src="" href="http://e.dangdang.com/classification_list_page.html?category=QCXY&amp;dimension=sale&amp;order=0"
+											<a dd_name="图书A版_左_分类_TAB5"  href="http://e.dangdang.com/classification_list_page.html?category=QCXY&amp;dimension=sale&amp;order=0"
 												target="_blank" class="" title="青春校园">青春校园</a> </li>
 									</ul>
 									<div class="roll_aa " id="mapid_3208542_parent_9370_10073_10054_part_10054" marquee="true" name="m3208542_pid9370_10073_10054_p10054"
@@ -1853,7 +1857,8 @@
 												<span class="span-float goods-rank-frame">
 													<img class="bookimg" src='<%# Eval("picUrl") %>'>
 												</span>
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br /><span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br />
+													<span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
 								</ItemTemplate>
 							</asp:DataList>
 						</div>
@@ -1877,7 +1882,8 @@
 												<span class="span-float goods-rank-frame">
 													<img class="bookimg" src='<%# Eval("picUrl") %>'>
 												</span>
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br /><span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br />
+													<span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
 								</ItemTemplate>
 							</asp:DataList>
 						</div>

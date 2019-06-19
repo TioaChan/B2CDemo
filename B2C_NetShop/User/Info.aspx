@@ -91,7 +91,43 @@
 											</div>
 										</div>
 									</div>
-									<div class="row"></div>
+									<div class="row">
+										<div class="userinfo-wrapper">
+											<asp:DataList ID="DataList2" runat="server" CssClass="asp_datalist_om">
+												<HeaderTemplate>
+													<table class="table table-hover">
+														<tr>
+
+															<th>订单ID</th>
+															<th>产品图片</th>
+															<th>产品名称</th>
+															<th>订购时间</th>
+															<th>订购价格</th>
+															<th>订购状态</th>
+														</tr>
+													</table>
+												</HeaderTemplate>
+												<ItemTemplate>
+													<table class="table table-hover">
+														<tr>
+															<td><a href="#"><%# Eval("order_id") %></a></td>
+															<td><a href="<%# Eval("BookUrl") %>">
+																<img width="100px" src="<%# Eval("picUrl") %>" alt="Alternate Text" />
+															</a></td>
+															<td><a href="#"><%# Eval("BookName") %></a></td>
+															<td><span><%# Eval("order_date") %></span></td>
+															<td><span><%# Eval("order_price") %></span></td>
+															<td>
+																<span>
+																	<%# Eval("isPay") %>
+																</span>
+															</td>
+														</tr>
+													</table>
+												</ItemTemplate>
+											</asp:DataList>
+										</div>
+									</div>
 								</div>
 
 
@@ -224,33 +260,35 @@
 								</div>
 							</asp:View>
 							<asp:View ID="View_Order" runat="server">
-								<div class="userinfo-wrapper">
-									<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
-										<HeaderTemplate>
-											<table class="table table-hover">
-												<tr>
-													<th>订单ID</th>
-													<th>订单时间</th>
-													<th>订单价格</th>
-													<th>付款状态</th>
-												</tr>
-											</table>
-										</HeaderTemplate>
-										<ItemTemplate>
-											<table class="table table-hover">
-												<tr>
-													<td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
-													<td><span><%# Eval("order_date") %></span></td>
-													<td><span><%# Eval("order_price") %></span></td>
-													<td>
-														<span>
-															<%# Eval("isPay") %>
-														</span>
-													</td>
-												</tr>
-											</table>
-										</ItemTemplate>
-									</asp:DataList>
+								<div class="content-wrapper">
+									<div class="userinfo-wrapper">
+										<asp:DataList ID="DataList1" runat="server" CssClass="asp_datalist_om">
+											<HeaderTemplate>
+												<table class="table table-hover">
+													<tr>
+														<th>订单ID</th>
+														<th>订单时间</th>
+														<th>订单价格</th>
+														<th>付款状态</th>
+													</tr>
+												</table>
+											</HeaderTemplate>
+											<ItemTemplate>
+												<table class="table table-hover">
+													<tr>
+														<td><a href="<%# Eval("order_url") %>"><%# Eval("order_id") %></a></td>
+														<td><span><%# Eval("order_date") %></span></td>
+														<td><span><%# Eval("order_price") %></span></td>
+														<td>
+															<span>
+																<%# Eval("isPay") %>
+															</span>
+														</td>
+													</tr>
+												</table>
+											</ItemTemplate>
+										</asp:DataList>
+									</div>
 								</div>
 							</asp:View>
 							<asp:View ID="View_Analyze" runat="server">

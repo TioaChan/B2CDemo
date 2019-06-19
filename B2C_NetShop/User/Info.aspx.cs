@@ -60,6 +60,7 @@ namespace B2C_NetShop.User
 					BindUserInfo();
 					BindUserAddress();
 					BindDataList();
+					BindDataList2();
 				}
 			}
 		}
@@ -392,6 +393,50 @@ namespace B2C_NetShop.User
 			DataList1.DataBind();
 		}
 
+		public void BindDataList2()
+		{
+			DataTable dtTable = new DataTable();
+			DataColumn[] dataColumns = new DataColumn[8];
+			String[] test = { "order_id", "BookID", "picUrl", "BookName", "order_price", "order_date", "isPay","BookUrl" };
+			for (int k = 0; k < test.Length; k++)
+			{
+				dataColumns[k] = new DataColumn(test[k]);
+				dtTable.Columns.Add(dataColumns[k]);
+			}
+			String sql = "select Cart_Goods.order_id,BookID,Goods_Info.picUrl,BookName,order_price,order_date,isPay from Cart_Goods,Cart_Info,Goods_Info where Cart_Goods.order_id=Cart_Info.order_id and order_bookid=BookID and Cart_Info.UID=@uid order by order_id";
+			SqlParameter[] parameters ={
+				new SqlParameter("@uid",Session["uid"].ToString())
+			};
 
+			DataSet ds = operate.GetTable(sql, parameters);
+			DataRow row;
+			int i = 0;
+			foreach (DataRow drRow in ds.Tables[0].Rows)
+			{
+				row = dtTable.NewRow();
+				row["order_id"] = ds.Tables[0].Rows[i][0].ToString();
+				row["BookID"] = ds.Tables[0].Rows[i][1].ToString();
+				row["picUrl"] = ds.Tables[0].Rows[i][2].ToString();
+				row["BookName"] = ds.Tables[0].Rows[i][3].ToString();
+				row["order_price"] = ds.Tables[0].Rows[i][4].ToString();
+				row["order_date"] = ds.Tables[0].Rows[i][5].ToString();
+				
+
+				row["isPay"] = Convert.ToBoolean(ds.Tables[0].Rows[i][6]);
+				if (ds.Tables[0].Rows[i][6].ToString() == "True")
+				{
+					row["isPay"] = "已付款";
+				}
+				else
+				{
+					row["isPay"] = "未付款";
+				}
+				row["BookUrl"] = "../Goods/Detail.aspx?id=" + ds.Tables[0].Rows[i][1].ToString();
+				i++;
+				dtTable.Rows.Add(row);
+			}
+			DataList2.DataSource = dtTable.DefaultView;
+			DataList2.DataBind();
+		}
 	}
 }

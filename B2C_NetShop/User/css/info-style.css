@@ -34,7 +34,7 @@ footer, hr {
 }
 
 #side-bar {
-	width: 247px;
+	width: 274px;
 	min-height: 1593.9px;
 	min-height: 100%;
 	float: left;
@@ -43,11 +43,13 @@ footer, hr {
 }
 
 	#side-bar ul { /* 左导航条 */
+		width: 274px;
 		padding: 0px 13px;
 		margin: 0px;
 		list-style: none;
-		outline:none;
+		outline: none;
 		min-height: 1380px;
+		position: fixed;
 		background: -webkit-linear-gradient(0deg, #f85032, #FF0000); /* Safari 5.1 - 6.0 */
 		background: -o-linear-gradient(0deg, #f85032, #FF0000); /* Opera 11.1 - 12.0 */
 		background: -moz-linear-gradient(0deg, #f85032, #FF0000); /* Firefox 3.6 - 15 */
@@ -98,7 +100,8 @@ footer, hr {
 
 
 #right-content {
-	width: calc(100% - 247px);
+	width: calc(100% - 274px) ;
+	margin-left: 274px;
 	display: block;
 	float: left;
 }
@@ -132,19 +135,21 @@ footer, hr {
 
 
 .userinfo-wrapper {
-	width: 883px;
 	padding: 30px;
 	background: #fff;
 	margin: 0 auto;
 }
-
-	.asp_datalist_om .table {
-		margin: 0px;
-	}
+.asp_datalist_om{
+	margin:0 auto;
+}
+.asp_datalist_om .table {
+	margin: 0px;
+}
 
 		.asp_datalist_om .table tr td {
 			width: 220.75px;
-			height: 38px;
+			height: 100px;
+			line-height:100px;
 			text-align: center;
 		}
 

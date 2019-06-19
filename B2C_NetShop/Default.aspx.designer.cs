@@ -85,6 +85,24 @@ namespace B2C_NetShop {
         protected global::System.Web.UI.WebControls.DataList DataList_DiscountGoods;
         
         /// <summary>
+        /// dl_tab1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab1;
+        
+        /// <summary>
+        /// dl_tab2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab2;
+        
+        /// <summary>
         /// DlGoodMarketTab1 控件。
         /// </summary>
         /// <remarks>

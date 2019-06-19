@@ -12,6 +12,7 @@ namespace B2C_NetShop
 	{
 		pageload load = new pageload();
 		Database operate = new Database();
+		DataTable dtTable;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			HyperLink hl1 = (HyperLink)(Master.FindControl("HyperLink1"));//用户个人资料
@@ -33,6 +34,68 @@ namespace B2C_NetShop
 
 			BindDlGoodMarketTabData(DlGoodMarketTab1,sql1);
 			BindDlGoodMarketTabData(DlGoodMarketTab2,sql2);
+
+			bind(1, dl_tab2, dl_tab1);
+
+		}
+
+		protected void bind(int classNum, DataList dl, DataList dl2)
+		{
+			dtTable = new DataTable();
+			DataColumn[] dataColumns = new DataColumn[6];
+			string[] colunm = { "BookID", "BookName", "picUrl", "BookUrl", "OriginalPrice", "MarketPrice" };
+			for (int k = 0; k < colunm.Length; k++)
+			{
+				dataColumns[k] = new DataColumn(colunm[k]);
+				dtTable.Columns.Add(dataColumns[k]);
+			}
+			string sql = "select BookID,BookName,picUrl,OriginalPrice,MarketPrice from  Goods_Recommend_ByClass,dbo.Goods_Class where Goods_Class.ClassID=Goods_Recommend_ByClass.ClassID AND Goods_Recommend_ByClass.ClassID=@Class";
+			SqlParameter[] parameters ={
+				new SqlParameter("Class",classNum)
+			};
+			DataSet ds = operate.GetTable(sql, parameters);
+			DataRow row;
+			int i = 0;
+			foreach (DataRow drRow in ds.Tables[0].Rows)
+			{
+				row = dtTable.NewRow();
+				row["BookID"] = ds.Tables[0].Rows[i][0].ToString();
+				row["BookName"] = ds.Tables[0].Rows[i][1].ToString();
+				row["picUrl"] = ds.Tables[0].Rows[i][2].ToString();
+				row["OriginalPrice"] = ds.Tables[0].Rows[i][3].ToString();
+				row["MarketPrice"] = ds.Tables[0].Rows[i][4].ToString();
+				row["BookUrl"] = "Goods/Detail.aspx?id=" + ds.Tables[0].Rows[i][0].ToString();
+				dtTable.Rows.Add(row);
+				i++;
+				if (i == 4)
+					break;
+			}
+			dl.DataSource = dtTable.DefaultView;
+			dl.DataBind();
+
+
+			DataTable dtTable2 = new DataTable();
+			DataColumn[] dataColumns2 = new DataColumn[6];
+			string[] colunm2 = { "BookID", "BookName", "picUrl", "BookUrl", "OriginalPrice", "MarketPrice" };
+			for (int k = 0; k < colunm2.Length; k++)
+			{
+				dataColumns2[k] = new DataColumn(colunm2[k]);
+				dtTable2.Columns.Add(dataColumns2[k]);
+			}
+			for (int j = 4; j <= ds.Tables[0].Columns.Count; j++)
+			{
+				row = dtTable2.NewRow();
+				row["BookID"] = ds.Tables[0].Rows[j][0].ToString();
+				row["BookName"] = ds.Tables[0].Rows[j][1].ToString();
+				row["picUrl"] = ds.Tables[0].Rows[j][2].ToString();
+				row["OriginalPrice"] = ds.Tables[0].Rows[j][3].ToString();
+				row["MarketPrice"] = ds.Tables[0].Rows[j][4].ToString();
+				row["BookUrl"] = "Goods/Detail.aspx?id=" + ds.Tables[0].Rows[j][0].ToString();
+				dtTable2.Rows.Add(row);
+
+			}
+			dl2.DataSource = dtTable2.DefaultView;
+			dl2.DataBind();
 		}
 
 		/// <summary>
