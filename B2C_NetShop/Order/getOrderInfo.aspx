@@ -61,9 +61,9 @@
 				<div class="orderinfo-goods">
 					<div id="order_head_frame">
 						<div class="order_head head_name">名称</div>
-						<div class="order_head head_MarketPrice">MarketPrice（元）</div>
-						<div class="order_head head_HotPrice">HotPrice（元）</div>
-						<div class="order_head head_num">num</div>
+						<div class="order_head head_MarketPrice">原价（元）</div>
+						<div class="order_head head_HotPrice">商城价（元）</div>
+						<div class="order_head head_num">数量</div>
 						<div class="order_head head_totalPrice">金额（元）</div>
 						<div class="clear"></div>
 					</div>
@@ -79,10 +79,10 @@
 									</a>
 								</span>
 								<span class="order order_book_MarketPrice">
-									<asp:Label ID="Label4" runat="server" Text='<%# Eval("MarketPrice") %>' Width="150px" ></asp:Label>
+									<asp:Label ID="Label4" runat="server" Text='<%# Eval("OriginalPrice") %>' Width="150px" ></asp:Label>
 								</span>
 								<span class="order order_book_HotPrice">
-									<asp:Label ID="Label6" runat="server" Text='<%# Eval("HotPrice") %>' Width="150px" ></asp:Label>
+									<asp:Label ID="Label6" runat="server" Text='<%# Eval("MarketPrice") %>' Width="150px" ></asp:Label>
 								</span>
 								<span class="order order_book_num">
 									<asp:Label ID="Label3" runat="server" Text='<%# Eval("Num") %>' Width="150px" ></asp:Label>

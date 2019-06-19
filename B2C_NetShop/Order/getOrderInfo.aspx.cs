@@ -59,7 +59,7 @@ namespace B2C_NetShop.Order
 		{
 			DataTable dtTable = new DataTable();
 			DataColumn[] dataColumns = new DataColumn[9];
-			string[] colunm = { "No", "BookID", "BookName","BookUrl", "Num", "MarketPrice", "HotPrice", "picUrl", "totalPrice" };
+			string[] colunm = { "No", "BookID", "BookName","BookUrl", "Num", "OriginalPrice", "MarketPrice", "picUrl", "totalPrice" };
 			for (int k = 0; k < colunm.Length; k++)
 			{
 				dataColumns[k] = new DataColumn(colunm[k]);
@@ -70,7 +70,7 @@ namespace B2C_NetShop.Order
 			int i = 1;//用于dtTable循环标识
 			int count = 0;//用于统计商品数量
 			double o_price = 0;//用于统计商品价格
-			double h_price = 0;//用于统计商品价格
+			double m_price = 0;//用于统计商品价格
 			foreach (object key in hashCart.Keys)
 			{
 				row = dtTable.NewRow();
@@ -79,26 +79,26 @@ namespace B2C_NetShop.Order
 				row["Num"] = hashCart[key].ToString();
 				row["BookUrl"]= "../Goods/Detail.aspx?id=" + key.ToString();
 				count += Convert.ToInt32(hashCart[key]);
-				string sql = "select BookName,MarketPrice,HotPrice,picUrl from Goods_Info where BookID=@bookid";
+				string sql = "select BookName,OriginalPrice,MarketPrice,picUrl from Goods_Info where BookID=@bookid";
 				SqlParameter[] parameters = {
 					new SqlParameter("@bookid",key.ToString())
 				};
 				DataSet ds = operate.GetTable(sql, parameters);
 				row["BookName"]=ds.Tables[0].Rows[0][0].ToString();
-				row["MarketPrice"] = ds.Tables[0].Rows[0][1].ToString();
-				row["HotPrice"] = ds.Tables[0].Rows[0][2].ToString();
+				row["OriginalPrice"] = ds.Tables[0].Rows[0][1].ToString();//原价
+				row["MarketPrice"] = ds.Tables[0].Rows[0][2].ToString();//定价
 				row["picUrl"] = ds.Tables[0].Rows[0][3].ToString();
-				row["totalPrice"] = Convert.ToInt32(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][2]);//数量*折扣价
-				h_price += Convert.ToDouble(row["totalPrice"]);//总折扣价
-				o_price += Convert.ToInt32(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][1]);//总原价
+				row["totalPrice"] = Convert.ToInt32(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][2]);//数量*定价
+				o_price += Convert.ToDouble(Convert.ToInt32(hashCart[key]) * Convert.ToDouble(ds.Tables[0].Rows[0][1]));//实际总原价
+				m_price += Convert.ToDouble(row["totalPrice"]);//实际总价
 				i++;
 				dtTable.Rows.Add(row);
 			}
 			Label2.Text = count.ToString();//商品总数量
 			Label1.Text = o_price.ToString();//商品总价格
 			Label4.Text = "0";//运费
-			Label3.Text = h_price.ToString();//商品总实际价格
-			Label5.Text = (o_price - h_price).ToString();//商品优惠
+			Label3.Text = m_price.ToString();//商品总实际价格
+			Label5.Text = (o_price - m_price).ToString();//商品优惠
 			DataList_Order.DataSource = dtTable.DefaultView;
 			DataList_Order.DataBind();
 		}

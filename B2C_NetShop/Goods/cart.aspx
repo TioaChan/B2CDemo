@@ -28,7 +28,7 @@
 							<asp:Label ID="Label2" runat="server" Text='<%# Eval("BookName") %>'></asp:Label><%--bookname--%>
 						</div>
 						<div id="cart_detile_price">
-							<asp:Label ID="Label4" runat="server" Text='<%# Eval("price") %>'></asp:Label><%--单价--%>
+							<asp:Label ID="Label4" runat="server" Text='<%# Eval("MarketPrice") %>'></asp:Label><%--单价--%>
 						</div>
 						<div id="cart_detile_num">
 							<asp:Button ID="Button_Num_Plus" CssClass="NumControl" runat="server" Text="+" CommandArgument="NumPlus" CommandName="Update" />
