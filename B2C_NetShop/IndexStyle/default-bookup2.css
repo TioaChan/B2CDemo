@@ -1,0 +1,66 @@
+﻿.m-left-tab ul,
+li {
+	padding: 0px;
+	margin: 0px;
+}
+
+.m-left-tab .list_aa {
+	float: left;
+	width: 166px;
+	height: 220px;
+	font-size: 12px;
+	border-right: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
+	position: relative;
+	list-style: none;
+}
+
+.m-left-tab #DataList1 span {
+	display: block;
+	float: left;
+}
+
+.m-left-tab .bookimg {
+	display: block;
+	width: 150px;
+	height: 150px;
+	overflow: hidden;
+	text-align: center;
+	margin: 7px auto 0;
+}
+
+.m-left-tab .name {
+	height: 16px;
+	line-height: 16px;
+	width: 150px;
+	margin: 5px auto 0;
+	overflow: hidden;
+}
+
+.m-left-tab .list_aa a {
+	text-decoration: none;
+	color: #666;
+}
+
+.m-left-tab #DataList1,
+#m-left-tab #DataList2 {
+	display: block;
+}
+
+
+
+.m-left-tab #list1 {}
+
+.m-left-tab #list2 {
+	clear: both;
+}
+
+.m-left-tab .price_r {
+	text-decoration: line-through;
+}
+
+.m-left-tab .rob {
+	color: #ff2832;
+	font: 14px Arial;
+	margin: 0px 10px;
+}

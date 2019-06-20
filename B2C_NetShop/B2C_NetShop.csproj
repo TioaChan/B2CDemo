@@ -188,6 +188,11 @@
     <Content Include="img\product-ad-img\c.jpg" />
     <Content Include="img\product-ad-img\sponsor.jpg" />
     <Content Include="IndexStyle\default-banner-login-style.css" />
+    <Content Include="IndexStyle\default-BodyContent.css" />
+    <Content Include="IndexStyle\default-bodycontent.js" />
+    <Content Include="IndexStyle\default-bookup2.css" />
+    <Content Include="IndexStyle\default-Content1.js" />
+    <Content Include="IndexStyle\default-outer.css" />
     <Content Include="IndexStyle\default-product-list.css" />
     <Content Include="Manage\style\main-style.css" />
     <Content Include="Order\css\getOrderInfo.css" />

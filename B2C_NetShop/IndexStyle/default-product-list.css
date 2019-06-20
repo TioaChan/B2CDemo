@@ -14,12 +14,16 @@
 	margin: 0px;
 }
 
-#footer_1st, #footer_2nd, #footer_3rd { /*三个推荐栏目容器*/
+#footer_1st,
+#footer_2nd,
+#footer_3rd {
+	/*三个推荐栏目容器*/
 	height: auto;
 	border-bottom: 1px #eaeaea solid;
 }
 
-.footer_type { /*推荐栏目说明和按钮容器*/
+.footer_type {
+	/*推荐栏目说明和按钮容器*/
 	float: left;
 }
 
@@ -46,11 +50,11 @@
 	transition-duration: .25s;
 }
 
-	.footer_goods_detail:hover {
-		-webkit-box-shadow: 3px 3px 3px;
-		-moz-box-shadow: 3px 3px 3px;
-		box-shadow: 5px 5px 5px;
-	}
+.footer_goods_detail:hover {
+	-webkit-box-shadow: 3px 3px 3px;
+	-moz-box-shadow: 3px 3px 3px;
+	box-shadow: 5px 5px 5px;
+}
 
 .bookImg {
 	height: 171px;
@@ -63,7 +67,9 @@
 }
 
 
-.book_name, .book_author, .book_price {
+.book_name,
+.book_author,
+.book_price {
 	display: block;
 }
 
@@ -90,12 +96,13 @@
 	margin-top: 30px;
 }
 
-	.footer_btn > a { /*推荐位按钮样式，使用a代替按钮*/
-		padding-top: 10px;
-		height: 40px;
-		width: 100px;
-		text-align: center;
-	}
+.footer_btn>a {
+	/*推荐位按钮样式，使用a代替按钮*/
+	padding-top: 10px;
+	height: 40px;
+	width: 100px;
+	text-align: center;
+}
 
 a:hover {
 	text-decoration: none;

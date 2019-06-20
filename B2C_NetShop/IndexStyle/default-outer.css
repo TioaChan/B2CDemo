@@ -1,0 +1,93 @@
+﻿#MainContent_DlGoodMarketTab1 span,
+#MainContent_DlGoodMarketTab2 span {
+	overflow: hidden;
+	display: block;
+	font-size: 12px;
+}
+
+.overview-frame {
+	width: 278px;
+	border-bottom: 1px solid #e5e5e5;
+	line-height: 12px;
+	height: 32px;
+}
+
+.detail-frame {
+	width: 278px;
+	height: 132px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.rank {
+	width: 25px;
+	height: 33px;
+	padding: 10px 0 0 15px;
+	text-align: center;
+}
+
+.span-float {
+	float: left;
+}
+
+.bookimg {
+	width: 90px;
+	height: 90px;
+	background-color: antiquewhite;
+}
+
+.goods-rank-frame {
+	color: #333333;
+	margin-top: 10px;
+}
+
+.goods-frame {
+	width: 238px;
+}
+
+.goods-detail {
+	width: 140px;
+	height: 100px;
+	overflow: hidden;
+}
+
+.goods-detail-name {}
+
+.goods-detail-introduce {
+	color: #969696;
+}
+
+.clear {
+	clear: both;
+}
+
+.hide {
+	display: none;
+}
+
+a:link {
+	color: #333333;
+}
+
+a:visited {
+	color: #333333;
+}
+
+a:hover {
+	color: #333333;
+}
+
+a:active {
+	color: #333333;
+}
+
+#rank1 .rank {
+	color: red;
+}
+
+#rank2 .rank {
+	color: #ff3228;
+}
+
+#rank3 .rank {
+	color: #ff3228;
+}
