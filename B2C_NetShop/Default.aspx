@@ -149,75 +149,74 @@
 					<div class="clear"></div>
 				</div>
 				<a href="#">
-					<img src="img/product-ad-img/sponsor.jpg" alt="Alternate Text" height="185px" width="202px" /></a>
+					<img src="img/product-ad-img/sponsor.jpg" alt="Alternate Text" style="height:185px;width:202px"  /></a>
 				<div id="notice">
 					<div class="home_notice_gg">
 						<div class="head  headhome_notice_gg">
 							<ul class="tab_aa">
-								<li class="tabh_0  first" type="bar"><span>信息公告</span></li>
-								<li class="tabh_1 on" type="bar"><a href="http://blog.dangdang.com/?page_id=3382" target="_blank" dd_name="服务公告"><span>服务公告</span></a></li>
+								<li class="tabh_0  first"><span>信息公告</span></li>
+								<li class="tabh_1 on"><a href="http://blog.dangdang.com/?page_id=3382" target="_blank" ><span>服务公告</span></a></li>
 							</ul>
 
 
 						</div>
 						<div class="tab_content_aa tab_content_aahome_notice_gg ">
-							<div class="content tab_1" type="item" ddt-area="9270" dd_name="信息公告">
+							<div class="content tab_1">
 								<div id="logo_content">
 									<ul id="cxgg_content">
 										<li>
-											<a href="http://shop.dangdang.com/21540" target="_blank" title="笛莎大牌日，限时4件2折" dd_name="信息公告1">
+											<a href="http://shop.dangdang.com/21540" target="_blank" title="笛莎大牌日，限时4件2折">
 												<span>笛莎大牌日，限时4件2折</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://shop.dangdang.com/21611" target="_blank" title="珀莱雅约惠日 限时3件4折" dd_name="信息公告2">
+											<a href="http://shop.dangdang.com/21611" target="_blank" title="珀莱雅约惠日 限时3件4折">
 												<span>珀莱雅约惠日 限时3件4折</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://book.dangdang.com/520aidu" target="_blank" title="百万图书每满100减50" dd_name="信息公告3">
+											<a href="http://book.dangdang.com/520aidu" target="_blank" title="百万图书每满100减50">
 												<span>百万图书每满100减50</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://shop.dangdang.com/19384" target="_blank" title="飞利浦儿童节350减40" dd_name="信息公告4">
+											<a href="http://shop.dangdang.com/19384" target="_blank" title="飞利浦儿童节350减40">
 												<span>飞利浦儿童节350减40</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://baby.dangdang.com/20190514_haei" target="_blank" title="礼品童书每满100减50" dd_name="信息公告5">
+											<a href="http://baby.dangdang.com/20190514_haei" target="_blank" title="礼品童书每满100减50">
 												<span>礼品童书每满100减50</span>
 											</a>
 										</li>
 									</ul>
 								</div>
 							</div>
-							<div class="content tab_2" type="item" style="display: block;" ddt-area="9272" dd_name="服务公告">
+							<div class="content tab_2" style="display: block;">
 								<div id="logo_content">
 									<ul id="cxgg_content">
 										<li>
-											<a href="http://blog.dangdang.com/?p=28129%20%3E%3Cspan%20style=" target="_blank" title="快钱网“光大银行”支付关闭通知"
-												dd_name="服务公告1">
+											<a href="http://blog.dangdang.com/?p=28129%20%3E%3Cspan%20style=" target="_blank" title="快钱网“光大银行”支付关闭通知">
 												<span>快钱网“光大银行”支付关闭通知</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://book.dangdang.com/20161128_zl3t" target="_blank" title="当当阅读器 海量电子书随时读" dd_name="服务公告2">
+											<a href="http://book.dangdang.com/20161128_zl3t" target="_blank" title="当当阅读器 海量电子书随时读">
 												<span>当当阅读器 海量电子书随时读</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://cashier.dangdang.com/exchangeApply" target="_blank" title="话费卡兑换当当礼品卡" dd_name="服务公告3">
+											<a href="http://cashier.dangdang.com/exchangeApply" target="_blank" title="话费卡兑换当当礼品卡">
 												<span>话费卡兑换当当礼品卡</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://giftcard.dangdang.com/goods?type=mall" target="_blank" title="多种商品，礼品卡支付更优惠！" dd_name="服务公告4">
+											<a href="http://giftcard.dangdang.com/goods?type=mall" target="_blank" title="多种商品，礼品卡支付更优惠！">
 												<span>多种商品，礼品卡支付更优惠！</span>
 											</a>
 										</li>
 										<li>
-											<a href="http://blog.dangdang.com/?p=22276" target="_blank" title="关于假冒客服诈骗的声明" dd_name="服务公告5">
+											<a href="http://blog.dangdang.com/?p=22276" target="_blank" title="关于假冒客服诈骗的声明">
 												<span style="color: #ff2832">关于假冒客服诈骗的声明</span>
 											</a>
 										</li>
@@ -308,7 +307,7 @@
 			.book_new * {
 				box-sizing: content-box;
 				-moz-box-sizing: content-box;
-				-webkit-box-sizing：content-box;
+				-webkit-box-sizing:content-box;
 			}
 
 			.book_new .home_screen_head {
@@ -738,95 +737,6 @@
 				}
 	</style>
 	<link href="IndexStyle/default-product-list.css" rel="stylesheet" />
-	<div id="footer" style="display: none;">
-		<div id="footer_1st">
-			<div class="footer_type">
-				<h2>商城精选</h2>
-				<p>精选图书，值得一看</p>
-			</div>
-			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/refinement.aspx">查看更多 &raquo;</a></div>
-			<div class="footer_goods_frame">
-				<%--datalist test start--%>
-				<asp:DataList ID="DataList_RefinementGoods" runat="server" RepeatDirection="Horizontal">
-					<ItemTemplate>
-
-						<div class="footer_goods_detail">
-							<a style="display: block;" href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-								<%--bookimg--%>
-								<div class="product-card">
-									<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-									<%--hotprice--%>
-							</a>
-						</div>
-
-					</ItemTemplate>
-				</asp:DataList>
-				<%--datalist test end--%>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div id="footer_2nd">
-			<div class="footer_type">
-				<h2>商城热卖</h2>
-				<p>人气图书，每天更新</p>
-			</div>
-			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/hot.aspx">查看更多 &raquo;</a></div>
-			<div class="footer_goods_frame">
-				<%--datalist test start--%>
-				<asp:DataList ID="DataList_HotGoods" runat="server" RepeatDirection="Horizontal">
-					<ItemTemplate>
-						<%--bookimg--%>
-						<div class="footer_goods_detail">
-							<div class="product-card">
-								<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-									<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-									<%--bookimg--%>
-									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-									<%--hotprice--%></a>
-							</div>
-						</div>
-					</ItemTemplate>
-				</asp:DataList>
-				<%--datalist test end--%>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div id="footer_3rd">
-			<div class="footer_type">
-				<h2>商城折扣</h2>
-				<p>折扣图书，低至一折</p>
-			</div>
-			<div class="footer_btn"><a target="_blank" class="btn btn-default" href="Goods/discount.aspx">查看更多 &raquo;</a></div>
-			<div class="footer_goods_frame">
-				<%--datalist test start--%>
-				<asp:DataList ID="DataList_DiscountGoods" runat="server" RepeatDirection="Horizontal">
-					<ItemTemplate>
-						<div class="footer_goods_detail">
-							<a href="<%# Eval("BookUrl") %>"><%--bookurl--%>
-								<%--bookimg--%>
-								<div class="product-card">
-									<a href="#">
-										<img src="<%# Eval("picUrl") %>" alt="Alternate Text" class="bookImg" />
-									</a>
-									<span class="book_name"><%# Eval("BookName") %></span> <%--bookname--%>
-									<span class="book_author"><%# Eval("Author") %>&nbsp;著</span> <%--bookauthor--%>
-									<div class="book_price">售价：<%# Eval("HotPrice") %>&nbsp;元</div>
-									<%--hotprice--%>
-							</a>
-						</div>
-						</div>
-					</ItemTemplate>
-				</asp:DataList>
-				<%--datalist test end--%>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
 	<script type="text/javascript">
 		$(".tab_2").css("display", "block");
 		$(".tab_2").siblings().css("display", "none");
@@ -863,67 +773,63 @@
 	</script>
 	<div id="outer">
 		<div id="product-body">
-			<div class="book_new " type="ajax" page_id="317715" domain="mixpage.dangdang.com" areaid="0" page_type="3" areatype="0"
-				name="m3208542_pid0_t15677" dd_name="图书A版" hvid="31192" component_map_id="3208542" ddt-area="3208542" is_loaded="true">
+			<div class="book_new ">
 				<!-- use cache-->
 				<div id="component_3208542"></div>
 				<div class="home_screen_head clearfix" id="f_title">
-					<a href="http://book.dangdang.com/" target="_blank" dd_name="图书">图书</a>
+					<a href="http://book.dangdang.com/" target="_blank">图书</a>
 
 					<span>.</span>
-					<a href="http://e.dangdang.com/" target="_blank" dd_name="电子书">电子书</a>
+					<a href="http://e.dangdang.com/" target="_blank">电子书</a>
 					<span>.</span>
-					<a href="http://e.dangdang.com/new_original_index_page.html" target="_blank" dd_name="">网络文学</a>
+					<a href="http://e.dangdang.com/new_original_index_page.html" target="_blank">网络文学</a>
 				</div>
 
 
 
-				<div class="tab_box_aa " id="component_map_id_3208542_part_id_9339" name="m3208542_pid9370_p9339" js="true"
-					itemclass="" action="hover" delay="0" speed="0" rand="0" area="0" barclass="on" updown="1" level="2" ddt-area="9339">
+				<div class="tab_box_aa " id="component_map_id_3208542_part_id_9339" >
 					<div class="head  head">
 						<ul class="tab_aa">
-							<li class="tabh_0  first" type="bar"><span>最新上架</span></li>
-							<li class="tabh_1" type="bar"><span>独家畅品</span></li>
-							<li class="tabh_2 on" type="bar"><span>重点推荐</span></li>
-							<li class="tabh_3" type="bar"><span>电子书</span></li>
-							<li class="tabh_4" type="bar"><span>网络文学</span></li>
+							<li class="tabh_0  first"><span>最新上架</span></li>
+							<li class="tabh_1"><span>独家畅品</span></li>
+							<li class="tabh_2 on"><span>重点推荐</span></li>
+							<li class="tabh_3"><span>电子书</span></li>
+							<li class="tabh_4"><span>网络文学</span></li>
 						</ul>
 
 
 					</div>
 					<div class="tab_content_aa tab_content_aa ">
-						<div class="content left-tab_1" type="item"  style="display: none;">
+						<div class="content left-tab_1" style="display: none;">
 							<div class=" ">
 								<div class="con" >
-									<a class="book_left_pic book_left_pic_1  pic" ddt-area="9341" href="http://baby.dangdang.com/20190430_ln31"
-										title="礼品童书 每满100减50" target="_blank" nname="mixpage-317715-15640_8_1" dd_src="lcdt238x441-1558317845_d37f59646f4883cc"
-										>
+									<a class="book_left_pic book_left_pic_1  pic" title="礼品童书 每满100减50" target="_blank">
 										<img src="http://img62.ddimg.cn/upload_img/00678/zsts/lcdt238x441-1558317845.jpg"
-											title="礼品童书 每满100减50" alt="礼品童书 每满100减50" ddt-pit="1" ddt-src="lcdt238x441-1558317845_d37f59646f4883cc"></a>
+											title="礼品童书 每满100减50" alt="礼品童书 每满100减50"></a>
 									<ul class="book_tab_img">
-										<li  class="line line1 on"  ddt-pit="1">
+										<li  class="line line1 on">
 											<a   href="http://book.dangdang.com/children?ref=book-01-A" target="_blank"
 												class="" title="童书">童书</a> </li>
-										<li class="line line2 "  ddt-pit="2">
+										<li class="line line2 ">
 											<a   href="http://book.dangdang.com/study" target="_blank" class="" title="中小学教辅">中小学教辅</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_3" class="line line3 "  ddt-pit="3">
+										<li class="line line3 ">
 											<a   href="http://book.dangdang.com/language" target="_blank" class=""
 												title="外语">外语</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_4" class="line line4 "  ddt-pit="4">
+										<li class="line line4 " >
 											<a   href="http://book.dangdang.com/exam" target="_blank" class="" title="考试">考试</a>
 										</li>
-										<li nname="mixpage-317715-15640_8_5" class="line line5 "  ddt-pit="5">
+										<li class="line line5 ">
 											<a   href="http://book.dangdang.com/01.03.htm" target="_blank" class=""
 												title="小说">小说</a> </li>
-										<li nname="mixpage-317715-15640_8_6" class="line line6 "  ddt-pit="6">
+										<li class="line line6 ">
 											<a   href="http://book.dangdang.com/01.05.htm" target="_blank" class=""
 												title="文学">文学</a> </li>
-										<li nname="mixpage-317715-15640_8_7" class="line line7 "  ddt-pit="7">
+										<li class="line line7 " ">
 											<a   href="http://book.dangdang.com/01.01.htm" target="_blank" class=""
 												title="青春文学">青春文学</a> </li>
-										<li nname="mixpage-317715-15640_8_8" class="line line8 "  ddt-pit="8">
+										<li class="line line8 ">
 											<a   href="http://book.dangdang.com/01.21.htm" target="_blank" class=""
 												title="成功/励志">成功/励志</a> </li>
 										<li nname="mixpage-317715-15640_8_9" class="line line9 "  ddt-pit="9">
@@ -1070,7 +976,7 @@
 								<span class="price_r"><%#  "¥"+Eval("OriginalPrice") %></span>
 																</p>
 															</a>
-																&nbsp;</li>
+																&nbsp;&nbsp;&nbsp;&nbsp;</li>
 														</ul>
 
 													</ItemTemplate>
@@ -1857,8 +1763,7 @@
 												<span class="span-float goods-rank-frame">
 													<img class="bookimg" src='<%# Eval("picUrl") %>'>
 												</span>
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br />
-													<span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br /><span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
 								</ItemTemplate>
 							</asp:DataList>
 						</div>
@@ -1882,8 +1787,7 @@
 												<span class="span-float goods-rank-frame">
 													<img class="bookimg" src='<%# Eval("picUrl") %>'>
 												</span>
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br />
-													<span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="span-float goods-rank-frame goods-frame goods-detail"><span class="goods-detail-name"><%# Eval("BookName") %></span><br /><span class="goods-detail-introduce"><%# Eval("BookIntroduce") %></span></span><span class="clear"></span></a></span><span class="clear"></span></span></span>
 								</ItemTemplate>
 							</asp:DataList>
 						</div>

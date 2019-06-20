@@ -23,22 +23,23 @@ namespace B2C_NetShop
 			String url = Convert.ToString(Session["userImgUrl"]);
 			int status = Convert.ToInt32(Session["Status"]);
 			HtmlGenericControl line = (HtmlGenericControl)this.Master.FindControl("line");
-
 			load.HyperLinkBind(hl1, hl2, hl3, uid, status, line);
 			load.MainPageBind(HyperLink1, HyperLink2, Label1, uid, nickname,Image1,url);
-			BindDataList("Isrefinement", DataList_RefinementGoods);
-			BindDataList("IsHot",DataList_HotGoods);
-			BindDataList("IsDiscount",DataList_DiscountGoods);
+			//绑定首页右侧畅销榜/新书榜数据start
 			string sql1 = "select BookID,BookName,BookIntroduce,picUrl from Goods_Sales_Rank_Top10 order by BookSalesCount desc";
 			string sql2 = "select BookID,BookName,BookIntroduce,picUrl from Goods_Sales_Rank_Top10 order by BookSalesCount asc";
-
 			BindDlGoodMarketTabData(DlGoodMarketTab1,sql1);
 			BindDlGoodMarketTabData(DlGoodMarketTab2,sql2);
-
+			//绑定首页商品推荐tab的六个推荐位start
 			bind(1, dl_tab2, dl_tab1);
-
 		}
 
+		/// <summary>
+		/// 绑定首页商品推荐tab
+		/// </summary>
+		/// <param name="classNum">类别</param>
+		/// <param name="dl">上面两个推荐位</param>
+		/// <param name="dl2">下面四个推荐位</param>
 		protected void bind(int classNum, DataList dl, DataList dl2)
 		{
 			dtTable = new DataTable();
@@ -55,24 +56,19 @@ namespace B2C_NetShop
 			};
 			DataSet ds = operate.GetTable(sql, parameters);
 			DataRow row;
-			int i = 0;
-			foreach (DataRow drRow in ds.Tables[0].Rows)
+			for (int j = 0; j <= 3; j++)
 			{
 				row = dtTable.NewRow();
-				row["BookID"] = ds.Tables[0].Rows[i][0].ToString();
-				row["BookName"] = ds.Tables[0].Rows[i][1].ToString();
-				row["picUrl"] = ds.Tables[0].Rows[i][2].ToString();
-				row["OriginalPrice"] = ds.Tables[0].Rows[i][3].ToString();
-				row["MarketPrice"] = ds.Tables[0].Rows[i][4].ToString();
-				row["BookUrl"] = "Goods/Detail.aspx?id=" + ds.Tables[0].Rows[i][0].ToString();
+				row["BookID"] = ds.Tables[0].Rows[j][0].ToString();
+				row["BookName"] = ds.Tables[0].Rows[j][1].ToString();
+				row["picUrl"] = ds.Tables[0].Rows[j][2].ToString();
+				row["OriginalPrice"] = ds.Tables[0].Rows[j][3].ToString();
+				row["MarketPrice"] = ds.Tables[0].Rows[j][4].ToString();
+				row["BookUrl"] = "Goods/Detail.aspx?id=" + ds.Tables[0].Rows[j][0].ToString();
 				dtTable.Rows.Add(row);
-				i++;
-				if (i == 4)
-					break;
 			}
 			dl.DataSource = dtTable.DefaultView;
 			dl.DataBind();
-
 
 			DataTable dtTable2 = new DataTable();
 			DataColumn[] dataColumns2 = new DataColumn[6];
@@ -82,7 +78,7 @@ namespace B2C_NetShop
 				dataColumns2[k] = new DataColumn(colunm2[k]);
 				dtTable2.Columns.Add(dataColumns2[k]);
 			}
-			for (int j = 4; j <= ds.Tables[0].Columns.Count; j++)
+			for (int j = 4; j <= 5; j++)
 			{
 				row = dtTable2.NewRow();
 				row["BookID"] = ds.Tables[0].Rows[j][0].ToString();
@@ -128,42 +124,6 @@ namespace B2C_NetShop
 			}
 			tab.DataSource = dtTable.DefaultView;
 			tab.DataBind();
-		}
-
-		/// <summary>
-		/// 从数据库获取商品数据绑定到首页DataList控件
-		/// </summary>
-		/// <param name="type">推荐/热卖/折扣类型</param>
-		/// <param name="dl">DataList控件ID</param>
-		protected void BindDataList(string type,DataList dl)
-		{
-			DataTable dtTable = new DataTable();
-			DataColumn[] dataColumns = new DataColumn[5];
-			string[] colunm = { "BookName", "Author", "HotPrice", "picUrl", "BookUrl" };
-			for (int k = 0; k < colunm.Length; k++)
-			{
-				dataColumns[k] = new DataColumn(colunm[k]);
-				dtTable.Columns.Add(dataColumns[k]);
-			}
-			string sql = "select top 5 BookID,BookName,Author,HotPrice,picUrl from Goods_Info where " + type + "=@" + type + " order by lastOperateDate desc";
-			SqlParameter[] parameters = {
-						new SqlParameter(type,'1') };
-			DataSet ds = operate.GetTable(sql, parameters);
-			DataRow row;
-			int i = 0;
-			foreach (DataRow drRow in ds.Tables[0].Rows)
-			{
-				row = dtTable.NewRow();
-				row["BookUrl"] = "Goods/Detail.aspx?id=" + ds.Tables[0].Rows[i][0].ToString();
-				row["BookName"] = ds.Tables[0].Rows[i][1].ToString();
-				row["Author"] = ds.Tables[0].Rows[i][2].ToString();
-				row["HotPrice"] = ds.Tables[0].Rows[i][3].ToString();
-				row["picUrl"] = ds.Tables[0].Rows[i][4].ToString();
-				i++;
-				dtTable.Rows.Add(row);
-			}
-			dl.DataSource = dtTable.DefaultView;
-			dl.DataBind();
 		}
 	}
 }
