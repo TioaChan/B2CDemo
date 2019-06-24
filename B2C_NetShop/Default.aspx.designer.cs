@@ -58,6 +58,33 @@ namespace B2C_NetShop {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
         
         /// <summary>
+        /// DataList_RefinementGoods 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataList_RefinementGoods;
+        
+        /// <summary>
+        /// DataList_HotGoods 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataList_HotGoods;
+        
+        /// <summary>
+        /// DataList_DiscountGoods 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataList_DiscountGoods;
+        
+        /// <summary>
         /// dl_tab1 控件。
         /// </summary>
         /// <remarks>
@@ -74,6 +101,60 @@ namespace B2C_NetShop {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dl_tab2;
+        
+        /// <summary>
+        /// dl_tab3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab3;
+        
+        /// <summary>
+        /// dl_tab4 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab4;
+        
+        /// <summary>
+        /// dl_tab5 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab5;
+        
+        /// <summary>
+        /// dl_tab6 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab6;
+        
+        /// <summary>
+        /// dl_tab7 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab7;
+        
+        /// <summary>
+        /// dl_tab8 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dl_tab8;
         
         /// <summary>
         /// DlGoodMarketTab1 控件。

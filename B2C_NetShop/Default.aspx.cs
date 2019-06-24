@@ -32,6 +32,9 @@ namespace B2C_NetShop
 			BindDlGoodMarketTabData(DlGoodMarketTab2,sql2);
 			//绑定首页商品推荐tab的六个推荐位start
 			bind(1, dl_tab2, dl_tab1);
+			bind(2, dl_tab4, dl_tab3);
+			bind(3, dl_tab6, dl_tab5);
+			bind(4, dl_tab8, dl_tab7);
 		}
 
 		/// <summary>

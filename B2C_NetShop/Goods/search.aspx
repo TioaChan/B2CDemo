@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="搜索结果" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="B2C_NetShop.Goods.search" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-	<style>
+	m<style>
 		#Master_content{/*继承母版页的图书分类*/
 			display:none;
 		}
@@ -47,8 +47,7 @@
 		.clear{
 			clear:both;
 		}
-	</style>
-	<div id="content_main" >
+	</style><div id="content_main" >
 		<div id="search_title">
 			关键字“<asp:Label ID="Keywords" runat="server" Text="Label"></asp:Label>”的搜索结果
 		</div>
