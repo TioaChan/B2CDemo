@@ -58,33 +58,6 @@ namespace B2C_NetShop {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
         
         /// <summary>
-        /// DataList_RefinementGoods 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList_RefinementGoods;
-        
-        /// <summary>
-        /// DataList_HotGoods 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList_HotGoods;
-        
-        /// <summary>
-        /// DataList_DiscountGoods 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList_DiscountGoods;
-        
-        /// <summary>
         /// dl_tab1 控件。
         /// </summary>
         /// <remarks>
