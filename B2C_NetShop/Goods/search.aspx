@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="搜索结果" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="search.aspx.cs" Inherits="B2C_NetShop.Goods.search" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-	m<style>
+	<style>
 		#Master_content{/*继承母版页的图书分类*/
 			display:none;
 		}
