@@ -259,7 +259,6 @@ div.card-body label {
 
 .content-wrapper {
 	background: #F6F8FA;
-	min-height: 100vh;
 	padding: 1.5rem 1.7rem;
 	transition: width 0.25s ease, margin 0.25s ease;
 }

@@ -129,8 +129,6 @@
 										</div>
 									</div>
 								</div>
-
-
 							</asp:View>
 							<asp:View ID="View_UserInfo" runat="server">
 								<div>

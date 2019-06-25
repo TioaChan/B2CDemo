@@ -103,6 +103,33 @@ namespace B2C_NetShop.Manage {
         protected global::System.Web.UI.WebControls.View View_Main;
         
         /// <summary>
+        /// Label_UID2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_UID2;
+        
+        /// <summary>
+        /// Label_UserType 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_UserType;
+        
+        /// <summary>
+        /// Label_Money 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Money;
+        
+        /// <summary>
         /// View_RootUser 控件。
         /// </summary>
         /// <remarks>
