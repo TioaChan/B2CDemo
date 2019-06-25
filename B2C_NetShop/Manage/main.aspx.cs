@@ -128,5 +128,37 @@ namespace B2C_NetShop.Manage
 		{
 			MultiView1.SetActiveView(View_Goods);
 		}
+
+		protected void Button_Order_Click(object sender, EventArgs e)
+		{
+			BindOrderList();
+			MultiView1.SetActiveView(View_Order);
+		}
+
+		protected void DataList_Order_UpdateCommand(object source, DataListCommandEventArgs e)
+		{
+			string sql = "update Goods_Order_AllUser set isPay=1 where order_id=@order_id";
+			SqlParameter[] parameters1 = {
+				new SqlParameter("@order_id",e.CommandArgument)
+			};
+			int i = operate.OperateData(sql, parameters1);
+			if (i == 1)
+			{
+				BindOrderList();
+				MultiView1.SetActiveView(View_Order);
+			}
+			else
+			{
+				BindOrderList();
+				Response.Write("<script type='text/javascript'>alert('添加失败');</script>");
+				MultiView1.SetActiveView(View_Order);
+			}
+		}
+		protected void BindOrderList(){
+			string sql = "SELECT * FROM Goods_Order_AllUser";
+			DataSet ds = operate.GetTable(sql);
+			DataList_Order.DataSource = ds;
+			DataList_Order.DataBind();
+		}
 	}
 }

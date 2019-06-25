@@ -21,12 +21,18 @@
 				</li>
 				<li>
 					<asp:Button ID="Button1" runat="server" Text="用户管理" CssClass="btn-link" OnClick="Button1_Click" />
-
 					<i class="glyphicon glyphicon-barcode"></i>
-
 				</li>
 				<li>
 					<asp:Button ID="Button_Goods" runat="server" Text="图书管理" CssClass="btn-link" OnClick="Button_Goods_Click" />
+					<i class="glyphicon glyphicon-eye-open"></i>
+				</li>
+				<li>
+					<asp:Button ID="Button_Order" runat="server" Text="订单管理" CssClass="btn-link" OnClick="Button_Order_Click" />
+					<i class="glyphicon glyphicon glyphicon-barcode"></i>
+				</li>
+				<li>
+					<asp:Button ID="Button2" runat="server" Text="公告管理" CssClass="btn-link" />
 					<i class="glyphicon glyphicon-eye-open"></i>
 				</li>
 				<li>
@@ -352,8 +358,6 @@ $(document).ready(function() {
 								<asp:BoundField DataField="Company" HeaderText="Company" SortExpression="Company" />
 								<asp:BoundField DataField="MarketPrice" HeaderText="MarketPrice" SortExpression="MarketPrice" />
 							</Columns>
-
-
 						</asp:GridView>
 						<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:B2C_DemoConnectionString %>"
 							DeleteCommand="DELETE FROM [Goods_Info] WHERE [BookID] = @BookID"
@@ -394,6 +398,22 @@ $(document).ready(function() {
 						</asp:SqlDataSource>
 					</div>
 					<div style="text-align: right"><a href="AddGoods.aspx">新增图书信息点此</a></div>
+				</asp:View>
+				<asp:View ID="View_Order" runat="server">
+					<asp:DataList ID="DataList_Order" runat="server" OnUpdateCommand="DataList_Order_UpdateCommand">
+						<ItemTemplate>
+							<asp:Label ID="Label_Order_ID" runat="server" Text='<%# Eval("order_id") %>'></asp:Label>
+							<asp:Label ID="Label_Order_UID" runat="server" Text='<%# Eval("UID") %>'></asp:Label>
+							<asp:Label ID="Label_Order_RealName" runat="server" Text='<%# Eval("RealName") %>'></asp:Label>
+							<asp:Label ID="Label_Order_PostCode" runat="server" Text='<%# Eval("PostCode") %>'></asp:Label>
+							<asp:Label ID="Label_Order_Address" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
+							<asp:Label ID="Label_Order_PhoneNumber" runat="server" Text='<%# Eval("PhoneNumber") %>'></asp:Label>
+							<asp:Label ID="Label_Order_Price" runat="server" Text='<%# Eval("order_price") %>'></asp:Label>
+							<asp:Label ID="Label_Order_isSend" runat="server" Text='<%# Eval("isSend") %>'></asp:Label>
+							<asp:Label ID="Label_Order_isPay" runat="server" Text='<%# Eval("isPay") %>'></asp:Label>
+							<asp:Button ID="Button_Order_SetSend" runat="server" Text="设为已发货" CommandArgument='<%# Eval("order_id") %>' CommandName="Update" />
+						</ItemTemplate>
+					</asp:DataList>
 				</asp:View>
 			</asp:MultiView>
 		</div>
