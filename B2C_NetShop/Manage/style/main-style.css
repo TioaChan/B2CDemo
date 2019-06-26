@@ -34,17 +34,19 @@ footer, hr {
 	font-size: 15px;
 }
 
-	#left-sidebar ul { /* 左导航条 */
+
+	#left-sidebar ul {
 		padding: 0px 13px;
 		margin: 0px;
 		list-style: none;
 		min-height: 1380px;
-		background: -webkit-linear-gradient(0deg, #690089, #F70054); /* Safari 5.1 - 6.0 */
-		background: -o-linear-gradient(0deg, #690089, #F70054); /* Opera 11.1 - 12.0 */
-		background: -moz-linear-gradient(0deg, #690089, #F70054); /* Firefox 3.6 - 15 */
-		background: linear-gradient(0deg, #690089, #F70054); /* 标准的语法（必须放在最后） */
+		background: -webkit-linear-gradient(0deg, #690089, #F70054);
+		background: -o-linear-gradient(0deg, #690089, #F70054);
+		background: -moz-linear-gradient(0deg, #690089, #F70054);
+		background: linear-gradient(0deg, #690089, #F70054);
+		position: fixed;
+		width: 274px;
 	}
-
 		#left-sidebar ul li {
 			padding: 10px;
 			width: 100%;
@@ -88,13 +90,15 @@ footer, hr {
 	}
 
 
+
 #right-content {
 	display: block;
-	float: left;
-	width: calc(100% - 247px);
+
+	width: calc(100% - 274px);
 	height: auto;
 	text-align: center;
 	background: #F6F8FA;
+	margin-left: 274px;
 }
 
 .clear {
@@ -199,6 +203,14 @@ a:hover, a:focus {
 		color:#000;
 		background:#fff;
 	}
+
+	.admin-table td{
+		width:183px;
+	}
+
+	.admin-table td span{
+		padding-left:10px;
+	}
 #chart{
 	
 	margin:0 auto;
@@ -260,4 +272,13 @@ a:hover, a:focus {
 
 .bg-gradient-success {
 	background: linear-gradient(to right, rgba(80, 204, 127, 0.9), rgba(245, 209, 0, 0.9));
+}
+
+.card .card-body {
+	padding: 1.88rem 1.81rem;
+}
+
+div.card-body {
+	margin: 20px;
+	padding: 30px;
 }

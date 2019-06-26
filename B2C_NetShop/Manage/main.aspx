@@ -400,18 +400,43 @@ $(document).ready(function() {
 					<div style="text-align: right"><a href="AddGoods.aspx">新增图书信息点此</a></div>
 				</asp:View>
 				<asp:View ID="View_Order" runat="server">
-					<asp:DataList ID="DataList_Order" runat="server" OnUpdateCommand="DataList_Order_UpdateCommand">
+					<asp:DataList ID="DataList_Order" runat="server" OnUpdateCommand="DataList_Order_UpdateCommand" CssClass="admin-table" Width="100%">
 						<ItemTemplate>
-							<asp:Label ID="Label_Order_ID" runat="server" Text='<%# Eval("order_id") %>'></asp:Label>
-							<asp:Label ID="Label_Order_UID" runat="server" Text='<%# Eval("UID") %>'></asp:Label>
-							<asp:Label ID="Label_Order_RealName" runat="server" Text='<%# Eval("RealName") %>'></asp:Label>
-							<asp:Label ID="Label_Order_PostCode" runat="server" Text='<%# Eval("PostCode") %>'></asp:Label>
-							<asp:Label ID="Label_Order_Address" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
-							<asp:Label ID="Label_Order_PhoneNumber" runat="server" Text='<%# Eval("PhoneNumber") %>'></asp:Label>
-							<asp:Label ID="Label_Order_Price" runat="server" Text='<%# Eval("order_price") %>'></asp:Label>
-							<asp:Label ID="Label_Order_isSend" runat="server" Text='<%# Eval("isSend") %>'></asp:Label>
-							<asp:Label ID="Label_Order_isPay" runat="server" Text='<%# Eval("isPay") %>'></asp:Label>
-							<asp:Button ID="Button_Order_SetSend" runat="server" Text="设为已发货" CommandArgument='<%# Eval("order_id") %>' CommandName="Update" />
+							<table>
+								<tr>
+									<td><asp:Label ID="Label_Order_ID" runat="server" Text='<%# Eval("order_id") %>'></asp:Label></td>
+									<td>
+										<asp:Label ID="Label_Order_UID" runat="server" Text='<%# Eval("UID") %>'></asp:Label>
+									</td>
+									<td>
+										<asp:Label ID="Label_Order_RealName" runat="server" Text='<%# Eval("RealName") %>'></asp:Label>
+									</td>
+									<td>
+										<asp:Label ID="Label_Order_PostCode" runat="server" Text='<%# Eval("PostCode") %>'></asp:Label>
+									</td>
+									<td>
+										<asp:Label ID="Label_Order_Address" runat="server" Text='<%# Eval("Address") %>'></asp:Label>
+									</td>	
+									<td>
+										<asp:Label ID="Label_Order_PhoneNumber" runat="server" Text='<%# Eval("PhoneNumber") %>'></asp:Label>
+									</td>
+									<td>
+										<asp:Label ID="Label_Order_Price" runat="server" Text='<%# Eval("order_price") %>'></asp:Label>
+									</td>
+									<td>
+										<asp:Label ID="Label_Order_isSend" runat="server" Text='<%# Eval("isSend") %>'></asp:Label>
+									</td>
+									<td>
+										<asp:Label ID="Label_Order_isPay" runat="server" Text='<%# Eval("isPay") %>'></asp:Label>
+									</td>
+									<td>
+										<asp:Button ID="Button_Order_SetSend" runat="server" Text="设为已发货" CommandArgument='<%# Eval("order_id") %>' CommandName="Update" />
+									</td>
+								</tr>
+
+							</table>
+							
+							
 						</ItemTemplate>
 					</asp:DataList>
 				</asp:View>
