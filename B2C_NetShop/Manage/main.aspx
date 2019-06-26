@@ -424,10 +424,12 @@ $(document).ready(function() {
 										<asp:Label ID="Label_Order_Price" runat="server" Text='<%# Eval("order_price") %>'></asp:Label>
 									</td>
 									<td>
-										<asp:Label ID="Label_Order_isSend" runat="server" Text='<%# Eval("isSend") %>'></asp:Label>
+										
+										
+										<asp:Label ID="Label_Order_isSend" runat="server" Text='<%# Convert.ToString(Eval("isSend")) == "False" ? "未发货":"已发货" %>'></asp:Label>
 									</td>
 									<td>
-										<asp:Label ID="Label_Order_isPay" runat="server" Text='<%# Eval("isPay") %>'></asp:Label>
+										<asp:Label ID="Label_Order_isPay" runat="server" Text='<%# Convert.ToString(Eval("isPay")) == "False" ? "未支付":"已支付" %>'></asp:Label>
 									</td>
 									<td>
 										<asp:Button ID="Button_Order_SetSend" runat="server" Text="设为已发货" CommandArgument='<%# Eval("order_id") %>' CommandName="Update" />
